@@ -1,0 +1,117 @@
+sources:
+  - name: fast-check command constraints
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/src/check/model/commands/CommandsContraints.ts
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - replayPath and seed/path requirement
+  - name: fast-check commands arbitrary implementation
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/src/arbitrary/commands.ts
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - Command shrinker and replay constraints
+  - name: RapidCheck Command interface
+    url: https://raw.githubusercontent.com/emil-e/rapidcheck/master/include/rapidcheck/state/Command.h
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - checkPreconditions, apply and run
+  - name: Hypothesis stateful tests
+    url: https://hypothesis.readthedocs.io/en/latest/stateful.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - RuleBasedStateMachine and bundles
+      - Running state machines
+  - name: Hypothesis API reference
+    url: https://hypothesis.readthedocs.io/en/latest/reference/api.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Bundle and consumes
+      - initialize, precondition and invariant
+      - stateful_step_count and max_examples
+  - name: Hypothesis compatibility
+    url: https://hypothesis.readthedocs.io/en/latest/compatibility.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Python versions and operating systems
+      - pytest fixtures
+  - name: Hypothesis quickstart
+    url: https://hypothesis.readthedocs.io/en/latest/quickstart.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Install Hypothesis
+  - name: Hypothesis license
+    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/master/LICENSE.txt
+    type: license
+    accessed: '2026-11-07'
+    sections_used:
+      - MPL-2.0 and inherited code exceptions
+  - name: fast-check model-based testing
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/website/docs/advanced/model-based-testing.md
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Model design and commands
+      - Command serialization and runners
+      - Replay model-based tests
+  - name: fast-check ModelRunner implementation
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/src/check/model/ModelRunner.ts
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - internalModelRun
+      - internalAsyncModelRun
+  - name: fast-check package manifest
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/package.json
+    type: package-metadata
+    accessed: '2026-11-07'
+    sections_used:
+      - type, license and engines
+  - name: Rapid state-machine implementation
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/statemachine.go
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - T.Repeat
+      - StateMachineActions and executeAction
+      - License header
+  - name: Rapid engine implementation
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/engine.go
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - Command-line flags
+      - MakeFuzz
+      - Fail-file replay and T thread safety
+  - name: Rapid README
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/README.md
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Comparison with Go native fuzzing
+  - name: Rapid module
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/go.mod
+    type: package-metadata
+    accessed: '2026-11-07'
+    sections_used:
+      - Go toolchain declaration
+  - name: RapidCheck stateful testing
+    url: https://raw.githubusercontent.com/emil-e/rapidcheck/master/doc/state.md
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - State construction
+      - Command model, apply, run and preconditions
+      - Shrinking validity
+  - name: Experiences with QuickCheck - Testing the Hard Stuff and Staying Sane
+    url: https://publications.lib.chalmers.se/records/fulltext/232550/local_232550.pdf
+    type: research-paper
+    accessed: '2026-11-07'
+    sections_used:
+      - Pages 14-16 hidden storage lifecycle and corruption observations
+      - Pages 16-17 model limits
