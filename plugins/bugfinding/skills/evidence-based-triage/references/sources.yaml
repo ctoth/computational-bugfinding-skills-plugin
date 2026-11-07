@@ -14,8 +14,9 @@ sources:
     accessed: '2026-11-07'
     sections_used:
       - Fuzz target bugs
+      - Cloning OSS-Fuzz
+      - Build the image and the fuzzers
       - Reproducing bugs
-      - Reproduce using local source checkout
   - name: ClusterFuzz Glossary
     url: https://google.github.io/clusterfuzz/reference/glossary/
     type: official-documentation
@@ -26,15 +27,14 @@ sources:
       - Reliability of reproduction
       - Testcase
   - name: OSS-Fuzz-Gen Crash Analyzer
-    url: https://raw.githubusercontent.com/google/oss-fuzz-gen/main/agent/crash_analyzer.py
+    url: https://raw.githubusercontent.com/google/oss-fuzz-gen/c0982c5d40a7e93ce70fd319705804b9a29954d0/agent/crash_analyzer.py
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
-      - _initial_prompt
       - _container_handle_conclusion
       - _container_tool_reaction
   - name: OSS-Fuzz-Gen Semantic Analyzer
-    url: https://raw.githubusercontent.com/google/oss-fuzz-gen/main/agent/semantic_analyzer.py
+    url: https://raw.githubusercontent.com/google/oss-fuzz-gen/c0982c5d40a7e93ce70fd319705804b9a29954d0/agent/semantic_analyzer.py
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
@@ -55,7 +55,6 @@ sources:
     accessed: '2026-11-07'
     sections_used:
       - Fuzz Target
-      - Running
       - When libFuzzer is not a good solution for a problem
   - name: How to Submit an LLVM Bug Report
     url: https://llvm.org/docs/HowToSubmitABug.html
