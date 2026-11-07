@@ -1,0 +1,56 @@
+sources:
+  - name: "Finding Bugs in DBMS via Query Partitioning"
+    url: "https://www.manuelrigger.at/preprints/TLP.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used: ["Sections 3 and 6; direct page images 7, 8, 11, 25; full reader evidence in research report"]
+  - name: "SQLite SQL Language Expressions"
+    url: "https://www.sqlite.org/lang_expr.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["BETWEEN and CASE; evaluation count"]
+  - name: "SQLite SELECT"
+    url: "https://www.sqlite.org/lang_select.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Compound SELECT; ORDER BY; duplicate handling"]
+  - name: "SQLite Built-in Aggregate Functions"
+    url: "https://www.sqlite.org/lang_aggfunc.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["count, avg, sum and total; NULL/empty/intermediate overflow"]
+  - name: "SQLite Deterministic SQL Functions"
+    url: "https://www.sqlite.org/deterministic.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Overview; state and version dependence"]
+  - name: "SQLite Floating Point Numbers"
+    url: "https://www.sqlite.org/floatingpoint.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Floating-point accuracy"]
+  - name: "SQLancer TLPWhereOracle implementation"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/common/oracle/TLPWhereOracle.java"
+    type: implementation
+    accessed: "2026-11-07"
+    sections_used: ["check and reproducer; original/three variants"]
+  - name: "SQLancer ComparatorHelper implementation"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/ComparatorHelper.java"
+    type: implementation
+    accessed: "2026-11-07"
+    sections_used: ["First-column observation; expected errors; count/set comparison"]
+  - name: "SQLancer README"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/README.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Getting Started; options; logs; reduction"]
+  - name: "SQLancer SQLite3OracleFactory implementation"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/sqlite3/SQLite3OracleFactory.java"
+    type: implementation
+    accessed: "2026-11-07"
+    sections_used: ["WHERE and QUERY_PARTITIONING"]
+  - name: "SQLancer license"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/LICENSE.md"
+    type: license
+    accessed: "2026-11-07"
+    sections_used: ["MIT permission and warranty terms"]
