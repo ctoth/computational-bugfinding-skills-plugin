@@ -1,0 +1,51 @@
+sources:
+  - name: SQLancer NoRECOracle implementation
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/common/oracle/NoRECOracle.java
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - check
+      - NoRECReproducer.sidesDiffer
+      - countRows and extractCounts
+  - name: SQLite PRAGMA statements
+    url: https://www.sqlite.org/pragma.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - foreign_keys
+      - foreign_key_check
+      - integrity_check
+  - name: SQLite ON CONFLICT clause
+    url: https://www.sqlite.org/lang_conflict.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - ABORT
+      - FAIL
+  - name: SQLite foreign key support
+    url: https://www.sqlite.org/foreignkeys.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Introduction to Foreign Key Constraints
+      - Enabling Foreign Key Support
+  - name: Elle - Inferring Isolation Anomalies from Experimental Observations
+    url: https://arxiv.org/abs/2003.10554
+    type: research-paper
+    accessed: '2026-11-07'
+    sections_used:
+      - Section 3 Deducing Dependencies, page 3
+      - Section 4.3 Soundness of Elle, page 7
+      - Section 9 Future Work and Conclusions, page 12
+  - name: Elle repository documentation
+    url: https://github.com/jepsen-io/elle
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Usage and anomaly inspection warning
+  - name: How SQLite Is Tested
+    url: https://www.sqlite.org/testing.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Coverage testing of defensive code
