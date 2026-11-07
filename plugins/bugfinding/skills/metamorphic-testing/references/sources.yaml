@@ -3,54 +3,54 @@ sources:
     url: "https://www.manuelrigger.at/preprints/TLP.pdf"
     type: research-paper
     accessed: "2026-11-07"
-    sections_used: ["Sections 3 and 6; direct page images 7, 8, 11, 25; full reader evidence in research report"]
-  - name: "SQLite SQL Language Expressions"
+    sections_used: ["§1 p.2 (partitioning must stress the optimizer differently)", "§2 pp.3-4 (bags vs sets; generator format; metamorphic oracles lack ground truth)", "§3 pp.6-12 (ternary partitions; composition operators; COUNT/AVG recomposition; SUM/AVG commutativity assumption and epsilon)", "§5.1 p.18 (Soundness: MySQL false-positive dispute)", "§5.3 pp.20-21 (oracle overlap; coverage limits)", "§6 p.25 (ground truth; Limitations)", "Read as page images via paper-reader; author preprint, publication DOI https://doi.org/10.1145/3428279"]
+  - name: "SQLite SQL Language Expressions (page last updated 2026-08-14)"
     url: "https://www.sqlite.org/lang_expr.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["BETWEEN and CASE; evaluation count"]
-  - name: "SQLite SELECT"
+    sections_used: ["§6 The BETWEEN operator", "§7 The CASE expression"]
+  - name: "SQLite SELECT (page last updated 2026-10-09)"
     url: "https://www.sqlite.org/lang_select.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Compound SELECT; ORDER BY; duplicate handling"]
-  - name: "SQLite Built-in Aggregate Functions"
+    sections_used: ["§3 Compound Select Statements", "§4 The ORDER BY clause"]
+  - name: "SQLite Built-in Aggregate Functions (page last updated 2025-11-13)"
     url: "https://www.sqlite.org/lang_aggfunc.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["count, avg, sum and total; NULL/empty/intermediate overflow"]
-  - name: "SQLite Deterministic SQL Functions"
+    sections_used: ["§1 Syntax (aggregate input order)", "§3 avg, count, sum and total (NULL/empty results; intermediate integer overflow)"]
+  - name: "SQLite Deterministic SQL Functions (page last updated 2026-05-20)"
     url: "https://www.sqlite.org/deterministic.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Overview; state and version dependence"]
-  - name: "SQLite Floating Point Numbers"
+    sections_used: ["§1 Overview", "§4 Application-defined deterministic functions"]
+  - name: "SQLite Floating Point Numbers (page last updated 2026-05-20)"
     url: "https://www.sqlite.org/floatingpoint.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Floating-point accuracy"]
+    sections_used: ["§1 How SQLite Stores Numbers"]
   - name: "SQLancer TLPWhereOracle implementation"
-    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/common/oracle/TLPWhereOracle.java"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/src/sqlancer/common/oracle/TLPWhereOracle.java"
     type: implementation
     accessed: "2026-11-07"
-    sections_used: ["check and reproducer; original/three variants"]
+    sections_used: ["lines 44-112 TLPWhereReproducer and renderQueryLines", "lines 141-195 check(): original query and three ternary variants"]
   - name: "SQLancer ComparatorHelper implementation"
-    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/ComparatorHelper.java"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/src/sqlancer/ComparatorHelper.java"
     type: implementation
     accessed: "2026-11-07"
-    sections_used: ["First-column observation; expected errors; count/set comparison"]
+    sections_used: ["lines 39-87 getResultSetFirstColumnAsString (first column; trailing-zero removal; IgnoreMeException)", "lines 89-130 assumeResultSetsAreEqual (size, HashSet, size-only option)"]
   - name: "SQLancer README"
-    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/README.md"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/README.md"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Getting Started; options; logs; reduction"]
+    sections_used: ["Getting Started (requirements; Running and terminating; Parameters; DBMSs)", "Using SQLancer (Logs; Reducing bugs; Testing the latest DBMS version; Understanding SQL generation)"]
   - name: "SQLancer SQLite3OracleFactory implementation"
-    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/sqlite3/SQLite3OracleFactory.java"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/src/sqlancer/sqlite3/SQLite3OracleFactory.java"
     type: implementation
     accessed: "2026-11-07"
-    sections_used: ["WHERE and QUERY_PARTITIONING"]
+    sections_used: ["lines 89-100 QUERY_PARTITIONING composite"]
   - name: "SQLancer license"
-    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/main/LICENSE.md"
+    url: "https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/LICENSE.md"
     type: license
     accessed: "2026-11-07"
     sections_used: ["MIT permission and warranty terms"]
