@@ -1,0 +1,61 @@
+sources:
+  - name: Porcupine model and history contracts
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/model.go
+    type: implementation
+    accessed: '2026-11-07'
+    sections_used: [Operation, Event, Model, NondeterministicModel, CheckResult]
+  - name: Porcupine public checker APIs
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/porcupine.go
+    type: implementation
+    accessed: '2026-11-07'
+    sections_used: [CheckOperationsVerbose, CheckEventsVerbose, timeout APIs]
+  - name: Porcupine checker implementation
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/checker.go
+    type: implementation
+    accessed: '2026-11-07'
+    sections_used: [makeEntries, convertEntries, makeLinkedEntries, checkSingle, checkParallel]
+  - name: Porcupine real model and pending-history examples
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/porcupine_test.go
+    type: implementation
+    accessed: '2026-11-07'
+    sections_used: [etcdModel, parseJepsenLog, kvModel]
+  - name: Porcupine visualization
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/visualization.go
+    type: implementation
+    accessed: '2026-11-07'
+    sections_used: [computeVisualizationData, Visualize, VisualizePath]
+  - name: Porcupine usage and recording caveats
+    url: https://github.com/anishathalye/porcupine
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used: [Usage, Notes, Visualizing histories]
+  - name: Linearizability consistency model
+    url: https://jepsen.io/consistency/models/linearizable
+    type: practitioner-documentation
+    accessed: '2026-11-07'
+    sections_used: [Formally, object scope]
+  - name: Faster linearizability checking via P-compositionality
+    url: https://arxiv.org/abs/1504.00204
+    type: research-paper
+    accessed: '2026-11-07'
+    sections_used: [pages 3-6, pages 9-14]
+  - name: Porcupine module declaration
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/go.mod
+    type: implementation
+    accessed: '2026-11-07'
+    sections_used: [module, go directive]
+  - name: Porcupine license
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/LICENSE.md
+    type: license
+    accessed: '2026-11-07'
+    sections_used: [MIT]
+  - name: Go dependency management
+    url: https://go.dev/doc/modules/managing-dependencies
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used: [Add external packages as dependencies, specific dependency version]
+  - name: Go testing flags
+    url: https://pkg.go.dev/cmd/go#hdr-Testing_flags
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used: [run, count, timeout]
