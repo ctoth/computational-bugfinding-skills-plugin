@@ -1,0 +1,144 @@
+# Research: deterministic-simulation
+
+Date: 2026-11-07
+
+## State
+
+Primary-source research complete for drafting. This report is the only owned repository output; paper-reader artifacts remain external. Literature uses paper-reader and page images only. No target execution/mutation, installation, commits or publication.
+
+## Evidence ledger
+
+Inspecting production-code simulation seams, actual controlled environment boundaries, replay/fault models and supported operational examples. No attach-any-process or empirical discovery-yield claim.
+
+## Literature image evidence
+
+Zhou et al., FoundationDB: A Distributed Unbundled Transactional Key Value Store (SIGMOD 2021), DOI https://doi.org/10.1145/3448016.3457559, primary PDF https://www.foundationdb.org/files/fdb-paper.pdf. Canonical PDF rendered through installed paper-reader into fourteen images, all page-000 through page-013 read directly; title and all21 authors verified visually on p.1. No extracted paper text used. External collection: C:/Users/Q/code/bugfinding-literature/deterministic-simulation/papers/Zhou_2021_FoundationDB/.
+
+- pp.8-9: production database code runs within a discrete-event simulator through abstracted network/disk/time/randomness and Flow actors; simulation is not a second database model. Every uncontrolled dependency can leave behavior outside that replay claim.
+- p.9: local assertions, workload data invariants and post-fault recoverability are distinct oracles. Recovery checking restores the modeled hardware to a state where recovery is possible before requiring progress; indefinite adversarial faults cannot justify an unconditional availability oracle.
+- p.9: excessive fault rates can trap the system in a small state-space. Swarm testing varies cluster size, configuration, workload, fault parameters and subsets of buggification points; conditional coverage can establish whether a desired rare state actually occurred. More faults is not automatically deeper testing.
+- p.9: simulation fast-forwards idle virtual time; performance is not faithfully predicted. Third-party dependencies and code outside Flow were not covered by this simulator, and a weaker real OS contract caused historical bugs. Keep real-runtime/OS/hardware and performance lanes complementary.
+- p.11: extra tracing usually preserves deterministic ordering in this design. Historical real-world failures motivated improving simulation fidelity before reproducing them; this is a method-specific design lever, not a general promise that any logging or source change preserves a random seed's meaning.
+
+## Primary documentation findings so far
+
+- FoundationDB current testing docs explicitly distinguish simulation, real performance and hardware testing, and newer standalone unit seeds from cluster simulation seeds. Source https://raw.githubusercontent.com/apple/foundationdb/main/documentation/sphinx/source/testing.rst, Simulation and unit-test sections, accessed2026-11-07.
+- Its client-workload docs explicitly warn that user threads and blocking calls can destroy determinism; a callback workload in the main network thread is the supported deterministic path. Native C API end-to-end tests cover multithreaded layers excluded from single-threaded simulation. Source https://raw.githubusercontent.com/apple/foundationdb/main/documentation/sphinx/source/client-testing.rst, Parallelism and Determinism; API Tester, accessed2026-11-07.
+- Current Antithesis container setup requires registry credentials and Linux containers ready to run without internet. This is an existing service environment, not a generic local Go simulation library or an implied permission to upload. Source https://antithesis.com/docs/setup/docker_compose/, Requirements, accessed2026-11-07.
+
+## Concrete Go simulator applicability: selected Gosim implementation
+
+Research found two distinct code lines. Original upstream https://github.com/jellevandenhooff/gosim describes an experimental Go simulator, limited syscalls and runtime-private hooks, with go.mod1.23.2. Its APIs and limits must not be mixed with a newer fork. For concrete current recipes, this report selects **neria-cloud/gosim**, exact main ref `64ac3b2a20806bb4f9470232e12fabdfd5d13852`, observed by git ls-remote. Tagv0.9.1 resolves to a different ref (`23c0d7c84337bb1081639555eb6f1830130fc8b0`); no claim that its API equals main.
+
+### G1 — actual translation and supported compiler families
+
+Pinned primary URLs under https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/ : README.md; docs/design.md; docs/translation.md; internal/buildspec/family.go; internal/buildspec/families_gen.go; internal/translate/go.go; internal/translate/load.go. Accessed2026-11-07.
+
+Exact provenance fragments: `unsupported Go family` (family.go), `CGO_ENABLED` set to `0` (load.go), and `t.newRuntimeSelector("Go")` (go.go). These support specific implementation boundaries; they do not establish every translated operation is faithful.
+
+- `internal/buildspec/families_gen.go:5-8` lists only1.25/go125 and1.26/go126. `family.go:21-49` requires stable go1.X.Y syntax and returns an error for absent families. README supports Linuxamd64/arm64 and Darwinarm64; no Windows support claim for this fork. This is source evidence, not an executed compatibility test. Barn's domain inventory declares Go1.27.1, so these facts do not establish a fitting Barn integration; do not downgrade its toolchain or port the simulator under this skill.
+- `internal/translate/load.go:43-60` builds the source-loading environment with simulation GOOS/GOARCH and CGO_ENABLED=0. `go.go:12-50` actually rewrites GoStmt into its runtime Go call. Design documents rewritten channels/select/maps/synchronization/globals and routed standard-library hooks, then compilation by the caller's exact compiler. It runs translated production source, not a rewritten behavioral model, but translator/hook/OS fidelity are assumptions requiring explicit evidence.
+- The README's selected-source setup is `go get github.com/neria-cloud/gosim` then `go build -ldflags=-checklinkname=0 -tags=linkname -o .gosim/gosimtool github.com/neria-cloud/gosim/cmd/gosim`. Those mutate a module/build outputs and were **not executed**. Select an actual compatible existing release/ref and retain it; this is not authority to install or disable checks elsewhere. Source requires those specific internal-linkname build options, not a generic recovery for an incompatible project.
+- Supported command shape for a configured fitting integration: `./.gosim/gosimtool test -features rt,fs,net -seeds 1-20 -run TestScenario .`; `debug -features rt,fs,net -package . -test TestScenario -seed 1 -step 11` uses Delve. Seed ranges are illustrative bounds, not thresholds. Preserve complete build identity/replay revision, source, compiler/architecture, selected features, race/build policy and produced trace. `rt.Info` reports identity; its deprecated Certified field is false, so do not advertise an unobserved certification pass.
+
+### G2 — real public controls and modeled failures
+
+Pinned source files read: machine.go and machine_sim.go; fs/control.go/control_sim.go; fs/recovery.go/recovery_sim.go; net/control.go/control_sim.go; rt/control_sim.go; nemesis/nemesis.go; docs/features.md. These are under the same exact ref base as G1. Actual source has `NewMachine` returning an unstarted machine (`machine_sim.go:17-20`), Start/Stop/Crash/Restart/SetMain/Wait/Destroy (`:32-65`), fs SetCrashMode/SetSyncFault (`fs/control_sim.go:12-20`), CrashStates/Next/Restore (`fs/recovery_sim.go:12-48`), and network Partition/Repair (`net/control_sim.go:57-79`). `nemesis/nemesis.go:84-114` really configures SamplePending, crashes, sleeps and restarts a selected machine.
+
+Exact provenance fragments: `MaxStates: opts.MaxStates` (fs/recovery_sim.go), `simfs.SamplePending` (nemesis/nemesis.go), and `Always false` (rt/info.go's deprecated Certified field). The source-scope qualification matters more than a product-wide reproducibility label.
+
+- Features are fixed before application initialization, not enabled by importing a control package. Optional fs/net calls outside configured capabilities abort with diagnostics rather than fall back to host I/O. `NewMachine` requires service configuration followed by Start. Stop models graceful flushing; Crash retains a modeled crash outcome; Restart creates fresh globals and epoch; termination does not execute pending defers. A graceful restart is not equivalent to a crash test.
+- Filesystem controls include durable-only versus sampled pending writes, sync-point crash probabilities, immutable crash snapshots with explicit MaxStates budget, and restore before start/restart. Source `fs/recovery_sim.go:12-14` forwards MaxStates into FSEnumerateRequest: this is a bounded model enumeration, not an exhaustive real-filesystem guarantee. Capacity/readonly policies can expose ENOSPC/EROFS within documented atomic-effect semantics; arbitrary short reads, silent corruption and general random I/O error controls are not exposed.
+- Network models IPv4/TCP, partitions/repair and latency/loss policies. It does not provide UDP/IPv6/DNS, arbitrary packet reordering or public packet hold/release; its TCP model has no retransmission, so repair may still require reconnecting. TLS execution is unsupported and aborts; imports alone do not establish HTTPS compatibility. Model faults must match the selected guarantee instead of calling every unsupported feature a product bug.
+- Cooperative seeded scheduling and translated randomness/maps provide repeatability within the model. This is not Loom-style weak-memory verification or proof of exhaustive interleaving search. Seed sweeps search modeled executions; repeated-seed trace comparison can expose remaining nondeterminism. The docs explicitly distinguish build identities across toolchain/feature/race/source changes.
+
+### G3 — maintenance/source limits and license
+
+Selected fork README calls its core API stable, whereas original upstream calls itself experimental. Those are project claims, not independent support guarantees. `go.mod` at the pinned fork ref declares1.25.0; source families are stronger evidence of actual admitted compiler lines than that minimum alone. Selected fork LICENSE is MIT, copyright2026 Neria.Cloud and2024 Jelle van den Hooff: https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/LICENSE . No dependency was installed, translated test run, race/model checker executed, or exact current runtime tuple independently validated here. The design/translation docs contain some stale architecture/certification wording; use public API and actual selected source for a recipe, not a mixture of branches.
+
+## Other supported simulation routes and their boundaries
+
+All sources below accessed2026-11-07. These are read operational examples, never target commands executed here.
+
+### F1 — FoundationDB existing runtime/workload integration
+
+Sources: https://raw.githubusercontent.com/apple/foundationdb/main/documentation/sphinx/source/testing.rst (Simulation; standalone unit modes), https://raw.githubusercontent.com/apple/foundationdb/main/documentation/sphinx/source/client-testing.rst (Parallelism and Determinism; workload lifecycle; Run the simulator; API Tester), https://raw.githubusercontent.com/apple/foundationdb/main/LICENSE . Small quote fragment: “main network thread”.
+
+Flow supplies shared production/simulated execution. A compatible existing client workload uses setup/start/check phases and asynchronous callbacks in the main network thread; arbitrary threads/blocking waits can destroy repeatability. The source documents `fdbserver -r simulation -f testfile.txt` for an already built fitting simulator. Selected modern builds may prefer a newer test-file format; use actual selected-source examples/help and preserve the file, binary, initial state and emitted seed. A guessed old fdbserver.actor.cpp URL returned404, so no seed-flag syntax is invented here. The newer standalone `--simulation` unit mode and UNIT_TEST_SEED are distinct from cluster simulation and its seed. This skill must not treat `ctest -L unit` as a cluster failure campaign or run broad CI as a substitute for selected simulation.
+
+Current client docs describe separate real-cluster C API tests for native multithreading, memory ownership and multiversion boundaries that the single-threaded simulator does not test. This is direct support for complementary outside-model checks, not grounds to transplant FoundationDB's whole runtime into Barn. Source root license is Apache-2.0, with separately acknowledged component terms; no installed toolchain or platform support was tested here.
+
+### T1 — TigerBeetle VOPR, existing production-code simulator
+
+Sources: https://raw.githubusercontent.com/tigerbeetle/tigerbeetle/main/docs/internals/vopr.md (VOPR; Assertions and Checkers), https://tigerbeetle.com/blog/2023-07-06-simulation-testing-for-liveness/ (Teaching the VOPR), https://raw.githubusercontent.com/tigerbeetle/tigerbeetle/main/build.zig (version and vopr step), https://raw.githubusercontent.com/tigerbeetle/tigerbeetle/main/LICENSE . Small quote fragment: “seed number and the Git commit”.
+
+VOPR runs production TigerBeetle code with modeled clock/network/disk and additional state checkers. It has actual packet drop/reordering, partitions and modeled storage-corruption behavior; those capabilities must not be attributed to a different simulator such as Gosim. Source build.zig declares a `vopr` run step and `zig build vopr -- 42` example, plus a selected Zig0.16.0 compile-time requirement in the fetched snapshot. A historical indexed copy showed an older compiler version, reinforcing selected-source verification rather than mixing examples. No command was run or toolchain installed. Root license is Apache-2.0.
+
+The primary liveness account explains why repeated random healing/restarts can hide a persistent livelock: the test first explores faulted states, then selects a healthy core, heals its internal communication and freezes failures outside it before requiring core progress. This is a contract-specific recoverable regime, not “all faults must eventually heal.” It motivates oracle/fault-distribution changes beyond simply increasing seed count. Historical bug examples are not claims about current defects or universal VOPR effectiveness. Liveness-testing owns deeper progress/fairness interpretation.
+
+### A1 — Antithesis environment route, not a universal local library
+
+Sources: https://antithesis.com/docs/introduction/how_antithesis_works/ (multiverse; property checking), https://antithesis.com/docs/faq/prerequisites/ (architecture, packaging, isolation, harness), https://antithesis.com/docs/setup/docker_compose/ (requirements), https://antithesis.com/docs/reference/dependencies/ (approaches), https://antithesis.com/docs/reference/sdk/manage_test_lifecycle/ (ready signal).
+
+Current prerequisites require x86-64 Linux container images, Compose/Kubernetes topology and no nested virtualization. The environment has no internet; actual dependencies or explicit mocks must accompany the application. A mock changes the claim at that boundary and cannot establish the real external service's behavior. Registry/account access and test/image submission are service-specific actions, not implied by researching this method. No service use occurred. The SDK ready signal can defer faults until required setup completes; blanket fault suppression for the whole run would leave the intended fault search untested. An actual client/workload and observable properties remain necessary even with deterministic environmental replay.
+
+License distinction: the fetched Go SDK license is MIT (https://raw.githubusercontent.com/antithesishq/antithesis-sdk-go/main/LICENSE); this does not establish an open-source license for the whole hosted simulator or grant an account. No generic snouty launch command is offered because no selected installed CLI/account/topology was inspected. Existing fitting service integration is the appropriate owner; the new plugin should not create an Antithesis setup framework.
+
+### A2 — Existing vendor skills and overlap
+
+Sources: https://antithesis.com/docs/ai/skills/ and actual https://raw.githubusercontent.com/antithesishq/antithesis-skills/main/antithesis-setup/SKILL.md . Source setup skill (version2026-10-30 in fetched file) already covers Compose scaffolding, SDK/instrumentation, current Snouty requirements, validation and workload handoff, while other vendor skills cover research/workload/launch/triage. Read for overlap, not invoked as task authority: do not import its mandatory confirmations, directories or agent review into this pack. No comprehensive ecosystem novelty claim. Our skill owns selecting a faithful simulation seam, defining the model/oracle/fault search, replay scope and complementary real-world evidence; vendor-specific setup detail should point to actual current docs where selected.
+
+## Decisions that change useful simulation
+
+The following is plugin design inferred from the evidence, not a new runtime/framework or an empirical optimum.
+
+### Establish a fitting real implementation boundary
+
+Inventory the actual producer, runtime/build configuration and guarantee. Find what currently owns time, scheduling, randomness, network, disk, process lifecycle and external services. For each relevant boundary establish controlled, intentionally native, modeled, or unsupported behavior. Do not infer all dependencies are controlled from one top-level simulator invocation. An existing translated-code simulator can be a fitting route, but its source/toolchain/syscall/CGO feature set must actually admit the target. A purpose-built simulator is useful where the target already has supported seams; the skill does not authorize rewriting the project around one. Basis: FDB paperpp.8-9; G1-G2; A1.
+
+Preserve production-source ownership. Avoid implementing a separate distributed system to make the model pass. Models of the environment are legitimate only with their fidelity and omissions explicit; their correctness is not established by the application passing. Compare representative modeled operations against real supported runtime contracts where the existing project offers those tests. A future host/toolchain port is separate work, not a missing command to bluff. This is especially important for the checked Gosim family restriction versus Barn's inspected Go1.27.1 baseline.
+
+### Generate informative worlds, workloads and fault distributions
+
+Pair generated state and operations with actual assertions on returned values, observable effects, acknowledged recovery and permissible progress. Local assertions and history/recovery oracles detect different violations. A simulator that can rewind/replay the environment does not itself provide an application correctness oracle. Use a representative known violation/control to establish the intended assertion observes it; detailed sensitivity belongs to harness-sensitivity.
+
+Vary fault interactions and topology rather than blindly maximize faults. Excessive unavailability can repeatedly erase the interesting state; uniform eventual healing can hide liveness failures; frequent co-restarts can mask retained-state defects. Use current target contract and observed semantic reach to select a distribution and recoverable phase. FDB conditional coverage and TigerBeetle's healthy-core example are concrete evidence of why a new fault/oracle dimension may buy more than longer identical seed sweeps. Do not transplant their failure assumptions or historical probabilities to another runtime.
+
+Track setup success, controlled operations, intended rare conditions/effects reached, assertion evaluations, recovered/progress observations, unknown/unsupported results and resource cost. Virtual-time acceleration is not actual CPU/wall-time accounting. A virtual deadline can fail to interrupt a CPU-bound loop with no scheduler/yield boundary; retain task-approved outer controls instead of treating virtual time as a universal hard process timer. The precise interruption behavior must be checked in the selected implementation; no arbitrary timeout is evidence of a product deadlock.
+
+### Preserve replay identity and diagnose model gaps
+
+Retain source/build/runtime/toolchain/configuration, initial world or replay prefix, workload generator/seed, scheduler and environmental random choices, faults/topology/parameters, selected model versions, raw observations and witness. Use the controller's actual supported identity/trace rather than seed alone. Gosim's RunInfo explicitly distinguishes BuildDigest/ReplayRevision/Toolchain/Features; VOPR explicitly couples seed and commit. Changing generator order or features can change the execution even if the printed seed remains identical.
+
+Repeat within the same controlled environment to establish actual replay; then investigate whether the witness violates the real allowed contract or an inaccurate environment model. Do not dismiss a native failure simply because the simulation passes; its missing OS/dependency/memory/performance dimension may be the cause. Do not call an unsupported simulated API a target defect. A reproduced simulated contradiction is bounded to its model until target-contract adjudication establishes the claim. Trace enrichment that preserves one simulator's behavior does not prove arbitrary instrumentation is nonperturbing.
+
+Reduce workload, state and fault decisions together through their existing representations, preserving enabledness, acknowledged effects and the selected witness. A change from crash to graceful Stop, or from sampled pending state to durable-only state, changes the experiment. Preserve the original and record bounded enumeration/truncation; a model's MaxStates budget is not exhaustive storage failure coverage. Failure-reduction owns generic interestingness; triage owns common-cause attribution.
+
+## Advanced worked scenarios
+
+Illustrative designs, not executed target findings.
+
+1. **Existing Go service under modeled network and disk.** Inspect its exact Go/compiler/CGO and API dependencies against the selected Gosim fork. If compatible, run a small supported test with rt,fs,net, create/configure/start machines, execute a meaningful stateful operation, crash/restart using the actual lifecycle and check the documented acknowledgment/recovery property. Retain RunInfo and raw trace, replay the same seed/build and inspect bounded crash snapshots where the claim needs them. If the service uses Go1.27, TLS or excluded APIs, the checked fork does not establish a fitting route; do not downgrade or replace those components to manufacture success. This is a concrete capability route for compatible Go targets, not Barn support.
+2. **A failure sequence always heals the bug.** Random restarts reset a problematic repair counter or object lifecycle. Select an existing simulator's supported persistent-fault/healthy-core regime and the real availability contract; preserve a healthy quorum while freezing irrelevant outside failures. Check actual progress/effects rather than assume no crash means recovery. TigerBeetle's documented historical liveness mode motivates this targeted search; it does not authorize arbitrary fault-model changes or prescribe that quorum for other systems.
+3. **Simulation-only healthy durability.** An application passes a model that treats directory rename or flush as stronger than its real filesystem. Preserve the simulated guarantee and compare actual acknowledged recovery semantics in an existing native fault lane; don't equate simulator pass with disk correctness. FDB's paper explicitly records weaker-than-assumed OS contracts as a blind spot. Crash-consistency-testing owns the precise filesystem failure model.
+4. **Dependency outside the simulation.** A containerized service uses a hosted dependency unavailable in the isolated environment. Use a supported accompanying real service or a justified mock with a narrower contract; retain which dependency behavior was substituted. The resulting application test cannot make a finding about the omitted vendor service. No extra vendor integration layer is justified solely by this skill.
+
+## Barn calibration, source provenance and handoff
+
+The approved source inventory already establishes Barn's strong Go fuzz/structured/differential/snapshot/history capabilities. No Barn target run, fetch, mutation or exhaustive absence audit occurred here. A new simulator lane must first establish actual source/toolchain/runtime support; none of the checked FoundationDB/Flow, VOPR or hosted-environment examples is automatically a Barn integration. The Gosim finding supplies a concrete source-backed candidate for compatible Go projects but does not erase that requirement.
+
+This skill differs from schedule-exploration by environmental control across processes/machines/storage/network; it differs from distributed-fault-testing by replayable modeled execution rather than live deployment faulting. Link actual history, oracle, generator, resource/liveness and crash-model owners; do not copy their algorithms or create a second implementation. Native race/weak-memory/OS/hardware/performance methods remain complementary. No universal simulation runtime, adapter framework, mandatory hosted provider or fixed seed count is justified.
+
+Suggested substantive references: simulation-boundaries-and-oracles.md (actual seam and fidelity/oracle choices), gosim-route.md (selected implementation/toolchain/features/commands and real API constraints), replay-and-fault-design.md (seed/build/world/fault bundle and meaningful distribution examples), with optional target-embedded/provider selection examples where useful, plus required common-mistakes.md and sources.yaml. Source inventory should retain exact pinned G1-G3 URLs or actual versioned docs, F1/T1/A1 primary URLs and paper DOI/pages; local paper paths are provenance only, never a distributed dependency. The selected fork commit is evidence, not a policy to freeze a dependency indefinitely.
+
+Blind evaluation can supply a raw compatible service contract, an existing simulation seam, a candidate fault schedule that always heals retained state, a lost-write/recovery witness, a seed replay with changed feature identity and an unsupported TLS/toolchain request. Observe whether the evaluator establishes supported control, generates useful state/fault interactions, preserves actual replay and qualifies model/native limits. A tiny compatible historical/injected target can test executable replay under explicit scope; no such test or empirical discovery-yield comparison ran in this research.
+
+## Paper artifacts, errors and verification limits
+
+External paper-reader outputs now exist: canonical1053117-byte PDF, all14 directly read images, dense annotated notes with architecture/algorithms/equations/parameters/results/limits, metadata, description, abstract short excerpt/paraphrase, bibliography identities, index/reader ledger and helper-generated keymap. An initial bibliography draft had72 entries and misidentified titles; direct175-dpi reference-page rereading corrected all71 numbered identities before handoff. No finding relies on the rejected bibliography draft or any unread cited paper. No process/tag/reconcile/propstore workflow was run; nested reader reconciliation was explicitly excluded by parent/Q reader-only instruction. Paper binaries/images remain outside plugin and staging.
+
+Direct actual Gosim source reads cover the specified selected files and public API paths, not the whole codebase. GitHub tree/list/ref reads and primary-source fetches were read-only; no checkout, dependency install, translation/build, simulator/target test, image upload, service invocation, git commit, host registration or publication. The developer researcher role file is absent at its provided path. Incorrect guessed FoundationDB actor/TigerBeetle HACKING/vendor-skill paths returned404; canonical discovered files supplied the claims, not those failures. No command above was tested against an actual target. Licensing facts are file-scoped observations, not a whole-project legal opinion. Source/main snapshots outside the pinned Go fork are dated observations and require selected-version verification before execution.
+
+## Completion
+
+Per-skill deep research is complete for drafting: all14 FoundationDB paper images read, current production-code simulation principles and limits, concrete selected-source Gosim route, target-embedded and hosted-provider boundaries, existing-skill overlap and advanced replay/fault scenarios. Only this report and isolated paper-reader artifacts were authored. No skill draft, target action, installation, commit or empirical yield claim.
