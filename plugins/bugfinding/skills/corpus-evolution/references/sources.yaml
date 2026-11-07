@@ -1,0 +1,36 @@
+sources:
+  - name: "AFL++ Fuzzing in Depth"
+    url: "https://aflplus.plus/docs/fuzzing_in_depth/"
+    type: "official-documentation"
+    accessed: "2026-11-07"
+    sections_used: ["Preparing the campaign", "Dictionaries", "Multiple cores", "Checking coverage"]
+  - name: "AFL++ cmin and merge selected source"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/src/afl-cmin.c"
+    type: "primary-source-code"
+    accessed: "2026-11-07"
+    sections_used: ["License header", "usage", "main and merge mode"]
+  - name: "AFL++ selected licensing scope"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/LICENSING.md"
+    type: "official-documentation"
+    accessed: "2026-11-07"
+    sections_used: ["Project scope", "Per-file Apache-2.0", "Combined work"]
+  - name: "LLVM libFuzzer"
+    url: "https://llvm.org/docs/LibFuzzer.html"
+    type: "official-documentation"
+    accessed: "2026-11-07"
+    sections_used: ["Corpus", "Running", "Resuming merge", "Options"]
+  - name: "Go fuzzing"
+    url: "https://go.dev/doc/security/fuzz/"
+    type: "official-documentation"
+    accessed: "2026-11-07"
+    sections_used: ["Running fuzz tests", "Failing input", "Corpus file format", "Glossary"]
+  - name: "OSS-Fuzz corpus access"
+    url: "https://google.github.io/oss-fuzz/advanced-topics/corpora/"
+    type: "official-documentation"
+    accessed: "2026-11-07"
+    sections_used: ["Obtain access", "Downloading", "Corpus backups"]
+  - name: "Rebert et al. Optimizing Seed Selection for Fuzzing"
+    url: "https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf"
+    type: "research-paper"
+    accessed: "2026-11-07"
+    sections_used: ["2.2 seed selection", "6.1 uniqueness", "6.2 scheduling and reduction", "6.3 preprocessing and transfer"]
