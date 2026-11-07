@@ -1,29 +1,28 @@
 sources:
-  - name: OSS-Fuzz Ideal Integration
-    url: https://google.github.io/oss-fuzz/advanced-topics/ideal-integration/
+  - name: OSS-Fuzz Ideal Integration (docs source at commit 156f862)
+    url: https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/ideal_integration.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Fuzz Target
-      - Coverage
-      - Regression Testing
-  - name: OSS-Fuzz Fuzz Introspector
-    url: https://google.github.io/oss-fuzz/advanced-topics/fuzz-introspector/
+  - name: OSS-Fuzz Fuzz Introspector (docs source at commit 156f862)
+    url: https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/fuzz_introspector.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
+      - Introduction
       - Fuzz Introspector overview
       - Differences in build tooling
-  - name: PIT Basic Concepts
-    url: https://pitest.org/quickstart/basic_concepts/
+  - name: PIT Basic Concepts (pitest-site source at commit 614bec6)
+    url: https://raw.githubusercontent.com/hcoles/pitest-site/614bec6fd16670852e94c8cc03a002f6bf05db09/quickstart/basic_concepts.markdown
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Mutation Operators
       - Equivalent Mutations
       - Running the tests
-  - name: PIT Maven Quick Start
-    url: https://pitest.org/quickstart/maven/
+  - name: PIT Maven Quick Start (pitest-site source at commit 614bec6)
+    url: https://raw.githubusercontent.com/hcoles/pitest-site/614bec6fd16670852e94c8cc03a002f6bf05db09/quickstart/maven.markdown
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
@@ -31,51 +30,73 @@ sources:
       - mutationCoverage goal
       - Dry Run Mode
       - Cross module tests
-  - name: PIT Repository
-    url: https://github.com/hcoles/pitest
+      - mutationThreshold
+  - name: PIT LICENSE.txt (commit 1edd5b4)
+    url: https://raw.githubusercontent.com/hcoles/pitest/1edd5b4e14fbe3a7169d79bc179ac2f4cc5e417c/LICENSE.txt
     type: official-source
     accessed: '2026-11-07'
     sections_used:
-      - License
-  - name: Stryker Mutant States and Metrics
-    url: https://stryker-mutator.io/docs/mutation-testing-elements/mutant-states-and-metrics/
+      - Apache License Version 2.0
+  - name: Stryker Mutant States and Metrics (mutation-testing-elements source at commit a4f8163)
+    url: https://raw.githubusercontent.com/stryker-mutator/mutation-testing-elements/a4f816358a06701b7680d54bbb56180c19781c25/docs/mutant-states-and-metrics.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Mutant states
       - Metrics
-  - name: StrykerJS Getting Started
-    url: https://stryker-mutator.io/docs/stryker-js/getting-started/
+  - name: StrykerJS Getting Started (stryker-js source at commit 8f24ef0)
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-js/8f24ef0be3a2119fc44ac48bfce58930ab2c9032/docs/getting-started.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Install
-      - Run Stryker
-  - name: StrykerJS Configuration
-    url: https://stryker-mutator.io/docs/stryker-js/configuration/
+      - 2 Install
+      - 3 Let's kill some mutants
+  - name: StrykerJS Configuration (stryker-js source at commit 8f24ef0)
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-js/8f24ef0be3a2119fc44ac48bfce58930ab2c9032/docs/configuration.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Command Line vs. Config File
-      - mutate
       - buildCommand
       - checkers
       - coverageAnalysis
-  - name: Stryker.NET Getting Started
-    url: https://stryker-mutator.io/docs/stryker-net/getting-started/
+      - mutate
+      - testRunner
+  - name: StrykerJS core package.json (commit 8f24ef0)
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-js/8f24ef0be3a2119fc44ac48bfce58930ab2c9032/packages/core/package.json
+    type: official-source
+    accessed: '2026-11-07'
+    sections_used:
+      - version
+      - engines
+  - name: StrykerJS LICENSE (commit 8f24ef0)
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-js/8f24ef0be3a2119fc44ac48bfce58930ab2c9032/LICENSE
+    type: official-source
+    accessed: '2026-11-07'
+    sections_used:
+      - Apache License Version 2.0
+  - name: Stryker.NET Getting Started (stryker-net source at commit 2ec2d68)
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-net/2ec2d68614600d191de828675a10f1d91048a7be/docs/getting-started.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Install prerequisites
       - Install in project
       - Prepare
-      - Run Stryker
+      - Let's kill some mutants
+  - name: Stryker.NET LICENSE (commit 2ec2d68)
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-net/2ec2d68614600d191de828675a10f1d91048a7be/LICENSE
+    type: official-source
+    accessed: '2026-11-07'
+    sections_used:
+      - Apache License Version 2.0
   - name: Are Mutants a Valid Substitute for Real Faults in Software Testing?
     url: https://doi.org/10.1145/2635868.2635929
     type: research-paper
     accessed: '2026-11-07'
     sections_used:
-      - '2.1-2.2 Historical fault isolation'
+      - '2.2 Locating and Isolating Real Faults, 2.2.2-2.2.3 (pages 2-3)'
+      - '2.3 Obtaining Developer-written Test Suites (page 3)'
       - '2.5 Mutation Analysis (page 5)'
-      - '3.2 Faults not coupled to mutants (pages 7-8)'
+      - '3.2 What Types of Real Faults Are Not Coupled to Mutants? (pages 7-8)'
       - '5. Conclusion (page 10)'
