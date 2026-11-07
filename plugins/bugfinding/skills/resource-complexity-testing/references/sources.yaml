@@ -20,6 +20,15 @@ sources:
       - "Test PerfFuzz on Insertion Sort: Run PerfFuzz (total paths)"
       - "Running PerfFuzz on a program of your choice: Compile; Run (-p, -N); Interpret (+max)"
     evidence_fragment: "will not build on Windows machines"
+  - name: "PerfFuzz afl-fuzz"
+    url: "https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/afl-fuzz.c"
+    type: implementation
+    accessed: "2026-11-07"
+    sections_used:
+      - "read_testcases seed size check (lines 1594-1596)"
+      - "havoc clone growth bound (line 6584)"
+      - "-N option parsing (lines 8026-8027)"
+    evidence_fragment: "if (st.st_size > max_file_len)"
   - name: "PerfFuzz afl-showmax"
     url: "https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/afl-showmax.c"
     type: source-code
