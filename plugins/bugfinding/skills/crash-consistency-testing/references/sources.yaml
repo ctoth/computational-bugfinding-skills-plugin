@@ -1,120 +1,130 @@
 sources:
-  - name: "CrashMonkey OSDI2018"
+  - name: "Finding Crash-Consistency Bugs with Bounded Black-Box Crash Testing (Mohan et al., OSDI 2018)"
     url: "https://www.cs.utexas.edu/~vijay/papers/osdi18-crashmonkey.pdf"
     type: research-paper
     accessed: "2026-11-07"
     sections_used:
-      - "pp.6-8, bounded fault model and recovered-object oracle"
-    quote: "does not re-order IO requests"
-  - name: "Linux fsync"
+      - "§4.1 Overview, crash points (persisted objects must survive), p.6"
+      - "§4.2 Bounds used by B3 (overlapping file ranges, initial state), p.6"
+      - "§4.3 Fine-grained correctness checking, p.6"
+      - "§4.4 Limitations (sound but incomplete; no mid-operation crash or IO reordering), p.6"
+      - "§5.1 CrashMonkey (crash state, oracle, AutoChecker, fsck only if unmountable, read/write checks, stronger-than-POSIX guarantees), pp.7-8"
+      - "Read as paper-reader page images (page-004..page-007)"
+  - name: "Linux man-pages fsync(2)"
     url: "https://man7.org/linux/man-pages/man2/fsync.2.html"
     type: official-manual
     accessed: "2026-11-07"
     sections_used:
-      - "DESCRIPTION and ERRORS; man-pages HTML accessed 2026-11-07"
-    quote: "directory containing the file"
-  - name: "Linux rename"
+      - "DESCRIPTION (in-core data flush; directory entry needs directory fsync)"
+      - "ERRORS (EIO, ENOSPC)"
+      - "Linux man-pages 6.19, page dated 2026-02-08; man7.org has no immutable URL"
+  - name: "Linux man-pages rename(2)"
     url: "https://man7.org/linux/man-pages/man2/rename.2.html"
     type: official-manual
     accessed: "2026-11-07"
     sections_used:
-      - "DESCRIPTION; live replacement visibility"
-    quote: "will be atomically replaced"
-  - name: "CrashMonkey setup"
+      - "DESCRIPTION (atomic replacement as seen by another process)"
+      - "Linux man-pages 6.19; man7.org has no immutable URL"
+  - name: "CrashMonkey README"
     url: "https://raw.githubusercontent.com/utsaslab/crashmonkey/27ca57f8cf2760d5d4855e03b8d01f8e5de1628c/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Setup and tested kernel inventory"
-    quote: "5.6"
-  - name: "CrashMonkey license"
+      - "Introduction (tested kernel versions)"
+      - "Setup (Ubuntu 16.04 VM, kernel modules, test devices)"
+  - name: "CrashMonkey LICENSE"
     url: "https://raw.githubusercontent.com/utsaslab/crashmonkey/27ca57f8cf2760d5d4855e03b8d01f8e5de1628c/LICENSE"
     type: license
     accessed: "2026-11-07"
     sections_used:
-      - "Apache license heading"
-    quote: "Version 2.0"
-  - name: "CrashMonkey workload"
+      - "Apache License, Version 2.0 heading"
+  - name: "CrashMonkey workload guide"
     url: "https://raw.githubusercontent.com/utsaslab/crashmonkey/27ca57f8cf2760d5d4855e03b8d01f8e5de1628c/docs/workload.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Interface, replay modes, auto-checker and Result"
-    quote: "DataTestResult"
-  - name: "CrashMonkey CLI"
+      - "Interface"
+      - "Run (cm_ wrappers, checkpoints)"
+      - "Check_Test (DataTestResult)"
+      - "Testing the workload you wrote (permuted and in-order replay, auto-checker, log contents)"
+      - "Result"
+  - name: "CrashMonkey internals guide"
+    url: "https://raw.githubusercontent.com/utsaslab/crashmonkey/27ca57f8cf2760d5d4855e03b8d01f8e5de1628c/docs/CrashMonkey.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Saved profile reuse with -l/-r (bio sequence must not change)"
+  - name: "CrashMonkey c_harness.cpp"
     url: "https://raw.githubusercontent.com/utsaslab/crashmonkey/27ca57f8cf2760d5d4855e03b8d01f8e5de1628c/code/harness/c_harness.cpp"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "long_options; no-permuted-order-replay and devices"
-    quote: "no-permuted-order-replay"
-  - name: "Ace generation"
+      - "long_options (-c automate_check_test, -P no-permuted-order-replay, -f, -d)"
+      - "main defaults (flags_dev /dev/vda, test_dev /dev/ram0, permuted_order_replay = true)"
+  - name: "Ace documentation"
     url: "https://raw.githubusercontent.com/utsaslab/crashmonkey/27ca57f8cf2760d5d4855e03b8d01f8e5de1628c/docs/Ace.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Overview and Bounds used by Ace"
-    quote: "Workload Adapter"
-  - name: "LazyFS operation"
+      - "Overview (generator and Workload Adapter)"
+      - "Bounds used by Ace"
+  - name: "LazyFS README"
     url: "https://raw.githubusercontent.com/dsrhaslab/lazyfs/d93e54a7944b28e86506d2af3a97342f5c3eb21f/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Installation; Running and Injecting faults; completion FIFO"
-    quote: "finished::clear-cache"
-  - name: "LazyFS mount"
+      - "Installation (tested environments, C++17, FUSE 3)"
+      - "Running and Injecting faults (apply_eviction, torn-seq, torn-op, clear-cache, fifo_path_completed, fault acknowledgment, post-crash unmount)"
+  - name: "LazyFS mount-lazyfs.sh"
     url: "https://raw.githubusercontent.com/dsrhaslab/lazyfs/d93e54a7944b28e86506d2af3a97342f5c3eb21f/lazyfs/scripts/mount-lazyfs.sh"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "argument parsing and FUSE invocation"
-    quote: "allow_other"
-  - name: "LazyFS license"
+      - "argument parsing and FUSE invocation (-o allow_other, unquoted paths)"
+  - name: "LazyFS LICENSE"
     url: "https://raw.githubusercontent.com/dsrhaslab/lazyfs/d93e54a7944b28e86506d2af3a97342f5c3eb21f/LICENSE"
     type: license
     accessed: "2026-11-07"
     sections_used:
-      - "grant and license identification"
-    quote: "MIT License"
-  - name: "LazyFS fault trigger"
+      - "license identification (MIT License)"
+  - name: "LazyFS lazyfs.cpp"
     url: "https://raw.githubusercontent.com/dsrhaslab/lazyfs/d93e54a7944b28e86506d2af3a97342f5c3eb21f/lazyfs/src/lazyfs.cpp"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "trigger_crash_fault; own PID selection"
-    quote: "getpid ()"
-  - name: "Pebble module"
+      - "LazyFS::trigger_crash_fault (getpid, kill SIGKILL)"
+  - name: "Pebble go.mod"
     url: "https://raw.githubusercontent.com/cockroachdb/pebble/a995e890c06ef86c583927906e16e7f313083a3f/go.mod"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "module and Go directive"
-    quote: "go 1.25.3"
-  - name: "Pebble license"
+      - "go directive"
+  - name: "Pebble LICENSE"
     url: "https://raw.githubusercontent.com/cockroachdb/pebble/a995e890c06ef86c583927906e16e7f313083a3f/LICENSE"
     type: license
     accessed: "2026-11-07"
     sections_used:
       - "three redistribution conditions"
-    quote: "following conditions"
-  - name: "Pebble crash model"
+  - name: "Pebble vfs/mem_fs.go"
     url: "https://raw.githubusercontent.com/cockroachdb/pebble/a995e890c06ef86c583927906e16e7f313083a3f/vfs/mem_fs.go"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "NewCrashableMem, CrashCloneCfg and memNode.CrashClone"
-    quote: "UnsyncedDataPercent"
-  - name: "Pebble real restart producer"
+      - "NewCrashableMem doc comment (stale Probability example, Close finishes background work)"
+      - "CrashCloneCfg"
+      - "memNode.CrashClone (blockSize 4096, directory entries, zero-filled growth)"
+  - name: "Pebble metamorphic/test.go"
     url: "https://raw.githubusercontent.com/cockroachdb/pebble/a995e890c06ef86c583927906e16e7f313083a3f/metamorphic/test.go"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "restartDB; clone before db.Close, shared-FS exclusion"
-    quote: "crashFS := fs.CrashClone"
-  - name: "Pebble injected errors"
+      - "Test.restartDB (strictFS/NoSync and shared-FS skips; CrashClone before db.Close)"
+  - name: "Pebble vfs/errorfs/errorfs.go"
     url: "https://raw.githubusercontent.com/cockroachdb/pebble/a995e890c06ef86c583927906e16e7f313083a3f/vfs/errorfs/errorfs.go"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "Injector, Counter and Wrap"
-    quote: "before an operation is executed"
+      - "Injector"
+      - "Counter (Load, LastError)"
+      - "Wrap"
+      - "errorFile.Write"
