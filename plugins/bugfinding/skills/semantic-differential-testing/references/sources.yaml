@@ -4,52 +4,63 @@ sources:
     type: research-paper
     accessed: '2026-11-07'
     sections_used:
-      - Section 2.6 Design Trade-offs, page 5
-      - Section 4 Discussion, page 10
+      - Section 2.6 Design Trade-offs (Allow implementation-defined behavior; No ground truth; No guarantee of termination), page 5
+      - Section 4 Discussion (Creating reportable bugs), page 10
   - name: SQLancer README
-    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/README.md
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/README.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Test generation and test oracles
-      - Logs and reducing bugs
+      - Test input generation
+      - Logs
+      - Reducing bugs
+      - Understanding SQL generation
+      - Approaches and Papers, DQE and CODDTest rows
   - name: SQLancer ComparatorHelper implementation
-    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/ComparatorHelper.java
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/src/sqlancer/ComparatorHelper.java
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
+      - equals (fixed numeric tolerance)
       - getResultSetFirstColumnAsString
       - assumeResultSetsAreEqual
       - canonicalizeResultValue
   - name: SQLancer MySQLDQPOracle implementation
-    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/mysql/oracle/MySQLDQPOracle.java
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/src/sqlancer/mysql/oracle/MySQLDQPOracle.java
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
       - check, baseline and hinted queries
       - check, optimizer settings
-  - name: PostgreSQL SELECT
-    url: https://www.postgresql.org/docs/current/sql-select.html
+  - name: PostgreSQL 18 SELECT
+    url: https://www.postgresql.org/docs/18/sql-select.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Description steps 6 to 8
-  - name: PostgreSQL Sorting Rows
-    url: https://www.postgresql.org/docs/current/queries-order.html
+  - name: PostgreSQL 18 Sorting Rows
+    url: https://www.postgresql.org/docs/18/queries-order.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Section 7.5, unspecified order and sorting
+      - Section 7.5, unspecified order, later sort keys for equal rows, NULLS FIRST/LAST default
+  - name: PostgreSQL 18 Collation Support
+    url: https://www.postgresql.org/docs/18/collation.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Section 23.2, introduction
   - name: How SQLite Is Tested
     url: https://www.sqlite.org/testing.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Sections 3 and 8.5, failure and journal tests
-      - Section 4.1.3, joint SQL and database mutation
+      - Section 3, anomaly testing
+      - Section 4.1.3, dbsqlfuzz joint SQL and database mutation
+      - Section 8.5, journal tests
       - Section 9, disabled optimization tests
-  - name: How to submit an LLVM bug report
-    url: https://llvm.org/docs/HowToSubmitABug.html
+  - name: How to submit an LLVM bug report (LLVM 23.1.0)
+    url: https://releases.llvm.org/23.1.0/docs/HowToSubmitABug.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
