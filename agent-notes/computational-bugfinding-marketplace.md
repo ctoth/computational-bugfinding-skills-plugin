@@ -6,10 +6,19 @@ Research and plan a new marketplace/plugin skill set for computational bugfindin
 
 ## State
 
-Q approved the 25-skill scope with “Make it so!” Skillbuilder Phases 1 and 2 are available in this repository's `reports/skill-research-computational-bugfinding.md` and `reports/skill-plan-computational-bugfinding.md`. Local git and the four approved host manifests are created at `C:/Users/Q/code/computational-bugfinding-skills-plugin`. Claude manifest validation passed; Codex JSON parsed. `reports/package-bootstrap.md` records exact scope and directory-submission findings. No skills or implementation code have been drafted by bootstrap.
+Q approved the 25-skill scope with “Make it so!” Phase 3 research and drafting are authorized. The approved domain research and plan are `reports/skill-research-computational-bugfinding.md` and `reports/skill-plan-computational-bugfinding.md` in `C:/Users/Q/code/computational-bugfinding-skills-plugin`.
+
+- **Local package:** Bootstrap and four approved Claude/Codex manifests are committed. Claude manifest validation passed; Codex JSON/path probes passed. Codex host loading is untested. No remotes, installation or publication. Evidence: `reports/package-bootstrap.md`.
+- **Foundation:** `bugfinding-campaign` research, skill, four references and draft report are committed. Its entry point is 57 lines; bundled quick_validate, local links/source inventory and staged whitespace checks passed. Evidence: `reports/research-bugfinding-campaign.md` and `reports/draft-bugfinding-campaign.md`.
+- **Independent foundation application:** `reports/foundation-behavior-check.md` found no blocking skill defect and supports using the foundation as the drafting reference. It produced a source-grounded eight-CPU-hour Barn campaign proposal; it did not execute a campaign, establish a product bug or demonstrate improved discovery yield.
+- **Correctness oracles:** `correctness-oracles` is drafted and committed with four references and research/draft reports. Its entry point is 45 lines; focused frontmatter, local links/source inventory and staged whitespace checks passed. No independent behavior or yield claim is established. Evidence: `reports/research-correctness-oracles.md` and `reports/draft-correctness-oracles.md`.
+- **Evidence-based triage:** `evidence-based-triage` is drafted and committed with four references and research/draft reports. Its entry point is 35 lines; bundled quick_validate, local links/source inventory and staged whitespace checks passed. No independent behavioral or empirical accuracy/yield claim is established. Evidence: `reports/research-evidence-based-triage.md` and `reports/draft-evidence-based-triage.md`.
+- **Current drafting:** Harness-sensitivity research is complete and `harness-sensitivity` drafting is in progress. Research: `reports/research-harness-sensitivity.md`. Parent serializes commits.
+- **Remaining work:** Complete the approved specialist research/draft batches, then audit the full collection and perform isolated behavioral evaluations. No target behavior or empirical discovery campaign has run as part of these research/draft steps.
 
 ## Decisions and why
 
+- Q's replacing AGENTS.md on 2026-11-07 requires the research-papers plugin's paper-reader only, never paper-process, and direct page-image reading. Parent messaged active agents and updated shared researcher/drafter prompts; the plan now carries the same forward-looking instruction. Existing historical artifacts remain evidence and are not rewritten or deleted.
 - Follow the requested skillbuilder research → plan → user confirmation → draft → audit pipeline.
 - Research methods and decision criteria before deciding skill boundaries.
 - Preserve distinctions among candidate failures, harness defects, semantic disagreements, and verified product defects.
@@ -25,4 +34,4 @@ Q approved the 25-skill scope with “Make it so!” Skillbuilder Phases 1 and 2
 
 ## Next step
 
-Phase 3 is authorized: foundation research/draft first, batches of two or three researchers/drafters, then audit and isolated behavioral evaluation. Bootstrap is complete; component/host validation must follow drafting. This note and the approved reports now live in the new repository. The Elle collection remains at `C:/Users/Q/code/papers/`; the distributed plugin must not require it. Preserve Barn and unrelated work. No publication or remote mutation is authorized.
+Finish harness-sensitivity drafting, then continue the approved research/draft batches using the completed foundation as the reference. Parent serializes commits. Component/host validation, full collection audit and isolated behavioral evaluation remain required. Future literature work uses paper-reader only and page images. The Elle collection remains at `C:/Users/Q/code/papers/`; the distributed plugin must not require it. Preserve Barn and unrelated work. No publication or remote mutation is authorized.

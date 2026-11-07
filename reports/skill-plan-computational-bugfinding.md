@@ -6,7 +6,7 @@
 
 ## State
 
-Q approved this plan with “Make it so!” Phase 3 research and drafting are authorized. Local repository bootstrap is underway; no tooling installation or target changes have been made. The plan uses Barn's stronger already-fetched `origin/master` source inventory as the baseline, not basic fuzzing capability.
+Q approved this plan with “Make it so!” Phase 3 research and drafting are authorized. Local repository bootstrap, the foundation skill, correctness-oracles and evidence-based-triage are committed. The independent foundation behavior check found no blocking skill defect; it did not execute a campaign or establish bug yield. Harness-sensitivity drafting is in progress. No tooling installation or target changes have been made. The plan uses Barn's stronger already-fetched `origin/master` source inventory as the baseline, not basic fuzzing capability.
 
 ## Design basis
 
@@ -369,7 +369,7 @@ The whole set is the proposed scope; ordering reduces research/draft failure ris
 5. **Hard paths and failure contracts:** `symbolic-concolic-execution`, `bounded-model-checking`, `resource-complexity-testing`, plus research-first `crash-consistency-testing`, `liveness-testing`, `configuration-differential-testing`, `numerical-oracles`. Resolve the named method/tool evidence gaps before their draft agents start. A failed applicability investigation is recorded, not disguised as a tool recipe.
 6. **Audit and behavioral evaluation:** audit all expected files and citations; evaluate the four coverage dimensions and skill selection on realistic artifacts. Repair supported findings within the approved scope. Additional scope uses the skillbuilder research→plan→draft→audit path.
 
-Per skill: dedicated primary-source researcher writes a persistent report; drafter consumes that report and the foundation; use batches of two or three as requested by skillbuilder. Commit sequentially to preserve ownership. Use explicit expected files and inspect each report before its dependent phase. Every tool-bearing reference must verify current setup, invocation, applicable build/runtime/platform, limitations and license. Every paper claim requires paper-process page-image reading under the user's rule; Elle alone does not satisfy the other methods' literature needs.
+Per skill: dedicated primary-source researcher writes a persistent report; drafter consumes that report and the foundation; use batches of two or three as requested by skillbuilder. Commit sequentially to preserve ownership. Use explicit expected files and inspect each report before its dependent phase. Every tool-bearing reference must verify current setup, invocation, applicable build/runtime/platform, limitations and license. Under Q's replacing AGENTS.md instruction of 2026-11-07, every paper claim requires the research-papers plugin's paper-reader and direct page-image reading only; never use paper-process. Preserve historical evidence of previous workflows without repeating them. Elle alone does not satisfy the other methods' literature needs.
 
 ## Behavioral Acceptance and Audit
 
