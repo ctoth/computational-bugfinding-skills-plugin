@@ -1,0 +1,113 @@
+sources:
+  - name: "CBMC manual"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/doc/man/cbmc.1"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Description; Standard Checks; platform/BMC/UI options"
+    evidence_fragment: "unwinding assertions"
+  - name: "CBMC loop unwinding"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/doc/cprover-manual/cbmc-unwinding.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Iteration-based Unwinding; Separate Limits; partial loops"
+    evidence_fragment: "backjumps"
+  - name: "CBMC assumptions"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/doc/cprover-manual/modeling-assumptions.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Modeling with Assumptions; Coverage"
+    evidence_fragment: "pass vacuously"
+  - name: "JBMC user manual"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/doc/cprover-manual/jbmc-user-manual.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Loop unwinding; User assertions; Java Library support; Exceptions"
+    evidence_fragment: "core-models.jar"
+  - name: "JBMC frontend"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/jbmc/src/jbmc/jbmc_parse_options.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "java-threading; generate_function_body; frontend help"
+    evidence_fragment: "simple stub implementation"
+  - name: "CPROVER exit codes"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/src/util/exit_codes.h"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Verification; usage; internal; conversion results"
+    evidence_fragment: "CPROVER_EXIT_VERIFICATION_INCONCLUSIVE"
+  - name: "CBMC and JBMC license"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/LICENSE"
+    type: license
+    accessed: "2026-11-07"
+    sections_used:
+      - "Redistribution conditions 1-4"
+    evidence_fragment: "All rights reserved"
+  - name: "JBMC versions and build"
+    url: "https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/jbmc/README.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Versions; Prerequisites; Compilation; License"
+    evidence_fragment: "tested and for production use"
+  - name: "Kani real-code entrypoints"
+    url: "https://raw.githubusercontent.com/model-checking/kani/94253e32fe7ead82c9f1ef842bd9ddc6fae7e8ca/docs/src/tutorial-real-code.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Where is proof valuable; Where is it easier to start; first proof"
+    evidence_fragment: "Kani doesn't model I/O"
+  - name: "Kani loop bounds"
+    url: "https://raw.githubusercontent.com/model-checking/kani/94253e32fe7ead82c9f1ef842bd9ddc6fae7e8ca/docs/src/tutorial-loop-unwinding.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Loops, unwinding, and bounds; command-line bounds"
+    evidence_fragment: "undetermined"
+  - name: "Kani result interpretation"
+    url: "https://raw.githubusercontent.com/model-checking/kani/94253e32fe7ead82c9f1ef842bd9ddc6fae7e8ca/docs/src/verification-results.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Check results; Cover results; JSON output"
+    evidence_fragment: "started_at"
+  - name: "Kani supported model"
+    url: "https://raw.githubusercontent.com/model-checking/kani/94253e32fe7ead82c9f1ef842bd9ddc6fae7e8ca/docs/src/soundness.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "What Kani Does NOT Check; Bounded verification"
+    evidence_fragment: "Concurrent programs are not supported"
+  - name: "Kani concrete playback"
+    url: "https://raw.githubusercontent.com/model-checking/kani/94253e32fe7ead82c9f1ef842bd9ddc6fae7e8ca/docs/src/reference/experimental/concrete-playback.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Usage; Limitations"
+    evidence_fragment: "same Kani version"
+  - name: "Kani installation"
+    url: "https://raw.githubusercontent.com/model-checking/kani/94253e32fe7ead82c9f1ef842bd9ddc6fae7e8ca/docs/src/install-guide.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Platforms; Installing an older version; setup"
+    evidence_fragment: "cargo kani setup"
+  - name: "Kani real harness and license"
+    url: "https://raw.githubusercontent.com/model-checking/kani/94253e32fe7ead82c9f1ef842bd9ddc6fae7e8ca/README.md"
+    type: tool-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "How to use Kani; License"
+    evidence_fragment: "function_under_test"
+  - name: "Clarke, Kroening and Lerda (2004), A Tool for Checking ANSI-C Programs"
+    url: "https://www.kroening.com/papers/tacas2004.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "Printed pp.169-171; direct page-image reread"
+    evidence_fragment: "unwinding assertion"
