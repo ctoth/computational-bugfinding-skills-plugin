@@ -1,13 +1,20 @@
 sources:
-  - name: SQLancer NoRECOracle implementation
-    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/common/oracle/NoRECOracle.java
+  - name: SQLancer NoRECOracle implementation (commit a7d60ee4)
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/src/sqlancer/common/oracle/NoRECOracle.java
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
       - check
       - NoRECReproducer.sidesDiffer
       - countRows and extractCounts
-  - name: SQLite PRAGMA statements
+  - name: SQLancer SQLQueryAdapter implementation (commit a7d60ee4)
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/a7d60ee450e6a22ca38599c14e984a49773f4745/src/sqlancer/common/query/SQLQueryAdapter.java
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - checkException
+      - internalExecuteAndGet
+  - name: SQLite PRAGMA statements (page last updated 2026-10-04)
     url: https://www.sqlite.org/pragma.html
     type: official-documentation
     accessed: '2026-11-07'
@@ -15,37 +22,39 @@ sources:
       - foreign_keys
       - foreign_key_check
       - integrity_check
-  - name: SQLite ON CONFLICT clause
+  - name: SQLite ON CONFLICT clause (page last updated 2025-11-22)
     url: https://www.sqlite.org/lang_conflict.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - ABORT
       - FAIL
-  - name: SQLite foreign key support
+  - name: SQLite foreign key support (page last updated 2026-10-25)
     url: https://www.sqlite.org/foreignkeys.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Introduction to Foreign Key Constraints
-      - Enabling Foreign Key Support
-  - name: Elle - Inferring Isolation Anomalies from Experimental Observations
-    url: https://arxiv.org/abs/2003.10554
+      - 1. Introduction to Foreign Key Constraints
+      - 2. Enabling Foreign Key Support
+      - 4.2. Deferred Foreign Key Constraints
+  - name: Elle - Inferring Isolation Anomalies from Experimental Observations (arXiv v1)
+    url: https://arxiv.org/abs/2003.10554v1
     type: research-paper
     accessed: '2026-11-07'
     sections_used:
       - Section 3 Deducing Dependencies, page 3
       - Section 4.3 Soundness of Elle, page 7
       - Section 9 Future Work and Conclusions, page 12
-  - name: Elle repository documentation
-    url: https://github.com/jepsen-io/elle
+  - name: Elle README (commit 4e359e59)
+    url: https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/README.markdown
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Usage and anomaly inspection warning
-  - name: How SQLite Is Tested
+      - Introduction (development status and anomaly inspection recommendation)
+  - name: How SQLite Is Tested (page last updated 2026-04-21)
     url: https://www.sqlite.org/testing.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Coverage testing of defensive code
+      - 2. Test Harnesses (SQL Logic Test)
+      - 9. Disabled Optimization Tests
