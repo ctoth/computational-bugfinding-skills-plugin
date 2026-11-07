@@ -105,6 +105,13 @@ sources:
     sections_used:
       - "Limitations of Distributed Mode (Toolbox help page)"
     quote_fragment: "TLC cannot check liveness properties"
+  - name: "Distributed TLC application"
+    url: "https://raw.githubusercontent.com/tlaplus/tlaplus/d8fb231de4e4b5d02c1b2ed1ac759c086f694021/tlatools/org.lamport.tlatools/src/tlc2/tool/distributed/TLCApp.java"
+    type: "implementation"
+    accessed: "2026-11-07"
+    sections_used:
+      - "TLCApp fields invariants, impliedInits, impliedActions, checkDeadlock (lines 70-96); checkState (lines 189-195); no liveness checker in tlc2/tool/distributed"
+    quote_fragment: "the invariants to be checked"
   - name: "TLC state/action constraints"
     url: "https://raw.githubusercontent.com/tlaplus/tlaplus/d8fb231de4e4b5d02c1b2ed1ac759c086f694021/toolbox/org.lamport.tla.toolbox.doc/html/model/spec-options-page.html"
     type: "official-documentation"
