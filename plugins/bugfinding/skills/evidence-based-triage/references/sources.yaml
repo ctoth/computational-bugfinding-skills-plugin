@@ -1,0 +1,75 @@
+sources:
+  - name: ClusterFuzz Triaging New Crashes
+    url: https://google.github.io/clusterfuzz/using-clusterfuzz/workflows/triaging-new-crashes/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Filtering testcases
+      - Regression revision range
+      - Crash stacktrace
+      - Crash statistics
+  - name: OSS-Fuzz Reproducing Issues
+    url: https://google.github.io/oss-fuzz/advanced-topics/reproducing/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Fuzz target bugs
+      - Reproducing bugs
+      - Reproduce using local source checkout
+  - name: ClusterFuzz Glossary
+    url: https://google.github.io/clusterfuzz/reference/glossary/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Crash state
+      - Minimization
+      - Reliability of reproduction
+      - Testcase
+  - name: OSS-Fuzz-Gen Crash Analyzer
+    url: https://raw.githubusercontent.com/google/oss-fuzz-gen/main/agent/crash_analyzer.py
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - _initial_prompt
+      - _container_handle_conclusion
+      - _container_tool_reaction
+  - name: OSS-Fuzz-Gen Semantic Analyzer
+    url: https://raw.githubusercontent.com/google/oss-fuzz-gen/main/agent/semantic_analyzer.py
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - CRASH_EXCLUSIONS
+      - EARLY_FUZZING_ROUND_THRESHOLD
+      - _parse_libfuzzer_logs
+  - name: Go Fuzzing
+    url: https://go.dev/doc/security/fuzz/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Suggestions
+      - Failing input
+      - Corpus file format
+  - name: LLVM libFuzzer
+    url: https://llvm.org/docs/LibFuzzer.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Fuzz Target
+      - Running
+      - When libFuzzer is not a good solution for a problem
+  - name: How to Submit an LLVM Bug Report
+    url: https://llvm.org/docs/HowToSubmitABug.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Introduction
+      - AI policy
+      - Miscompilations
+  - name: 'Elle: Inferring Isolation Anomalies from Experimental Observations'
+    url: https://arxiv.org/abs/2003.10554
+    type: research-paper
+    accessed: '2026-11-07'
+    sections_used:
+      - '4.3. Soundness of Elle (page 7)'
+      - '6. Finding Counterexamples (page 9)'
+      - '9. Future Work and Conclusions (page 12)'
