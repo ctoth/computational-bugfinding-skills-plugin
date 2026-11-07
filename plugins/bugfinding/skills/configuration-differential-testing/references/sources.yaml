@@ -4,54 +4,55 @@ sources:
     type: research-paper
     accessed: "2026-11-07"
     sections_used:
-      - "Direct PDF images pp.2,4,5,15; sections II-III and Appendix IV"
-    evidence_fragment: "fault coverage"
+      - "Read as page images via paper-reader (page-000.png to page-006.png)"
+      - "II Combinatorial Coverage, pp.1-3 (definitions, Table I simple vs total coverage, value selection)"
+      - "III Fault Coverage, pp.3-5 (deterministic-software assumption, ancillary coverage, fault coverage approximation)"
+      - "IV Relationship with Code Coverage, pp.6-7 (branch coverage condition and its internal-variable assumption)"
   - name: "PICT guide"
     url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/doc/pict.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Model File; Constraints; Sub-Models; Seeding; Negative Testing; Aliasing"
-    evidence_fragment: "will be skipped entirely"
+      - "Usage; Best-of-N generation; Parallelism; Output Format"
+      - "Constraints; Conditional Constraints; Case Sensitiveness"
+      - "Sub-Models; Aliasing; Negative Testing; Seeding"
   - name: "PICT CLI parser"
     url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/cmdline.cpp"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "parseArg; showUsage; statistics, format, order and worker switches"
-    evidence_fragment: "modelData.Statistics = true"
+      - "parseArg: SWITCH_STATISTICS, SWITCH_PREVIEW, SWITCH_APPROXIMATE, SWITCH_FORMAT, SWITCH_BEST, SWITCH_THREADS"
+      - "showUsage, including the commented-out /x and /p usage lines"
   - name: "PICT generation producer"
     url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/pict.cpp"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "findBestSeed; execute; generator thread resolution"
-    evidence_fragment: "Deterministic reduction"
+      - "findBestSeed (deterministic reduction, earliest-seed tie break)"
+      - "execute (statistics branch versus row output)"
   - name: "PICT value handling"
     url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/model.cpp"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "GetNamesForComparisons; GetNextName"
-    evidence_fragment: "GetPrimaryName()"
+      - "CModelValue::GetNamesForComparisons; CModelValue::GetNextName"
   - name: "PICT build documentation"
     url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Building on Windows; Building on Linux"
-    evidence_fragment: "Visual Studio 2022"
+      - "Building and testing on Windows with MsBuild"
+      - "Building on Linux, OS/X, *BSD, etc."
   - name: "PICT license"
     url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/LICENSE.TXT"
     type: license
     accessed: "2026-11-07"
     sections_used:
-      - "MIT grant and notice conditions"
-    evidence_fragment: "MIT License"
+      - "MIT License heading and grant"
   - name: "NIST tool distribution"
     url: "https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software/downloadable-tools"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Downloadable Tools; Software; observed 2026-11-07, updated 2026-06-08"
-    evidence_fragment: "supports constraints"
+      - "Downloadable Tools (ACTS Basic download, advanced ACTS request, public-domain statement)"
+      - "No immutable URL; observed 2026-11-07, page footer 'Updated June 08, 2026'"
