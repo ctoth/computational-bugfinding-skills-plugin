@@ -1,6 +1,6 @@
 # Selection and retention
 
-Treat these as this pack's corpus decisions, adapted to the project's existing artifacts. Native minimizers preserve their selected coverage/features; that is not a general claim about all behavioral differences ([AFL++ preparation](https://aflplus.plus/docs/fuzzing_in_depth/), [libFuzzer corpus](https://llvm.org/docs/LibFuzzer.html)).
+Treat these as this pack's corpus decisions, adapted to the project's existing artifacts. Native minimizers preserve their selected coverage/features; that is not a general claim about all behavioral differences. `afl-cmin` removes inputs "that do not produce a new path/coverage in the target", and libFuzzer `-merge=1` adds only "inputs that trigger new coverage" ([AFL++ depth guide, §2b](https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/docs/fuzzing_in_depth.md), [libFuzzer, Corpus](https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/llvm/docs/LibFuzzer.md)).
 
 | Purpose | Selection decision |
 |---|---|
@@ -13,7 +13,7 @@ The last row is a target-specific design choice, not proof that every coverage-e
 
 ## Spend selection compute deliberately
 
-Rebert et al. model seed reduction as set cover over measured blocks and examine scheduler-dependent results; their preprocessing example can exceed a short campaign's budget. Use that evidence to compare total cost, not to copy a historical corpus size or an omniscient schedule ([§§2.2, 6.2–6.3](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf)).
+Rebert et al. model seed reduction as set cover over measured code blocks ([§2](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf)). Their results depend on the scheduler: under optimal scheduling "the full set will *always* find more, or the same amount of bugs", while under round-robin the reduced set did better. Their preprocessing example, 368 CPU-days to collect coverage for one JPG bucket, can exceed a campaign's budget. Use that evidence to compare total cost, not to copy a historical corpus size or an omniscient schedule ([§§6.2.2, 6.3](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf)).
 
 Record acquisition, decoding, baseline execution, selection and replay cost alongside actual property evaluations and discoveries. For an expensive source corpus, compare a bounded selection pilot with directly exploring a useful subset. Keep the denominators and tested property visible; the choice is provisional until observations support it.
 
@@ -21,4 +21,4 @@ When a slow input dominates, preserve it and determine whether it demonstrates a
 
 ## Revisit meaning, not just filenames
 
-After changes to generation, schema, decoding or enabled features, replay where meaning may change. A retired active input can remain an original or regression; explain its unsupported state or migration. For Go, preserve actual typed values and relevant generator identity rather than assume an opaque file still means the same thing ([Go corpus format](https://go.dev/doc/security/fuzz/)).
+After changes to generation, schema, decoding or enabled features, replay where meaning may change. A retired active input can remain an original or regression; explain its unsupported state or migration. For Go, preserve actual typed values and relevant generator identity rather than assume an opaque file still means the same thing; a corpus file's first line records "the file's encoding version" ([Go fuzzing, Corpus file format](https://raw.githubusercontent.com/golang/website/a8b66266e226994e2ead51317bace3ee83cedab9/_content/doc/security/fuzz/index.md)).

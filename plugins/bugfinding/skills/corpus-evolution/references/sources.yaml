@@ -1,36 +1,41 @@
 sources:
-  - name: "AFL++ Fuzzing in Depth"
-    url: "https://aflplus.plus/docs/fuzzing_in_depth/"
+  - name: "AFL++ Fuzzing in Depth (docs/fuzzing_in_depth.md at d007072)"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/docs/fuzzing_in_depth.md"
     type: "official-documentation"
     accessed: "2026-11-07"
-    sections_used: ["Preparing the campaign", "Dictionaries", "Multiple cores", "Checking coverage"]
+    sections_used: ["2. b) Making the input corpus unique", "3. a) Running afl-fuzz (dictionaries)", "3. c) Using multiple cores (-F sync)", "3. g) Checking the coverage of the fuzzing"]
   - name: "AFL++ cmin and merge selected source"
     url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/src/afl-cmin.c"
     type: "primary-source-code"
     accessed: "2026-11-07"
-    sections_used: ["License header", "usage", "main and merge mode"]
+    sections_used: ["License header (SPDX)", "usage() for afl-merge and afl-cmin", "run-result crash/timeout checks", "non-empty output directory check"]
+  - name: "AFL++ config.h MAX_FILE"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/include/config.h"
+    type: "primary-source-code"
+    accessed: "2026-11-07"
+    sections_used: ["#define MAX_FILE"]
   - name: "AFL++ selected licensing scope"
     url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/LICENSING.md"
     type: "official-documentation"
     accessed: "2026-11-07"
-    sections_used: ["Project scope", "Per-file Apache-2.0", "Combined work"]
-  - name: "LLVM libFuzzer"
-    url: "https://llvm.org/docs/LibFuzzer.html"
+    sections_used: ["Summary (project AGPL-3.0-or-later)", "2. Per file under Apache-2.0", "Note on the combined afl-fuzz"]
+  - name: "LLVM libFuzzer (llvm/docs/LibFuzzer.md at 635f308)"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/llvm/docs/LibFuzzer.md"
     type: "official-documentation"
     accessed: "2026-11-07"
-    sections_used: ["Corpus", "Running", "Resuming merge", "Options"]
-  - name: "Go fuzzing"
-    url: "https://go.dev/doc/security/fuzz/"
+    sections_used: ["Corpus", "Resuming merge", "Options (-merge, -minimize_crash, -reduce_inputs, file-list replay)", "Dictionaries"]
+  - name: "Go fuzzing (golang/website _content/doc/security/fuzz/index.md at a8b6626)"
+    url: "https://raw.githubusercontent.com/golang/website/a8b66266e226994e2ead51317bace3ee83cedab9/_content/doc/security/fuzz/index.md"
     type: "official-documentation"
     accessed: "2026-11-07"
-    sections_used: ["Running fuzz tests", "Failing input", "Corpus file format", "Glossary"]
-  - name: "OSS-Fuzz corpus access"
-    url: "https://google.github.io/oss-fuzz/advanced-topics/corpora/"
+    sections_used: ["Requirements", "Failing input", "Corpus file format", "Glossary"]
+  - name: "OSS-Fuzz corpus access (docs/advanced-topics/corpora.md at 156f862)"
+    url: "https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/corpora.md"
     type: "official-documentation"
     accessed: "2026-11-07"
-    sections_used: ["Obtain access", "Downloading", "Corpus backups"]
+    sections_used: ["Accessing Corpora (intro)", "Obtain access", "Downloading the corpus", "Corpus backups"]
   - name: "Rebert et al. Optimizing Seed Selection for Fuzzing"
     url: "https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf"
     type: "research-paper"
     accessed: "2026-11-07"
-    sections_used: ["2.2 seed selection", "6.1 uniqueness", "6.2 scheduling and reduction", "6.3 preprocessing and transfer"]
+    sections_used: ["2 Q1: Seed Selection (set cover)", "2.2 Specific Research Questions", "6.1 Establishing Ground Truth", "6.2.2 Are reduced seed sets better than a full set?", "6.3 Are Reduced Sets Reusable Across Programs?"]
