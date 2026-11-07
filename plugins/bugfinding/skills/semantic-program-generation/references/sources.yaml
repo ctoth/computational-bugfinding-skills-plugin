@@ -4,7 +4,9 @@ sources:
     type: research-paper
     accessed: "2026-11-07"
     sections_used:
-      - "Sections 2.1-2.5: semantic generation and safety"
+      - "Section 2 introduction: interleaving static analysis with generation"
+      - "Sections 2.1-2.5: differential oracle, design goals, generation, safety mechanisms, global safety"
+      - "Section 2.6: implementation-defined equivalence classes and IR-oriented design"
       - "Sections 3.3 and 3.5: size and coverage measurements"
       - "Section 4: reduction and interpretation"
   - name: "How SQLite Is Tested"
@@ -14,37 +16,39 @@ sources:
     sections_used:
       - "Section 4.1.3: joint SQL/database mutation"
   - name: "Csmith README"
-    url: "https://raw.githubusercontent.com/csmith-project/csmith/master/README.md"
+    url: "https://raw.githubusercontent.com/csmith-project/csmith/0cdc710315cfee9035e22ef4363ca479270d1934/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
       - "About, installation and use"
   - name: "Csmith license"
-    url: "https://raw.githubusercontent.com/csmith-project/csmith/master/COPYING"
+    url: "https://raw.githubusercontent.com/csmith-project/csmith/0cdc710315cfee9035e22ef4363ca479270d1934/COPYING"
     type: license
     accessed: "2026-11-07"
     sections_used:
       - "Redistribution conditions"
   - name: "FuzzTest domain reference"
-    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/domains-reference.md"
+    url: "https://raw.githubusercontent.com/google/fuzztest/1b4e4f0e4c446aca4660c43a28ec1b8d893b6510/doc/domains-reference.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
       - "Map, FlatMap, reversible variants, Filter and Recursive Domains"
   - name: "FuzzTest Bazel quickstart"
-    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/quickstart-bazel.md"
+    url: "https://raw.githubusercontent.com/google/fuzztest/1b4e4f0e4c446aca4660c43a28ec1b8d893b6510/doc/quickstart-bazel.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Prerequisites, configuration and execution modes"
+      - "Prerequisites"
+      - "Set up a Bazel workspace (C++17 and Clang configuration)"
+      - "Create and run a fuzz test (unit test mode and fuzzing mode)"
   - name: "FuzzTest property contract"
-    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/fuzz-test-macro.md"
+    url: "https://raw.githubusercontent.com/google/fuzztest/1b4e4f0e4c446aca4660c43a28ec1b8d893b6510/doc/fuzz-test-macro.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
       - "The property function"
   - name: "FuzzTest license"
-    url: "https://raw.githubusercontent.com/google/fuzztest/main/LICENSE"
+    url: "https://raw.githubusercontent.com/google/fuzztest/1b4e4f0e4c446aca4660c43a28ec1b8d893b6510/LICENSE"
     type: license
     accessed: "2026-11-07"
     sections_used:

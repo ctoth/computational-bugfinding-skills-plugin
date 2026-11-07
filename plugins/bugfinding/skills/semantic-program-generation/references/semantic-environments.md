@@ -2,7 +2,7 @@
 
 ## Keep facts for the selected operation
 
-First identify the guarantee and the real producer that can exercise it. Csmith maintains global definitions and local context, effects and points-to information while constructing code; safety checks decide whether to commit a fragment. Apply that reasoning at the smallest useful scope rather than reproduce its C-specific analysis in another runtime ([Csmith, §2.3](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)).
+First identify the guarantee and the real producer that can exercise it. Csmith maintains global definitions and local context, effects and points-to information while constructing code; safety checks decide whether to commit a fragment: if they succeed, "the new code fragment is committed to the generated program", otherwise local-environment changes "are rolled back". Apply that reasoning at the smallest useful scope rather than reproduce its C-specific analysis in another runtime ([Csmith, §2.3](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)).
 
 | Needed behavior | Constructive generation decision | Revalidate after |
 |---|---|---|
@@ -15,11 +15,11 @@ These rows are design adaptations, not claims about a particular language's perm
 
 ## Preserve useful error testing
 
-For malformed-input or invalid-operation robustness, the error path may be the intended behavior. For an optimizer result comparison, undefined behavior may invalidate the comparison. Name the lane instead of globally rejecting every runtime error or accepting every error as a successful semantic test ([Csmith, §§2.1–2.4](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)).
+For malformed-input or invalid-operation robustness, the error path may be the intended behavior. For an optimizer result comparison, undefined behavior may invalidate the comparison: C99's undefined behaviors "destroy the meaning of a program". Name the lane instead of globally rejecting every runtime error or accepting every error as a successful semantic test ([Csmith, §§2.1–2.4](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)).
 
 ## Follow effects through control flow
 
-Example: a generated dereference is safe when its pointer targets a local variable, but a later loop-body assignment can supply a null pointer on the next iteration. The earlier local check no longer establishes safety after the backedge. Csmith analyzes this interaction when closing loops; retain the analogous facts your target actually needs at joins, calls and exception boundaries ([Csmith, §2.5](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)).
+Example: a generated dereference is safe when its pointer targets a local variable, but a later loop-body assignment can supply a null pointer on the next iteration. The earlier local check no longer establishes safety after the backedge: the paper's line 4 "was safe when it was generated", but the backedge carries "a null-valued `p`". Csmith runs a global fixpoint analysis "when a loop is closed by adding its back-edge"; retain the analogous facts your target actually needs at joins, calls and exception boundaries ([Csmith, §2.5](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)).
 
 ## Worked permissioned-world experiment
 
