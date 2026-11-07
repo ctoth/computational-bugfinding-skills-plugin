@@ -5,7 +5,7 @@ sources:
     accessed: "2026-11-07"
     revision: "a8b66266e226994e2ead51317bace3ee83cedab9"
     sections_used:
-      - "Usage; Report Format; Options; Excluding Tests; Requirements; Runtime Overhead"
+      - "Report Format; Options (log_path, exitcode, history_size, halt_on_error); Excluding Tests; How To Use; Requirements; Runtime Overhead"
     quote: "failed to restore"
   - name: "Go platform admission source"
     url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/internal/platform/supported.go"
@@ -13,7 +13,7 @@ sources:
     accessed: "2026-11-07"
     revision: "dcc06a82727b447270b1a58cc5f86b49736e317c"
     sections_used:
-      - "RaceDetectorSupported lines16–32; FuzzInstrumented lines80–90"
+      - "RaceDetectorSupported lines 18–34"
     quote: "RaceDetectorSupported"
   - name: "Go cgo build flag producer"
     url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/cmd/go/internal/work/exec.go"
@@ -21,7 +21,7 @@ sources:
     accessed: "2026-11-07"
     revision: "dcc06a82727b447270b1a58cc5f86b49736e317c"
     sections_used:
-      - "cgo flag construction lines3325–3332"
+      - "cgo flag construction lines 3553–3560"
     quote: "-fsanitize=memory"
   - name: "Go plugin warnings"
     url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/plugin/plugin.go"
@@ -29,7 +29,7 @@ sources:
     accessed: "2026-11-07"
     revision: "dcc06a82727b447270b1a58cc5f86b49736e317c"
     sections_used:
-      - "Warnings lines26–55"
+      - "Warnings lines 25–57"
     quote: "poorly supported"
   - name: "Go testing flags 1.27.3"
     url: "https://pkg.go.dev/cmd/go@go1.27.3#hdr-Testing_flags"
@@ -37,7 +37,7 @@ sources:
     accessed: "2026-11-07"
     revision: "go1.27.3"
     sections_used:
-      - "Testing flags: count; cpu; parallel; timeout; caching"
+      - "Testing flags: count; cpu; parallel; caching"
     quote: "GOMAXPROCS"
   - name: "Go license"
     url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/LICENSE"
@@ -53,7 +53,7 @@ sources:
     accessed: "2026-11-07"
     revision: "635f30899dd0914fa89f0b3dc9a9e548e6d0ceec"
     sections_used:
-      - "Supported Platforms; Usage; attributes; Ignorelist; Limitations; Adaptive Delay"
+      - "Introduction; Supported Platforms; Usage; no_sanitize attribute; Ignorelist; Limitations; Run-time Flags (exitcode, history_size, ignore_noninstrumented_modules); Adaptive Delay"
     quote: "static linking is not supported"
   - name: "TSan runtime flags"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/compiler-rt/lib/tsan/rtl/tsan_flags.inc"
@@ -61,7 +61,7 @@ sources:
     accessed: "2026-11-07"
     revision: "635f30899dd0914fa89f0b3dc9a9e548e6d0ceec"
     sections_used:
-      - "memory_limit_mb; force_seq_cst_atomics; enable_adaptive_delay; overhead controls"
+      - "suppress_equal_stacks; memory_limit_mb; force_seq_cst_atomics; enable_adaptive_delay; adaptive_delay_aggressiveness"
     quote: "aim at"
   - name: "TSan initialization and Go exclusion"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/compiler-rt/lib/tsan/rtl/tsan_rtl.cpp"
@@ -69,7 +69,7 @@ sources:
     accessed: "2026-11-07"
     revision: "635f30899dd0914fa89f0b3dc9a9e548e6d0ceec"
     sections_used:
-      - "Initialize lines729–731"
+      - "Initialize lines 777–779 (AdaptiveDelay::Init under #if !SANITIZER_GO)"
     quote: "!SANITIZER_GO"
   - name: "TSan adaptive delay time seed"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/compiler-rt/lib/tsan/rtl/tsan_adaptive_delay.cpp"
@@ -77,7 +77,7 @@ sources:
     accessed: "2026-11-07"
     revision: "635f30899dd0914fa89f0b3dc9a9e548e6d0ceec"
     sections_used:
-      - "InitTls lines243–251; delay operations lines277–307"
+      - "InitTls lines 265–273 (SetRandomSeed line 271); delay operations lines 302–403"
     quote: "SetRandomSeed(NanoTime())"
   - name: "LLVM license"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/LICENSE.TXT"
@@ -91,23 +91,23 @@ sources:
     url: "https://valgrind.org/docs/manual/hg-manual.html"
     type: "official-documentation"
     accessed: "2026-11-07"
-    revision: "manual observed with release3.28.0"
+    revision: "manual observed with release 3.28.0"
     sections_used:
-      - "7.1–7.6: pthread model; lock-order/race interpretation; annotations; history controls"
+      - "7.1–7.6: pthread model; lock-order/race interpretation; annotations; --history-level, --conflict-cache-size, --free-is-write"
     quote: "two stack traces"
   - name: "Valgrind core manual"
     url: "https://valgrind.org/docs/manual/manual-core.html"
     type: "official-documentation"
     accessed: "2026-11-07"
-    revision: "manual observed with release3.28.0"
+    revision: "manual observed with release 3.28.0"
     sections_used:
-      - "logging; error-exitcode; trace-children"
+      - "--log-file %p; --error-exitcode; --trace-children"
     quote: "default: 0"
   - name: "Valgrind release notes"
     url: "https://valgrind.org/docs/manual/dist.news.html"
     type: "official-documentation"
     accessed: "2026-11-07"
-    revision: "release3.28.0,23Oct2026"
+    revision: "Release 3.28.0 (23 Oct 2026)"
     sections_used:
       - "3.28.0 release platform/ISA statement"
     quote: "Release 3.28.0"
@@ -115,7 +115,7 @@ sources:
     url: "https://valgrind.org/info/about.html"
     type: "official-documentation"
     accessed: "2026-11-07"
-    revision: "observed2026-11-07"
+    revision: "observed 2026-11-07"
     sections_used:
       - "About; full versioned COPYING not established"
     quote: "GPL'd system"
@@ -123,7 +123,7 @@ sources:
     url: "https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35604.pdf"
     type: "research-paper"
     accessed: "2026-11-07"
-    revision: "Serebryany and Iskhodzhanov,2009"
+    revision: "Serebryany and Iskhodzhanov, 2009"
     sections_used:
-      - "Direct reader images printed65,67,69: annotations; lifetime/publication; excess synchronization; reference-count symptom"
+      - "paper-reader page images printed pp.64-69: §4.3 n.5 history modes; §4.4.1 flag example; §5 annotations; §6.3.4-6.3.5 publication/initialization; §6.4 false positives; §6.5 general advice; §7.1 reference-count symptom"
     quote: "DYNAMIC ANNOTATIONS"
