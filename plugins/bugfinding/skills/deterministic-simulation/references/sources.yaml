@@ -4,7 +4,8 @@ sources:
     type: research-paper
     accessed: "2026-11-07"
     sections_used:
-      - "Section 4 pp. 8-9; Section 6.2 p. 11"
+      - "Section 4 Simulation Testing: Deterministic simulator, Test oracles, Fault injection, Swarm testing, Limitations (pp. 8-9)"
+      - "Section 6.2 Simulation Testing (p. 11)"
     evidence_fragment: "small state-space"
   - name: "Gosim source loader"
     url: "https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/internal/translate/load.go"
@@ -19,13 +20,16 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "Architecture; feature selection and package ownership"
+      - "Engine (cooperative scheduling, simulated time, termination without defers)"
+      - "Native computation (Ed25519 GenerateKey(nil) host randomness)"
     evidence_fragment: "immutable before application initialization"
   - name: "Gosim selected README"
     url: "https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Technical introduction; deterministic test; machines; debugging"
+      - "Technical introduction; A deterministic test; Machines and optional controls; CLI, metatesting and diagnostics"
+      - "Current scope of features (Platforms row); Development and test reports (certification and cross-patch replay)"
     evidence_fragment: "complete build identity"
   - name: "Gosim compiler family table"
     url: "https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/internal/buildspec/families_gen.go"
@@ -39,7 +43,10 @@ sources:
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "runtime; network; storage capability and omission rows"
+      - "gosim: Graceful stop, crash, and restart"
+      - "rt: Virtual time and timeouts; Deterministic scheduling and randomness"
+      - "net: TCP packet-loss recovery; partition/repair; latency; failure and repair probabilities; policy overrides; arbitrary packet reordering"
+      - "fs: Sync and crash durability; Crash injection during sync; Storage capacity limits; Read-only storage mode; Random storage fault injection"
     evidence_fragment: "There is no public reordering policy"
   - name: "Gosim machine controls"
     url: "https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/machine_sim.go"
@@ -53,7 +60,7 @@ sources:
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "SetCrashMode; SetSyncFault"
+      - "SetCrashMode; SetSyncFault; SetReadOnly"
     evidence_fragment: "kernel.FSSetSyncFaultRequest"
   - name: "Gosim recovery declarations"
     url: "https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/fs/recovery.go"
@@ -74,7 +81,7 @@ sources:
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "link validation; Partition; Repair"
+      - "linkValue validation; SetLinkPolicy; ResetLinkPolicy; Partition; Repair"
     evidence_fragment: "Connected: false"
   - name: "Gosim run identity"
     url: "https://raw.githubusercontent.com/neria-cloud/gosim/64ac3b2a20806bb4f9470232e12fabdfd5d13852/rt/info.go"
@@ -95,47 +102,47 @@ sources:
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Simulation; unit runtime modes; seed scope; performance testing"
+      - "Correctness and Performance; Simulation; Running C++ unit tests (UNIT_TEST_SEED scope)"
     evidence_fragment: "independent of"
   - name: "FoundationDB client workloads"
     url: "https://raw.githubusercontent.com/apple/foundationdb/7e7611f8270952a2b1cffd75aa523c4b057afd62/documentation/sphinx/source/client-testing.rst"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Parallelism and Determinism; lifecycle; Run the simulator; API Tester"
+      - "Parallelism and Determinism; test lifecycle; Run the simulator; API Tester"
     evidence_fragment: "main network thread"
   - name: "TigerBeetle VOPR"
     url: "https://raw.githubusercontent.com/tigerbeetle/tigerbeetle/68958eb757747d0fc96a79d1f9c2fa6766b67b48/docs/internals/vopr.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "determinism; fault model; Assertions and Checkers"
+      - "Deterministic Simulation Testing (seed and Git commit); The VOPR (fault model, replay); Assertions and Checkers"
     evidence_fragment: "Git commit"
   - name: "TigerBeetle selected build"
     url: "https://raw.githubusercontent.com/tigerbeetle/tigerbeetle/68958eb757747d0fc96a79d1f9c2fa6766b67b48/build.zig"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "zig_version; VOPR build/run step"
+      - "zig_version and exact-version comptime check; VOPR build/run step"
     evidence_fragment: "zig build vopr -- 42"
   - name: "TigerBeetle simulation testing for liveness"
     url: "https://tigerbeetle.com/blog/2023-07-06-simulation-testing-for-liveness/"
     type: primary-practitioner-account
     accessed: "2026-11-07"
     sections_used:
-      - "Teaching the VOPR; Resonance"
+      - "An Example; Teaching The VOPR"
     evidence_fragment: "making those failures permanent"
   - name: "Antithesis prerequisites"
     url: "https://antithesis.com/docs/faq/prerequisites/"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Architecture; packaging; complete network isolation; workload"
+      - "Architecture & compilation; Software packaging & orchestration; Complete network isolation"
     evidence_fragment: "No Nested Virtualization"
   - name: "Antithesis Compose setup"
     url: "https://antithesis.com/docs/setup/docker_compose/"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Requirements; Add a ready signal"
+      - "Requirements; Add a ready signal for fuzzing"
     evidence_fragment: "setup_complete"
