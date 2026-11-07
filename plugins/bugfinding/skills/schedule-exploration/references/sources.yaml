@@ -1,0 +1,115 @@
+sources:
+  - name: "CHESS OSDI 2008"
+    url: "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/osdi2008-CHESS.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "Sections 3-4; direct page images pp.4,7,9 reread"
+  - name: "Loom integration"
+    url: "https://docs.rs/loom/0.7.2/loom/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Writing tests; Yielding; Running; Debugging; Limitations"
+  - name: "Loom unsupported features"
+    url: "https://raw.githubusercontent.com/tokio-rs/loom/master/README.md"
+    type: official-source
+    accessed: "2026-11-07"
+    sections_used:
+      - "Unsupported features"
+  - name: "Loom Builder"
+    url: "https://docs.rs/loom/latest/loom/model/struct.Builder.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Fields and checkpoint configuration; observed 0.7.2"
+  - name: "Loom check loop and checkpoint implementation"
+    url: "https://raw.githubusercontent.com/tokio-rs/loom/master/src/model.rs"
+    type: official-source
+    accessed: "2026-11-07"
+    sections_used:
+      - "Builder check lines 153-175; checkpoint modules 227-255"
+  - name: "Loom package features and license"
+    url: "https://raw.githubusercontent.com/tokio-rs/loom/master/Cargo.toml"
+    type: official-source
+    accessed: "2026-11-07"
+    sections_used:
+      - "Package; features"
+  - name: "Shuttle integration"
+    url: "https://docs.rs/shuttle/0.9.10/shuttle/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Controlled synchronization/randomness; schedulers"
+  - name: "Shuttle PCT API"
+    url: "https://docs.rs/shuttle/0.9.10/shuttle/fn.check_pct.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Signature and depth/iteration semantics"
+  - name: "Shuttle DFS API"
+    url: "https://docs.rs/shuttle/0.9.10/shuttle/fn.check_dfs.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Signature; max_iterations"
+  - name: "Shuttle configuration"
+    url: "https://docs.rs/shuttle/0.9.10/shuttle/struct.Config.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "max_time; max_steps; silence_warnings"
+  - name: "Shuttle step bounds"
+    url: "https://docs.rs/shuttle/0.9.10/shuttle/enum.MaxSteps.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Step definition; FailAfter; ContinueAfter"
+  - name: "Shuttle replay"
+    url: "https://docs.rs/shuttle/0.9.10/shuttle/fn.replay.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Replay preconditions"
+  - name: "Shuttle repository"
+    url: "https://raw.githubusercontent.com/awslabs/shuttle/main/README.md"
+    type: official-source
+    accessed: "2026-11-07"
+    sections_used:
+      - "Integration; License"
+  - name: "Coyote rewriting and model"
+    url: "https://microsoft.github.io/coyote/concepts/binary-rewriting/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Host; configuration; scope; timeout and memory model"
+  - name: "Coyote test integration"
+    url: "https://microsoft.github.io/coyote/how-to/unit-testing/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Rewriting; TestReport; lazy TryEmitTraces"
+  - name: "Coyote execution"
+    url: "https://microsoft.github.io/coyote/get-started/using-coyote/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Iterations; shared state; limits; replay"
+  - name: "Coyote setup"
+    url: "https://microsoft.github.io/coyote/get-started/install/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Prerequisites; supported target frameworks"
+  - name: "Coyote license"
+    url: "https://raw.githubusercontent.com/microsoft/coyote/main/LICENSE"
+    type: official-source
+    accessed: "2026-11-07"
+    sections_used:
+      - "MIT"
+  - name: "Go synctest"
+    url: "https://pkg.go.dev/testing/synctest"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Overview; Time; Blocking; Isolation; observed go1.27.3"
