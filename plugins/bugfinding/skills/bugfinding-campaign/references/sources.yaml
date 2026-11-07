@@ -1,0 +1,78 @@
+sources:
+  - name: AFL++ Fuzzing in Depth
+    url: https://aflplus.plus/docs/fuzzing_in_depth/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Instrumenting the target
+      - Using multiple cores
+  - name: OSS-Fuzz Ideal Integration
+    url: https://google.github.io/oss-fuzz/advanced-topics/ideal-integration/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Fuzz Target
+      - Seed Corpus
+      - Coverage
+      - Performance
+  - name: OSS-Fuzz Fuzz Introspector
+    url: https://google.github.io/oss-fuzz/advanced-topics/fuzz-introspector/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Fuzz Introspector overview
+      - Differences in build tooling
+  - name: ClusterFuzz Analyzing Fuzzer Performance
+    url: https://google.github.io/clusterfuzz/using-clusterfuzz/workflows/analyzing-fuzzing-performance/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - When to analyze fuzz target performance
+      - Performance factors
+  - name: ClusterFuzz Triaging New Crashes
+    url: https://google.github.io/clusterfuzz/using-clusterfuzz/workflows/triaging-new-crashes/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Filtering testcases
+      - Regression revision range
+      - Crash statistics
+  - name: OSS-Fuzz Reproducing Issues
+    url: https://google.github.io/oss-fuzz/advanced-topics/reproducing/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Fuzz target bugs
+      - Build the image and the fuzzers
+      - Reproducing bugs
+  - name: How SQLite Is Tested
+    url: https://www.sqlite.org/testing.html
+    type: primary-practitioner-account
+    accessed: '2026-11-07'
+    sections_used:
+      - '2. Test Harnesses'
+      - '4.1.3. The dbsqlfuzz and jfuzz fuzzers'
+      - '4.1.4. Other third-party fuzzers'
+      - '7.6. Mutation testing'
+  - name: FuzzBench The Report
+    url: https://google.github.io/fuzzbench/reference/report/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - The default report
+      - Per-benchmark summary
+  - name: LLVM libFuzzer
+    url: https://llvm.org/docs/LibFuzzer.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Options
+  - name: 'Elle: Inferring Isolation Anomalies from Experimental Observations'
+    url: https://arxiv.org/abs/2003.10554
+    type: research-paper
+    accessed: '2026-11-07'
+    sections_used:
+      - '3. Deducing Dependencies (page 3)'
+      - '4.3. Soundness of Elle (page 7)'
+      - '6. Finding Counterexamples (page 9)'
+      - '9. Future Work and Conclusions (page 12)'
