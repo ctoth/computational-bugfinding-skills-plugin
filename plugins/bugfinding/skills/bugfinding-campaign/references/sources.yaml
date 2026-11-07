@@ -1,36 +1,36 @@
 sources:
   - name: AFL++ Fuzzing in Depth
-    url: https://aflplus.plus/docs/fuzzing_in_depth/
+    url: https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/docs/fuzzing_in_depth.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Instrumenting the target
-      - Using multiple cores
+      - 1.b Selecting instrumentation options
+      - 3.c Using multiple cores
   - name: OSS-Fuzz Ideal Integration
-    url: https://google.github.io/oss-fuzz/advanced-topics/ideal-integration/
+    url: https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/ideal_integration.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Fuzz Target
       - Seed Corpus
       - Coverage
-      - Performance
   - name: OSS-Fuzz Fuzz Introspector
-    url: https://google.github.io/oss-fuzz/advanced-topics/fuzz-introspector/
+    url: https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/fuzz_introspector.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
+      - Fuzz Introspector (introduction)
       - Fuzz Introspector overview
       - Differences in build tooling
   - name: ClusterFuzz Analyzing Fuzzer Performance
-    url: https://google.github.io/clusterfuzz/using-clusterfuzz/workflows/analyzing-fuzzing-performance/
+    url: https://raw.githubusercontent.com/google/clusterfuzz/77bbad2432fb931906c523786defac928d12afdb/docs/using-clusterfuzz/workflows/analyzing-fuzzer-performance.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - When to analyze fuzz target performance
       - Performance factors
   - name: ClusterFuzz Triaging New Crashes
-    url: https://google.github.io/clusterfuzz/using-clusterfuzz/workflows/triaging-new-crashes/
+    url: https://raw.githubusercontent.com/google/clusterfuzz/77bbad2432fb931906c523786defac928d12afdb/docs/using-clusterfuzz/workflows/triaging-new-crashes.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
@@ -38,13 +38,12 @@ sources:
       - Regression revision range
       - Crash statistics
   - name: OSS-Fuzz Reproducing Issues
-    url: https://google.github.io/oss-fuzz/advanced-topics/reproducing/
+    url: https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/reproducing.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Fuzz target bugs
       - Build the image and the fuzzers
-      - Reproducing bugs
   - name: How SQLite Is Tested
     url: https://www.sqlite.org/testing.html
     type: primary-practitioner-account
@@ -55,14 +54,13 @@ sources:
       - '4.1.4. Other third-party fuzzers'
       - '7.6. Mutation testing'
   - name: FuzzBench The Report
-    url: https://google.github.io/fuzzbench/reference/report/
+    url: https://raw.githubusercontent.com/google/fuzzbench/3234e151d70f6093272a9b4155e68ee57faf986c/docs/reference/report.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - The default report
       - Per-benchmark summary
-  - name: LLVM libFuzzer
-    url: https://llvm.org/docs/LibFuzzer.html
+  - name: LLVM libFuzzer (LLVM 23.1.0 documentation)
+    url: https://releases.llvm.org/23.1.0/docs/LibFuzzer.html
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
@@ -74,5 +72,4 @@ sources:
     sections_used:
       - '3. Deducing Dependencies (page 3)'
       - '4.3. Soundness of Elle (page 7)'
-      - '6. Finding Counterexamples (page 9)'
       - '9. Future Work and Conclusions (page 12)'
