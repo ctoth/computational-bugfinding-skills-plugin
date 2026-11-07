@@ -1,0 +1,12 @@
+{
+  "name": "bugfinding",
+  "version": "0.1.0",
+  "description": "Computational bugfinding through executable oracles, generated workloads, controlled search, and reproducible evidence",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Computational Bugfinding",
+    "shortDescription": "Find and reproduce software defects with compute",
+    "longDescription": "Skills for choosing correctness oracles, generating meaningful workloads, exploring execution and failure spaces, reducing counterexamples, and triaging findings from raw evidence.",
+    "category": "Developer Tools"
+  }
+}

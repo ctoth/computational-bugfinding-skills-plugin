@@ -1,0 +1,20 @@
+{
+  "name": "computational-bugfinding-marketplace",
+  "interface": {
+    "displayName": "Computational Bugfinding"
+  },
+  "plugins": [
+    {
+      "name": "bugfinding",
+      "source": {
+        "source": "local",
+        "path": "./plugins/bugfinding"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

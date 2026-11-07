@@ -1,0 +1,5 @@
+{
+  "name": "bugfinding",
+  "version": "0.1.0",
+  "description": "Computational bugfinding through executable oracles, generated workloads, controlled search, and reproducible evidence"
+}

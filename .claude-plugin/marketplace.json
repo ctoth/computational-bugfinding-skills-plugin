@@ -1,0 +1,16 @@
+{
+  "name": "computational-bugfinding-marketplace",
+  "owner": {
+    "name": "Q"
+  },
+  "metadata": {
+    "description": "Agent skills for computational bugfinding and evidence-based failure triage"
+  },
+  "plugins": [
+    {
+      "name": "bugfinding",
+      "source": "./plugins/bugfinding",
+      "description": "Computational bugfinding through executable oracles, generated workloads, controlled search, and reproducible evidence"
+    }
+  ]
+}
