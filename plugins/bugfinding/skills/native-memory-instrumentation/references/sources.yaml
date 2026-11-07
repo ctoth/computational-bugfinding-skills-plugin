@@ -1,0 +1,97 @@
+sources:
+  - name: "LLVM AddressSanitizer"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/AddressSanitizer.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Usage","Additional Checks","Symbolizing the Reports","Limitations"]
+    evidence_fragment: "first detected error"
+  - name: "LLVM MemorySanitizer"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/MemorySanitizer.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Usage","Origin Tracking","Handling external code","Ignorelist"]
+    evidence_fragment: "all program code"
+  - name: "LLVM UndefinedBehaviorSanitizer"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/UndefinedBehaviorSanitizer.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Usage","Available checks","Stack traces"]
+    evidence_fragment: "continues execution"
+  - name: "LLVM LeakSanitizer"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/LeakSanitizer.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Usage","Programmatic Disabling","Flags"]
+    evidence_fragment: "reachable from it"
+  - name: "Clang driver incompatibility handling"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/lib/Driver/SanitizerArgs.cpp"
+    type: implementation
+    accessed: "2026-11-07"
+    sections_used: ["IncompatibleGroups","leak handling"]
+    evidence_fragment: "IncompatibleGroups"
+  - name: "LLVM license"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/LICENSE.TXT"
+    type: license
+    accessed: "2026-11-07"
+    sections_used: ["license declaration"]
+    evidence_fragment: "with LLVM Exceptions"
+  - name: "Valgrind Memcheck manual"
+    url: "https://valgrind.org/docs/manual/mc-manual.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["4.2","4.3","4.5","4.7","4.8"]
+    evidence_fragment: "errors-for-leak-kinds"
+  - name: "Valgrind core manual"
+    url: "https://valgrind.org/docs/manual/manual-core.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["2.1-2.4","Error-related options","2.8"]
+    evidence_fragment: "error-exitcode"
+  - name: "Valgrind manual release identity"
+    url: "https://valgrind.org/docs/manual/index.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Release"]
+    evidence_fragment: "Release 3.28.0"
+  - name: "Valgrind platforms"
+    url: "https://valgrind.org/info/platforms.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Current","Historical"]
+    evidence_fragment: "Historical"
+  - name: "Valgrind project declaration"
+    url: "https://valgrind.org/info/about.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["About Valgrind"]
+    evidence_fragment: "GPL"
+  - name: "Go build documentation"
+    url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/cmd/go/alldocs.go"
+    type: implementation-documentation
+    accessed: "2026-11-07"
+    sections_used: ["build flags asan/msan"]
+    evidence_fragment: "enable interoperation"
+  - name: "Go cgo flag producer"
+    url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/cmd/go/internal/work/exec.go"
+    type: implementation
+    accessed: "2026-11-07"
+    sections_used: ["BuildMSan and BuildASan branches"]
+    evidence_fragment: "cfg.BuildASan"
+  - name: "MSVC AddressSanitizer"
+    url: "https://raw.githubusercontent.com/MicrosoftDocs/cpp-docs/f29e25fb8f05bb38cf0246476b5c1fc92bf33876/docs/sanitizers/asan.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Build integration","Crash dump support","Command prompt"]
+    evidence_fragment: "Windows 10 and later"
+  - name: "MSVC ASan known issues"
+    url: "https://raw.githubusercontent.com/MicrosoftDocs/cpp-docs/f29e25fb8f05bb38cf0246476b5c1fc92bf33876/docs/sanitizers/asan-known-issues.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used: ["Incompatible functionality","Allocator overrides","C++/CLI"]
+    evidence_fragment: "native translation units"
+  - name: "AddressSanitizer ATC 2012"
+    url: "https://www.usenix.org/system/files/conference/atc12/atc12-final39.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used: ["3.3-3.5","4","5.2"]
+    evidence_fragment: "False Negatives"
