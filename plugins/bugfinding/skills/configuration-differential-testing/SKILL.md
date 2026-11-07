@@ -1,0 +1,30 @@
+---
+name: configuration-differential-testing
+description: Searches constrained build, runtime, platform and capability combinations for contract violations. Use when defaults pass but interacting configurations may change behavior, or when extending differential testing across supported modes.
+---
+
+# Configuration differential testing
+
+Spend compute on supported configuration interactions and inputs that exercise them. A covering array covers modeled value tuples; predicting fault detection also needs a fault profile and relevant exercised behavior ([Kuhn et al., pp.2–7](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)). This skill's procedure combines that distinction with constrained generation; it is not an empirical guarantee of bug yield.
+
+## Establish the executable configuration model
+
+Read the actual build/runtime producer and shared guarantee. Record each factor's finite values, source of support/exclusions, and evidence that a requested setting became effective. Separate product-invalid tuples from supported lanes unavailable on this machine. An unexplained supported build failure stays a candidate, not a new exclusion. Use [factor and coverage design](references/factors-and-coverage.md); the distinction between modeled values and the variables actually reaching a branch matters ([Kuhn et al., §III](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)).
+
+Group executions by a justified common contract. Preserve intended differences, optional-feature rejection rules and input preconditions; use `semantic-differential-testing` for observation/equivalence design. The paper's coverage model does not establish that arbitrary modes promise identical semantics ([Kuhn et al., pp.4–7](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)).
+
+## Generate, execute and observe
+
+Use full valid-domain enumeration when tractable, otherwise an explicit interaction strength plus necessary regression/higher-order cases. Integrate supported constraints during generation; deleting invalid output rows can lose valid interactions ([PICT, Constraints](https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/doc/pict.md)). For the concrete PICT route, setup, commands and ACTS availability limits, read [tool operation](references/pict-operation.md).
+
+Apply each saved row through the existing target runner with controlled input/state. Record requested/effective values, selected binary/build, real capability evidence, raw outputs and actual oracle evaluation. Count generated, buildable, applied and compared cases separately: factor coverage alone does not establish a triggered or detected fault ([Kuhn et al., pp.2–5](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)). Use the pack's corpus/generation owners for input diversity; do not build a matrix service.
+
+Spend the next allocation on missing valid tuples, stronger interactions, additional meaningful inputs or actual platform lanes. PICT's best-of-N minimizes generated suite size, and generator workers are not target concurrency; neither is a defect-prioritization oracle ([PICT generation](https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/pict.cpp), [CLI](https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/cmdline.cpp)).
+
+## Reduce and return the actual pair
+
+Preserve the original supported configurations, effective settings, input/setup, compared contract and raw witness. Reduce factors toward a supported baseline with prerequisite closure, then input/history; alternate when useful. This is the pack's reduction procedure, not a proof of global causal minimality. Read [paired reduction and worked cases](references/paired-reduction.md); use `failure-reduction` for general interestingness and `evidence-based-triage` for attribution. A full row covers higher-order tuples too, so discovery in pairwise tests does not establish a two-factor cause ([Kuhn et al., pp.4–5](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)).
+
+Return the modeled/actually executed domain, strength and residual space, concrete replay pair, dispositions and evidence paths. Preserve zero findings and unexecuted supported lanes. For misleading shortcuts, read [WRONG/RIGHT mistakes](references/common-mistakes.md).
+
+Invocation preserves existing execution and publication authority; it does not itself authorize installs, target changes or external services.

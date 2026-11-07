@@ -1,0 +1,57 @@
+sources:
+  - name: "Combinatorial coverage paper"
+    url: "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "Direct PDF images pp.2,4,5,15; sections II-III and Appendix IV"
+    evidence_fragment: "fault coverage"
+  - name: "PICT guide"
+    url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/doc/pict.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Model File; Constraints; Sub-Models; Seeding; Negative Testing; Aliasing"
+    evidence_fragment: "will be skipped entirely"
+  - name: "PICT CLI parser"
+    url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/cmdline.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "parseArg; showUsage; statistics, format, order and worker switches"
+    evidence_fragment: "modelData.Statistics = true"
+  - name: "PICT generation producer"
+    url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/pict.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "findBestSeed; execute; generator thread resolution"
+    evidence_fragment: "Deterministic reduction"
+  - name: "PICT value handling"
+    url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/cli/model.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "GetNamesForComparisons; GetNextName"
+    evidence_fragment: "GetPrimaryName()"
+  - name: "PICT build documentation"
+    url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/README.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Building on Windows; Building on Linux"
+    evidence_fragment: "Visual Studio 2022"
+  - name: "PICT license"
+    url: "https://raw.githubusercontent.com/microsoft/pict/ab76c2548f551fcb46314e58653a1bd1172f3a72/LICENSE.TXT"
+    type: license
+    accessed: "2026-11-07"
+    sections_used:
+      - "MIT grant and notice conditions"
+    evidence_fragment: "MIT License"
+  - name: "NIST tool distribution"
+    url: "https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software/downloadable-tools"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Downloadable Tools; Software; observed 2026-11-07, updated 2026-06-08"
+    evidence_fragment: "supports constraints"
