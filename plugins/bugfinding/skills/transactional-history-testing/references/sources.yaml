@@ -1,79 +1,103 @@
 sources:
-  - name: "Elle: Inferring Isolation Anomalies from Experimental Observations"
-    url: "https://arxiv.org/abs/2003.10554"
+  - name: "Elle: Inferring Isolation Anomalies from Experimental Observations (Kingsbury and Alvaro, 2020)"
+    url: "https://arxiv.org/abs/2003.10554v1"
     type: research-paper
     accessed: "2026-11-07"
     sections_used:
-      - "Sections 3, 4.3, 5, 6, 9; direct page images 3, 8, 9, 12"
-  - name: "Jepsen history semantics"
-    url: "https://raw.githubusercontent.com/jepsen-io/history/main/README.md"
+      - "§3 Deducing Dependencies (blind writes, recoverability, traceability)"
+      - "§4.1 Preliminaries (predicates omitted); §4.3 Soundness of Elle, §4.3.2 Theorem 1"
+      - "§5 Inferring Additional Dependencies (process, realtime, version)"
+      - "§6 Finding Counterexamples; §6.1 Additional Anomalies (duplicate writes)"
+      - "§7 Implementation and Case Study (writes per object, timed-out clients)"
+      - "§9 Future Work and Conclusions (predicates ignored)"
+      - "Read as page images, printed pp.3, 7, 8, 9, 10, 12"
+  - name: "jepsen.history README"
+    url: "https://raw.githubusercontent.com/jepsen-io/history/61d2776c889ad84f7c6922977cf05e8f11970402/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Operation Structure; Operation Semantics"
+      - "Operation Structure"
+      - "Operation Semantics"
+  - name: "Elle README"
+    url: "https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/README.markdown"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Introduction (non-JVM file or stream route; checking anomalies by hand)"
+      - "Demo (Graphviz)"
+      - "Usage"
+      - "Completeness"
   - name: "Elle list-append implementation"
-    url: "https://raw.githubusercontent.com/jepsen-io/elle/main/src/elle/list_append.clj"
+    url: "https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/src/elle/list_append.clj"
     type: primary-source-code
     accessed: "2026-11-07"
     sections_used:
-      - "verify-mop-types; verify-unique-appends; check"
+      - "verify-mop-types; verify-unique-appends; preprocess; check"
   - name: "Elle register implementation"
-    url: "https://raw.githubusercontent.com/jepsen-io/elle/main/src/elle/rw_register.clj"
+    url: "https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/src/elle/rw_register.clj"
     type: primary-source-code
     accessed: "2026-11-07"
     sections_used:
-      - "graph; transaction-order; check options"
+      - "namespace docstring; initial-state-version-graphs; check"
   - name: "Elle transactional analysis"
-    url: "https://raw.githubusercontent.com/jepsen-io/elle/main/src/elle/txn.clj"
+    url: "https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/src/elle/txn.clj"
     type: primary-source-code
     accessed: "2026-11-07"
     sections_used:
-      - "cycles!; result-map; wr-txns"
+      - "unknown-anomaly-types; additional-graphs; cycle-cases-in-scc; result-map; wr-txns"
   - name: "Elle consistency model mapping"
-    url: "https://raw.githubusercontent.com/jepsen-io/elle/main/src/elle/consistency_model.clj"
+    url: "https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/src/elle/consistency_model.clj"
     type: primary-source-code
     accessed: "2026-11-07"
     sections_used:
-      - "Choices; anomaly/model mapping"
-  - name: "Elle CLI implementation"
-    url: "https://raw.githubusercontent.com/ligurio/elle-cli/master/src/elle_cli/cli.clj"
+      - "direct-proscribed-anomalies"
+  - name: "Elle library dependency manifest"
+    url: "https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/project.clj"
     type: primary-source-code
     accessed: "2026-11-07"
     sections_used:
-      - "history readers; opts; check-history; -main"
-  - name: "Elle CLI setup"
-    url: "https://raw.githubusercontent.com/ligurio/elle-cli/master/README.md"
+      - "version; license"
+  - name: "Elle v0.2.8 to inspected commit comparison"
+    url: "https://github.com/jepsen-io/elle/compare/2843344620c7d0653eef1c20728aa8580a05f505...4e359e597c52938b0afebb8bc42273914d68a424"
+    type: primary-source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Files changed (project.clj only; one commit ahead)"
+  - name: "elle-cli implementation"
+    url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/src/elle_cli/cli.clj"
+    type: primary-source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "opts; check-history; -main"
+  - name: "elle-cli README"
+    url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Requirements; Usage"
-  - name: "Elle CLI dependency manifest"
-    url: "https://raw.githubusercontent.com/ligurio/elle-cli/master/project.clj"
+      - "Requirements"
+      - "Usage"
+  - name: "elle-cli dependency manifest"
+    url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/project.clj"
     type: primary-source-code
     accessed: "2026-11-07"
     sections_used:
-      - "license; dependencies; JVM options"
-  - name: "Elle library dependency manifest"
-    url: "https://raw.githubusercontent.com/jepsen-io/elle/main/project.clj"
-    type: primary-source-code
-    accessed: "2026-11-07"
-    sections_used:
-      - "license; dependencies; Java release"
-  - name: "Serializable model"
+      - "version; license; dependencies"
+  - name: "Jepsen consistency models: Serializability (unversioned page, read 2026-11-07)"
     url: "https://jepsen.io/consistency/models/serializable"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Informal; ordering limits"
-  - name: "Strong serializability model"
+      - "Informal description (real-time, per-process and predicate scope)"
+  - name: "Jepsen consistency models: Strong Serializability (unversioned page, read 2026-11-07)"
     url: "https://jepsen.io/consistency/models/strong-serializable"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Informal; real-time order"
-  - name: "Jepsen checker correctness fixes"
-    url: "https://raw.githubusercontent.com/jepsen-io/jepsen/main/jepsen/CHANGELOG.md"
+      - "Informal description (real-time order)"
+  - name: "Jepsen CHANGELOG"
+    url: "https://raw.githubusercontent.com/jepsen-io/jepsen/6766ba09682bcb668d44c025e687dd8b1616e8a2/jepsen/CHANGELOG.md"
     type: primary-release-notes
     accessed: "2026-11-07"
     sections_used:
-      - "0.3.15 Bugfixes; Elle 0.2.8 cyclic-version fix"
+      - "0.3.15 Bugfixes (Elle 0.2.8 cyclic-version fix)"
+      - "0.3.12 New Features (short-lived and long-lived keys)"
