@@ -1,0 +1,67 @@
+sources:
+  - name: "Test-Case Reduction for C Compiler Bugs"
+    url: "https://www.cs.utah.edu/~regehr/papers/pldi12-preprint.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "Sections 3-6 and 7.7; existing paper-reader images, reread pages 3, 5 and 10"
+  - name: "C-Reduce executable options and interestingness contract"
+    url: "https://raw.githubusercontent.com/csmith-project/creduce/master/creduce/creduce.in"
+    type: official-source
+    accessed: "2026-11-07"
+    sections_used:
+      - "Options and help, lines 72-149"
+  - name: "C-Reduce installation guide"
+    url: "https://raw.githubusercontent.com/csmith-project/creduce/master/INSTALL.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Package manager and source prerequisites; historical LLVM 9 dependency"
+  - name: "C-Reduce license"
+    url: "https://raw.githubusercontent.com/csmith-project/creduce/master/COPYING"
+    type: license
+    accessed: "2026-11-07"
+    sections_used:
+      - "University of Illinois Open Source License"
+  - name: "llvm-reduce command guide"
+    url: "https://llvm.org/docs/CommandGuide/llvm-reduce.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Generic options, exit status and example"
+  - name: "LLVM license"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/main/LICENSE.TXT"
+    type: license
+    accessed: "2026-11-07"
+    sections_used:
+      - "Apache License v2.0 with LLVM Exceptions"
+  - name: "libFuzzer documentation"
+    url: "https://llvm.org/docs/LibFuzzer.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Options: merge, reduce_inputs, minimize_crash, limits and artifact paths"
+  - name: "Hypothesis flaky failures"
+    url: "https://hypothesis.readthedocs.io/en/latest/tutorial/flaky.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Requirements, common sources and flaky failure"
+  - name: "Hypothesis replaying failed tests"
+    url: "https://hypothesis.readthedocs.io/en/latest/tutorial/replaying-failures.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Explicit examples, database invalidation and reproduction blobs"
+  - name: "Go fuzzing"
+    url: "https://go.dev/doc/security/fuzz/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Failing input, custom settings and corpus file format"
+  - name: "Reducing Failure-Inducing Inputs"
+    url: "https://www.debuggingbook.org/html/DeltaDebugger.html"
+    type: author-maintained-executable-guide
+    accessed: "2026-11-07"
+    sections_used:
+      - "ddmin, generic_test and 1-minimality"
