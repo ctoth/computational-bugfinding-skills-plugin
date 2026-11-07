@@ -5,8 +5,12 @@ sources:
     accessed: "2026-11-07"
     evidence_fragment: "version 21 or higher"
     sections_used:
+      - "Introduction"
       - "Design Overview"
-      - "Environment/control nodes"
+      - "AWS"
+      - "LXC"
+      - "VMs, Real Hardware, etc."
+      - "Setting Up Control Nodes"
       - "Working With the REPL"
   - name: "Jepsen history semantics"
     url: "https://raw.githubusercontent.com/jepsen-io/history/61d2776c889ad84f7c6922977cf05e8f11970402/README.md"
@@ -20,9 +24,10 @@ sources:
     url: "https://raw.githubusercontent.com/jepsen-io/jepsen/6766ba09682bcb668d44c025e687dd8b1616e8a2/jepsen/src/jepsen/client.clj"
     type: source-code
     accessed: "2026-11-07"
-    evidence_fragment: ":type :info"
+    evidence_fragment: "(assoc op :type :info, :error ::timeout)"
     sections_used:
-      - "Client lifecycle"
+      - "Client protocol (open!, close!, setup!)"
+      - "Reusable protocol"
       - "Validate"
       - "Timeout"
   - name: "Jepsen combined nemesis"
@@ -31,24 +36,34 @@ sources:
     accessed: "2026-11-07"
     evidence_fragment: "Consider this API unstable."
     sections_used:
+      - "ns docstring"
+      - "db-nemesis"
       - "db-generators"
+      - "grudge"
       - "partition-package"
-      - "packet/clock final generators"
+      - "packet-nemesis"
+      - "packet-package"
+      - "clock-package"
+      - "file-corruption-package"
+      - "nemesis-packages"
+      - "nemesis-package"
   - name: "Jepsen generator implementation"
     url: "https://raw.githubusercontent.com/jepsen-io/generator/3073ba45cb3db0b6dcc5aa915907a2e67b04eef5/src/jepsen/generator.clj"
     type: source-code
     accessed: "2026-11-07"
     evidence_fragment: "will only emit operations"
     sections_used:
-      - "TimeLimit"
+      - "time-limit"
+      - "synchronize"
       - "phases"
       - "until-ok"
-  - name: "Jepsen generator license"
+  - name: "Jepsen generator README"
     url: "https://raw.githubusercontent.com/jepsen-io/generator/3073ba45cb3db0b6dcc5aa915907a2e67b04eef5/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     evidence_fragment: "Eclipse Public License 2.0"
     sections_used:
+      - "Introduction (generators react to operations; retry)"
       - "Example"
       - "License"
   - name: "Jepsen checker implementation"
@@ -57,9 +72,13 @@ sources:
     accessed: "2026-11-07"
     evidence_fragment: ":unknown  0.5"
     sections_used:
+      - "valid-priorities"
       - "merge-valid"
       - "check-safe"
       - "Compose"
+      - "unbridled-optimism"
+      - "stats"
+      - "set"
   - name: "Jepsen core lifecycle"
     url: "https://raw.githubusercontent.com/jepsen-io/jepsen/6766ba09682bcb668d44c025e687dd8b1616e8a2/jepsen/src/jepsen/core.clj"
     type: source-code
@@ -67,28 +86,35 @@ sources:
     evidence_fragment: "kill it, if possible, before downloading logs."
     sections_used:
       - "snarf-logs!"
-      - "with-db"
-      - "client/nemesis teardown"
       - "analyze!"
+      - "run! (docstring steps 6, 7 and 9)"
   - name: "Jepsen CLI"
     url: "https://raw.githubusercontent.com/jepsen-io/jepsen/6766ba09682bcb668d44c025e687dd8b1616e8a2/jepsen/src/jepsen/cli.clj"
     type: source-code
     accessed: "2026-11-07"
     evidence_fragment: "This does not guarantee determinism in general"
     sections_used:
+      - "default-nodes"
       - "test-opt-spec"
-      - "single-test-cmd"
-      - "analyze"
+      - "test-usage"
+      - "single-test-cmd (test and analyze)"
   - name: "Jepsen core dependency and license metadata"
     url: "https://raw.githubusercontent.com/jepsen-io/jepsen/6766ba09682bcb668d44c025e687dd8b1616e8a2/jepsen/project.clj"
     type: source-code
     accessed: "2026-11-07"
     evidence_fragment: "http://www.eclipse.org/legal/epl-v10.html"
     sections_used:
-      - "project"
+      - "defproject version"
       - "license declaration"
       - "dependencies"
-      - "javac options"
+      - "jvm-opts"
+  - name: "Jepsen core license text"
+    url: "https://raw.githubusercontent.com/jepsen-io/jepsen/6766ba09682bcb668d44c025e687dd8b1616e8a2/jepsen/LICENSE.txt"
+    type: official-documentation
+    accessed: "2026-11-07"
+    evidence_fragment: "Eclipse Public License -v 1.0"
+    sections_used:
+      - "Title"
   - name: "Jepsen etcd test producer"
     url: "https://raw.githubusercontent.com/jepsen-io/etcd/b47cc401f27bfb7c28afd9ac088b5f0dca4501b8/src/jepsen/etcd.clj"
     type: source-code
@@ -96,8 +122,7 @@ sources:
     evidence_fragment: "Waiting for recovery"
     sections_used:
       - "etcd-test"
-      - "workloads"
-      - "nemesis options"
+      - "cli-opts"
   - name: "Jepsen etcd workload and option contracts"
     url: "https://raw.githubusercontent.com/jepsen-io/etcd/b47cc401f27bfb7c28afd9ac088b5f0dca4501b8/README.md"
     type: official-documentation
@@ -116,9 +141,12 @@ sources:
     sections_used:
       - "0.3.15 Bugfixes"
   - name: "Elle: Inferring Isolation Anomalies from Experimental Observations"
-    url: "https://arxiv.org/abs/2003.10554"
+    url: "https://arxiv.org/abs/2003.10554v1"
     type: research-paper
     accessed: "2026-11-07"
     evidence_fragment: "human-readable explanation"
     sections_used:
-      - "page-image evidence: pp.3,8,9,12; sections3,4.3,6,9"
+      - "§3 Deducing Dependencies (p.3)"
+      - "§4.3 Soundness of Elle, Completeness paragraphs in §§4.3.1-4.3.2 (pp.7-8)"
+      - "§6 Finding Counterexamples and §6.1 Additional Anomalies (p.9)"
+      - "§9 Future Work & Conclusions (p.12)"
