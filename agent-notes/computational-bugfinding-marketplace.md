@@ -6,6 +6,8 @@ Research and plan a new marketplace/plugin skill set for computational bugfindin
 
 ## State
 
+Harness-sensitivity is drafted with control-design, common-mistakes, conditional runtime integrations and ten-source provenance references. Its focused frontmatter, local-link/source-inventory and whitespace checks passed; no target execution or behavioral/yield claim. Draft/research evidence is in reports/draft-harness-sensitivity.md and reports/research-harness-sensitivity.md. This minimal state update is required by the developer checkpoint and preserves parent-owned progress text.
+
 Q approved the 25-skill scope with “Make it so!” Phase 3 research and drafting are authorized. The approved domain research and plan are `reports/skill-research-computational-bugfinding.md` and `reports/skill-plan-computational-bugfinding.md` in `C:/Users/Q/code/computational-bugfinding-skills-plugin`.
 
 - **Local package:** Bootstrap and four approved Claude/Codex manifests are committed. Claude manifest validation passed; Codex JSON/path probes passed. Codex host loading is untested. No remotes, installation or publication. Evidence: `reports/package-bootstrap.md`.

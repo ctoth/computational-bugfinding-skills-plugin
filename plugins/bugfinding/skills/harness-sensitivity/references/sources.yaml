@@ -1,0 +1,81 @@
+sources:
+  - name: OSS-Fuzz Ideal Integration
+    url: https://google.github.io/oss-fuzz/advanced-topics/ideal-integration/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Fuzz Target
+      - Coverage
+      - Regression Testing
+  - name: OSS-Fuzz Fuzz Introspector
+    url: https://google.github.io/oss-fuzz/advanced-topics/fuzz-introspector/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Fuzz Introspector overview
+      - Differences in build tooling
+  - name: PIT Basic Concepts
+    url: https://pitest.org/quickstart/basic_concepts/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Mutation Operators
+      - Equivalent Mutations
+      - Running the tests
+  - name: PIT Maven Quick Start
+    url: https://pitest.org/quickstart/maven/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Getting started
+      - mutationCoverage goal
+      - Dry Run Mode
+      - Cross module tests
+  - name: PIT Repository
+    url: https://github.com/hcoles/pitest
+    type: official-source
+    accessed: '2026-11-07'
+    sections_used:
+      - License
+  - name: Stryker Mutant States and Metrics
+    url: https://stryker-mutator.io/docs/mutation-testing-elements/mutant-states-and-metrics/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Mutant states
+      - Metrics
+  - name: StrykerJS Getting Started
+    url: https://stryker-mutator.io/docs/stryker-js/getting-started/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Install
+      - Run Stryker
+  - name: StrykerJS Configuration
+    url: https://stryker-mutator.io/docs/stryker-js/configuration/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Command Line vs. Config File
+      - mutate
+      - buildCommand
+      - checkers
+      - coverageAnalysis
+  - name: Stryker.NET Getting Started
+    url: https://stryker-mutator.io/docs/stryker-net/getting-started/
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Install prerequisites
+      - Install in project
+      - Prepare
+      - Run Stryker
+  - name: Are Mutants a Valid Substitute for Real Faults in Software Testing?
+    url: https://doi.org/10.1145/2635868.2635929
+    type: research-paper
+    accessed: '2026-11-07'
+    sections_used:
+      - '2.1-2.2 Historical fault isolation'
+      - '2.5 Mutation Analysis (page 5)'
+      - '3.2 Faults not coupled to mutants (pages 7-8)'
+      - '5. Conclusion (page 10)'
