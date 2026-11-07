@@ -1,0 +1,141 @@
+sources:
+  - name: "KLEE assumption intrinsics"
+    url: "https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/docs/intrinsics.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "klee_assume usage and short-circuit lowering"
+    quote_fragment: "only consider variable values"
+  - name: "KLEE OSDI2008 paper"
+    url: "https://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "Sections2-4,5.5,6; direct reused images3,7,12"
+    quote_fragment: "false positives in practice"
+  - name: "KLEE build"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/CMakeLists.txt"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "LLVM/build/runtime configuration"
+    quote_fragment: "KLEE requires LLVM 15 or newer"
+  - name: "KLEE license"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/LICENSE.TXT"
+    type: license
+    accessed: "2026-11-07"
+    sections_used:
+      - "Release license and third-party scope"
+    quote_fragment: "University of Illinois/NCSA"
+  - name: "KLEE function tutorial"
+    url: "https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/tutorials/testing-function.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Symbolic driver, bitcode, interrupted paths, native replay"
+    quote_fragment: "partially completed"
+  - name: "KLEE environment tutorial"
+    url: "https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/tutorials/using-symbolic.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Arguments/files/POSIX runtime"
+    quote_fragment: "Symbolic Environment"
+  - name: "KLEE options"
+    url: "https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/docs/options.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Option order, symbolic environment, external calls"
+    quote_fragment: "program-options"
+  - name: "KLEE external policies"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/lib/Core/Executor.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "ExternalCallPolicy definitions and call semantics"
+    quote_fragment: "the concretization is ignored after the call"
+  - name: "KLEE query limits"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/lib/Solver/SolverCmdLine.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "max-solver-time and query logging"
+    quote_fragment: "single SMT query"
+  - name: "KLEE module and watchdog"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/tools/klee/main.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Watchdog, module loading and optional runtime support"
+    quote_fragment: "time expired, attempting halt via INT"
+  - name: "KLEE search implementation"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/lib/Core/UserSearcher.cpp"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Searcher choices, interleaving and batching"
+    quote_fragment: "InterleavedSearcher"
+  - name: "KLEE POSIX replay"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/tools/klee-replay/klee-replay.c"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "process_status, run_monitored and main wait/return"
+    quote_fragment: "EXIT STATUS"
+  - name: "KLEE intrinsic replay"
+    url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/runtime/Runtest/intrinsics.c"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Stored object name/size/order checks"
+    quote_fragment: "object name mismatch"
+  - name: "SymCC README"
+    url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/README.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Maintenance, build, concrete execution and seed usage"
+    quote_fragment: "best effort mode"
+  - name: "SymCC compiler configuration"
+    url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/CMakeLists.txt"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Backend, LLVM range warnings and GPL header"
+    quote_fragment: "SYMCC_RT_BACKEND"
+  - name: "SymCC selected runtime configuration"
+    url: "https://raw.githubusercontent.com/eurecom-s3/symcc-rt/892f817f38f5abfa083dd0c1caa7ced821566bf5/CMakeLists.txt"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Backend selection and LGPL header"
+    quote_fragment: "SYMCC_RT_AVAILABLE_BACKENDS"
+  - name: "SymCC runtime configuration"
+    url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/docs/Configuration.txt"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Symbolic input modes, pruning and per-helper bitmap"
+    quote_fragment: "updated in place"
+  - name: "SymCC C++ integration"
+    url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/docs/C%2B%2B.txt"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "System library concretization versus instrumented libc++"
+    quote_fragment: "we lose track"
+  - name: "SymCC hybrid guide"
+    url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/docs/Fuzzing.txt"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Matched builds, helper command and tested classic AFL version"
+    quote_fragment: "tested with version 2.56b"
+  - name: "SymCC actual helper"
+    url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/util/symcc_fuzzing_helper/src/symcc.rs"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Attempt timeout, forced linearization, map/output, killed results"
+    quote_fragment: "const TIMEOUT: u32 = 90"

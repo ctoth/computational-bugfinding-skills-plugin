@@ -1,0 +1,25 @@
+# Target and environment
+
+## Link the actual behavior
+
+Identify the producer after its necessary setup, the bytes/fields/state that can influence the difficult branch, and the externally meaningful assertion. Link its real implementation and relevant dependencies into the selected build; target-linked syscall drivers are an example in KLEE's paper, not a reason to port the implementation into a solver-only copy ([KLEE, §§4 and 6](https://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf)).
+
+Keep four facts separate: symbolic input, legal-domain assumptions, modeled environmental behavior, and the property being checked. Symbolic files must retain consistent writes/reads and metadata; a concrete host file or external function may exclude alternatives. Current KLEE has distinct concrete/all/over-approx external policies: permitting an external call does not establish faithful symbolic coverage ([KLEE, §4, p.7](https://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf), [actual policies](https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/lib/Core/Executor.cpp)).
+
+An assumption restricts later values to those satisfying it. Assuming the desired result therefore removes contrary values from the experiment. Short-circuit lowering can also create an unsatisfiable assumption on a separate path; inspect the actual IR/domain instead of suppressing that diagnostic ([assume semantics and lowering](https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/docs/intrinsics.md)).
+
+Choose the smallest meaningful input/state boundary, then expand where it reaches new behavior. KLEE's tutorial exposes object address/size/name explicitly; its replay checks those same dimensions. A changed length, width or object order can make an old testcase a different input ([symbolic driver](https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/tutorials/testing-function.md), [replay intrinsic](https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/runtime/Runtest/intrinsics.c)).
+
+## Worked decisions
+
+The following are this pack's illustrative experiment designs; establish the actual target contract before applying them.
+
+- **Rare field guard:** keep a real initialized decoder/update path, make its relevant bounded fields symbolic, and assert the promised effect after the actual update. Compare entered operation/property counts with the previous mutation lane. Preserve an independent native effect witness rather than count solver assignments.
+- **Success stub hides failure:** a model always returns successful I/O although the relevant contract concerns failed writes. Preserve the real call sequence and supported failure assumptions; a native replay without that failure mechanism is incomplete, not proof that the model result vanished.
+- **State-dependent path:** an input guard follows a lifecycle/setup prefix. Removing that prefix for solver speed changes the producer; retain state and input together during replay and reduction.
+
+These designs follow the paper's concrete/model boundary and consistent-environment requirement, not a claim of a generic world-model library ([KLEE, §§2 and 4](https://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf)). SymCC's uninstrumented C++ library route loses symbolic dataflow, so increased solver time cannot repair that boundary; select a fitting maintained instrumented dependency or report the limitation ([C++ routes](https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/docs/C%2B%2B.txt)).
+
+## Interpret negative evidence
+
+A finite search covers its actual completed paths, modeled environment and constraints. KLEE reports partially completed paths when resources prevent completion; SymCC follows concrete paths with incomplete libc modeling. Neither a missing candidate nor an unsupported operation proves an absent product bug ([KLEE tutorial, Running](https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/tutorials/testing-function.md), [SymCC README](https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/README.md)). Use `bugfinding-campaign` to choose the next allocation and `correctness-oracles` to strengthen an uninformative assertion.
