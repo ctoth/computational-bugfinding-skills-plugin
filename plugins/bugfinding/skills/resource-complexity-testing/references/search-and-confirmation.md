@@ -1,0 +1,23 @@
+# Search and confirmation
+
+This is the pack's resource-discovery procedure, grounded in the cited mechanisms. Target contracts decide interestingness; the procedure is not a universal statistical or complexity theorem.
+
+## Spend search on structure
+
+Keep input bytes, decoded dimensions, state cardinality and history length as separate coordinates. PerfFuzz's multi-dimensional objective retains a case improving one location even if another cost falls; its collision example explains why total-work-only selection can discard useful intermediates ([PerfFuzz, §§2–3](https://www.carolemieux.com/perffuzz-issta2018.pdf)). Reuse existing generators to vary relevant structure and preserve validity.
+
+Use inexpensive stable fitness where appropriate, then measure the actual contract resource on promoted cases. The paper evaluates execution counts; these do not independently establish latency, retained memory or live-handle guarantees ([PerfFuzz, §§3–5](https://www.carolemieux.com/perffuzz-issta2018.pdf)). Budget search, confirmation and reduction separately through `bugfinding-campaign`.
+
+## Confirm an actual violation
+
+Keep raw samples and matched ordinary valid controls. Inspect variation and effect size before asserting a candidate-specific increase; benchstat compares corresponding benchmark records and reports a median with its uncertainty ([benchstat, Usage](https://raw.githubusercontent.com/golang/perf/be2c69fb417e05de5fec05c732911f4c5f172606/cmd/benchstat/main.go)). Statistical difference alone supplies no application threshold.
+
+Preserve cold/warm mode and setup/cleanup, rather than assume calibration resets the subject. Go's benchmark runner resets counters and executes the benchmark function; pyperf separately controls processes, warmups, values and loops ([Go benchmark, runN/ResetTimer](https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/testing/benchmark.go), [pyperf Runner, Loop iterations](https://raw.githubusercontent.com/psf/pyperf/2ed9b9ed4d56448b6a19b6236c7a519a62f6dfe5/doc/runner.rst)). Observe retained resources at the promised cleanup boundary before restoring state.
+
+Classify permitted quota rejection, target budget violation, observer failure and host exhaustion from actual evidence. This is a contract-derived decision, not a fixed list of tool exit codes. An isolated timeout is a candidate requiring explanation; reducing the host limit to retain it changes the experiment.
+
+## Two advanced cases
+
+**Fixed-size collision family.** Keep valid equal-size ordinary and colliding inputs, preserving the target's real hash/key semantics. Search per-hotspot improvements, confirm the claimed resource over the observed sizes, then simplify keys without losing the collision mechanism. This applies the paper's method; it is not a claim about a particular current target defect ([PerfFuzz, §§2, 5](https://www.carolemieux.com/perffuzz-issta2018.pdf)).
+
+**Cancellation retains native handles.** Generate a valid acquire/use/cancel/close prefix through the actual API, then observe its documented drain/quiescence and live-handle count. Keep that prefix during reduction. Managed heap observations do not by themselves clear this claim: Go heap/alloc profiles and Python tracing have narrower measurement scopes ([Go pprof, Heap/Allocs](https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/runtime/pprof/pprof.go), [tracemalloc, tracing domains](https://raw.githubusercontent.com/python/cpython/0e98aea32593e39c647c2b3d7054ec4e36bf643a/Doc/library/tracemalloc.rst)). This is an illustrative experiment; the actual API must supply the cleanup promise.

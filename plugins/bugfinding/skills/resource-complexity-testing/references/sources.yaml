@@ -1,0 +1,78 @@
+sources:
+  - name: "PerfFuzz ISSTA 2018"
+    url: "https://www.carolemieux.com/perffuzz-issta2018.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "PDF pp.2,4,6; sections 2-5"
+    evidence_fragment: "independently maximizes"
+  - name: "PerfFuzz selected README"
+    url: "https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/README.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Building; Compile; Run; Interpret"
+    evidence_fragment: "will not build on Windows machines"
+  - name: "PerfFuzz afl-showmax"
+    url: "https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/afl-showmax.c"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "ASAN_OPTIONS setup; license header"
+    evidence_fragment: "detect_leaks=0"
+  - name: "Go pprof"
+    url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/runtime/pprof/pprof.go"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Heap profile; Allocs profile; Profile.Add"
+    evidence_fragment: "most recently completed"
+  - name: "Go runtime metrics"
+    url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/runtime/metrics/description.go"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "CPU-class descriptions"
+    evidence_fragment: "not directly comparable"
+  - name: "Go benchmark"
+    url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/testing/benchmark.go"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "StartTimer; StopTimer; ResetTimer; runN"
+    evidence_fragment: "memory allocation counters"
+  - name: "Go benchstat"
+    url: "https://raw.githubusercontent.com/golang/perf/be2c69fb417e05de5fec05c732911f4c5f172606/cmd/benchstat/main.go"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "Usage; Example"
+    evidence_fragment: "confidence interval"
+  - name: "pyperf Runner CLI"
+    url: "https://raw.githubusercontent.com/psf/pyperf/2ed9b9ed4d56448b6a19b6236c7a519a62f6dfe5/doc/runner.rst"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Loop iterations; JSON output; Misc"
+    evidence_fragment: "peak value of the Commit Charge"
+  - name: "pyperf commands"
+    url: "https://raw.githubusercontent.com/psf/pyperf/2ed9b9ed4d56448b6a19b6236c7a519a62f6dfe5/doc/cli.rst"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "check; stats; dump; compare_to"
+    evidence_fragment: "use the first file as the reference"
+  - name: "pyperf package metadata"
+    url: "https://raw.githubusercontent.com/psf/pyperf/2ed9b9ed4d56448b6a19b6236c7a519a62f6dfe5/pyproject.toml"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "project requirements and license"
+    evidence_fragment: "requires-python"
+  - name: "CPython tracemalloc"
+    url: "https://raw.githubusercontent.com/python/cpython/0e98aea32593e39c647c2b3d7054ec4e36bf643a/Doc/library/tracemalloc.rst"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "startup; take_snapshot; Filter; start; get_tracemalloc_memory"
+    evidence_fragment: "memory blocks allocated by"
