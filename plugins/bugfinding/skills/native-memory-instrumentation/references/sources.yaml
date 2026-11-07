@@ -3,31 +3,31 @@ sources:
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/AddressSanitizer.md"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Usage","Additional Checks","Symbolizing the Reports","Limitations"]
+    sections_used: ["Introduction","Usage","Symbolizing the Reports","Additional Checks","Memory leak detection","Options Evaluation with Integrated Sanitizers","Limitations"]
     evidence_fragment: "first detected error"
   - name: "LLVM MemorySanitizer"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/MemorySanitizer.md"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Usage","Origin Tracking","Handling external code","Ignorelist"]
+    sections_used: ["Introduction","Usage","Ignorelist","Origin Tracking","Handling external code","Supported Platforms","Limitations"]
     evidence_fragment: "all program code"
   - name: "LLVM UndefinedBehaviorSanitizer"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/UndefinedBehaviorSanitizer.md"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Usage","Available checks","Stack traces"]
+    sections_used: ["Introduction","Usage","Available checks","Stack traces and report symbolization"]
     evidence_fragment: "continues execution"
   - name: "LLVM LeakSanitizer"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/docs/LeakSanitizer.md"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Usage","Programmatic Disabling","Flags"]
+    sections_used: ["Introduction","Usage","Runtime Suppressions","Programmatic Disabling","Flags and Options"]
     evidence_fragment: "reachable from it"
   - name: "Clang driver incompatibility handling"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/clang/lib/Driver/SanitizerArgs.cpp"
     type: implementation
     accessed: "2026-11-07"
-    sections_used: ["IncompatibleGroups","leak handling"]
+    sections_used: ["IncompatibleGroups table","leak handling comment (-fsanitize=leak ignored with -fsanitize=address)"]
     evidence_fragment: "IncompatibleGroups"
   - name: "LLVM license"
     url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/LICENSE.TXT"
@@ -35,17 +35,17 @@ sources:
     accessed: "2026-11-07"
     sections_used: ["license declaration"]
     evidence_fragment: "with LLVM Exceptions"
-  - name: "Valgrind Memcheck manual"
+  - name: "Valgrind Memcheck manual (Release 3.28.0, 23 Oct 2026; no immutable URL published)"
     url: "https://valgrind.org/docs/manual/mc-manual.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["4.2","4.3","4.5","4.7","4.8"]
+    sections_used: ["4.2.2 Use of uninitialised values","4.2.10 Memory leak detection","4.3 Memcheck Command-Line Options","4.5 Details of Memcheck's checking machinery","4.7 Client Requests","4.8 Memory Pools"]
     evidence_fragment: "errors-for-leak-kinds"
-  - name: "Valgrind core manual"
+  - name: "Valgrind core manual (Release 3.28.0, 23 Oct 2026; no immutable URL published)"
     url: "https://valgrind.org/docs/manual/manual-core.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["2.1-2.4","Error-related options","2.8"]
+    sections_used: ["2.1-2.4","2.7.2 Basic Options","2.7.3 Error-related Options","2.8 Support for Threads"]
     evidence_fragment: "error-exitcode"
   - name: "Valgrind manual release identity"
     url: "https://valgrind.org/docs/manual/index.html"
@@ -57,8 +57,8 @@ sources:
     url: "https://valgrind.org/info/platforms.html"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Current","Historical"]
-    evidence_fragment: "Historical"
+    sections_used: ["Current","Historical","porting rationale"]
+    evidence_fragment: "Windows is not under consideration"
   - name: "Valgrind project declaration"
     url: "https://valgrind.org/info/about.html"
     type: official-documentation
@@ -81,17 +81,17 @@ sources:
     url: "https://raw.githubusercontent.com/MicrosoftDocs/cpp-docs/f29e25fb8f05bb38cf0246476b5c1fc92bf33876/docs/sanitizers/asan.md"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Build integration","Crash dump support","Command prompt"]
+    sections_used: ["Build integration and compatibility","Crash dump support","Use AddressSanitizer","Use AddressSanitizer from a developer command prompt"]
     evidence_fragment: "Windows 10 and later"
   - name: "MSVC ASan known issues"
     url: "https://raw.githubusercontent.com/MicrosoftDocs/cpp-docs/f29e25fb8f05bb38cf0246476b5c1fc92bf33876/docs/sanitizers/asan-known-issues.md"
     type: official-documentation
     accessed: "2026-11-07"
-    sections_used: ["Incompatible functionality","Allocator overrides","C++/CLI"]
+    sections_used: ["Incompatible options and functionality","Overriding operator new and delete","Issues with partially sanitized executables","ASan support for C++/CLI is experimental"]
     evidence_fragment: "native translation units"
   - name: "AddressSanitizer ATC 2012"
     url: "https://www.usenix.org/system/files/conference/atc12/atc12-final39.pdf"
     type: research-paper
     accessed: "2026-11-07"
-    sections_used: ["3.3-3.5","4","5.2"]
+    sections_used: ["3.3 Run-time Library","3.5 False Negatives","4 Evaluation","5.2 Handling Libraries"]
     evidence_fragment: "False Negatives"
