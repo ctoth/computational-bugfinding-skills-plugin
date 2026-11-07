@@ -1,0 +1,56 @@
+sources:
+  - name: Finding and Understanding Bugs in C Compilers
+    url: https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf
+    type: research-paper
+    accessed: '2026-11-07'
+    sections_used:
+      - Section 2.6 Design Trade-offs, page 5
+      - Section 4 Discussion, page 10
+  - name: SQLancer README
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/README.md
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Test generation and test oracles
+      - Logs and reducing bugs
+  - name: SQLancer ComparatorHelper implementation
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/ComparatorHelper.java
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - getResultSetFirstColumnAsString
+      - assumeResultSetsAreEqual
+      - canonicalizeResultValue
+  - name: SQLancer MySQLDQPOracle implementation
+    url: https://raw.githubusercontent.com/sqlancer/sqlancer/main/src/sqlancer/mysql/oracle/MySQLDQPOracle.java
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - check, baseline and hinted queries
+      - check, optimizer settings
+  - name: PostgreSQL SELECT
+    url: https://www.postgresql.org/docs/current/sql-select.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Description steps 6 to 8
+  - name: PostgreSQL Sorting Rows
+    url: https://www.postgresql.org/docs/current/queries-order.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Section 7.5, unspecified order and sorting
+  - name: How SQLite Is Tested
+    url: https://www.sqlite.org/testing.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Sections 3 and 8.5, failure and journal tests
+      - Section 4.1.3, joint SQL and database mutation
+      - Section 9, disabled optimization tests
+  - name: How to submit an LLVM bug report
+    url: https://llvm.org/docs/HowToSubmitABug.html
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used:
+      - Miscompilations
