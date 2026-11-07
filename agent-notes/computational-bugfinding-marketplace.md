@@ -6,8 +6,6 @@ Research and plan a new marketplace/plugin skill set for computational bugfindin
 
 ## State
 
-Harness-sensitivity is drafted with control-design, common-mistakes, conditional runtime integrations and ten-source provenance references. Its focused frontmatter, local-link/source-inventory and whitespace checks passed; no target execution or behavioral/yield claim. Draft/research evidence is in reports/draft-harness-sensitivity.md and reports/research-harness-sensitivity.md. This minimal state update is required by the developer checkpoint and preserves parent-owned progress text.
-
 Q approved the 25-skill scope with “Make it so!” Phase 3 research and drafting are authorized. The approved domain research and plan are `reports/skill-research-computational-bugfinding.md` and `reports/skill-plan-computational-bugfinding.md` in `C:/Users/Q/code/computational-bugfinding-skills-plugin`.
 
 - **Local package:** Bootstrap and four approved Claude/Codex manifests are committed. Claude manifest validation passed; Codex JSON/path probes passed. Codex host loading is untested. No remotes, installation or publication. Evidence: `reports/package-bootstrap.md`.
@@ -21,8 +19,9 @@ Q approved the 25-skill scope with “Make it so!” Phase 3 research and drafti
 - **Semantic generation:** semantic-program-generation is drafted and committed with five references plus research/draft reports. Entry point 32 lines; focused validator/link/source-inventory/staged whitespace checks passed. Its scope is phase-specific semantic environment/effect/world construction and replay; no empirical yield claim.
 - **Semantic differential:** semantic-differential-testing is drafted and committed with five references plus research/draft reports. Entry point 30 lines; focused validator/link/source-inventory/staged whitespace checks passed. It covers matched logical state/causal prefixes and contract-specific effect/value equality.
 - **Corpus evolution:** corpus-evolution is drafted and committed: entry point 32 lines, five references, source/native-tool recipes with selected-version licensing scope. Focused frontmatter/link/source-inventory/staged whitespace checks passed; task note traveled with substantive commit.
-- **Metamorphic testing:** metamorphic-testing draft completed and focused validation passed: entry point 32 lines, five references covering relation validity, composition, concrete worked relations and conditional SQLancer operations. Scoped commit follows with this task note.
-- **Current research/drafting:** coverage-guided-fuzzing research in progress; schedule-exploration research next. Completed paper image evidence and runtime applicability limits are in research reports. Parent serializes commits.
+- **Metamorphic testing:** metamorphic-testing is drafted and committed: entry point 32 lines, five references covering relation validity, composition, concrete worked relations and conditional SQLancer operations. Focused validator/link/source-inventory/staged whitespace checks passed.
+- **Coverage-guided fuzzing:** draft completed and focused validation passed: entry point 39 lines, seven progressive runtime/method references and primary-source inventory. Native, Go/Rust, Python/JVM and C++ FuzzTest setup/discovery/reset/replay contracts are covered. Staged whitespace check caught extra EOF blank lines; writer is correcting those with the editing tool before the scoped commit, including this task note.
+- **Current research/drafting:** schedule-exploration and linearizability-checking research in progress. Completed paper image evidence and runtime applicability limits are in research reports. Parent serializes commits.
 - **Remaining work:** Complete the approved specialist research/draft batches, then audit the full collection and perform isolated behavioral evaluations. No target behavior or empirical discovery campaign has run as part of these research/draft steps.
 
 ## Decisions and why

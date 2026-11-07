@@ -1,0 +1,181 @@
+sources:
+  - name: "AFL++ Fuzzing in Depth"
+    url: "https://aflplus.plus/docs/fuzzing_in_depth/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Instrumenting; Fuzzing; Feedback"
+  - name: "AFL++ selected-ref install"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/docs/INSTALL.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Linux prerequisites; macOS restrictions"
+  - name: "AFL++ selected-ref CLI source"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/src/afl-fuzz.c"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Help; -V/-E; binary modes"
+  - name: "AFL++ selected-ref licensing"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/LICENSING.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Combined project and per-file distinction"
+  - name: "AFL++ persistent mode"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/instrumentation/README.persistent_mode.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "State reset; stability; deferred initialization"
+  - name: "AFL++ CmpLog"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/instrumentation/README.cmplog.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Two builds; -c"
+  - name: "AFL++ custom mutators"
+    url: "https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/docs/custom_mutators.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Selection; buffer allocation; trimming"
+  - name: "LLVM libFuzzer"
+    url: "https://llvm.org/docs/LibFuzzer.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Status; Versions; Target; Usage; Options; Output"
+  - name: "LLVM license"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/main/LICENSE.TXT"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Apache-2.0 with LLVM exceptions"
+  - name: "Go fuzzing"
+    url: "https://go.dev/doc/security/fuzz/"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Requirements; Suggestions; Running; Settings; Corpus"
+  - name: "Go testing flags"
+    url: "https://pkg.go.dev/cmd/go#hdr-Testing_flags"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "-run; -fuzz; -parallel; -timeout"
+  - name: "Rust Fuzz Book setup"
+    url: "https://rust-fuzz.github.io/book/cargo-fuzz/setup.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Requirements; nightly; installation"
+  - name: "Rust Fuzz Book guide"
+    url: "https://rust-fuzz.github.io/book/cargo-fuzz/guide.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Commands; feature forwarding; cfg(fuzzing)"
+  - name: "Rust coverage"
+    url: "https://rust-fuzz.github.io/book/cargo-fuzz/coverage.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Prerequisites; replay-only coverage"
+  - name: "Rust Windows setup"
+    url: "https://rust-fuzz.github.io/book/cargo-fuzz/windows/setup.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "MSVC and AddressSanitizer; PATH"
+  - name: "cargo-fuzz package manifest"
+    url: "https://raw.githubusercontent.com/rust-fuzz/cargo-fuzz/master/Cargo.toml"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Package license"
+  - name: "Atheris README"
+    url: "https://raw.githubusercontent.com/google/atheris/master/README.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Support; imports; Setup/Fuzz; no interesting inputs; coverage"
+  - name: "Atheris native extensions"
+    url: "https://raw.githubusercontent.com/google/atheris/master/native_extension_fuzzing.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Clang fuzzer-no-link; runtime symbols"
+  - name: "Atheris license"
+    url: "https://raw.githubusercontent.com/google/atheris/master/LICENSE"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Apache-2.0"
+  - name: "Jazzer README"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/main/README.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Platforms; JUnit; regression/discovery; artifacts"
+  - name: "Jazzer FuzzTest annotation"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/main/src/main/java/com/code_intelligence/jazzer/junit/FuzzTest.java"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Limits; one discovery test; lifecycle default"
+  - name: "Jazzer Lifecycle implementation"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/main/src/main/java/com/code_intelligence/jazzer/junit/Lifecycle.java"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "PER_TEST; PER_EXECUTION; callback limits"
+  - name: "Jazzer license"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/main/LICENSE"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Apache-2.0"
+  - name: "Maven Surefire single-test selection"
+    url: "https://maven.apache.org/surefire/maven-surefire-plugin/examples/single-test.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "test property"
+  - name: "FuzzTest Bazel quickstart"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/quickstart-bazel.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Prerequisites; configured build; unit/fuzz modes"
+  - name: "FuzzTest flags"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/flags-reference.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "--fuzz; --fuzz_for; per-input and RSS limits"
+  - name: "FuzzTest fixtures"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/fixtures.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "PerIterationFixtureAdapter; PerFuzzTestFixtureAdapter"
+  - name: "FuzzTest license"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/LICENSE"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Apache-2.0 and enumerated exceptions"
+  - name: "Google structure-aware fuzzing guide"
+    url: "https://raw.githubusercontent.com/google/fuzzing/master/docs/structure-aware-fuzzing.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Decoded mutation; custom mutation; constraints"
+  - name: "Optimizing Seed Selection for Fuzzing"
+    url: "https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "Direct page images; proceedings pp.864,871,873"

@@ -1,0 +1,13 @@
+# Common mistakes
+
+| Misleading conclusion | Correction |
+|---|---|
+| “The fuzzer reports coverage, so the library is covered.” | Verify actual target instrumentation and visited paths, including fuzz-build feature forwarding ([Rust Fuzz Book guide](https://rust-fuzz.github.io/book/cargo-fuzz/guide.html), [Rust coverage](https://rust-fuzz.github.io/book/cargo-fuzz/coverage.html)). |
+| “JUnit passed, so we fuzzed it.” | Jazzer defaults to regression; establish discovery mode and selected fuzz test ([Jazzer README](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/main/README.md)). |
+| “BeforeEach resets every mutated input.” | Read the discovery lifecycle; default Jazzer PER_TEST differs from regression lifecycle ([Jazzer FuzzTest annotation](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/main/src/main/java/com/code_intelligence/jazzer/junit/FuzzTest.java), [Jazzer Lifecycle implementation](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/main/src/main/java/com/code_intelligence/jazzer/junit/Lifecycle.java)). |
+| “Use all comparison/custom-mutation options.” | Choose a measured bottleneck; CmpLog needs a matching companion build and custom mutation has ABI/trim constraints ([AFL++ CmpLog](https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/instrumentation/README.cmplog.md), [AFL++ custom mutators](https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/docs/custom_mutators.md)). |
+| “Five minutes means five CPU-minutes.” | Identify what the selected limit counts; AFL -V counts fuzz time, not aggregate CPU/startup ([AFL++ selected-ref CLI source](https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/src/afl-fuzz.c)). |
+| “cargo fuzz coverage is another search campaign.” | It executes the corpus without fuzzing ([Rust coverage](https://rust-fuzz.github.io/book/cargo-fuzz/coverage.html)). |
+| “No Python coverage report means no code ran.” | Check whether the termination mode flushes coverage; Atheris documents graceful -atheris_runs separately ([Atheris README](https://raw.githubusercontent.com/google/atheris/master/README.md)). |
+| “FuzzTest --fuzz_for bounds only my selected property.” | It covers all fuzz tests in that binary; use the actual flag/target contract ([FuzzTest flags](https://raw.githubusercontent.com/google/fuzztest/main/doc/flags-reference.md)). |
+| “A higher historical seed-selection yield predicts this run.” | Target, scheduler and preprocessing budget changed; measure this lane and retain uncertainty ([Rebert et al., pp.864,871,873](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-rebert.pdf)). |
