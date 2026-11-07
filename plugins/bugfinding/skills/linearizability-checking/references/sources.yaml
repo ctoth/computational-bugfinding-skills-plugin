@@ -1,51 +1,61 @@
 sources:
-  - name: Porcupine model and history contracts
-    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/model.go
+  - name: Porcupine v1.3.1 model and history contracts
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/model.go
     type: implementation
     accessed: '2026-11-07'
-    sections_used: [Operation, Event, Model, NondeterministicModel, CheckResult]
-  - name: Porcupine public checker APIs
-    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/porcupine.go
+    sections_used: [Operation, Event, Model (Partition, Step, StepContext, Equal, Hash), NondeterministicModel, ToModel, CheckResult]
+  - name: Porcupine v1.3.1 public checker APIs
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/porcupine.go
     type: implementation
     accessed: '2026-11-07'
-    sections_used: [CheckOperationsVerbose, CheckEventsVerbose, timeout APIs]
-  - name: Porcupine checker implementation
-    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/checker.go
+    sections_used: [CheckOperations, CheckOperationsTimeout, CheckOperationsVerbose, CheckEvents, CheckEventsTimeout, CheckEventsVerbose]
+  - name: Porcupine v1.3.1 checker implementation
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/checker.go
     type: implementation
     accessed: '2026-11-07'
-    sections_used: [makeEntries, convertEntries, makeLinkedEntries, checkSingle, checkParallel]
-  - name: Porcupine real model and pending-history examples
-    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/porcupine_test.go
+    sections_used: [convertEntries, makeLinkedEntries, checkSingle, checkParallel]
+  - name: Porcupine v1.3.1 real model and pending-history examples
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/porcupine_test.go
     type: implementation
     accessed: '2026-11-07'
-    sections_used: [etcdModel, parseJepsenLog, kvModel]
-  - name: Porcupine visualization
-    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/visualization.go
+    sections_used: [etcdOutput, etcdModel, parseJepsenLog, kvModel PartitionEvent]
+  - name: Porcupine v1.3.1 visualization
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/visualization.go
     type: implementation
     accessed: '2026-11-07'
     sections_used: [computeVisualizationData, Visualize, VisualizePath]
-  - name: Porcupine usage and recording caveats
-    url: https://github.com/anishathalye/porcupine
+  - name: Porcupine v1.3.1 README
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/README.md
     type: official-documentation
     accessed: '2026-11-07'
-    sections_used: [Usage, Notes, Visualizing histories]
-  - name: Linearizability consistency model
+    sections_used: [Visualizing histories, Notes]
+  - name: Jepsen linearizability consistency model
     url: https://jepsen.io/consistency/models/linearizable
     type: practitioner-documentation
     accessed: '2026-11-07'
-    sections_used: [Formally, object scope]
+    sections_used: [Definition paragraph, object scope paragraph, Formally]
+  - name: Jepsen serializability consistency model
+    url: https://jepsen.io/consistency/models/serializable
+    type: practitioner-documentation
+    accessed: '2026-11-07'
+    sections_used: [real-time and per-process constraints paragraph]
+  - name: The Go Memory Model (Version of June 6, 2022)
+    url: https://go.dev/ref/mem
+    type: specification
+    accessed: '2026-11-07'
+    sections_used: [Informal Overview (DRF-SC)]
   - name: Faster linearizability checking via P-compositionality
     url: https://arxiv.org/abs/1504.00204
     type: research-paper
     accessed: '2026-11-07'
-    sections_used: [pages 3-6, pages 9-14]
-  - name: Porcupine module declaration
-    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/go.mod
+    sections_used: [p.5 Definition 5 and Definition 6, p.6 Examples 7-9 and size limit, p.12 experimental results, p.13 related work, p.14 related work and concluding remarks]
+  - name: Porcupine v1.3.1 module declaration
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/go.mod
     type: implementation
     accessed: '2026-11-07'
     sections_used: [module, go directive]
-  - name: Porcupine license
-    url: https://raw.githubusercontent.com/anishathalye/porcupine/master/LICENSE.md
+  - name: Porcupine v1.3.1 license
+    url: https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/LICENSE.md
     type: license
     accessed: '2026-11-07'
     sections_used: [MIT]
@@ -53,9 +63,9 @@ sources:
     url: https://go.dev/doc/modules/managing-dependencies
     type: official-documentation
     accessed: '2026-11-07'
-    sections_used: [Add external packages as dependencies, specific dependency version]
-  - name: Go testing flags
-    url: https://pkg.go.dev/cmd/go#hdr-Testing_flags
+    sections_used: [Adding a dependency, Getting a specific dependency version]
+  - name: Go command documentation (go1.27.3)
+    url: https://pkg.go.dev/cmd/go@go1.27.3
     type: official-documentation
     accessed: '2026-11-07'
-    sections_used: [run, count, timeout]
+    sections_used: [Testing flags (-timeout), Test packages (test caching, -count=1)]
