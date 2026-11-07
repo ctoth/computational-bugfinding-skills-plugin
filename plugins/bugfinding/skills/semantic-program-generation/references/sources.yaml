@@ -1,0 +1,51 @@
+sources:
+  - name: "Finding and Understanding Bugs in C Compilers"
+    url: "https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf"
+    type: research-paper
+    accessed: "2026-11-07"
+    sections_used:
+      - "Sections 2.1-2.5: semantic generation and safety"
+      - "Sections 3.3 and 3.5: size and coverage measurements"
+      - "Section 4: reduction and interpretation"
+  - name: "How SQLite Is Tested"
+    url: "https://www.sqlite.org/testing.html"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Section 4.1.3: joint SQL/database mutation"
+  - name: "Csmith README"
+    url: "https://raw.githubusercontent.com/csmith-project/csmith/master/README.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "About, installation and use"
+  - name: "Csmith license"
+    url: "https://raw.githubusercontent.com/csmith-project/csmith/master/COPYING"
+    type: license
+    accessed: "2026-11-07"
+    sections_used:
+      - "Redistribution conditions"
+  - name: "FuzzTest domain reference"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/domains-reference.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Map, FlatMap, reversible variants, Filter and Recursive Domains"
+  - name: "FuzzTest Bazel quickstart"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/quickstart-bazel.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "Prerequisites, configuration and execution modes"
+  - name: "FuzzTest property contract"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/doc/fuzz-test-macro.md"
+    type: official-documentation
+    accessed: "2026-11-07"
+    sections_used:
+      - "The property function"
+  - name: "FuzzTest license"
+    url: "https://raw.githubusercontent.com/google/fuzztest/main/LICENSE"
+    type: license
+    accessed: "2026-11-07"
+    sections_used:
+      - "Apache-2.0 and file-specific exceptions"

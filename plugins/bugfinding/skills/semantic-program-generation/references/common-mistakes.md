@@ -1,0 +1,10 @@
+# Common mistakes
+
+| Misleading construction or conclusion | Correction and evidence |
+|---|---|
+| `receiver = random_id()` over an empty world; count compilation as deep semantic testing | Establish the required receiver/definition/state and observe the actual intended effect. Joint state/program search and context-sensitive construction address different missing prerequisites ([Csmith, §2.3](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf), [SQLite testing, §4.1.3](https://www.sqlite.org/testing.html)). |
+| Keep an index, permission or lifetime fact after a mutation invalidates it | Recompute the fact through the actual effect/control-flow boundary; a loop can invalidate previously safe code ([Csmith, §§2.4–2.5](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)). |
+| Treat every exception as a bad generator, or accept every exception as exercising the success property | Select the intended valid/error lane and evaluate its specified behavior; C's comparison preconditions are not universal language rules ([Csmith, §§2.1–2.4](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)). |
+| Delete setup until a wrong-effect finding becomes a missing-object error | Preserve the same valid semantic case and violation; reduction can otherwise introduce invalid behavior ([Csmith, §4](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)). |
+| Assume a dependent-domain library establishes object lifetime/effects or safe domain arithmetic | Check the target's relationships explicitly; combinators and restrictive filters do not prove the generator's semantic contract ([FuzzTest domains](https://raw.githubusercontent.com/google/fuzztest/main/doc/domains-reference.md)). |
+| Declare more generated programs or higher ordinary coverage to be more confirmed bugs | Keep semantic reach, cost, candidates and adjudicated findings separate; Csmith's study reports size-dependent results and little incremental ordinary coverage despite its discoveries ([Csmith, §§3.3 and 3.5](https://users.cs.utah.edu/~regehr/papers/pldi11-preprint.pdf)). |
