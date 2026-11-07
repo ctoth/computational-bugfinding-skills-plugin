@@ -1,79 +1,88 @@
 sources:
   - name: fast-check command constraints
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/src/check/model/commands/CommandsContraints.ts
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/check/model/commands/CommandsContraints.ts
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
-      - replayPath and seed/path requirement
+      - replayPath doc comment (use with seed/path of assert)
   - name: fast-check commands arbitrary implementation
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/src/arbitrary/commands.ts
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/arbitrary/commands.ts
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
-      - Command shrinker and replay constraints
+      - commands overloads for modelRun and asyncModelRun
   - name: RapidCheck Command interface
-    url: https://raw.githubusercontent.com/emil-e/rapidcheck/master/include/rapidcheck/state/Command.h
+    url: https://raw.githubusercontent.com/emil-e/rapidcheck/2c3c4365aca21ef4e612768fdc95b1ce8b39a651/include/rapidcheck/state/Command.h
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
       - checkPreconditions, apply and run
-  - name: Hypothesis stateful tests
-    url: https://hypothesis.readthedocs.io/en/latest/stateful.html
+  - name: Hypothesis stateful tests (docs source, v6.170.15)
+    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/stateful.rst
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - RuleBasedStateMachine and bundles
-      - Running state machines
-  - name: Hypothesis API reference
-    url: https://hypothesis.readthedocs.io/en/latest/reference/api.html
+      - Rule-based state machines and bundles
+      - TestCase integration
+  - name: Hypothesis stateful module source (v6.170.15)
+    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/src/hypothesis/stateful.py
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - Bundle and consumes docstrings
+      - initialize, precondition and invariant docstrings
+  - name: Hypothesis settings source (v6.170.15)
+    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/src/hypothesis/_settings.py
+    type: primary-source-code
+    accessed: '2026-11-07'
+    sections_used:
+      - stateful_step_count docstring
+  - name: Hypothesis compatibility (docs source, v6.170.15)
+    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/compatibility.rst
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Bundle and consumes
-      - initialize, precondition and invariant
-      - stateful_step_count and max_examples
-  - name: Hypothesis compatibility
-    url: https://hypothesis.readthedocs.io/en/latest/compatibility.html
-    type: official-documentation
-    accessed: '2026-11-07'
-    sections_used:
-      - Python versions and operating systems
+      - Python versions
+      - Operating systems
       - pytest fixtures
-  - name: Hypothesis quickstart
-    url: https://hypothesis.readthedocs.io/en/latest/quickstart.html
+  - name: Hypothesis quickstart (docs source, v6.170.15)
+    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/quickstart.rst
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
       - Install Hypothesis
-  - name: Hypothesis license
-    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/master/LICENSE.txt
+      - Running in a test suite
+  - name: Hypothesis license (v6.170.15)
+    url: https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/LICENSE.txt
     type: license
     accessed: '2026-11-07'
     sections_used:
       - MPL-2.0 and inherited code exceptions
   - name: fast-check model-based testing
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/website/docs/advanced/model-based-testing.md
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/website/docs/advanced/model-based-testing.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Model design and commands
-      - Command serialization and runners
+      - Overview
+      - Define the commands
+      - Print the commands
       - Replay model-based tests
   - name: fast-check ModelRunner implementation
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/src/check/model/ModelRunner.ts
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/check/model/ModelRunner.ts
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
       - internalModelRun
       - internalAsyncModelRun
-  - name: fast-check package manifest
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/main/packages/fast-check/package.json
+      - scheduledModelRun
+  - name: fast-check package manifest (4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/package.json
     type: package-metadata
     accessed: '2026-11-07'
     sections_used:
-      - type, license and engines
+      - version, type, license and engines
   - name: Rapid state-machine implementation
-    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/statemachine.go
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/6706a6fd83736ba24aaf55ef2621fdf00c2c27e8/statemachine.go
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
@@ -81,37 +90,41 @@ sources:
       - StateMachineActions and executeAction
       - License header
   - name: Rapid engine implementation
-    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/engine.go
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/6706a6fd83736ba24aaf55ef2621fdf00c2c27e8/engine.go
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
       - Command-line flags
       - MakeFuzz
-      - Fail-file replay and T thread safety
+      - checkTB and checkFailFile
+      - T concurrency comment
   - name: Rapid README
-    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/README.md
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/6706a6fd83736ba24aaf55ef2621fdf00c2c27e8/README.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - Comparison with Go native fuzzing
+      - Comparison with testing.F.Fuzz
   - name: Rapid module
-    url: https://raw.githubusercontent.com/flyingmutant/rapid/master/go.mod
+    url: https://raw.githubusercontent.com/flyingmutant/rapid/6706a6fd83736ba24aaf55ef2621fdf00c2c27e8/go.mod
     type: package-metadata
     accessed: '2026-11-07'
     sections_used:
       - Go toolchain declaration
   - name: RapidCheck stateful testing
-    url: https://raw.githubusercontent.com/emil-e/rapidcheck/master/doc/state.md
+    url: https://raw.githubusercontent.com/emil-e/rapidcheck/2c3c4365aca21ef4e612768fdc95b1ce8b39a651/doc/state.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
-      - State construction
-      - Command model, apply, run and preconditions
-      - Shrinking validity
+      - Stateful testing (hidden state)
+      - rc::state
+      - Command<Model, Sut>
+      - Putting it all together
+      - Command generation
   - name: Experiences with QuickCheck - Testing the Hard Stuff and Staying Sane
     url: https://publications.lib.chalmers.se/records/fulltext/232550/local_232550.pdf
     type: research-paper
     accessed: '2026-11-07'
     sections_used:
-      - Pages 14-16 hidden storage lifecycle and corruption observations
-      - Pages 16-17 model limits
+      - PDF p. 14 sequential tests before parallel tests; model bugs
+      - PDF pp. 15-16 open/close/open prefix, parallel operations and corruption check
+      - PDF p. 17 two independent descriptions
