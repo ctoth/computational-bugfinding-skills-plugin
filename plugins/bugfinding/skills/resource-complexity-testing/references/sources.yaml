@@ -4,14 +4,21 @@ sources:
     type: research-paper
     accessed: "2026-11-07"
     sections_used:
-      - "PDF pp.2,4,6; sections 2-5"
+      - "§1 Introduction (pathological inputs at a fixed input length), PDF p.1"
+      - "§2 overview (wf hash-collision walkthrough; saving inputs when total path length falls), PDF pp.3-4"
+      - "§3 Algorithm (CFG-edge execution counts, Definitions 1-6), PDF pp.4-5"
+      - "§5 Evaluation (500-byte maximum; §5.1.1 local maxima; §5.1.2 varied input-size bound), PDF pp.6-7"
+      - "§6 Threats to Validity (counts versus running time; no evaluation of other feedback), PDF p.10"
+      - "Read as paper-reader page images (pngs/page-000, 002-006, 009)"
     evidence_fragment: "independently maximizes"
   - name: "PerfFuzz selected README"
     url: "https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Building; Compile; Run; Interpret"
+      - "Building PerfFuzz (Windows; clang versions)"
+      - "Test PerfFuzz on Insertion Sort: Run PerfFuzz (total paths)"
+      - "Running PerfFuzz on a program of your choice: Compile; Run (-p, -N); Interpret (+max)"
     evidence_fragment: "will not build on Windows machines"
   - name: "PerfFuzz afl-showmax"
     url: "https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/afl-showmax.c"
@@ -25,6 +32,7 @@ sources:
     type: source-code
     accessed: "2026-11-07"
     sections_used:
+      - "Profile type doc (custom profiles for resources that must be closed)"
       - "Heap profile; Allocs profile; Profile.Add"
     evidence_fragment: "most recently completed"
   - name: "Go runtime metrics"
@@ -41,26 +49,36 @@ sources:
     sections_used:
       - "StartTimer; StopTimer; ResetTimer; runN"
     evidence_fragment: "memory allocation counters"
+  - name: "Go runtime MemStats"
+    url: "https://raw.githubusercontent.com/golang/go/dcc06a82727b447270b1a58cc5f86b49736e317c/src/runtime/mstats.go"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "MemStats.TotalAlloc"
+    evidence_fragment: "does not decrease when"
   - name: "Go benchstat"
     url: "https://raw.githubusercontent.com/golang/perf/be2c69fb417e05de5fec05c732911f4c5f172606/cmd/benchstat/main.go"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "Usage; Example"
+      - "Usage (at least 10 runs; median and confidence interval; first-file comparison)"
+      - "Example (statistically significant is not the same as large)"
     evidence_fragment: "confidence interval"
   - name: "pyperf Runner CLI"
     url: "https://raw.githubusercontent.com/psf/pyperf/2ed9b9ed4d56448b6a19b6236c7a519a62f6dfe5/doc/runner.rst"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Loop iterations; JSON output; Misc"
+      - "Loop iterations; JSON output"
+      - "Misc (--timeout, --track-memory, --in-process)"
     evidence_fragment: "peak value of the Commit Charge"
   - name: "pyperf commands"
     url: "https://raw.githubusercontent.com/psf/pyperf/2ed9b9ed4d56448b6a19b6236c7a519a62f6dfe5/doc/cli.rst"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "check; stats; dump; compare_to"
+      - "pyperf check (checks list); pyperf stats; pyperf dump"
+      - "pyperf compare_to (reference file; Student's t-test)"
     evidence_fragment: "use the first file as the reference"
   - name: "pyperf package metadata"
     url: "https://raw.githubusercontent.com/psf/pyperf/2ed9b9ed4d56448b6a19b6236c7a519a62f6dfe5/pyproject.toml"
@@ -74,5 +92,5 @@ sources:
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "startup; take_snapshot; Filter; start; get_tracemalloc_memory"
+      - "module introduction (start early); take_snapshot; Filter.domain; start (nframe overhead); get_tracemalloc_memory"
     evidence_fragment: "memory blocks allocated by"
