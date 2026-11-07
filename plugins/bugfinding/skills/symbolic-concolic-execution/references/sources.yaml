@@ -6,19 +6,26 @@ sources:
     sections_used:
       - "klee_assume usage and short-circuit lowering"
     quote_fragment: "only consider variable values"
-  - name: "KLEE OSDI2008 paper"
+  - name: "KLEE: Unassisted and Automatic Generation of High-Coverage Tests for Complex Systems Programs (Cadar, Dunbar and Engler, OSDI 2008)"
     url: "https://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf"
     type: research-paper
     accessed: "2026-11-07"
     sections_used:
-      - "Sections2-4,5.5,6; direct reused images3,7,12"
+      - "§2 Overview (false positives in practice), p.3"
+      - "§3.4 State scheduling, pp.6-7"
+      - "§4 Environment Modeling, §4.1, §4.2 Failing system calls, §4.3 Rerunning test cases, pp.7-8"
+      - "§5.5 equivalence crosschecking (paths it misses; any condition expressed as C code), p.13"
+      - "§5.6 The HiStar OS kernel (target-linked driver), p.14"
+      - "§6 Related Work (concrete external calls), p.15"
+      - "Read as page images via paper-reader (page-002, 005, 006, 007, 012, 013, 014 = printed pp.3, 6, 7, 8, 13, 14, 15)"
     quote_fragment: "false positives in practice"
   - name: "KLEE build"
     url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/CMakeLists.txt"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "LLVM/build/runtime configuration"
+      - "cmake_minimum_required, KLEE_VERSION 3.4-pre, LLVM 15 check, CMAKE_CXX_STANDARD 17"
+      - "ENABLE_POSIX_RUNTIME and ENABLE_KLEE_LIBCXX options (default OFF)"
     quote_fragment: "KLEE requires LLVM 15 or newer"
   - name: "KLEE license"
     url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/LICENSE.TXT"
@@ -32,21 +39,26 @@ sources:
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Symbolic driver, bitcode, interrupted paths, native replay"
+      - "Marking input as symbolic"
+      - "Compiling to LLVM bitcode"
+      - "Running KLEE (interrupted/partially completed paths)"
+      - "Replaying a test case"
     quote_fragment: "partially completed"
   - name: "KLEE environment tutorial"
     url: "https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/tutorials/using-symbolic.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Arguments/files/POSIX runtime"
+      - "`-sym-arg` Usage (-posix-runtime requirement)"
+      - "`-sym-files` Usage (file names A, B, ...)"
     quote_fragment: "Symbolic Environment"
   - name: "KLEE options"
     url: "https://raw.githubusercontent.com/klee/klee.github.io/6b3c0bff41807b3370655d58a43e91bdee24b3c0/docs/options.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Option order, symbolic environment, external calls"
+      - "Command-line form ([klee-options] <program.bc> [program-options])"
+      - "External Call Policy (three policies)"
     quote_fragment: "program-options"
   - name: "KLEE external policies"
     url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/lib/Core/Executor.cpp"
@@ -60,14 +72,14 @@ sources:
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "max-solver-time and query logging"
+      - "max-solver-time option"
     quote_fragment: "single SMT query"
   - name: "KLEE module and watchdog"
     url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/tools/klee/main.cpp"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "Watchdog, module loading and optional runtime support"
+      - "watchdog option and watchdog halt handling"
     quote_fragment: "time expired, attempting halt via INT"
   - name: "KLEE search implementation"
     url: "https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/lib/Core/UserSearcher.cpp"
@@ -89,21 +101,30 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "Stored object name/size/order checks"
+      - "report_internal_error and KLEE_RUN_TEST_ERRORS_NON_FATAL"
     quote_fragment: "object name mismatch"
   - name: "SymCC README"
     url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Maintenance, build, concrete execution and seed usage"
+      - "Maintenance note, build requirements, usage (SYMCC_INPUT_FILE, QSYM input availability)"
+      - "FAQ: one path, QSym backend performs pruning, incomplete libc handling"
     quote_fragment: "best effort mode"
   - name: "SymCC compiler configuration"
     url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/CMakeLists.txt"
     type: source-code
     accessed: "2026-11-07"
     sections_used:
-      - "Backend, LLVM range warnings and GPL header"
+      - "SYMCC_RT_BACKEND, LLVM range warnings, runtime ExternalProject and GPL header"
     quote_fragment: "SYMCC_RT_BACKEND"
+  - name: "SymCC runtime submodule pin (GitHub contents API)"
+    url: "https://api.github.com/repos/eurecom-s3/symcc/contents/runtime?ref=522c48070bc312aeb621a631ff130ded71507d6d"
+    type: source-code
+    accessed: "2026-11-07"
+    sections_used:
+      - "type submodule, sha, submodule_git_url"
+    quote_fragment: "892f817f38f5abfa083dd0c1caa7ced821566bf5"
   - name: "SymCC selected runtime configuration"
     url: "https://raw.githubusercontent.com/eurecom-s3/symcc-rt/892f817f38f5abfa083dd0c1caa7ced821566bf5/CMakeLists.txt"
     type: source-code
@@ -116,21 +137,23 @@ sources:
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Symbolic input modes, pruning and per-helper bitmap"
+      - "Compile-time QSYM_BACKEND"
+      - "Run-time SYMCC_OUTPUT_DIR, SYMCC_INPUT_FILE, SYMCC_MEMORY_INPUT, SYMCC_ENABLE_LINEARIZATION, SYMCC_AFL_COVERAGE_MAP"
     quote_fragment: "updated in place"
   - name: "SymCC C++ integration"
     url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/docs/C%2B%2B.txt"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "System library concretization versus instrumented libc++"
+      - "sym++ wrapper; system library concretization versus instrumented libc++"
+      - "Backend choice for building libc++"
     quote_fragment: "we lose track"
   - name: "SymCC hybrid guide"
     url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/docs/Fuzzing.txt"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
-      - "Matched builds, helper command and tested classic AFL version"
+      - "Introduction (testcase checking), Setup (tested AFL version), helper command and unique instance names"
     quote_fragment: "tested with version 2.56b"
   - name: "SymCC actual helper"
     url: "https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/util/symcc_fuzzing_helper/src/symcc.rs"
