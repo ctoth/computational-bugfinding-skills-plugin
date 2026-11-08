@@ -116,4 +116,3 @@ Printed pages (PDF image index in brackets): title [000]; abstract iii-iv [002-0
 9. "Open questions": the last bullet now says the Cassius material is read from the thesis and that the 2016 differences remain open.
 
 Synthesis points 1, 4 and 6 and the "Earlier synthesis" section are unchanged: nothing read in the thesis contradicts them, and point 6 (single instance vs across inputs) is about the other four bridges.
-
