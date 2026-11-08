@@ -22,17 +22,20 @@ Retrieval: Goguen & Burstall from the Illinois course copy (52 pp, title page ch
 8. Sci-hub route for Goguen & Rosu: the browser call was DENIED by the permission classifier ("Walled Content from a Copy"). I did not work around it. ScienceDirect page for Cerioli & Meseguer showed a bot check ("Just a moment..."), which I did not bypass; author FTP path ftp.disi.unige.it/person/CerioliM/TCS96.ps.gz returned nothing. A university-proxy Springer mirror (springerlink.bibliotecabuap.elogim.com) showed up in searches; I did not use it (walled copy).
 9. WebSearch `"Institution morphisms" Goguen Rosu preprint ... "comorphism"` -> found arXiv 2206.07180, Lopez Pombo & Martinez Suñé, "Integrating deduction and model finding in a language independent setting" (2022): satisfiability calculi (model finding) combined with proof calculi in the institutions/general-logics setting. Retrieved (30 pp). Relevant to bug finding (counterexamples vs proofs), so added.
 10. Neves et al. 2014 retrieved from repositorium.uminho.pt bitstream (author repository).
+11. Addendum pass (open access only; log in `reports/research-formalism-institutions-addendum.md`): Goguen & Roșu retrieved as the authors' preprint PostScript from Goguen's UCSD page (cseweb.ucsd.edu/~goguen/pps/rodfest.ps, linked from cseweb.ucsd.edu/~goguen/projs/inst.html). Little Theories retrieved from the IMPS site (imps.mcmaster.ca/doc/little-theories.pdf). Cerioli & Meseguer still not retrieved: Unpaywall lists only the ScienceDirect PDF, which timed out; the author page refused connections; Wayback lookups returned HTTP 429.
 
 Selection (by relevance to "relate a domain to an existing formalism and reuse its tools"): (a) Goguen & Burstall 1992 (foundational definitions); (b) Goguen & Rosu 2002 (morphism vs comorphism); (c) Cerioli & Meseguer 1997 (borrowing a missing proof theory and its tools); (d) Mossakowski, Maeder & Lüttich 2007 (Hets, tool architecture over comorphisms); (e) Alloy-in-Hets (concrete application: connecting a domain language to existing provers); (f) Farmer, Guttman & Thayer 1992 Little theories, if retrievable.
 
 ## Papers read
 
-All four were read through the research-papers `paper-reader` skill from page images, every page, one reader per paper. Each paper's notes are in its directory under `C:/Users/Q/code/papers/`. I checked two load-bearing passages myself against the page images: GB p.126 (Def 34, Prop 35) and LPMS p.27 (Def 20, Thm 1).
+All six were read through the research-papers `paper-reader` skill from page images, every page, one reader per paper ([GR] and [LT] in the addendum pass). Each paper's notes are in its directory under `C:/Users/Q/code/papers/`. I checked two load-bearing passages myself against the page images: GB p.126 (Def 34, Prop 35) and LPMS p.27 (Def 20, Thm 1).
 
 - **[GB]** Goguen & Burstall, "Institutions: Abstract Model Theory for Specification and Programming", JACM 39(1):95-146, 1992. `Goguen_1992_InstitutionsAbstractModelTheory/`. Pages cited are the printed ones.
 - **[Hets]** Mossakowski, Maeder & Lüttich, "The Heterogeneous Tool Set", VERIFY 2007, CEUR-WS Vol-259, pp. 119-135. `Mossakowski_2007_HeterogeneousToolSetHets/`. Pages cited are the printed ones.
 - **[Alloy]** Neves, Madeira, Martins & Barbosa, "An institution for Alloy and its translation to second-order logic", 2014, DOI 10.1007/978-3-319-04717-1_3. `Neves_2014_InstitutionForAlloySecondOrderLogic/`. Pages cited are PDF pages, because the images carry no printed numbers. The venue is not shown on the copy I read.
 - **[LPMS]** Lopez Pombo & Martinez Suñé, "Integrating deduction and model finding in a language independent setting", arXiv 2206.07180, 2022. `Pombo_2022_IntegratingDeductionModelFinding/`. Pages cited are PDF pages, with page-000 counted as p.1.
+- **[GR]** Goguen & Roșu, "Institution Morphisms", Formal Aspects of Computing 13:274-307, 2002, DOI 10.1007/s001650200013. `Goguen_2002_InstitutionMorphisms/`. Read from the authors' preprint marked "To appear in Formal Aspects of Computing". Pages cited are the preprint's printed pages 1-36, not the journal pages; differences from the journal text are unknown.
+- **[LT]** Farmer, Guttman & Thayer, "Little Theories", CADE-11, LNCS 607, pp. 567-581, 1992. `Farmer_1992_LittleTheories/`. Read from the authors' version dated 15 October 1992. Pages cited are its printed pages 1-19, not the LNCS pages.
 
 ## Findings
 
@@ -50,7 +53,8 @@ All four were read through the research-papers `paper-reader` skill from page im
   - α_Σ maps Σ-sentences forward to Φ(Σ)-sentences;
   - β_Σ maps Φ(Σ)-models of J backward to Σ-models of I.
 
-  It must satisfy M' ⊨_J α_Σ(φ) iff β_Σ(M') ⊨_I φ. This is the direction used for encoding a source logic into a target logic that has tools. The duality between morphism and comorphism is the subject of Goguen & Rosu 2002, which I did not read (see "Not read").
+  It must satisfy M' ⊨_J α_Σ(φ) iff β_Σ(M') ⊨_I φ. This is the direction used for encoding a source logic into a target logic that has tools. [GR Def 4.2, p.11] gives the same definition, under the name comorphism, for Meseguer's "plain map" (Tarlecki's "representation").
+- **Duality [GR].** INS ≅ Dgm(Trel) and coINS ≅ coDgm(Trel) (Thm 4.6, p.14). When the signature functor Φ has a left adjoint Φ′, morphisms ⟨Φ, μ⟩: I -> I′ correspond bijectively and naturally to comorphisms ⟨Φ′, μ′⟩: I′ -> I (Thm 4.11, p.15, after Arrais and Fiadeiro). Without such an adjunction there is no general correspondence, and even with adjoint functors a given morphism and comorphism need not correspond (Ex 4.12, p.16). [GR] also defines theoroidal maps, which send signatures to theories (Meseguer's maps are theoroidal comorphisms; Def 5.3, pp.16-17); simple theoroidal maps (Def 5.7, p.18); forward maps, where syntax and semantics both go forward (Def 6.1, p.20); and semi-natural maps (Def 7.1, p.20).
 
 ### How one logic's tools serve another, and when conclusions transfer
 
@@ -74,6 +78,27 @@ All four were read through the research-papers `paper-reader` skill from page im
   - The paper says conservativity is what lets one "borrow" proof support soundly (p.6).
   - The case study uses only the earlier translation to CASL, which is first-order (pp.18-20). SPASS proves a DCR-graph property. A false property in a medical workflow is out of the Alloy Analyzer's reach below scope 15, but Vampire refutes it in seconds. The new second-order route is proved but not run on any prover in the paper.
   - The paper calls the second-order embedding "more natural" and keeps CASL because it reaches first-order provers (p.2). The CASL translation handles transitive closure only of atomic relations (pp.14-16).
+- **Borrowing and conservativity as restated in [GR].**
+  - [GR Thm 4.4, p.12] restates GB Prop 35: a morphism whose β_Σ is surjective on objects gives f′ ∈ F′• iff α_Σ(f′) ∈ α_Σ(F′)•. The stated purpose is "the re-use of a theorem prover for an institution I on a problem ... in another institution I′".
+  - Theory morphisms inside one institution: φ is *conservative* "iff for any (Σ, F)-model m there is some (Σ′, F′)-model m′ such that m′↾φ = m" (Def 3.6, p.9). Then F ⊨ f iff φ(F) ⊨ φ(f). Without conservativity, only the forward direction holds (Prop 3.7, p.9).
+  - Comorphisms preserve closure: α_Σ(F•) ⊆ α_Σ(F)• (Prop 5.8, p.19).
+  - [GR] credits [CM97] with "a borrowing theorem for comorphisms". It calls borrowing "not a major concern of the present paper" (p.12) and lists as open "To what extent do the various morphisms support the borrowing of logics and theorem provers" (p.22).
+- **The satisfaction condition alone does not make a map useful for borrowing [GR Ex 5.9, p.19].** The goal is to borrow a first-order prover for first-order logic with equality (FOLE -> FOL).
+  - Treating "=" as an ordinary predicate "fails to capture the familiar trick of axiomatizing equality".
+  - Adding equality axioms as a simple theoroidal morphism is odd: "the satisfaction condition holds no matter what axioms we give, including none at all — unless some of them are wrong!"
+  - The comorphism version quotients models by the congruence, but "it is impossible to guarantee that '=' will be interpreted as identity".
+  - What works is a forgetful theoroidal morphism FOL^= -> FOLE. It succeeds "by restricting the class of signatures to those where the borrowing makes sense", and then Thm 4.4 applies.
+  - The authors' moral: "we must be very careful in choosing morphisms, and of course also comorphisms".
+- **Theory interpretations: the single-logic version [LT].**
+  - A theory interpretation is "a syntactic translation between the languages of two theories which preserves theorems". To establish one, the translated source axioms must be shown to be target theorems, "together with some additional obligations that depend on the details of the logical context" (pp.2-3).
+  - In IMPS, if every obligation of I is a theorem of T′, then I maps every theorem of T to a theorem of T′ (Interpretation Theorem for LUTINS, p.7).
+  - Its uses (p.3):
+    - transporting theorems from source to target;
+    - relative consistency: T is consistent "if T′ is a well-established theory trusted to be consistent" (p.13);
+    - building a model: "given an arbitrary model of T′, the interpretation tells us how to select a subdomain and distinguished values that furnish a model of T".
+  - [LT] gives no condition under which a target theorem about translated sentences comes back as a source theorem.
+  - Prover components also transfer under checked conditions. A simplification or decision "processor" is sound for any theory where its generated presuppositions are theorems (p.11).
+  - Context interpretations, whose axiom images hold only under local assumptions, are used "so long as our position in a proof licenses us to use the assumptions" (pp.12-13).
 - **Structuring transfers under extra conditions [GB].** Theories can be combined whenever their signatures can (Thm 11, p.108). If a morphism is "cordial" (Φ has a cocontinuous left inverse), the induced theory map preserves structuring (Thm 39, p.127). Entailment is preserved along signature morphisms but not reflected in general (Closure Lemma, p.105).
 
 ### Stated limits
@@ -82,6 +107,8 @@ All four were read through the research-papers `paper-reader` skill from page im
 - [Hets p.131, p.133]: soundness and completeness of borrowing rest on an unproved assumption that the comorphisms are model-expansive.
 - [Alloy pp.16, 19, 21]: models that use transitive closure heavily needed an interactive prover, and "more experimental work" is needed. Whether its second-order logic uses standard or Henkin semantics is not addressed.
 - [LPMS p.27]: model finding through a comorphism without the expansion property can refute but never confirm.
+- [GR pp.12, 18, 22]: borrowing across the various kinds of map is left open. Associativity of composing simple theoroidal morphisms is unknown without further assumptions.
+- [LT pp.10-11, 13]: interpretations do not remove work; their obligations must still be discharged. "no formal method can prevent a user from writing a specification that does not accurately reflect his intent."
 
 ### Practical synthesis: picking and justifying "the closest formalism"
 
@@ -93,19 +120,21 @@ How the read papers support doing it:
    - Any comorphism: a target counterexample refutes the source claim [LPMS Coro 6, p.26].
    - Model expansion, called model-expansive in [Hets], ρ-expansion in [LPMS] and conservativity in [Alloy]: in addition, a target proof establishes the source claim, so the target's tools become a sound and complete stand-in ([Hets pp.131-132]; [LPMS Thm 1, p.27]; [GB Prop 35, p.126], in GB's own direction).
 4. Under this reading, "closest" means the target tool reaches through a translation with the strongest transfer guarantee that is still proved. Among targets with equal guarantees, the tradeoff is between a natural encoding and tool strength: [Alloy] keeps a less natural first-order target because it has better provers (p.2), and [Hets] lets the user override the shortest path (p.131). That ranking is my synthesis from these papers; none of them states it as a method.
+   - [GR Ex 5.9, p.19] adds that a map can satisfy the satisfaction condition and still not carry the needed verdict. Whether borrowing works depends on choosing the map, sometimes by restricting the signatures to those "where the borrowing makes sense".
+   - [LT] gives the one explicit selection rule in the read papers, for theories within one logic: state each result in the theory with the least structure it needs. "It allows the use of minimal axiomatizations for specific groups of theorems. This ensures maximal generality of reuse for the results" (p.4); "Different theorems will be proved in different theories, depending on the amount of structure required" (p.2).
 5. For bug finding in particular, [LPMS] says counterexample search alone needs only a comorphism. Claims of absence of bugs need the expansion property.
 
 What it does not give you:
 
-- No procedure for discovering the target or the encoding. Every paper starts from a translation someone has already designed.
-- No measure of "closeness" beyond whether these properties hold or fail.
+- No procedure for discovering the target logic. The institution papers all start from a translation someone has already designed. The partial exception is [LT], within a single logic: IMPS builds "the great majority" of theory interpretations automatically (p.8). It does so by *translation matching*: given a pattern p in T and an expression e in T′, it builds an interpretation I and a substitution σ with σ(I(p)) = e from sort and constant association lists (p.9). This finds interpretations between theories in one logic, not targets across logics.
+- No measure of "closeness" beyond whether these properties hold or fail, apart from [LT]'s minimal-axiomatization rule (p.4).
 - Proofs are by hand and "tedious" [GB p.119]. Hets runs on assumed, unproved model-expansiveness [Hets p.131].
 - Nothing on performance or decidability of the translated problem, except that [Alloy] reports some prover outcomes and [LPMS] says its effective subcalculi ensure decidability (p.18).
 - Nothing on domains that have no logic-like presentation, such as raw program behaviour, unless someone first builds that institution. Unknown from the read papers.
 
 ## Reframe (team-lead, relaying Q, 2026-11-07)
 
-Institutions are an example, not the scope. Q's question: "we have a fuzzy world, then we have formalisms. we are building one possible bridge, which will tell us how to build bridges." Below I re-read the four papers as a theory of bridges. Every passage cited in this section was checked by me against the page image unless marked "(reader notes)":
+Institutions are an example, not the scope. Q's question: "we have a fuzzy world, then we have formalisms. we are building one possible bridge, which will tell us how to build bridges." Below I re-read the four papers as a theory of bridges. Passages from [GR] and [LT] were added in the addendum pass and come from that pass's own page-image reading. Every passage cited in this section was checked by me against the page image unless marked "(reader notes)":
 - GB pp.96, 126
 - Hets p.120
 - Alloy PDF pp.18, 20
@@ -126,13 +155,14 @@ Institutions are an example, not the scope. Q's question: "we have a fuzzy world
 ### How a verdict legitimately comes back
 
 - **Counterexample in the target means the claim is false in the source**, for any comorphism, because consequence is preserved [LPMS Coro 6, p.26 (reader notes)].
-- **Proof in the target means the claim holds in the source** only when every source model is the image of some target model. This condition is called model-expansive in [Hets pp.131-132], ρ-expansion in [LPMS Def 20 and Thm 1, p.27, checked], "sound morphism" (β surjective) in [GB Def 34 and Prop 35, p.126, checked], and conservativity in [Alloy Thm 3, p.5 and p.13 (reader notes)].
+- **Proof in the target means the claim holds in the source** only when every source model is the image of some target model. This condition is called model-expansive in [Hets pp.131-132], ρ-expansion in [LPMS Def 20 and Thm 1, p.27, checked], "sound morphism" (β surjective) in [GB Def 34 and Prop 35, p.126, checked; restated as GR Thm 4.4, p.12], and conservativity in [Alloy Thm 3, p.5 and p.13 (reader notes)]. [GR Def 3.6 and Prop 3.7, p.9] state the same condition for theory morphisms inside one institution, also under the name conservative.
+- **The condition can hold and the bridge still be useless.** [GR Ex 5.9, p.19] gives a map whose satisfaction condition "holds no matter what axioms we give, including none at all". It cannot be used to borrow a prover until a different map is chosen.
 - **No counterexample found means nothing.** "not being able to do so does not provide any solid information about its existence" [LPMS p.27, checked]. [Alloy PDF p.18, checked] gives the domain version: Alloy "may give a false sense of security as the scope set for a simulation session may not be wide enough to produce a counter example". A property that holds under small scopes is refuted by Vampire through the bridge (pp.18-20, reader notes).
 - **The condition is often assumed rather than proved.** Hets assumes every comorphism is model-expansive (p.131, reader notes).
 
 ### Where this theory stops: the first step from the informal domain
 
-Institutions relate formal to formal. Here is what the four read papers say about getting from an informal domain to the first formalism:
+Institutions relate formal to formal. Here is what the six read papers say about getting from an informal domain to the first formalism:
 
 - [GB p.96, checked] lists "natural language" among the problems that exotic logics "have been proposed to handle". That is a statement about logics, not about the step from informal to formal. Nothing else in my checks or in the reader notes of [GB] addresses that step.
 - [Hets p.120, checked] is the only passage that touches it structurally. UML "deliberately has no formal semantics, and hence is not a formal method or logic". It "could be integrated ... as a formalism without semantics, while the different formal semantics that have been developed for UML would be represented as logic translations". So an informal or semi-formal language could sit in the graph as a node, and *each candidate meaning* of it becomes a separate translation into a logic. The paper does not develop this further.
@@ -141,7 +171,14 @@ Institutions relate formal to formal. Here is what the four read papers say abou
   - Properties are given in English beside the Alloy text ("In English it reads: ...", p.18). The paper does not check the English against the Alloy; the two simply sit side by side.
   - The same page notes the cost to people: the institutional framework is "a notational burden the working software engineer may find hard to bear", paid "once and for all".
 - [LPMS PDF p.5, checked] frames the choice between lightweight methods (Alloy, which "cannot usually be entirely trusted when dealing with models of mission critical systems") and heavyweight provers (which "require a high level of expertise"). It is about choosing the formal tool, not about how to formalise.
-- **Verdict.** In the read papers, the first step from informal to formal is outside the theory. No read paper gives a criterion for when a formalisation is faithful to an informal domain. The closest they come is the Hets UML remark: keep the informal artefact as a semantics-free node and represent each candidate formal meaning as an explicit translation.
+- [LT p.13] states the problem and offers one check.
+  - The problem: "Naturally, no formal method can prevent a user from writing a specification that does not accurately reflect his intent." In a big theory, theorems "will be truths of the formal system ... [but] their content will not correspond to his intuitive understanding."
+  - The check: "The user may have a conception of what sort of structures ought to satisfy T. The interpretation I gives him a way of isolating, within any structure satisfying T′, a structure satisfying T. If these structures can not be made to look as he expects, then he has reason to think he has got the formulation of T wrong."
+  - So an interpretation into a well-understood theory works as a probe of the formalisation against the user's intuition. It can expose a mismatch but cannot certify fidelity, and the paper gives no procedure beyond that sentence.
+- [GR] does not address this step.
+- **Verdict.** In the read papers, the first step from informal to formal is outside the theory. No read paper gives a criterion for when a formalisation is faithful to an informal domain. The closest they come:
+  - the Hets UML remark: keep the informal artefact as a semantics-free node and represent each candidate formal meaning as an explicit translation;
+  - [LT]'s probe: use an interpretation into a trusted theory to construct the structures the formalisation describes, and compare them with what the user expected.
 
 ## Synthesis: what this teaches about building bridges
 
@@ -152,18 +189,24 @@ Restricted to what the read papers support. Where a line is my combination of th
    - Refutation (a counterexample or bug) needs only the satisfaction condition [LPMS p.26].
    - Confirmation (a proof or "no bug") needs every source model to be reached by a target model [LPMS p.27; Hets pp.131-132; GB p.126].
    - "Searched and found nothing" carries nothing back unless the search is complete for the translated problem [LPMS p.27; Alloy p.18].
+   - Satisfying the satisfaction condition does not by itself make a bridge carry the verdict you need. [GR Ex 5.9, p.19] shows maps that satisfy it but cannot be used to borrow a prover, and one that works only after the signatures are restricted to those "where the borrowing makes sense".
 3. **A bridge may lose expressivity and naturalness and stay sound for the verdicts it claims** [LPMS p.28; Alloy p.2]. Losing model coverage downgrades it to a refutation-only bridge (my combination of LPMS pp.27-28).
 4. **The bridge itself carries proof obligations.** The satisfaction-condition proofs are "tedious" [GB p.119, reader notes] and run to appendix length [Alloy Appendix A, pp.24-30, reader notes]. In the one working tool, the expansion property is assumed rather than proved [Hets p.131].
-5. **Keep several bridges and keep them distinct.** Hets keeps theory morphisms and comorphisms as first-class objects. It routes each goal along a chosen path rather than a fixed hub logic, and criticises single-hub integration such as PROSPER, where "the user is forced to use this central logic" [Hets p.120]. The shortest path "need not always be the best one" [Hets p.131].
-6. **The first bridge, from the fuzzy world to a formalism, is not covered.** The only structural suggestion in the read papers is to represent the informal artefact as a node without semantics, with its candidate meanings as separate translations [Hets p.120]. Whether that idea extends to a fuzzy domain rather than a semi-formal notation like UML is unknown from the read papers.
+5. **Keep several bridges and keep them distinct.** Hets keeps theory morphisms and comorphisms as first-class objects. It routes each goal along a chosen path rather than a fixed hub logic, and criticises single-hub integration such as PROSPER, where "the user is forced to use this central logic" [Hets p.120]. The shortest path "need not always be the best one" [Hets p.131]. A read paper disagrees about logics. [LT p.5] doubts that combining logics helps in practice: it "may impede the process by which users develop strong and reliable semantic intuitions", and "a single familiar logic, such as simple type theory, suffices to formalize conveniently a wide range of problems". [LT] instead keeps many small *theories* in one logic, linked by interpretations (pp.2, 7). [GR p.21] gives the opposing motive: different logics serve "different aspects, including functional requirements, safety and liveness properties, concurrency control, real time response".
+5a. **Choose the smallest target theory that supports the result** [LT pp.2, 4]. A minimal axiomatisation maximises reuse. A checked interpretation is a reusable "license", "carried out once and for all" (p.4); once it is certified, "all the theorems of the source theory may be made available" (p.10). This is stated for theories within one logic. Applying it to the choice among logics would be my extension.
+6. **The first bridge, from the fuzzy world to a formalism, is not covered.** The read papers make two suggestions, neither developed into a method:
+   - Structural: represent the informal artefact as a node without semantics, with its candidate meanings as separate translations [Hets p.120].
+   - A falsification probe: use an interpretation into a trusted theory to build the structures the formalisation describes, and treat a mismatch with the user's expectation as evidence that the formalisation is wrong [LT p.13].
+   Whether either extends to a fuzzy domain rather than a semi-formal notation like UML, or a mathematician's intuition, is unknown from the read papers.
 
 ## Not read
 
 No claims are made from these.
 
-- Goguen & Rosu, "Institution Morphisms", Formal Aspects of Computing 13:274-307, 2002, DOI 10.1007/s001650200013. Not retrieved: open-access fetch failed, and the sci-hub browser call was denied by the permission classifier.
-- Cerioli & Meseguer, "May I Borrow Your Logic? (Transporting Logical Structures Along Maps)", TCS 173(2):311-347, 1997, DOI 10.1016/S0304-3975(96)00160-0. Not retrieved: ScienceDirect showed a bot check and the author's FTP path was dead. Q may be able to fetch it, since TCS is in Elsevier's open archive (unverified).
-- Farmer, Guttman & Thayer, "Little Theories", CADE-11, LNCS 607, pp. 567-581, 1992, DOI 10.1007/3-540-55602-8_192. Paywalled; not retrieved.
+- Cerioli & Meseguer, "May I Borrow Your Logic? (Transporting Logical Structures Along Maps)", TCS 173(2):311-347, 1997, DOI 10.1016/S0304-3975(96)00160-0. Not retrieved in either pass, so its borrowing conditions are not stated here; [GR p.12] says only that it gave "a borrowing theorem for comorphisms".
+  - First pass: ScienceDirect showed a bot check; the author's FTP path was dead.
+  - Addendum: Unpaywall marks it open access, but its only location is the ScienceDirect PDF, which did not respond. The author page person.dibris.unige.it/cerioli-maura/TCS96.html refused HTTPS and timed out on HTTP. Wayback lookups returned 429. The bot check was not bypassed.
+  - Q may be able to open the ScienceDirect copy in a browser.
 - Meseguer, "General Logics", 1989. Not searched further.
 - Tarlecki on heterogeneous specification. Cited by LPMS as the source of Prop 3; not retrieved.
 - Mossakowski's 2005 habilitation thesis, cited by Hets for the development-graph calculus and model-expansiveness.
@@ -176,7 +219,8 @@ No claims are made from these.
 
 - Exact definition of model-expansive and the proof that it gives sound and complete borrowing: Hets refs [7, 27], not read.
 - Which Hets comorphisms are actually model-expansive: not stated in [Hets] (p.131 assumes all are).
-- How the GB-direction "sound morphism" (surjective β, p.126) relates formally to the comorphism-direction expansion property: duality per Goguen & Rosu 2002, not read.
+- How the GB-direction "sound morphism" (surjective β, p.126) relates formally to the comorphism-direction expansion property. [GR Thm 4.11, p.15] gives a bijection between morphisms and comorphisms when the signature functor has a left adjoint. [GR] does not say whether surjectivity of β carries across that bijection to the expansion property, and it leaves borrowing across map kinds open (p.22). Cerioli & Meseguer 1997 would be the source, and it is not read.
+- [LT]'s precise LUTINS interpretation definition and Interpretation Theorem are in Farmer 1993 (APAL 64:211-240), which is not read.
 - Whether the read papers' notion of "closest" can be applied when the domain is program behaviour rather than a specification language: unknown.
 - The informal-to-formal step: none of the four read papers covers it. The literature on that step (requirements formalisation, validation of formal models against domains) was not searched in this pass, so its content is unknown here.
-- Papers dir housekeeping not done: reconcile and `keymap.tsv` rebuild were skipped for all four papers to avoid concurrent edits to shared collection files.
+- Papers dir housekeeping not done: reconcile and `keymap.tsv` rebuild were skipped for all six papers to avoid concurrent edits to shared collection files. For [GR] and [LT], the `papers/index.md` entry and the `_reader_done.tsv` line were also skipped.
