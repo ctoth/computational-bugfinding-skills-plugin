@@ -306,6 +306,18 @@ sources:
     sections_used:
       - "FuzzingExitCode (0, 77, 78)"
       - "resolveInstrumentationSeed (generated seed printed)"
+  - name: "Jazzer.js finding source"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/finding.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "reportFinding / reportAndThrowFinding (first finding saved in a global)"
+  - name: "Jazzer.js root package.json"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/package.json"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "engines (node >= 20.11.0, npm >= 7.0.0)"
   - name: "Jazzer.js callbacks source"
     url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/callback.ts"
     type: source-code
