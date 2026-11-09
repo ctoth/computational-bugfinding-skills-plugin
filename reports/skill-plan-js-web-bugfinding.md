@@ -100,12 +100,10 @@ For React today: Playwright as the driver (F10), the accessibility tree or a fil
 
 1. Per changed skill: one primary-source researcher writes `reports/research-js-<skill>.md` (pinned sources, quotes, licenses, runtime floors), reusing the domain report and paper notes rather than repeating them.
 2. Drafter edits that skill's description, reference, sources.yaml and common mistakes; writes `reports/draft-js-<skill>.md`. Batches of two or three; commits sequential.
-3. Improvement pass on citations; collection audit of all touched skills (frontmatter, links, sources inventory).
-4. Isolated behavioral evaluation in `C:/Users/Q/code/bugfinding-skill-evaluation/` with two new fixtures, budgets fixed per run, planted defects hidden from the evaluating agent:
-   - **Node fixture:** small Express-like service with (a) a callback-ordering race reachable from two concurrent requests, (b) a super-linear regex on a request path, (c) an async library API. Expected: agent selects `schedule-exploration`/`resource-complexity-testing` from Node wording, uses a JS route, preserves replay (scheduler ordering / seed), confirms the regex with size families rather than one slow run.
-   - **React fixture:** small React app with (a) a hydration mismatch from a time/locale source, (b) an effect that adds a listener without cleanup, (c) a dependent UI sequence that reaches a wrong state. Expected: selects `semantic-differential-testing`, `resource-complexity-testing`, `stateful-property-testing`; leak confirmed across repeated round trips, not one snapshot; auto-wait masking considered.
-   - A control run where no defect is planted to check for false findings.
-5. Update this plan, the task note and the base plan runtime row; commit with the work.
+3. Improvement pass on citations.
+4. Update this plan, the task note and the base plan runtime row; commit with the work.
+
+Struck 2026-11-09: a collection audit and behavioral evaluations with Node, React and control fixtures were listed here. Q never asked for either ("NEVER DID I ASK FOR IT", "DID NOT ASK FOR EVALS"); "same quality" did not authorize extra pipeline stages.
 
 ## Excluded
 
