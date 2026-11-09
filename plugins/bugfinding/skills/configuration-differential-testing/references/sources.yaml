@@ -68,26 +68,27 @@ sources:
     accessed: "2026-11-09"
     sections_used:
       - "v20 end 2026-04-30"
+      - "v27 alpha 2026-10-28, current 2027-04-22"
   - name: "Node.js v26.13.0 packages documentation"
-    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/packages.md"
+    url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/packages.md"
     type: official-documentation
     accessed: "2026-11-09"
     sections_used:
       - "Conditional exports (key order, import/require hazards)"
   - name: "Node.js v26.13.0 ECMAScript modules documentation"
-    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/esm.md"
+    url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/esm.md"
     type: official-documentation
     accessed: "2026-11-09"
     sections_used:
       - "CommonJS Namespaces (named-export detection limits)"
   - name: "Node.js v26.13.0 deprecations"
-    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/deprecations.md"
+    url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/deprecations.md"
     type: official-documentation
     accessed: "2026-11-09"
     sections_used:
       - "DEP0205 module.register() (runtime deprecation v26.0.0)"
   - name: "Node.js v26.13.0 CLI documentation"
-    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/cli.md"
+    url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md"
     type: official-documentation
     accessed: "2026-11-09"
     sections_used:

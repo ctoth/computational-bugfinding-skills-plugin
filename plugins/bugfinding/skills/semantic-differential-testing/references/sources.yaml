@@ -155,19 +155,19 @@ sources:
     sections_used:
       - Minified React error message format
   - name: Node.js v26.13.0 util documentation
-    url: https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/util.md
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/util.md
     type: official-documentation
     accessed: '2026-11-09'
     sections_used:
       - util.isDeepStrictEqual and skipPrototype
   - name: Node.js v26.13.0 assert documentation
-    url: https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/assert.md
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/assert.md
     type: official-documentation
     accessed: '2026-11-09'
     sections_used:
       - assert.deepStrictEqual, Comparison details
   - name: Node.js v26.13.0 CLI documentation
-    url: https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/cli.md
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md
     type: official-documentation
     accessed: '2026-11-09'
     sections_used:

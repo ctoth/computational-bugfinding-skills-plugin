@@ -118,9 +118,9 @@ Each entry is **Wrong** first, then **Right**, then why.
 
 **Wrong:** `util.isDeepStrictEqual(resultV1, resultV2)` where the results come from two loaded versions or contain Promises.
 
-**Right:** Compare settled values and constructor names, or set `skipPrototype` deliberately ([Node util](https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/util.md)).
+**Right:** Compare settled values and constructor names, or set `skipPrototype` deliberately ([Node util](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/util.md)).
 
-**Why:** prototypes are compared with `===` and Promises are "only equal if they reference the same object" ([Node assert, Comparison details](https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/assert.md)).
+**Why:** prototypes are compared with `===` and Promises are "only equal if they reference the same object" ([Node assert, Comparison details](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/assert.md)).
 
 ## Comparing only the return value of a higher-order function
 
@@ -142,6 +142,6 @@ Each entry is **Wrong** first, then **Right**, then why.
 
 **Wrong:** "Version 2 behaves differently from version 1, so version 2 has a bug."
 
-**Right:** Classify each difference against the changelog and contract as bug, bug fix or upgrade, as Nessie does ([Arteca et al. 2022, p.1502](https://doi.org/10.1145/3510003.3510106)).
+**Right:** Classify each difference against the changelog and contract as bug, bug fix or upgrade, as the Nessie authors did by hand for a sample ([Arteca et al. 2022, p.1502](https://doi.org/10.1145/3510003.3510106)).
 
 **Why:** intended API changes produce differences, and Nessie had to configure out renames and supported Node.js version changes by hand (p.1501).

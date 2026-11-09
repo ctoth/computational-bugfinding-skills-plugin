@@ -70,7 +70,7 @@ Each entry is **Wrong** first, then **Right**, then why.
 
 **Wrong:** Set Playwright `timezoneId` and treat both the server render and the browser as running in that zone.
 
-**Right:** Set the server process `TZ` separately and record both; Node reads the `TZ` environment variable ([Node CLI, `TZ`](https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/cli.md)).
+**Right:** Set the server process `TZ` separately and record both; Node reads the `TZ` environment variable ([Node CLI, `TZ`](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md)).
 
 **Why:** Playwright's setting "only affects the browser timezone and locale, not the test runner timezone" ([Playwright emulation](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/emulation.md)).
 
@@ -104,4 +104,4 @@ Each entry is **Wrong** first, then **Right**, then why.
 
 **Right:** Check each Node × Load lane for the Jazzer.js ESM warnings and for rising coverage on ESM code ([Jazzer.js fuzz targets](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-targets.md)).
 
-**Why:** its ESM path calls `module.register` and on failure prints a warning and continues uninstrumented ([instrument.ts](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/instrumentor/instrument.ts)); Node.js 26 runtime-deprecates that API as DEP0205 ([Node deprecations](https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/deprecations.md)).
+**Why:** its ESM path calls `module.register` and on failure prints a warning and continues uninstrumented ([instrument.ts](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/instrumentor/instrument.ts)); Node.js 26 runtime-deprecates that API as DEP0205 ([Node deprecations](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/deprecations.md)).
