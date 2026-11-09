@@ -17,6 +17,8 @@ Read only the applicable route:
 - [Go runtime](references/go-runtime.md): selected toolchain, ordinary test workloads, plugin/cgo boundaries and diagnostic costs.
 - [Native runtime](references/native-runtime.md): Clang TSan, conditional adaptive delay and Helgrind.
 
+JavaScript boundary: within one agent "Only one Job may be actively undergoing evaluation at any point in time", and the memory model's data races are defined only over Shared Data Block events, the memory behind `SharedArrayBuffer` and `Atomics` ([ECMA-262, Jobs and Memory Model](https://raw.githubusercontent.com/tc39/ecma262/828d35d00f8584c4a0fbcac7742b57c7b959c3f3/spec.html)). Node worker threads "can share memory" by "sharing `SharedArrayBuffer` instances" ([Node v26.13.0 worker_threads](https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/worker_threads.md)). Route Node, browser and React event or promise ordering races to `schedule-exploration`. For `SharedArrayBuffer` shared across workers this pack has no verified detector; a bounded search found none.
+
 Use an existing representative faulty and healthy case to establish the claimed access observer through the same producer; `harness-sensitivity` owns control design. A detector "must understand the synchronization mechanisms used by the tested program", not merely a compiled test ([TSan 2009, §5, pp.65–66](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35604.pdf)).
 
 ## Spend compute on an omitted interaction

@@ -113,3 +113,135 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "Overview; Time; Blocking"
+  - name: "fast-check race conditions guide (4.10.2)"
+    url: "https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/website/docs/advanced/race-conditions.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "The scheduler instance (deprecations of waitOne/waitAll/count); schedule; scheduleFunction; scheduleSequence; Scheduling a call to a mocked server; Wrapping calls automatically using act; Scheduling native timers; Model based testing and race conditions. stateful-property-testing pins fast-check at 5ec2e3ac; these scheduler facts are from cd9c1884"
+  - name: "fast-check SchedulerArbitrary source"
+    url: "https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/fast-check/src/arbitrary/_internals/SchedulerArbitrary.ts"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "buildNextTaskIndex lines 13-20 (uniform nextInt choice); shrink lines 32-40 (Not supported yet)"
+  - name: "fast-check scheduler and schedulerFor source"
+    url: "https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/fast-check/src/arbitrary/scheduler.ts"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "schedulerFor JSDoc lines 30-88 (order-only replay, lines 54-57)"
+  - name: "Jest object API (fake timers)"
+    url: "https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/docs/JestObjectAPI.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "jest.useFakeTimers faked APIs and doNotFake (lines 900-940); advanceTimersToNextTimer (1086); getTimerCount (1118)"
+  - name: "Vitest vi API (fake timers)"
+    url: "https://raw.githubusercontent.com/vitest-dev/vitest/3a76b87324ecb8d25509cd009aa87fbe56819c39/docs/api/vi.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "vi.useFakeTimers (1211-1240); advanceTimersToNextTimer (1002); getTimerCount (1058)"
+  - name: "Node.js v26.13.0 test runner MockTimers"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/test.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Class MockTimers (2894-3420): enable apis list; methods enable, reset, tick, runAll, setTime"
+  - name: "Node.js v26.13.0 async_hooks"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/async_hooks.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Stability banner (5-18); Terminology (44-45); createHook callbacks not async (205-208); type and triggerAsyncId (343-373); resource (430-438); before/after/promiseResolve (589-660); Promise execution tracking overhead (916-918)"
+  - name: "React act reference"
+    url: "https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/act.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "await act(async actFn) (28-57)"
+  - name: "MSW delay API"
+    url: "https://raw.githubusercontent.com/mswjs/mswjs.io/bda552ebaadde6d75870b4d07de734f9de35fd89/src/content/api/delay.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Implicit delay (28, 44); Delay modes, infinite (99)"
+  - name: "Playwright Page API"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/api/class-page.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Page.addInitScript (566-620); Page.route stall, service worker, popup, redirect and http cache notes (3746-3898)"
+  - name: "Playwright Route API"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/api/class-route.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Route.continue (36-44); Route.fetch (442-447); Route.fulfill (568-572)"
+  - name: "Playwright navigation waitUntil parameter"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/api/params.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "navigation-wait-until (1-9)"
+  - name: "ECMA-262 jobs"
+    url: "https://raw.githubusercontent.com/tc39/ecma262/828d35d00f8584c4a0fbcac7742b57c7b959c3f3/spec.html"
+    type: specification
+    accessed: "2026-11-09"
+    sections_used:
+      - "Jobs and host operations (lines 12142-12152)"
+  - name: "NodeRacer (Endo and Moller, ICST 2020)"
+    url: "https://doi.org/10.1109/ICST46399.2020.00022"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "paper-reader notes pp.2, 4-6, 8-9 (C:/Users/Q/code/papers/Endo_2020_NodeRacerEventRaceDetectionNodejs/notes.md); PDF page numbers"
+  - name: "NodeRacer repository"
+    url: "https://github.com/andreendo/noderacer/tree/2317c673490d3c721abdd91ee93b302c6720a235"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "README install section (Node LTS 10.16.3); last commit 2022-12-15"
+  - name: "Node.fz (Davis, Thekumparampil and Lee, EuroSys 2017)"
+    url: "https://doi.org/10.1145/3064176.3064188"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "paper-reader notes pp.9-13 (C:/Users/Q/code/papers/Davis_2017_NodeFzFuzzingServerSideEventDriven/notes.md); PDF page numbers"
+  - name: "NodeFz repository"
+    url: "https://github.com/SBULeeLab/NodeFz/tree/1ce111e353f423e99b593ca1dfa8643029ae8e37"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "Last commit 2019-07-07; license field NOASSERTION"
+  - name: "Node.js concurrency bug study (Wang et al., ASE 2017)"
+    url: "https://doi.org/10.1109/ASE.2017.8115663"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "paper-reader notes pp.2, 5, 7-8 (C:/Users/Q/code/papers/Wang_2017_ComprehensiveStudyRealWorldConcurrency/notes.md); PDF page numbers"
+  - name: "EventRacer (Raychev, Vechev and Sridharan, OOPSLA 2013)"
+    url: "https://doi.org/10.1145/2509136.2509538"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "paper-reader notes p.2 (C:/Users/Q/code/papers/Raychev_2013_EffectiveRaceDetectionEventDriven/notes.md); PDF page numbers"
+  - name: "EventRacer repository"
+    url: "https://github.com/eth-sri/EventRacer"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "Last push 2015-09-21 (README not read)"
+  - name: "EventRaceCommander (Adamsen et al., ICSE 2017)"
+    url: "https://doi.org/10.1109/icse.2017.34"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "paper-reader notes pp.3-4, 7, 9 (C:/Users/Q/code/papers/Adamsen_2017_RepairingEventRaceErrors/notes.md); printed page numbers"
+  - name: "NodeAV (Chang et al., ICSE 2019)"
+    url: "https://doi.org/10.1109/ICSE.2019.00073"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "paper-reader notes pp.6-7, 9 and Tool availability (C:/Users/Q/code/papers/Chang_2019_DetectingAtomicityViolationsNodejs/notes.md); PDF page numbers"

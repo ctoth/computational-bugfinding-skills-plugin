@@ -127,3 +127,19 @@ sources:
     sections_used:
       - "paper-reader page images printed pp.64-69: §4.3 n.5 history modes; §4.4.1 flag example; §5 annotations; §6.3.4-6.3.5 publication/initialization; §6.4 false positives; §6.5 general advice; §7.1 reference-count symptom"
     quote: "DYNAMIC ANNOTATIONS"
+  - name: "ECMA-262 jobs and memory model"
+    url: "https://raw.githubusercontent.com/tc39/ecma262/828d35d00f8584c4a0fbcac7742b57c7b959c3f3/spec.html"
+    type: "specification"
+    accessed: "2026-11-09"
+    revision: "828d35d00f8584c4a0fbcac7742b57c7b959c3f3"
+    sections_used:
+      - "Execution contexts (line 11883); Jobs and host operations (12142-12152); Agents (12330-12337); Memory model (52687; data race over SharedDataBlockEventSet, 53249-53263)"
+    quote: "Only one Job may be actively undergoing evaluation at any point in time in an agent."
+  - name: "Node.js v26.13.0 worker_threads"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/worker_threads.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    revision: "v26.13.0"
+    sections_used:
+      - "Introduction and stability (1-36); Class Worker (1474)"
+    quote: "sharing `SharedArrayBuffer` instances"
