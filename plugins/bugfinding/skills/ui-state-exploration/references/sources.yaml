@@ -110,7 +110,7 @@ sources:
     type: official-documentation
     accessed: '2026-11-09'
     sections_used:
-      - line 12 per-context storage and cookies; newContext example
+      - line 12 per-context storage and cookies; line 44 newContext example
   - name: Playwright authentication (v1.65.0)
     url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/auth.md
     type: official-documentation
@@ -181,7 +181,7 @@ sources:
       - lines 277-278 visited set and queue
       - lines 575-577 Chromium rejections fire DOM event and pageerror
       - lines 917-925 breadth-first loop deduplicated by normalized URL
-      - lines 2194-2206 responses with status 400 or higher
+      - lines 2194-2227 responses with status 400 or higher outside ignore patterns
   - name: chaosbringer aria snapshot parsing
     url: https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/aria-snapshot.ts
     type: primary-source-code

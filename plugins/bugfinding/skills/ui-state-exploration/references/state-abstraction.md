@@ -14,7 +14,7 @@ Inspect what each normalizer removed. Roest's failure report shows stripped and 
 
 Roest et al. name the sources: "(HTTP) network delays, asynchronous client/server interactions, non-sequential handling of requests by the server, randomly produced or constantly changing data" ([ICST 2010, pp.128-129](https://people.ece.ubc.ca/amesbah/resources/papers/icst10.pdf)). Prefer fixing the input over stripping the output. Playwright's `setFixedTime` "Sets the fixed time for `Date.now()` and `new Date()`" ([Playwright clock](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/clock.md)), and `route.fulfill` serves a fixed response for a matched request ([Playwright network](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/network.md)). A stubbed endpoint no longer exercises the real server, so record which endpoints were fixed.
 
-Drift between runs is real: "The time between crawling and testing also had a large influence on the number of the found state differences", and one Google Reader attribute alone could yield "200+ state differences" per state ([ICST 2010, p.134](https://people.ece.ubc.ca/amesbah/resources/papers/icst10.pdf)).
+Drift between runs is real: "The time between crawling and testing also had a large influence on the number of the found state differences", and Google Reader's `closure_hashcode_[a-zA-Z0-9]+` attributes alone could yield "200+ state differences" per state ([ICST 2010, p.134](https://people.ece.ubc.ca/amesbah/resources/papers/icst10.pdf)).
 
 ## Aria snapshots as a coarse key
 
