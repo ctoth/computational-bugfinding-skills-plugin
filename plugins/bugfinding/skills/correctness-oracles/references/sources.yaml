@@ -124,6 +124,7 @@ sources:
     type: official-documentation
     accessed: '2026-11-09'
     sections_used:
+      - Enabling Strict Mode for entire app
       - Enabling Strict Mode for a part of the app
       - Fixing bugs found by double rendering in development
   - name: react.dev useSyncExternalStore (commit 7594a2b0)

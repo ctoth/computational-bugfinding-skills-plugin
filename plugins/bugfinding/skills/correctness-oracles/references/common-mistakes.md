@@ -40,13 +40,13 @@
 
 **Wrong:** The Node process exited 0, so no promise rejection went unhandled.
 
-**Better:** Read the effective `--unhandled-rejections` mode and every installed listener. Under the default `throw` mode the crash happens only "If this hook is not set", and with an `uncaughtException` handler "the process will exit with 0"; a no-op `.catch` suppresses the event entirely ([Node CLI, --unhandled-rejections](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md), [Node process](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md)).
+**Better:** Read the effective `--unhandled-rejections` mode and every installed listener. Under the default `throw` mode the crash happens only "If this hook is not set", and with an `uncaughtException` handler "the process will exit with 0" unless the handler sets `process.exitCode`; a no-op `.catch` suppresses the event entirely ([Node CLI, --unhandled-rejections](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md), [Node process](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md)).
 
 ## Adding an `uncaughtException` listener to log errors
 
 **Wrong:** Install `process.on('uncaughtException', log)` in the harness to collect errors.
 
-**Better:** Use `uncaughtExceptionMonitor`, which "does not change the behavior". An `uncaughtException` handler replaces the crash with exit code 0, and Node warns "It is not safe to resume normal operation after `'uncaughtException'`" ([Node process, uncaughtExceptionMonitor and uncaughtException](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md)).
+**Better:** Use `uncaughtExceptionMonitor`, which "does not change the behavior". An `uncaughtException` handler replaces the crash with exit code 0 unless it sets `process.exitCode`, and Node warns "It is not safe to resume normal operation after `'uncaughtException'`" ([Node process, uncaughtExceptionMonitor and uncaughtException](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md)).
 
 ## Reading a clean console in a production build as a passed React contract
 
