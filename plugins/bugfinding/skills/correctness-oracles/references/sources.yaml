@@ -58,3 +58,123 @@ sources:
     sections_used:
       - 2. Test Harnesses (SQL Logic Test)
       - 9. Disabled Optimization Tests
+  - name: Node.js CLI documentation (v26.13.0, commit 18b32a3b)
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --unhandled-rejections=mode
+  - name: Node.js process documentation (v26.13.0, commit 18b32a3b)
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - "Event: 'rejectionHandled'"
+      - "Event: 'uncaughtException'"
+      - "Warning: Using 'uncaughtException' correctly"
+      - "Event: 'uncaughtExceptionMonitor'"
+      - "Event: 'unhandledRejection'"
+  - name: Node.js test runner documentation (v26.13.0, commit 18b32a3b)
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/test.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Extraneous asynchronous activity
+      - Test runner execution model
+  - name: Jest 30.5 CLI documentation (commit 72614448)
+    url: https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/website/versioned_docs/version-30.5/CLI.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --waitForUnhandledRejections
+  - name: Jest 30.5 Jest Object documentation (commit 72614448)
+    url: https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/website/versioned_docs/version-30.5/JestObjectAPI.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - jest.retryTimes(numRetries, options?)
+  - name: Vitest dangerouslyIgnoreUnhandledErrors (commit 3a76b873)
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/3a76b87324ecb8d25509cd009aa87fbe56819c39/docs/config/dangerouslyignoreunhandlederrors.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - dangerouslyIgnoreUnhandledErrors
+  - name: Vitest onUnhandledError (commit 3a76b873)
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/3a76b87324ecb8d25509cd009aa87fbe56819c39/docs/config/onunhandlederror.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - onUnhandledError
+  - name: react.dev createRoot (commit 7594a2b0)
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react-dom/client/createRoot.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - createRoot(domNode, options?) parameters
+      - Error logging in production
+  - name: react.dev Component (commit 7594a2b0)
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/Component.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - componentDidCatch caveats
+      - Catching rendering errors with an Error Boundary
+  - name: react.dev StrictMode (commit 7594a2b0)
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/StrictMode.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Enabling Strict Mode for a part of the app
+      - Fixing bugs found by double rendering in development
+  - name: react.dev useSyncExternalStore (commit 7594a2b0)
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/useSyncExternalStore.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Parameters (getSnapshot)
+      - 'Troubleshooting: I''m getting an error: "The result of getSnapshot should be cached"'
+  - name: React CHANGELOG (v19.3.1, commit 61aa00df)
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/CHANGELOG.md
+    type: official-source
+    accessed: '2026-11-09'
+    sections_used:
+      - 19.0.0 Errors in render are not re-thrown
+      - 18.0.0 onRecoverableError
+  - name: React ReactFiberErrorLogger.js (v19.3.1, commit 61aa00df)
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/react-reconciler/src/ReactFiberErrorLogger.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - defaultOnUncaughtError
+      - defaultOnCaughtError
+      - defaultOnRecoverableError
+      - logUncaughtError
+  - name: React reportGlobalError.js (v19.3.1, commit 61aa00df)
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/shared/reportGlobalError.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - reportGlobalError
+  - name: React ReactFiberHooks.js (v19.3.1, commit 61aa00df)
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/react-reconciler/src/ReactFiberHooks.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - didWarnUncachedGetSnapshot
+      - mountSyncExternalStore getSnapshot caching warning
+  - name: React ReactFiberHydrationContext.js (v19.3.1, commit 61aa00df)
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/react-reconciler/src/ReactFiberHydrationContext.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - upgradeHydrationErrorsToRecoverable
+      - emitPendingHydrationWarnings
+  - name: Playwright Page API documentation (commit 95e5dca3)
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/api/class-page.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - "event: Page.console"
+      - "event: Page.pageError"
+      - "async method: Page.consoleMessages"
+      - "async method: Page.pageErrors"

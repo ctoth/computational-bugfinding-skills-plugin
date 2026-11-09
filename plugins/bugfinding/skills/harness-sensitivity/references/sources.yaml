@@ -100,3 +100,145 @@ sources:
       - '2.5 Mutation Analysis (page 5)'
       - '3.2 What Types of Real Faults Are Not Coupled to Mutants? (pages 7-8)'
       - '5. Conclusion (page 10)'
+  - name: c8 README (commit ae5a0cf4)
+    url: https://raw.githubusercontent.com/bcoe/c8/ae5a0cf4349b92cac910cf7275e724ab7a725b9d/README.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Checking for "full" source coverage using --all
+      - Ignoring Uncovered Lines, Functions, and Blocks
+  - name: c8 package.json (commit ae5a0cf4)
+    url: https://raw.githubusercontent.com/bcoe/c8/ae5a0cf4349b92cac910cf7275e724ab7a725b9d/package.json
+    type: official-source
+    accessed: '2026-11-09'
+    sections_used:
+      - engines
+  - name: Node.js test runner documentation (v26.13.0, commit 18b32a3b)
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/test.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Extraneous asynchronous activity
+      - Randomizing tests execution order
+      - Test runner execution model
+      - Collecting code coverage
+  - name: Node.js CLI documentation (v26.13.0, commit 18b32a3b)
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --test-random-seed
+      - --test-randomize
+      - NODE_V8_COVERAGE=dir
+  - name: Node.js CLI documentation (v24.22.2, commit f7f273a9)
+    url: https://raw.githubusercontent.com/nodejs/node/f7f273a9bb6445f6f7fb6349105e7532972045fb/doc/api/cli.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --test-randomize (added v24.16.0)
+  - name: Node.js CHANGELOG_V24 (v24.22.2, commit f7f273a9)
+    url: https://raw.githubusercontent.com/nodejs/node/f7f273a9bb6445f6f7fb6349105e7532972045fb/doc/changelogs/CHANGELOG_V24.md
+    type: official-source
+    accessed: '2026-11-09'
+    sections_used:
+      - 2026-05-21, Version 24.16.0 'Krypton' (LTS)
+  - name: Jest 30.5 CLI documentation (commit 72614448)
+    url: https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/website/versioned_docs/version-30.5/CLI.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --detectOpenHandles
+      - --forceExit
+      - --randomize
+      - --seed=<num>
+      - --showSeed
+  - name: Jest 30.5 configuration documentation (commit 72614448)
+    url: https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/website/versioned_docs/version-30.5/Configuration.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - coverageProvider
+      - openHandlesTimeout
+  - name: Vitest sequence configuration (commit 3a76b873)
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/3a76b87324ecb8d25509cd009aa87fbe56819c39/docs/config/sequence.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - sequence.shuffle
+      - sequence.seed
+  - name: Vitest coverage guide (commit 3a76b873)
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/3a76b87324ecb8d25509cd009aa87fbe56819c39/docs/guide/coverage.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - V8 provider
+  - name: BugsJS bug-dataset README (commit 7abbad3e)
+    url: https://raw.githubusercontent.com/BugsJS/bug-dataset/7abbad3e4df12cd5294110bb5db11b7d5bc758a6/README.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Projects
+      - Commands
+  - name: BugsJS bug-dataset LICENSE (commit 7abbad3e)
+    url: https://raw.githubusercontent.com/BugsJS/bug-dataset/7abbad3e4df12cd5294110bb5db11b7d5bc758a6/LICENSE
+    type: official-source
+    accessed: '2026-11-09'
+    sections_used:
+      - MIT License
+  - name: BugsJS bug-dataset Versions.txt (commit 7abbad3e)
+    url: https://raw.githubusercontent.com/BugsJS/bug-dataset/7abbad3e4df12cd5294110bb5db11b7d5bc758a6/Versions.txt
+    type: official-source
+    accessed: '2026-11-09'
+    sections_used:
+      - Number of Subjects and Number of Bugs
+  - name: BugsJS bug-dataset Projects.csv (commit 7abbad3e)
+    url: https://raw.githubusercontent.com/BugsJS/bug-dataset/7abbad3e4df12cd5294110bb5db11b7d5bc758a6/Projects.csv
+    type: official-source
+    accessed: '2026-11-09'
+    sections_used:
+      - Number of bugs per project
+  - name: BugsJS docker-environment Dockerfile (commit 252cf8d7)
+    url: https://raw.githubusercontent.com/BugsJS/docker-environment/252cf8d79f0d0ecc9a80afc518f7e7d4b7ae6400/env/Dockerfile
+    type: official-source
+    accessed: '2026-11-09'
+    sections_used:
+      - FROM line
+  - name: sola-da/ReDoS-vulnerabilities README (commit ccb8d7dc)
+    url: https://raw.githubusercontent.com/sola-da/ReDoS-vulnerabilities/ccb8d7dc74fd9cff835b47548bdffb7c010bb60f/README.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Reported ReDoS Vulnerabilities
+      - Running the Exploits Set
+  - name: sola-da/ReDoS-vulnerabilities test-forwarded.js (commit ccb8d7dc)
+    url: https://raw.githubusercontent.com/sola-da/ReDoS-vulnerabilities/ccb8d7dc74fd9cff835b47548bdffb7c010bb60f/test-forwarded.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - license header
+      - exploit body
+  - name: sola-da/ReDoS-vulnerabilities GitHub repository metadata
+    url: https://api.github.com/repos/sola-da/ReDoS-vulnerabilities
+    type: repository-metadata
+    accessed: '2026-11-09'
+    sections_used:
+      - description
+      - license (null)
+  - name: Freezing the Web - A Study of ReDoS Vulnerabilities in JavaScript-based Web Servers
+    url: https://www.usenix.org/conference/usenixsecurity18/presentation/staicu
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - 'Key contributions, benchmark URL (page 362); read via paper-reader notes Staicu_2018_FreezingWebStudyReDoS/notes.md'
+  - name: A Comprehensive Study on Real World Concurrency Bugs in Node.js
+    url: https://doi.org/10.1109/ASE.2017.8115663
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - 'Introduction, NodeCB dataset URL (PDF page 2); references [21]-[42] issue URLs (PDF page 11); read via paper-reader notes Wang_2017_ComprehensiveStudyRealWorldConcurrency/notes.md'
+  - name: NodeCB project page (Wayback Machine snapshot 2022-12-07)
+    url: http://web.archive.org/web/20221207163016id_/http://www.tcse.cn/~wsdou/project/NodeCB/
+    type: archived-web-page
+    accessed: '2026-11-09'
+    sections_used:
+      - dataset description and download form
