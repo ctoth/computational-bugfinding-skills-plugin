@@ -1,6 +1,6 @@
 ---
 name: coverage-guided-fuzzing
-description: Builds and operates instrumented fuzzing lanes with runtime-specific discovery, reset and replay semantics. Use when configuring AFL++, libFuzzer, Go fuzzing, cargo-fuzz, Atheris, Jazzer or FuzzTest, or diagnosing low useful coverage in an existing campaign.
+description: Builds and operates instrumented fuzzing lanes with runtime-specific discovery, reset and replay semantics. Use when configuring AFL++, libFuzzer, Go fuzzing, cargo-fuzz, Atheris, Jazzer, Jazzer.js for Node.js/TypeScript or FuzzTest, or diagnosing low useful coverage in an existing campaign. Browser JavaScript has no coverage-guided route here.
 ---
 
 # Coverage-guided fuzzing
@@ -19,12 +19,15 @@ Use the existing fitting producer and build owner. Choose only the applicable ex
 | Go or Rust | [Go and Rust](references/go-rust.md) |
 | Python/native extensions or JVM | [Python and JVM](references/python-jvm.md) |
 | C++ property domains with FuzzTest | [C++ FuzzTest](references/cpp-fuzztest.md) |
+| Node.js (CJS, ESM, TypeScript via Jest) | [Node.js with Jazzer.js](references/node-jazzerjs.md) |
+
+Browser application code has no in-process coverage-guided route: Jazzer.js puts "Other runtimes or browser support" out of scope ([Jazzer.js architecture, Constraints](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/architecture.md)). Route browser UI exploration to the skill that owns UI event sequences.
 
 Verify the selected release's prerequisites and installed help before changing configuration. References record a dated source snapshot, not a promise that every version/platform supports the same flags. Invoke within the user's existing authority; this skill does not itself authorize installations, target edits or external spending.
 
 ## Run a finite informative pilot
 
-Establish discovery mode, relevant target instrumentation, state reset and a working oracle before adding workers. Go seed replay, Jazzer regression and FuzzTest unit mode differ from their discovery modes: plain `go test` runs seeds "much like a unit test", "Jazzer operates in regression mode unless fuzzing mode is explicitly enabled", and FuzzTest unit mode runs "without sanitizer and coverage instrumentation" ([Go fuzzing, Running fuzz tests](https://raw.githubusercontent.com/golang/website/a8b66266e226994e2ead51317bace3ee83cedab9/_content/doc/security/fuzz/index.md), [Jazzer README, Regression mode](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/a4e09fbbc775d129ce61d5802e893160e31a6d40/README.md), [FuzzTest Bazel quickstart, Create and run a fuzz test](https://raw.githubusercontent.com/google/fuzztest/1b4e4f0e4c446aca4660c43a28ec1b8d893b6510/doc/quickstart-bazel.md)).
+Establish discovery mode, relevant target instrumentation, state reset and a working oracle before adding workers. Go seed replay, Jazzer regression, Jazzer.js Jest regression and FuzzTest unit mode differ from their discovery modes: plain `go test` runs seeds "much like a unit test", "Jazzer operates in regression mode unless fuzzing mode is explicitly enabled", Jazzer.js under Jest defaults to `"regression"`, and FuzzTest unit mode runs "without sanitizer and coverage instrumentation" ([Go fuzzing, Running fuzz tests](https://raw.githubusercontent.com/golang/website/a8b66266e226994e2ead51317bace3ee83cedab9/_content/doc/security/fuzz/index.md), [Jazzer README, Regression mode](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer/a4e09fbbc775d129ce61d5802e893160e31a6d40/README.md), [Jazzer.js fuzzing settings, mode](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-settings.md), [FuzzTest Bazel quickstart, Create and run a fuzz test](https://raw.githubusercontent.com/google/fuzztest/1b4e4f0e4c446aca4660c43a28ec1b8d893b6510/doc/quickstart-bazel.md)).
 
 Observe decoder admission, intended operation, successful effects and property evaluations separately from engine coverage; byte mutation of a compressed format can leave "virtually all generated inputs to be invalid for `uncompress`" ([Google structure-aware fuzzing guide, Example: Compression](https://raw.githubusercontent.com/google/fuzzing/734e55f3cfed1adbb51bf6cb5c65b4c1197b7089/docs/structure-aware-fuzzing.md)). Diagnose rejected formats, hidden state or unmet dependencies using [reach, reset and feedback](references/reach-reset-feedback.md). Select dictionary/comparison feedback or structural mutation against a demonstrated blocker; each changes a different part of search ([AFL++ CmpLog](https://raw.githubusercontent.com/AFLplusplus/AFLplusplus/d0070729206a80a9af297b2341edd63f68fdac35/instrumentation/README.cmplog.md), [Google structure-aware fuzzing guide](https://raw.githubusercontent.com/google/fuzzing/734e55f3cfed1adbb51bf6cb5c65b4c1197b7089/docs/structure-aware-fuzzing.md)).
 

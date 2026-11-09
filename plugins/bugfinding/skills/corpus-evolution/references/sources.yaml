@@ -39,3 +39,53 @@ sources:
     type: "research-paper"
     accessed: "2026-11-07"
     sections_used: ["2 Q1: Seed Selection (set cover)", "2.2 Specific Research Questions", "6.1 Establishing Ground Truth", "6.2.2 Are reduced seed sets better than a full set?", "6.3 Are Reduced Sets Reusable Across Programs?"]
+  - name: "Jazzer.js fuzzing settings (docs/fuzz-settings.md at f23bc5a)"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-settings.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used: ["corpus (CLI first directory generated, others startup-only; no mixing; listed inputs run once; Jest directories fixed, regression directory saves crashes)", "mode (CLI regression adds -runs=0; CLI fuzzing text names a regression directory)"]
+  - name: "Jazzer.js fuzz targets and CLI (docs/fuzz-targets.md at f23bc5a)"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-targets.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used: ["Running the fuzz target (crash inputs stored in the current working directory)"]
+  - name: "Jazzer.js core options source (packages/core/options.ts at f23bc5a)"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/options.ts"
+    type: "primary-source-code"
+    accessed: "2026-11-09"
+    sections_used: ["SUBPROCESS_FLAGS (fork, jobs, merge, minimize_crash)", "prepareLibFuzzerArg0 / createWrapperScript"]
+  - name: "Jazzer.js Jest runner corpus source (packages/jest-runner/corpus.ts at f23bc5a)"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/jest-runner/corpus.ts"
+    type: "primary-source-code"
+    accessed: "2026-11-09"
+    sections_used: ["Seed directory comment", ".cifuzz-corpus default", "inputsPaths (generated directory only with coverage)"]
+  - name: "Jazzer.js Jest runner source (packages/jest-runner/fuzz.ts at f23bc5a)"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/jest-runner/fuzz.ts"
+    type: "primary-source-code"
+    accessed: "2026-11-09"
+    sections_used: ["runInFuzzingMode (-artifact_prefix set to the seed directory)"]
+  - name: "Jazzer.js architecture (docs/architecture.md at f23bc5a)"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/architecture.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used: ["Components and Interactions (Babel coverage counters and comparison hooks)"]
+  - name: "Jazzer.js v4.0.0 release"
+    url: "https://github.com/CodeIntelligenceTesting/jazzer.js/releases/tag/v4.0.0"
+    type: "official-release-notes"
+    accessed: "2026-11-09"
+    sections_used: ["What's Changed (BREAKING FDP UTF-8 string consumption; printable strings removed)"]
+  - name: "Node.js CLI NODE_V8_COVERAGE (doc/api/cli.md at v26.13.0)"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/cli.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used: ["NODE_V8_COVERAGE=dir"]
+  - name: "Node.js v8.takeCoverage (doc/api/v8.md at v26.13.0)"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/v8.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used: ["v8.takeCoverage()"]
+  - name: "c8 README (at ae5a0cf)"
+    url: "https://raw.githubusercontent.com/bcoe/c8/ae5a0cf4349b92cac910cf7275e724ab7a725b9d/README.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used: ["Title (native V8 code-coverage)", "CLI options (--temp-directory default)"]

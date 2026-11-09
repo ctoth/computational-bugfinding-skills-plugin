@@ -242,3 +242,142 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "Page images via paper-reader: p.864 §2.1 (reduction budget t); p.871 §6.2.2 (optimal vs Round-Robin scheduling); p.873 Fig. 6 and §7 (transferability; initial hypothesis testing)"
+  - name: "Jazzer.js README"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Supported Architectures (Linux x86_64; macOS x86_64 and arm64; Windows x86_64)"
+  - name: "Jazzer.js architecture"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/architecture.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Constraints (Out of scope: other runtimes or browser support)"
+      - "Components and Interactions (Babel coverage counters and comparison hooks; stops on first crash)"
+  - name: "Jazzer.js fuzz targets and CLI"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-targets.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Creating a fuzz target (fuzz(Buffer), FuzzedDataProvider)"
+      - "Fuzz target execution modes (promise, done callback, synchronous)"
+      - "Using TypeScript to write fuzz targets"
+      - "ESM support (requirements; direct vs Jest ESM)"
+      - "Running the fuzz target (command format, parameter table, crash files in cwd)"
+      - "Coverage report generation (overhead)"
+  - name: "Jazzer.js fuzzing settings"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-settings.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "corpus (no corpus directory; listed inputs run once)"
+      - "coverage (report upon exit; bounding the run)"
+      - "dryRun"
+      - "fuzzerOptions (-timeout ignored)"
+      - "JAZZER_FUZZ"
+      - "mode (CLI fuzzing default; Jest regression default; one fuzz test in fuzzing mode)"
+      - "sync"
+      - "timeout (milliseconds, default 5000)"
+  - name: "Jazzer.js Jest integration"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/jest-integration.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Executing Jest fuzz tests (fuzzing mode, --testNamePattern)"
+  - name: "Jazzer.js bug detectors"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/bug-detectors.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Introduction (enabled by default; --disableBugDetectors)"
+      - "Command Injection; Path Traversal; Prototype Pollution (shortcoming); Remote Code Execution; Server-Side Request Forgery"
+      - "Writing Custom Bug Detectors (reportFinding)"
+  - name: "Jazzer.js core options source"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/options.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "optionDependentParams (-runs=0 in regression; -timeout in whole seconds)"
+  - name: "Jazzer.js core source"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/core.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "FuzzingExitCode (0, 77, 78)"
+      - "resolveInstrumentationSeed (generated seed printed)"
+  - name: "Jazzer.js callbacks source"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/callback.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "registerBeforeEachCallback / registerAfterEachCallback"
+  - name: "Jazzer.js API source"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/api.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Exported callback registration functions"
+  - name: "Jazzer.js Jest runner source"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/jest-runner/fuzz.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "runInFuzzingMode (single Jest test; -artifact_prefix to seed directory)"
+      - "runInRegressionMode (one test per input plus <empty>)"
+  - name: "Jazzer.js native addon README"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/fuzzer/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Prebuilt download and fallback compilation (CMake and C++ toolchain)"
+      - "Sync vs async threading"
+  - name: "Jazzer.js CMakeLists"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/fuzzer/CMakeLists.txt"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "compiler-rt external project (COMPILER_RT_SANITIZERS_TO_BUILD empty; fuzzer_no_main targets)"
+  - name: "Jazzer.js sanitizer stubs"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/fuzzer/shared/sanitizer_symbols.cpp"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Stub sanitizer functions (suppress libFuzzer warnings)"
+  - name: "Jazzer.js release workflow"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/.github/workflows/release.yaml"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Prebuild matrix and expected prebuilt addon list (five targets)"
+  - name: "Jazzer.js PR workflow"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/.github/workflows/run-all-tests-pr.yaml"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Unit-test note (npm 7+ workspaces; Node 14 covered by end-to-end tests)"
+  - name: "npm @jazzer.js/core"
+    url: "https://registry.npmjs.org/@jazzer.js/core"
+    type: package-metadata
+    accessed: "2026-11-09"
+    sections_used:
+      - "4.0.0 engines (node >= 14.0.0, npm >= 7.0.0)"
+      - "time (2.1.0 published 2023-10-23; 4.0.0 published 2026-04-15)"
+  - name: "npm @jazzer.js/jest-runner"
+    url: "https://registry.npmjs.org/@jazzer.js/jest-runner"
+    type: package-metadata
+    accessed: "2026-11-09"
+    sections_used:
+      - "4.0.0 peerDependencies (jest >=29.0.0)"
+  - name: "Jazzer.js v4.0.0 release"
+    url: "https://github.com/CodeIntelligenceTesting/jazzer.js/releases/tag/v4.0.0"
+    type: official-release-notes
+    accessed: "2026-11-09"
+    sections_used:
+      - "What's Changed; v3.x.x skipped note"
+  - name: "Jest Global API"
+    url: "https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/docs/GlobalAPI.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "beforeEach(fn, timeout)"
