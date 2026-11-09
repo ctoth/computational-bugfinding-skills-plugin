@@ -1,11 +1,11 @@
 {
   "name": "bugfinding",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Computational bugfinding through executable oracles, generated workloads, controlled search, and reproducible evidence",
   "author": { "name": "Q" },
   "repository": "https://github.com/ctoth/computational-bugfinding-skills-plugin",
   "license": "MIT",
-  "keywords": ["bugfinding", "fuzzing", "property-testing", "agent-skills"],
+  "keywords": ["bugfinding", "fuzzing", "property-testing", "nodejs", "react", "agent-skills"],
   "skills": "./skills/",
   "interface": {
     "displayName": "Computational Bugfinding",

@@ -1,6 +1,6 @@
 # Computational Bugfinding
 
-25 agent skills for finding and reproducing software defects through executable correctness checks, generated workloads, controlled search, and evidence-based triage.
+26 agent skills for finding and reproducing software defects through executable correctness checks, generated workloads, controlled search, and evidence-based triage. Skills cover native, Go, Rust, JVM, .NET and Python targets, and Node.js services and React/browser applications where a verified route exists; each skill states where it has none.
 
 Start with `bugfinding-campaign` to inspect an existing test setup and choose a useful search direction. Use a specialist to design or extend the experiment, then reduce and investigate its failures. Each skill includes method guidance and references to primary sources; these are agent instructions, not bundled fuzzers or a test runner.
 
@@ -46,6 +46,7 @@ Skills guide the agent to read the target's actual code and guarantees, establis
 | [correctness-oracles](plugins/bugfinding/skills/correctness-oracles/SKILL.md) | Turn actual guarantees into executable observations. |
 | [harness-sensitivity](plugins/bugfinding/skills/harness-sensitivity/SKILL.md) | Check that a harness reaches relevant behavior and detects representative violations. |
 | [stateful-property-testing](plugins/bugfinding/skills/stateful-property-testing/SKILL.md) | Generate dependent API and protocol operation sequences. |
+| [ui-state-exploration](plugins/bugfinding/skills/ui-state-exploration/SKILL.md) | Explore a browser or React app's reachable UI states without a model, checking each state and replaying paths. |
 | [semantic-program-generation](plugins/bugfinding/skills/semantic-program-generation/SKILL.md) | Generate programs with the types, objects, effects, and initial state they need. |
 | [semantic-differential-testing](plugins/bugfinding/skills/semantic-differential-testing/SKILL.md) | Compare implementations and execution modes under matched semantic conditions. |
 | [metamorphic-testing](plugins/bugfinding/skills/metamorphic-testing/SKILL.md) | Derive valid relations between transformed executions. |
