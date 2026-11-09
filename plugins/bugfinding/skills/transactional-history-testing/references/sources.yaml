@@ -133,7 +133,6 @@ sources:
     accessed: "2026-11-09"
     sections_used:
       - "Class: AbortController"
-      - "Static method: AbortSignal.timeout(delay)"
   - name: "Node.js v26.13.0 AbortSignal implementation"
     url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/lib/internal/abort_controller.js"
     type: primary-source-code

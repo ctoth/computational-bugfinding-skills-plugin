@@ -40,7 +40,7 @@ sources:
     accessed: '2026-11-07'
     sections_used: [real-time and per-process constraints paragraph]
   - name: The Go Memory Model (Version of June 6, 2022)
-    url: https://go.dev/ref/mem
+    url: https://go.dev/ref/mem#overview
     type: specification
     accessed: '2026-11-07'
     sections_used: [Informal Overview (DRF-SC)]
@@ -64,11 +64,16 @@ sources:
     type: official-documentation
     accessed: '2026-11-07'
     sections_used: [Adding a dependency, Getting a specific dependency version]
-  - name: Go command documentation (go1.27.3)
-    url: https://pkg.go.dev/cmd/go@go1.27.3
+  - name: Go command documentation (go1.27.3), Testing flags
+    url: https://pkg.go.dev/cmd/go@go1.27.3#hdr-Testing_flags
     type: official-documentation
     accessed: '2026-11-07'
-    sections_used: [Testing flags (-timeout), Test packages (test caching, -count=1)]
+    sections_used: [Testing flags (-timeout)]
+  - name: Go command documentation (go1.27.3), Test packages
+    url: https://pkg.go.dev/cmd/go@go1.27.3#hdr-Test_packages
+    type: official-documentation
+    accessed: '2026-11-07'
+    sections_used: [Test packages (test caching, -count=1)]
   - name: Node.js v26.13.0 process documentation
     url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md
     type: official-documentation
