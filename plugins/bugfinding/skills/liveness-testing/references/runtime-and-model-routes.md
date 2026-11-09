@@ -2,6 +2,8 @@
 
 These are source-read conditional command shapes, not commands executed for the target. Select a compatible existing integration and preserve its actual version/configuration.
 
+Node: no progress checker was verified. Node v26.11+ `--process-timeout` exits with code 124 and prints "which resources were keeping the event loop alive" ([Node CLI](https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/cli.md)), and Jest `--detectOpenHandles` prints "open handles preventing Jest from exiting cleanly" ([Jest CLI](https://raw.githubusercontent.com/jestjs/jest/v30.5.2/docs/CLI.md)); both observe a process that did not exit, not a progress contract.
+
 ## Coyote: controlled .NET obligations
 
 The inspected setup lists .NET 10/8/Standard 2 routes and Windows Framework 4.6.2; recheck the chosen artifact and target framework ([installation prerequisites](https://raw.githubusercontent.com/microsoft/coyote/2202e75a861f4e8a63149366c2e41ea21d73ae54/docs/get-started/install.md)). Existing assemblies require the supported rewriting/test-entry setup; static state is shared between iterations: "static state should be appropriately reset before each test iteration" ([Using Coyote, rewriting and test entry](https://raw.githubusercontent.com/microsoft/coyote/2202e75a861f4e8a63149366c2e41ea21d73ae54/docs/get-started/using-coyote.md)).

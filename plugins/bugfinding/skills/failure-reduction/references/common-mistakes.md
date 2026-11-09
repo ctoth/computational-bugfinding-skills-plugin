@@ -58,4 +58,28 @@ Each entry is WRONG first, then RIGHT, then why.
 
 **Why:** 1-minimal means "every character contained is required to produce the error", not global minimality ([Delta Debugging, minimality](https://raw.githubusercontent.com/uds-se/debuggingbook/35dfb6c7a1932e4d5e9ca9858b4b1e80eb7447a5/notebooks/DeltaDebugger.ipynb)).
 
+## Using test retries to confirm a reduced JavaScript case
+
+**Wrong:** Run the reduced Playwright test with `--retries` and accept it when the run exits green or "flaky".
+
+**Right:** Turn retries off and run `--repeat-each <N>`, recording each outcome ([Playwright CLI](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-cli-js.md)).
+
+**Why:** a retry runs in a new worker and browser, and a fail-then-pass test is labelled "flaky" ([Playwright retries](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-retries-js.md)); it measures neither replay of the original state nor a replay rate.
+
+## Accepting a Jazzer.js minimized crash without replay
+
+**Wrong:** Keep whatever `-minimize_crash=1` writes as the reduced witness.
+
+**Right:** Replay it with `npx jazzer <fuzzTarget> <file>` and check the selected predicate ([Jazzer.js fuzzing settings](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-settings.md)).
+
+**Why:** libFuzzer "minimizes the provided crash input" toward any crash ([libFuzzer options](https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/llvm/docs/LibFuzzer.md)), and Jazzer.js only accommodates the flag in source ([Jazzer.js core options](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/options.ts)).
+
+## Running Shrink Ray with its defaults on an agent host
+
+**Wrong:** `shrinkray is_interesting.sh case.js` without further flags.
+
+**Right:** Pass `--no-llm` unless the user authorized the model download.
+
+**Why:** LLM mode "is enabled by default" and first use downloads a model of "about 2.7GB" ([Shrink Ray README](https://raw.githubusercontent.com/DRMacIver/shrinkray/5fe6ee135d732e4b7758b3dbe3d91428523018fb/README.md)).
+
 For dependent artifacts, a smaller setup error, impossible schedule or shifted fault event does not satisfy the chosen predicate. Apply the explicit correspondence rules in [worked reductions](worked-reductions.md) rather than silently weakening the oracle. These are this pack's adaptations, not claims of a general automatic reducer.

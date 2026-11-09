@@ -95,3 +95,9 @@ sources:
     accessed: "2026-11-07"
     sections_used: ["3.3 Run-time Library","3.5 False Negatives","4 Evaluation","5.2 Handling Libraries"]
     evidence_fragment: "False Negatives"
+  - name: "Node.js BUILDING.md"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/BUILDING.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used: ["ASan build, lines 646-660"]
+    evidence_fragment: "ASan builds are currently only supported on linux"

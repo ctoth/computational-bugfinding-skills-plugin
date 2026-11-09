@@ -146,3 +146,31 @@ sources:
     sections_used:
       - "Requirements; Add a ready signal for fuzzing"
     evidence_fragment: "setup_complete"
+  - name: "chronos README"
+    url: "https://raw.githubusercontent.com/sx4im/chronos/652f754df1f609d0dd3a89c81fab5b785ae3b459/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Title line"
+    evidence_fragment: "Deterministic Simulation Testing (DST) Framework for Node.js & TypeScript"
+  - name: "determined README"
+    url: "https://raw.githubusercontent.com/glideapps/determined/3f0cfd987b547d47006e70000a46bfedf2c7c722/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Introduction"
+    evidence_fragment: "A deterministic simulation testing (DST) framework for TypeScript"
+  - name: "chronos repository metadata (GitHub API)"
+    url: "https://api.github.com/repos/sx4im/chronos"
+    type: repository-metadata
+    accessed: "2026-11-09"
+    sections_used:
+      - "created_at 2025-04-14"
+    evidence_fragment: "2025-04-14T18:24:44Z"
+  - name: "determined repository metadata (GitHub API)"
+    url: "https://api.github.com/repos/glideapps/determined"
+    type: repository-metadata
+    accessed: "2026-11-09"
+    sections_used:
+      - "created_at 2026-03-22"
+    evidence_fragment: "2026-03-22T17:32:23Z"

@@ -1,6 +1,6 @@
 ---
 name: symbolic-concolic-execution
-description: Guides symbolic and concolic searches for hard-to-reach program paths, with real-target linkage and concrete replay. Use when mutation stalls behind input constraints or when solver-generated counterexamples need validation against actual execution.
+description: Guides symbolic and concolic searches for hard-to-reach program paths, with real-target linkage and concrete replay. Use when mutation stalls behind input constraints or when solver-generated counterexamples need validation against actual execution. JavaScript is supported only after an ExpoSE applicability check passes on the target.
 ---
 
 # Symbolic and concolic execution
@@ -9,7 +9,7 @@ Spend solver work on an identified hard path and replay its candidate through th
 
 ## Select a fitting producer
 
-Inspect the real entrypoint, build, ABI, dependencies and intended property before choosing a solver. KLEE executes LLVM bitcode with optional runtime models; its selected source fails configuration with "KLEE requires LLVM 15 or newer", which is a lower bound rather than an admitted tuple for every newer compiler. SymCC instruments concrete execution with symbolic expressions and documented dependency limits. Verify the selected build, not merely a language name or IR emitter ([KLEE build](https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/CMakeLists.txt), [SymCC README](https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/README.md)).
+Inspect the real entrypoint, build, ABI, dependencies and intended property before choosing a solver. KLEE executes LLVM bitcode with optional runtime models; its selected source fails configuration with "KLEE requires LLVM 15 or newer", which is a lower bound rather than an admitted tuple for every newer compiler. SymCC instruments concrete execution with symbolic expressions and documented dependency limits. Verify the selected build, not merely a language name or IR emitter ([KLEE build](https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/CMakeLists.txt), [SymCC README](https://raw.githubusercontent.com/eurecom-s3/symcc/522c48070bc312aeb621a631ff130ded71507d6d/README.md)). For JavaScript, read [ExpoSE](references/expose-javascript.md) and run its applicability check first; if it fails, report that no supported JavaScript backend exists for the target.
 
 Use existing production code in the driver/build. A reimplementation in another language changes the tested producer. Separate legal-input constraints, concrete setup, environmental assumptions and the assertion; a success stub or concretized dependency can remove the intended path, since the `all` external-call policy "concretizes any symbolic arguments in calls to external functions" ([external-call source](https://raw.githubusercontent.com/klee/klee/2c11e515ed83608a0b01b48ffd5865a93b2a0b9f/lib/Core/Executor.cpp), [KLEE, §§4 and 5.5](https://www.doc.ic.ac.uk/~cristic/papers/klee-osdi-08.pdf)). For boundary design and worked cases, read [target and environment](references/target-and-environment.md).
 

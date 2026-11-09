@@ -55,3 +55,35 @@
 **Better:** Keep original evidence when a reducer discovers a different smaller failure. ClusterFuzz minimization is meant to keep "the same underlying bug" ([ClusterFuzz glossary, Minimization](https://google.github.io/clusterfuzz/reference/glossary/)), while Go's minimizer only keeps a value "which will still produce an error" ([Go fuzzing, Failing input](https://go.dev/doc/security/fuzz/#failing-input)). Route reduction mechanics to `failure-reduction`.
 
 **Why:** a reducer that accepts any error can hand back a different bug.
+
+## Reading a "flaky" JavaScript test as passing
+
+**Wrong:** "Playwright passed it on retry, so there is nothing to triage."
+
+**Better:** Keep the first failure as a candidate and measure replay with `--repeat-each` and retries off. A fail-then-pass test is labelled "flaky", and a retry runs after Playwright will "discard the entire worker process along with the browser" ([Playwright retries](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-retries-js.md)); flaky tests fail the run only with `--fail-on-flaky-tests` ([Playwright CLI](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-cli-js.md)).
+
+**Why:** the passing retry ran in a fresh worker, so it says nothing about the failing run's state.
+
+## Expecting the failing run's trace from `on-first-retry`
+
+**Wrong:** Configure `trace: 'on-first-retry'` and look for the failure in the trace.
+
+**Better:** Use `'retain-on-failure'` or `'retain-on-failure-and-retries'`; for "Fails, then passes on retry", `'on-first-retry'` keeps only "first retry" ([Playwright trace table](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-use-options-js.md)).
+
+**Why:** the kept trace is the passing retry, not the failure.
+
+## Handing off Node reports or traces unreviewed
+
+**Wrong:** Attach the default diagnostic report or `trace.zip` to a public issue as is.
+
+**Better:** Exclude or redact environment variables (`--report-exclude-env`) ([Node diagnostic report](https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/report.md)) and review trace sources and network records ([Playwright test options, trace](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-api/class-testoptions.md)).
+
+**Why:** by default "the environment variables are included" in a report, and trace `sources` "Defaults to true".
+
+## Expecting a profile from a killed Node process
+
+**Wrong:** Kill a hung process and look for its `--cpu-prof` output.
+
+**Better:** Let the process exit, or on Node v26.11+ use `--process-timeout`, after which profiles "are still written" ([Node CLI](https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/cli.md)).
+
+**Why:** `--cpu-prof` and `--heap-prof` write their profile "before exit"; a process killed by a signal that cannot be handled does not reach that point (inference).

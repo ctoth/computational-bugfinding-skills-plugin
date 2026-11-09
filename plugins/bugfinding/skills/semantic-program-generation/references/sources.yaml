@@ -53,3 +53,15 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "Apache-2.0 and file-specific exceptions"
+  - name: "Fuzzilli README"
+    url: "https://raw.githubusercontent.com/googleprojectzero/fuzzilli/bee2fabef881f9360a4994ecce552c687633a8b1/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Line 3 description; line 114 REPRL execution mode (modified target engine)"
+  - name: "Fuzzilli targets (GitHub contents API)"
+    url: "https://api.github.com/repos/googleprojectzero/fuzzilli/contents/Targets?ref=bee2fabef881f9360a4994ecce552c687633a8b1"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Target directories: JavaScriptCore, Jerryscript, QJS, QTJS, Serenity, Spidermonkey, V8, XS, duktape, njs"

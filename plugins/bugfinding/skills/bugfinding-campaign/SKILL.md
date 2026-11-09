@@ -9,7 +9,7 @@ Choose an experiment that can expose a new violated guarantee, then spend comput
 
 ## Establish the present capability
 
-Read the actual target revision, enabled build, harness producers and assertion bodies. Record which inputs, initial states, operations, effects, schedules, failures and configurations each existing lane can exercise and observe. Inspect exclusions and rejected cases. Use coverage or reachability tooling only where its documented build/runtime applies; Fuzz Introspector documents reports "For projects written in C/C++, Python and Java", each with its own build tooling, so it is not a universal backend ([Fuzz Introspector, overview and Differences in build tooling](https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/fuzz_introspector.md)).
+Read the actual target revision, enabled build, harness producers and assertion bodies. Record which inputs, initial states, operations, effects, schedules, failures and configurations each existing lane can exercise and observe. Inspect exclusions and rejected cases. Use coverage or reachability tooling only where its documented build/runtime applies; Fuzz Introspector documents reports "For projects written in C/C++, Python and Java", each with its own build tooling, so it is not a universal backend ([Fuzz Introspector, overview and Differences in build tooling](https://raw.githubusercontent.com/google/oss-fuzz/156f862e5976b3d23828230a0a5b4fef54074d32/docs/advanced-topics/fuzz_introspector.md)). For a JavaScript or TypeScript project, read the [JS lane inventory](references/campaign-example.md#inventorying-a-javascript-or-typescript-project).
 
 Count a capability as existing when the inspected implementation provides it. For a target already using valid-program generation, cross-engine result comparison and transaction histories, adding the same mechanisms under new names is not the proposed advance. Choose an uncovered interaction or observation instead: SQLite's dbsqlfuzz "mutates both the SQL input and the database file at the same time" and found faults "missed by prior fuzzers", a concrete precedent for searching dimensions together. It is "a proprietary fuzz tester": borrow the mechanism, not an assumed public tool ([SQLite testing, §2 and §4.1.3](https://www.sqlite.org/testing.html)).
 
@@ -27,6 +27,7 @@ Design observations before multiplying workloads. Elle's traceable objects revea
 | Missing dimension or observation | Relevant specialist |
 |---|---|
 | Dependent API objects and legal operation sequences | `stateful-property-testing` |
+| Reachable browser or React UI states without an operation model, with per-state oracles and path replay | `ui-state-exploration` |
 | Runtime-valid programs with required state/effects | `semantic-program-generation` |
 | Independent execution comparison or justified run-to-run relation | `semantic-differential-testing`, `metamorphic-testing` |
 | Instrumentation/search mechanics or retained search material | `coverage-guided-fuzzing`, `corpus-evolution` |

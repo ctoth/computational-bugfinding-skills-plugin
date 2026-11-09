@@ -25,6 +25,7 @@ Read [tool recipes](references/tool-recipes.md) for the applicable route:
 | LLVM IR/MIR | llvm-reduce, with candidate-path test invocation |
 | A libFuzzer crash input | Crash reduction, distinct from coverage-corpus reduction |
 | Go or Hypothesis generated inputs | Existing typed replay and shrinker; preserve extra dependent state |
+| A JavaScript generated input, crash file or test case | fast-check's shrinker, Jazzer.js `-minimize_crash`, or a generic text reducer |
 
 Check selected tool/version, input format, predicate invocation and working-directory behavior before running. Exercise the original, a healthy candidate and an invalid/setup candidate through that same interface; C-Reduce's help says that if the original does not return zero in a fresh temporary directory, "the interestingness test is flawed". Use `harness-sensitivity` if the intended rejection is unestablished. Do not interpret reducer process success as proof of final replay: llvm-reduce "returns 0 under normal operation" ([C-Reduce executable contract](https://raw.githubusercontent.com/csmith-project/creduce/31e855e290970cba0286e5032971509c0e7c0a80/creduce/creduce.in), [llvm-reduce exit status](https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/llvm/docs/CommandGuide/llvm-reduce.md)).
 

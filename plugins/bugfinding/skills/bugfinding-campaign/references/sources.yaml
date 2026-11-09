@@ -73,3 +73,83 @@ sources:
       - '3. Deducing Dependencies (page 3)'
       - '4.3. Soundness of Elle (page 7)'
       - '9. Future Work and Conclusions (page 12)'
+  - name: Jest Configuration
+    url: https://raw.githubusercontent.com/jestjs/jest/v30.5.2/docs/Configuration.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Config file discovery (line 8) and "jest" key (line 140)
+      - projects (line 1227)
+      - testMatch default (line 2263)
+  - name: Vitest Configuring Vitest
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/v5.1.0/docs/config/index.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Config file lookup order and test property (lines 13-15)
+  - name: Vitest include
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/v5.1.0/docs/config/include.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Default include (line 8)
+  - name: Node.js test runner
+    url: https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/test.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Running tests from the command line, default patterns (lines 722-748)
+  - name: Playwright Test configuration
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-configuration-js.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Example config (testDir, retries, use.trace, projects) and option table (testMatch default), lines 19-94
+  - name: fast-check Jest integration package manifest
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/jest/package.json
+    type: source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - name
+  - name: fast-check Vitest integration package manifest
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/vitest/package.json
+    type: source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - name
+  - name: StrykerJS config file
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-js/8f24ef0be3a2119fc44ac48bfce58930ab2c9032/docs/config-file.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Default config file names (lines 62-67)
+  - name: StrykerJS configuration
+    url: https://raw.githubusercontent.com/stryker-mutator/stryker-js/8f24ef0be3a2119fc44ac48bfce58930ab2c9032/docs/configuration.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - testRunner default 'command' (lines 543-552)
+  - name: Jazzer.js Jest integration
+    url: https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/jest-integration.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - jest-runner dependency and Jest project config (lines 23-70)
+  - name: Playwright Test Retries
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-retries-js.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - passed/flaky/failed categories (lines 82-84)
+  - name: Jest Object API
+    url: https://raw.githubusercontent.com/jestjs/jest/v30.5.2/docs/JestObjectAPI.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - jest.retryTimes (lines 1185-1207)
+  - name: Vitest retry
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/v5.1.0/docs/config/retry.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - retry (line 8)
