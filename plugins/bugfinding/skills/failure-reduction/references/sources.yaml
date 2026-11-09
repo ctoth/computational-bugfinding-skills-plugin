@@ -42,6 +42,12 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "Corpus (-merge=1); Options: -minimize_crash, -reduce_inputs, -max_total_time, -exact_artifact_path"
+  - name: "libFuzzer driver source (crash minimization)"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/compiler-rt/lib/fuzzer/FuzzerDriver.cpp"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "GetDedupTokenFromCmdOutput, lines 353-361; DEDUP_TOKEN mismatch stops minimization, lines 485-492"
   - name: "Hypothesis flaky failures"
     url: "https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/tutorial/flaky.rst"
     type: official-documentation

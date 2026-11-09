@@ -72,7 +72,7 @@ Each entry is WRONG first, then RIGHT, then why.
 
 **Right:** Replay it with `npx jazzer <fuzzTarget> <file>` and check the selected predicate ([Jazzer.js fuzzing settings](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-settings.md)).
 
-**Why:** libFuzzer "minimizes the provided crash input" toward any crash ([libFuzzer options](https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/llvm/docs/LibFuzzer.md)), and Jazzer.js only accommodates the flag in source ([Jazzer.js core options](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/options.ts)).
+**Why:** libFuzzer "minimizes the provided crash input" ([libFuzzer options](https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/llvm/docs/LibFuzzer.md)) and compares only sanitizer `DEDUP_TOKEN` lines, so without one any crash is kept ([FuzzerDriver.cpp](https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/compiler-rt/lib/fuzzer/FuzzerDriver.cpp)); and Jazzer.js only accommodates the flag in source ([Jazzer.js core options](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/options.ts)).
 
 ## Running Shrink Ray with its defaults on an agent host
 

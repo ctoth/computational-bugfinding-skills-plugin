@@ -211,6 +211,13 @@ sources:
     sections_used:
       - "Lines 38-41 Babel presets; line 1881 acorn.parse ecmaVersion"
     quote_fragment: "presets: ['es2017','es2015']"
+  - name: "ExpoSE Jalangi2 fork package.json"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/jalangi2/c2961c4374fa5f5fb35d114b98621cbe38b5c85f/package.json"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "dependencies: acorn 3.1.0, babel-core ^6.26.3, babel-preset-es2015 and babel-preset-es2017 ^6.24.1"
+    quote_fragment: "\"babel-core\": \"^6.26.3\""
   - name: "ExpoSE test tree (GitHub trees API)"
     url: "https://api.github.com/repos/ExpoSEJS/ExpoSE/git/trees/ec03edf85f883248612b1d498c6a7d9189d16d6f?recursive=1"
     type: source-code
@@ -230,7 +237,7 @@ sources:
     type: source-code
     accessed: "2026-11-09"
     sections_used:
-      - "Lines 47-53: maxTime, testMaxTime, testStrategy, jsonOut, printPathCondition; EXPOSE_MAX_CONCURRENT"
+      - "Lines 13-21: EXPOSE_MAX_CONCURRENT default CPU count; lines 23-43: timeToMS s/m/h suffixes, bare number in milliseconds; lines 47-53: maxTime, testMaxTime, testStrategy, jsonOut, printPathCondition"
     quote_fragment: "By default ExpoSE does not generate JSON out"
   - name: "ExpoSE distributor output"
     url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/Distributor/src/Distributor.js"
@@ -244,7 +251,7 @@ sources:
     type: source-code
     accessed: "2026-11-09"
     sections_used:
-      - "Lines 163-197: non-zero exit and missing-output errors"
+      - "Lines 158-159: error count incremented once per path with errors; lines 163-197: non-zero exit and missing-output errors"
     quote_fragment: "Exit code non-zero"
   - name: "ExpoSE child process spawn"
     url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/Distributor/src/Spawn.js"

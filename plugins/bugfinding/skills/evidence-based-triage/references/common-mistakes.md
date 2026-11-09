@@ -60,7 +60,7 @@
 
 **Wrong:** "Playwright passed it on retry, so there is nothing to triage."
 
-**Better:** Keep the first failure as a candidate and measure replay with `--repeat-each` and retries off. A fail-then-pass test is labelled "flaky", and a retry runs after Playwright will "discard the entire worker process along with the browser" ([Playwright retries](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-retries-js.md)); flaky tests fail the run only with `--fail-on-flaky-tests` ([Playwright CLI](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-cli-js.md)).
+**Better:** Keep the first failure as a candidate and measure replay with `--repeat-each` and retries off. A fail-then-pass test is labelled "flaky", and a retry runs after Playwright will "discard the entire worker process along with the browser" ([Playwright retries](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-retries-js.md)); flaky tests fail the run only with `--fail-on-flaky-tests` ([Playwright CLI](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-cli-js.md)) or the `failOnFlakyTests` config ([Playwright TestConfig](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-api/class-testconfig.md)).
 
 **Why:** the passing retry ran in a fresh worker, so it says nothing about the failing run's state.
 

@@ -105,7 +105,14 @@ sources:
     accessed: '2026-11-09'
     sections_used:
       - show-trace command (line 25)
-      - trace.zip in test-results (line 147)
+      - JS Tracing on CI produces trace.zip (line 94)
+  - name: Playwright TestConfig
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-api/class-testconfig.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - property TestConfig.failOnFlakyTests (lines 113-119)
+      - property TestConfig.outputDir default test-results and per-test subdirectory (lines 320-338)
   - name: Playwright playwright-trace skill
     url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/packages/playwright-core/src/tools/skills/playwright-trace/SKILL.md
     type: official-documentation
