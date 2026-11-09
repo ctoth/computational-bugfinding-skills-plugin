@@ -321,7 +321,7 @@ sources:
     type: research-paper
     accessed: '2026-11-09'
     sections_used:
-      - p.1495 values available only inside callbacks
+      - p.1495 library-created values passed to callbacks; nesting as the most effective way
       - p.1496 callback probing
       - p.1497 test case trees (Defs. 2-3)
       - p.1498 extension points
