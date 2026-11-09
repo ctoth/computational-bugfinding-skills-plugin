@@ -24,6 +24,22 @@
 
 **Why:** an unmatched call gets a nil match and the search treats a nil-match node as a return, with no error ([checker](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/checker.go)); the etcd model pairs its appended unknown returns with `|| out.unknown` acceptance ([adapter](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/porcupine_test.go)).
 
+## Timestamping Node.js operations with `Date.now()`
+
+**Wrong:** Record `Call` and `Return` from `Date.now()` in a Node.js client.
+
+**Better:** Use `process.hrtime.bigint()`, or one in-order event list from a single event loop ([model and history](model-and-history.md)).
+
+**Why:** the wall clock "can decrease, making it unreliable for performance measurement or recording the orders of events" ([HR-Time](https://raw.githubusercontent.com/w3c/hr-time/76c362ed3194d99d8563608be0bb6a73e06935b8/index.bs)); the hrtime clock is "not related to the time of day and therefore not subject to clock drift" ([Node v26.13.0 process.md](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md)).
+
+## Waiting for `AbortSignal.timeout` to close pending Node.js calls
+
+**Wrong:** Rely on an `AbortSignal.timeout` rejection to write the completion of a call that never settles.
+
+**Better:** Close every call still open at history end yourself, with the model-specific unknown output.
+
+**Why:** the timeout timer is unref'd so it does not "keep the Node.js process open on it's own", and it is cleared when the signal is garbage-collected ([abort_controller.js](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/lib/internal/abort_controller.js)); the process can end with the call never recorded.
+
 ## Mutating prior model state while stepping
 
 **Wrong:** `Step` appends to the map or slice held in `state` and returns the same value.

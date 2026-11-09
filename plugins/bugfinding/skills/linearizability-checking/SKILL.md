@@ -1,6 +1,6 @@
 ---
 name: linearizability-checking
-description: Checks concurrent operation histories against an executable sequential specification while preserving real-time order and uncertain outcomes. Use for linearizability models, Porcupine integration, history partitioning, or investigating a concurrent object counterexample.
+description: Checks concurrent operation histories against an executable sequential specification while preserving real-time order and uncertain outcomes. Use for linearizability models, Porcupine integration, recording histories from Go or Node.js clients, history partitioning, or investigating a concurrent object counterexample.
 ---
 
 # Linearizability checking
@@ -9,7 +9,7 @@ Select a real operation contract and check whether its observed concurrent histo
 
 ## Build the experiment
 
-Read the public operation producer, actual configuration, initial state and error/effect semantics. Build a small abstract model rather than port target internals; the method "strictly separates the concurrent implementation from its specification" ([P-compositionality, p.14](https://arxiv.org/abs/1504.00204)). Keep transitions pure ("This function must be a pure function") and state equality correct for backtracking; a partition is valid only when "a history is linearizable if and only if each partition is linearizable" ([Porcupine model.go, v1.3.1](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/model.go)). Read [model and history](references/model-and-history.md) before importing traces.
+Read the public operation producer, actual configuration, initial state and error/effect semantics. Build a small abstract model rather than port target internals; the method "strictly separates the concurrent implementation from its specification" ([P-compositionality, p.14](https://arxiv.org/abs/1504.00204)). Keep transitions pure ("This function must be a pure function") and state equality correct for backtracking; a partition is valid only when "a history is linearizable if and only if each partition is linearizable" ([Porcupine model.go, v1.3.1](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/model.go)). Read [model and history](references/model-and-history.md) before importing traces, including its section on recording from a Node.js client.
 
 Retain genuine call/return ordering and matching identities. Preserve raw records alongside the converted history; completion-order sorting can erase overlap. Porcupine treats `[Call, Return]` "as a closed interval", so tied endpoints are concurrent, and its event representation uses explicit matched IDs: "The Id field is used to match a function call event with its corresponding return event" ([history contract](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/model.go)). Event conversion uses slice position as time (comment: `use index as "time"`), so the supplied order is the real-time evidence ([conversion source](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/checker.go)).
 

@@ -69,3 +69,38 @@ sources:
     type: official-documentation
     accessed: '2026-11-07'
     sections_used: [Testing flags (-timeout), Test packages (test caching, -count=1)]
+  - name: Node.js v26.13.0 process documentation
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used: [process.hrtime (clock drift), process.hrtime.bigint, Event 'beforeExit']
+  - name: Node.js v26.13.0 performance.now implementation
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/src/node_perf.cc
+    type: implementation
+    accessed: '2026-11-09'
+    sections_used: [performance_process_start, PerformanceNowImpl]
+  - name: Node.js v26.13.0 hrtime implementation
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/src/node_process_methods.cc
+    type: implementation
+    accessed: '2026-11-09'
+    sections_used: [HrtimeImpl, HrtimeBigIntImpl (uv_hrtime)]
+  - name: Node.js v26.13.0 AbortSignal implementation
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/lib/internal/abort_controller.js
+    type: implementation
+    accessed: '2026-11-09'
+    sections_used: [setWeakAbortSignalTimeout (unref'd timer, WeakRef, FinalizerRegistry, TimeoutError)]
+  - name: W3C High Resolution Time (Editor's Draft source)
+    url: https://raw.githubusercontent.com/w3c/hr-time/76c362ed3194d99d8563608be0bb6a73e06935b8/index.bs
+    type: specification
+    accessed: '2026-11-09'
+    sections_used: [Clocks (wall clock can decrease, monotonic clock never decreases)]
+  - name: ECMA-262 living draft (unversioned, read 2026-11-09)
+    url: https://tc39.es/ecma262/#sec-serializejsonproperty
+    type: specification
+    accessed: '2026-11-09'
+    sections_used: [SerializeJSONProperty (BigInt throws TypeError)]
+  - name: Node.js learn, Don't block the event loop
+    url: https://raw.githubusercontent.com/nodejs/learn/ea10f2a6af515ec69885f517984ef8628f0eb37b/pages/asynchronous-work/dont-block-the-event-loop.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used: [Event Loop and Worker Pool overview]

@@ -6,6 +6,8 @@ Use the target's Go test/model/recorder if it fits. Inspect the selected Porcupi
 
 Only where dependency changes are in scope, select a compatible module version using `go get github.com/anishathalye/porcupine@SELECTED_VERSION`; this changes dependency files/downloads: `go get` "updates the `require` directive in your go.mod file" and "downloads module source code" when needed. Reuse project tooling and keep the actual selected version with evidence ([Go dependency management](https://go.dev/doc/modules/managing-dependencies)). No special CLI or container is required by this integration.
 
+Porcupine reads no history files: `Input`, `Output` and `Value` are `interface{}`, and `model.go` declares no JSON struct tags. A history recorded outside Go, for example by a Node.js client (see [model and history](model-and-history.md)), needs a small Go decoder into the model's typed values that builds `Operation{ClientId, Input, Call, Output, Return}` or `Event{ClientId, Kind, Value, Id}`; `ClientId` is commented "optional, unless you want a visualization; zero-indexed" ([model.go](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/model.go)).
+
 ## Call the bounded API
 
 The following fragment assumes the real model, validated complete operation history and chosen finite checker budget already exist. It is an integration sketch, not an executed or standalone test ([Porcupine API](https://raw.githubusercontent.com/anishathalye/porcupine/97cd067defd99df172053ba7f4ca5bbae57fe446/porcupine.go)):
