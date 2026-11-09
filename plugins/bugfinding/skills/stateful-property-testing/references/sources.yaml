@@ -1,12 +1,12 @@
 sources:
   - name: fast-check command constraints
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/check/model/commands/CommandsContraints.ts
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/check/model/commands/CommandsContraints.ts
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
       - replayPath doc comment (use with seed/path of assert)
   - name: fast-check commands arbitrary implementation
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/arbitrary/commands.ts
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/arbitrary/commands.ts
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
@@ -59,7 +59,7 @@ sources:
     sections_used:
       - MPL-2.0 and inherited code exceptions
   - name: fast-check model-based testing
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/website/docs/advanced/model-based-testing.md
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/website/docs/advanced/model-based-testing.md
     type: official-documentation
     accessed: '2026-11-07'
     sections_used:
@@ -68,7 +68,7 @@ sources:
       - Print the commands
       - Replay model-based tests
   - name: fast-check ModelRunner implementation
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/check/model/ModelRunner.ts
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/check/model/ModelRunner.ts
     type: primary-source-code
     accessed: '2026-11-07'
     sections_used:
@@ -76,7 +76,7 @@ sources:
       - internalAsyncModelRun
       - scheduledModelRun
   - name: fast-check package manifest (4.10.2)
-    url: https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/package.json
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/package.json
     type: package-metadata
     accessed: '2026-11-07'
     sections_used:
