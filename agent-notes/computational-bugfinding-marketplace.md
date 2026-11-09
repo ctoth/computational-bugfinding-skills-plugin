@@ -2,9 +2,34 @@
 
 ## Goal
 
+Publication update, 2026-11-09: Q requested “Let's get this published to gh, readme, description. CI. consider how the other skills plugins I have work.” Q then said “Make it so!”, authorizing the written publication plan. This supersedes the earlier local-only publication boundary for this task.
+
 Build the approved 25-skill computational-bugfinding marketplace/plugin set: spend compute to discover actual bugs, using LLMs for evidence-based triage. Complete specialist research/drafting, collection audit and isolated behavioral evaluation; preserve Barn and unrelated work. Publication and host installation are outside this authorized local build.
 
 ## State
+
+### Publication preparation, 2026-11-09
+
+- Initial working tree was clean, branch `main`, with no remotes. GitHub authenticated as `ctoth`; `gh repo view ctoth/computational-bugfinding-skills-plugin` could not resolve a repository. No remote mutation has occurred.
+- Read this repository's four manifests, all 25 skill frontmatter blocks, the campaign skill, package-bootstrap and final-integration reports, and this note. Read sibling Go README/catalog/native manifest/license, protocols README/verification script, research-papers README/frontmatter linter, and Accessible Apps README. Go and protocols are public; both return 404 for `.github` on GitHub. Do not treat their lack of hosted CI as a template for this requested CI.
+- Added a root README with actual skill links, Claude/Codex installation commands, usage, layout, and bounded evidence claims. Commands are explicitly marked pending publication. No executable code, workflow, manifest, license, commit, or remote changes were made.
+- Verified installed `codex plugin add --help` and `codex plugin marketplace add --help`. Refreshed primary packaging docs: https://developers.openai.com/plugins/build/plugins, https://code.claude.com/docs/en/plugin-marketplaces, https://code.claude.com/docs/en/plugins-reference. Existing Codex compatibility manifest remains supported; retain the current four-manifest layout and canonical skills tree.
+
+### Publication plan
+
+1. Publish a public repository named `ctoth/computational-bugfinding-skills-plugin`, preserving the existing history and `main`. Set description to: “25 agent skills for computational bugfinding: executable oracles, generated workloads, controlled search, and reproducible evidence.” This follows the sibling public-repository convention.
+2. Complete the README publication status and CI section; add MIT licensing with the same author attribution as the Go sibling. Add author `Q`, repository URL, license, and focused discovery keywords to the existing host manifests. Preserve plugin `bugfinding`, marketplace `computational-bugfinding-marketplace`, and version `0.1.0`.
+3. Add one small GitHub Actions workflow: pull requests and pushes to `main`, one Linux job, read-only permissions, timeout, concurrency cancellation, immutable action pins, checkout without persisted credentials. Keep workflow lint/security checks (actionlint and zizmor) with package checks. Pin tool versions against primary sources when implementing.
+4. Validate the actual package contract: parse all four JSON manifests and YAML frontmatter, require named nonempty skills and descriptions, resolve catalog/plugin/skills paths, check bundled relative Markdown file links and source inventory YAML, and fail if no skills are discovered. Use an existing published validator where its documented contract suffices; add only the package-specific checks it lacks. Do not copy sibling validation code. No external URL crawler, paid-agent evaluation, tool-runtime matrix, duplicated skill tree, installer, hook, or new host installation.
+5. Bootstrap GitHub with the existing committed history so the publication changes can run on an independent PR against `main`. Commit the README, metadata, license, CI and this note together on that branch; push and open the requested publication PR with source-checked text. Watch hosted PR checks, repair scoped failures, and merge normally after they pass. Then verify repository description/visibility, merged files and the default-branch run. No local CI reruns; only a test file being authored may run locally under Q's rule.
+
+### Publication next step
+
+Q authorized implementation with “Make it so!” The public repository now exists at https://github.com/ctoth/computational-bugfinding-skills-plugin with the planned description and original history on `main`. Publication changes add the README, MIT license, author/repository/license/keyword metadata in the two host manifests, a package validator, one hosted CI job and monthly Dependabot updates for action pins. Tool releases and full action pins were verified against live upstream releases and refs; actionlint's Linux archive checksum comes from its release asset digest. No skill instruction or citation content changed. No local CI was run.
+
+Publication PR: https://github.com/ctoth/computational-bugfinding-skills-plugin/pull/1. The first hosted PR run passed package validation, actionlint, and offline zizmor: https://github.com/ctoth/computational-bugfinding-skills-plugin/actions/runs/42685729893. Its log reports one plugin and 25 skills; actionlint's archive checksum matched and zizmor reported no findings. No implementation failure or skill-content change was needed. Live PR state had no reviews, inline comments, conversation comments, or applicable branch rules. The changed-file list matches the eight publication files. This note-only evidence update does not change the checked implementation.
+
+Remaining operation: normal merge after checks on this note update, followed by default-branch CI and repository/merge/local-state verification. Final operational results will be reported in the conversation. Prior no-publication statements below describe the earlier local-build scope and are superseded by the publication request above; historical reports remain historical evidence.
 
 Q approved the 25-skill scope with “Make it so!” Phase 3 research and drafting are authorized. The approved domain research and plan are `reports/skill-research-computational-bugfinding.md` and `reports/skill-plan-computational-bugfinding.md` in `C:/Users/Q/code/computational-bugfinding-skills-plugin`.
 
