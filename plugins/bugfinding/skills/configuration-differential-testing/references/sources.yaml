@@ -56,3 +56,82 @@ sources:
     sections_used:
       - "Downloadable Tools (ACTS Basic download, advanced ACTS request, public-domain statement)"
       - "No immutable URL; observed 2026-11-07, page footer 'Updated June 08, 2026'"
+  - name: "Node.js release schedule README"
+    url: "https://raw.githubusercontent.com/nodejs/Release/6065a837c0c151577f449c666fec019069ffba77/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Release schedule tables (22.x, 24.x, 26.x LTS; 27.x Alpha; 'Dates are subject to change')"
+  - name: "Node.js release schedule data"
+    url: "https://raw.githubusercontent.com/nodejs/Release/6065a837c0c151577f449c666fec019069ffba77/schedule.json"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "v20 end 2026-04-30"
+  - name: "Node.js v26.13.0 packages documentation"
+    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/packages.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Conditional exports (key order, import/require hazards)"
+  - name: "Node.js v26.13.0 ECMAScript modules documentation"
+    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/esm.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "CommonJS Namespaces (named-export detection limits)"
+  - name: "Node.js v26.13.0 deprecations"
+    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/deprecations.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "DEP0205 module.register() (runtime deprecation v26.0.0)"
+  - name: "Node.js v26.13.0 CLI documentation"
+    url: "https://raw.githubusercontent.com/nodejs/node/daaa22aeddb87085542376ea1f4854dcea080baf/doc/api/cli.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Environment variables, TZ"
+  - name: "react.dev captureOwnerStack reference"
+    url: "https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/captureOwnerStack.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Caveats (null outside development)"
+      - "captureOwnerStack is not available (undefined in production builds)"
+  - name: "React 19.3.1 npm entry point"
+    url: "https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/react/npm/index.js"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "NODE_ENV production versus development build selection"
+  - name: "Playwright browsers guide"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/browsers.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "WebKit (derived from WebKit main; not branded Safari)"
+  - name: "Playwright test projects guide"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-projects-js.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Introduction (project definition); running a single project"
+  - name: "Playwright emulation guide"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/emulation.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Locale and timezone (browser only, not the test runner)"
+  - name: "Jazzer.js fuzz targets documentation"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-targets.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "ES modules (module.register; Node.js >= 20.6, function hooks >= 20.11)"
+  - name: "Jazzer.js instrumentor"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/instrumentor/instrument.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "registerEsmHooks (version checks, register call, failure warning)"

@@ -1,6 +1,6 @@
 ---
 name: configuration-differential-testing
-description: Searches constrained build, runtime, platform and capability combinations for contract violations. Use when defaults pass but interacting configurations may change behavior, or when extending differential testing across supported modes.
+description: Searches constrained build, runtime, platform and capability combinations for contract violations, including Node.js release lines, ESM versus CommonJS loading, browser engines and React development versus production builds. Use when defaults pass but interacting configurations may change behavior, or when extending differential testing across supported modes.
 ---
 
 # Configuration differential testing
@@ -9,7 +9,7 @@ Spend compute on supported configuration interactions and inputs that exercise t
 
 ## Establish the executable configuration model
 
-Read the actual build/runtime producer and shared guarantee. Record each factor's finite values, source of support/exclusions, and evidence that a requested setting became effective. Separate product-invalid tuples from supported lanes unavailable on this machine. An unexplained supported build failure stays a candidate, not a new exclusion. Use [factor and coverage design](references/factors-and-coverage.md); the distinction between modeled values and the variables actually reaching a branch matters: the paper's branch-coverage result requires decision-predicate variables to take values from the covered set, which it calls "a relatively strong assumption in practice" ([Kuhn et al., §IV, pp.6–7](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)).
+Read the actual build/runtime producer and shared guarantee. Record each factor's finite values, source of support/exclusions, and evidence that a requested setting became effective. Separate product-invalid tuples from supported lanes unavailable on this machine. An unexplained supported build failure stays a candidate, not a new exclusion. Use [factor and coverage design](references/factors-and-coverage.md); the distinction between modeled values and the variables actually reaching a branch matters: the paper's branch-coverage result requires decision-predicate variables to take values from the covered set, which it calls "a relatively strong assumption in practice" ([Kuhn et al., §IV, pp.6–7](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)). For Node.js, module format, Playwright browser and React build factors, read the JavaScript section of that reference; the supported Node.js set changes with the release schedule, whose own table says "Dates are subject to change" ([nodejs/Release](https://raw.githubusercontent.com/nodejs/Release/6065a837c0c151577f449c666fec019069ffba77/README.md)).
 
 Group executions by a justified common contract. Preserve intended differences, optional-feature rejection rules and input preconditions; use `semantic-differential-testing` for observation/equivalence design. The paper's fault-coverage model assumes "deterministic software that computes the same output" for a given input within one system; it does not establish that arbitrary modes promise identical semantics ([Kuhn et al., §III, p.3](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=917142)).
 
