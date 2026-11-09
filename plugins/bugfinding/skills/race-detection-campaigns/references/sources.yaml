@@ -141,5 +141,5 @@ sources:
     accessed: "2026-11-09"
     revision: "v26.13.0"
     sections_used:
-      - "Introduction and stability (1-36); Class Worker (1474)"
+      - "Introduction and stability (1-37); Class Worker (1474)"
     quote: "sharing `SharedArrayBuffer` instances"

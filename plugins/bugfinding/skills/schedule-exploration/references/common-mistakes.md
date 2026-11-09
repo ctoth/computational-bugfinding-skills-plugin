@@ -72,7 +72,7 @@ Each entry is **Wrong** first, then **Right**, then a one-line **Why**.
 
 **Right:** Report sampled orders among the promises routed through the scheduler, the run count, and that schedules were neither enumerated nor shrunk.
 
-**Why:** each step picks `nextInt(0, scheduledTasks.length - 1)` among pending tasks, and schedule shrinking is "Not supported yet" ([SchedulerArbitrary.ts](https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/fast-check/src/arbitrary/_internals/SchedulerArbitrary.ts)).
+**Why:** each step picks `nextInt(0, scheduledTasks.length - 1)` among pending tasks, and schedule shrinking is "Not supported yet" ([SchedulerArbitrary.ts](https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/arbitrary/_internals/SchedulerArbitrary.ts)).
 
 ## Assuming `waitIdle` covers `fetch` or emitters
 
@@ -80,7 +80,7 @@ Each entry is **Wrong** first, then **Right**, then a one-line **Why**.
 
 **Right:** Route those sources through `s.schedule`, or wait on them with `waitFor` and record them as uncontrolled.
 
-**Why:** `waitIdle` "Cannot await tasks triggered by uncontrolled sources like `fetch` or external event emitters" ([fast-check race conditions guide](https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/website/docs/advanced/race-conditions.md)).
+**Why:** `waitIdle` "Cannot await tasks triggered by uncontrolled sources like `fetch` or external event emitters" ([fast-check race conditions guide](https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/website/docs/advanced/race-conditions.md)).
 
 ## Replaying a `schedulerFor` block alone
 
@@ -88,7 +88,7 @@ Each entry is **Wrong** first, then **Right**, then a one-line **Why**.
 
 **Right:** Compare the replayed `report()` with the original run's tasks, statuses and values.
 
-**Why:** `schedulerFor` "will neither check that all the referred promises have been scheduled nor that they resolved with the same status and value" ([scheduler.ts](https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/fast-check/src/arbitrary/scheduler.ts)).
+**Why:** `schedulerFor` "will neither check that all the referred promises have been scheduled nor that they resolved with the same status and value" ([scheduler.ts](https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/arbitrary/scheduler.ts)).
 
 ## Porting the timer recipe to `node:test` mock timers
 
@@ -96,7 +96,7 @@ Each entry is **Wrong** first, then **Right**, then a one-line **Why**.
 
 **Right:** Treat mock timers as virtual time; the documented recipe needs a pending-timer count and a next-timer step, which only the Jest recipe shows.
 
-**Why:** `MockTimers` documents `enable`, `reset`, `tick`, `runAll` and `setTime` ([Node v26.13.0 MockTimers](https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/test.md)); the recipe calls `jest.getTimerCount()` and `jest.advanceTimersToNextTimer()` ([fast-check race conditions guide](https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/website/docs/advanced/race-conditions.md)).
+**Why:** `MockTimers` documents `enable`, `reset`, `tick`, `runAll` and `setTime` ([Node v26.13.0 MockTimers](https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/test.md)); the recipe calls `jest.getTimerCount()` and `jest.advanceTimersToNextTimer()` ([fast-check race conditions guide](https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/website/docs/advanced/race-conditions.md)).
 
 ## Calling `act`-wrapped runs a search of React update orders
 

@@ -114,19 +114,19 @@ sources:
     sections_used:
       - "Overview; Time; Blocking"
   - name: "fast-check race conditions guide (4.10.2)"
-    url: "https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/website/docs/advanced/race-conditions.md"
+    url: "https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/website/docs/advanced/race-conditions.md"
     type: official-documentation
     accessed: "2026-11-09"
     sections_used:
-      - "The scheduler instance (deprecations of waitOne/waitAll/count); schedule; scheduleFunction; scheduleSequence; Scheduling a call to a mocked server; Wrapping calls automatically using act; Scheduling native timers; Model based testing and race conditions. stateful-property-testing pins fast-check at 5ec2e3ac; these scheduler facts are from cd9c1884"
+      - "The scheduler instance (deprecations of waitOne/waitAll/count); schedule; scheduleFunction; scheduleSequence; Scheduling a call to a mocked server; Wrapping calls automatically using act; Scheduling native timers; Model based testing and race conditions. Pinned at tag v4.10.2 (c77afa82)"
   - name: "fast-check SchedulerArbitrary source"
-    url: "https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/fast-check/src/arbitrary/_internals/SchedulerArbitrary.ts"
+    url: "https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/arbitrary/_internals/SchedulerArbitrary.ts"
     type: official-source
     accessed: "2026-11-09"
     sections_used:
-      - "buildNextTaskIndex lines 13-20 (uniform nextInt choice); shrink lines 32-40 (Not supported yet)"
+      - "buildNextTaskIndex lines 14-22 (uniform nextInt choice); canShrinkWithoutContext and shrink lines 34-42 (Not supported yet)"
   - name: "fast-check scheduler and schedulerFor source"
-    url: "https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/packages/fast-check/src/arbitrary/scheduler.ts"
+    url: "https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/arbitrary/scheduler.ts"
     type: official-source
     accessed: "2026-11-09"
     sections_used:
@@ -154,7 +154,7 @@ sources:
     type: official-documentation
     accessed: "2026-11-09"
     sections_used:
-      - "Stability banner (5-18); Terminology (44-45); createHook callbacks not async (205-208); type and triggerAsyncId (343-373); resource (430-438); before/after/promiseResolve (589-660); Promise execution tracking overhead (916-918)"
+      - "Stability banner (5-18); Terminology (44-45); createHook callbacks not async (208-210); type and triggerAsyncId (343-373); resource (430-438); before/after/promiseResolve (589-660); Promise execution tracking overhead (916-918)"
   - name: "React act reference"
     url: "https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/act.md"
     type: official-documentation
