@@ -128,3 +128,214 @@ sources:
       - PDF p. 14 sequential tests before parallel tests; model bugs
       - PDF pp. 15-16 open/close/open prefix, parallel operations and corruption check
       - PDF p. 17 two independent descriptions
+  - name: fast-check todolist example property (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/examples/005-race/todolist/main.spec.tsx
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - render per run and scheduledModelRun
+      - scheduleFunction(fn, act) mocked API
+      - final DOM versus mock-server comparison
+      - per-run cleanup hook
+  - name: fast-check todolist AddItemCommand (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/examples/005-race/todolist/model-based/AddItemCommand.ts
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - act around user-event calls; before/after DOM comparison
+  - name: fast-check todolist ToggleItemCommand (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/examples/005-race/todolist/model-based/ToggleItemCommand.ts
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - DOM-reading check
+      - position modulo selection and resolved target in toString
+  - name: fast-check todolist Model (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/examples/005-race/todolist/model-based/Model.ts
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - listTodos observation via test ids and tag names
+  - name: fast-check life-cycle plugins source (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/check/plugin/LifeCyclePlugins.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - beforeEach plugin doc comment (Since 4.10.0)
+  - name: fast-check AsyncProperty source (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/check/property/AsyncProperty.generic.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - deprecated property-level beforeEach
+  - name: fast-check race conditions guide (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/website/docs/advanced/race-conditions.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Wrapping calls automatically using act
+      - Model based testing and race conditions
+  - name: fast-check ModelRunner implementation (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/check/model/ModelRunner.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - genericModelRun flat command loop
+      - internalAsyncModelRun
+  - name: fast-check ICommand interface (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/check/model/command/ICommand.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - check, run and toString signatures
+  - name: fast-check recursive structures guide (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/website/docs/core-blocks/arbitraries/combiners/recursive-structure.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - letrec, tie, maxDepth and depthIdentifier
+  - name: fast-check array arbitrary source (v4.10.2)
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/c77afa8277a67250d798c52e61343b8ed5fd268b/packages/fast-check/src/arbitrary/array.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - depthIdentifier constraint
+  - name: fast-check commit fd17f486 (unreleased asyncProperty rename)
+    url: https://github.com/dubzzz/fast-check/commit/fd17f486fc4c8fce5c1f37ce02278742c56c846b
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - commit subject
+  - name: fast-check commit 33342651 (unreleased default-import removal)
+    url: https://github.com/dubzzz/fast-check/commit/33342651123b2b7acfcc594a12b39e94d087a4be
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - commit subject
+  - name: fast-check npm registry metadata
+    url: https://registry.npmjs.org/fast-check
+    type: package-metadata
+    accessed: '2026-11-09'
+    sections_used:
+      - dist-tags latest 4.10.2
+  - name: fast-check javascript-testing-expert skill
+    url: https://raw.githubusercontent.com/dubzzz/fast-check/cd9c1884e8a39fe945600fbcda1ec92d518feaa0/skills/javascript-testing-expert/SKILL.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - description and scope line
+  - name: Playwright playwright-cli skill
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/packages/playwright-core/src/tools/skills/playwright-cli/SKILL.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - description
+  - name: React Testing Library auto-cleanup source
+    url: https://raw.githubusercontent.com/testing-library/react-testing-library/20ce75f2907ca0e5c5a8ae595c0e9a4e368c7800/src/index.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - afterEach-guarded cleanup
+      - beforeAll/afterAll-guarded act environment
+  - name: React Testing Library API docs
+    url: https://raw.githubusercontent.com/testing-library/testing-library-docs/7c49d046b100e657c64bae78270a5813c1c02eb6/docs/react-testing-library/api.mdx
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - cleanup
+  - name: Vitest globals config
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/3a76b87324ecb8d25509cd009aa87fbe56819c39/docs/config/globals.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - default false and auto-cleanup tip
+  - name: user-event introduction
+    url: https://raw.githubusercontent.com/testing-library/testing-library-docs/7c49d046b100e657c64bae78270a5813c1c02eb6/docs/user-event/intro.mdx
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Differences from fireEvent
+      - Writing tests with userEvent
+  - name: user-event options
+    url: https://raw.githubusercontent.com/testing-library/testing-library-docs/7c49d046b100e657c64bae78270a5813c1c02eb6/docs/user-event/options.mdx
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - delay
+  - name: Testing Library queries
+    url: https://raw.githubusercontent.com/testing-library/testing-library-docs/7c49d046b100e657c64bae78270a5813c1c02eb6/docs/queries/about.mdx
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Priority
+  - name: Testing Library async methods
+    url: https://raw.githubusercontent.com/testing-library/testing-library-docs/7c49d046b100e657c64bae78270a5813c1c02eb6/docs/dom-testing-library/api-async.mdx
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - waitFor retries, interval and timeout
+  - name: Playwright browser contexts
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/browser-contexts.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - What is Test Isolation
+  - name: Playwright Browser API
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/api/class-browser.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Browser.newContext
+  - name: Playwright test timeouts
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-timeouts-js.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Test timeout
+  - name: Playwright auto-waiting
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/actionability.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Introduction (click actionability checks)
+  - name: Playwright assertions
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-assertions-js.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Auto-retrying assertions and default timeout
+  - name: Playwright Locator API
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/api/class-locator.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Locator.ariaSnapshotJSON
+  - name: Playwright locators
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/locators.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Locating elements (getByRole priority)
+  - name: 'Nessie: Automatically Testing JavaScript APIs with Asynchronous Callbacks'
+    url: https://doi.org/10.1145/3510003.3510106
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - p.1495 values available only inside callbacks
+      - p.1496 callback probing
+      - p.1497 test case trees (Defs. 2-3)
+      - p.1498 extension points
+      - p.1501 differential oracle
+      - p.1502 sequence-only tests and nesting
+  - name: Nessie README
+    url: https://raw.githubusercontent.com/emarteca/nessie/7875cb576ba4ec1ecf23c6ac4ff8f4cdeee7dcf7/README.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - requirements and Linux-only testing note
+  - name: Nessie commit 7875cb57
+    url: https://github.com/emarteca/nessie/commit/7875cb576ba4ec1ecf23c6ac4ff8f4cdeee7dcf7
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - commit date 2023-08-05

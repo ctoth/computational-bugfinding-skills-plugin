@@ -1,11 +1,11 @@
 ---
 name: stateful-property-testing
-description: Guides model-based property testing of dependent API and protocol operation sequences. Use when bugs require object lifetimes, permissions, session transitions or setup history, and when shrinking must preserve those dependencies.
+description: Guides model-based property testing of dependent API, protocol and UI operation sequences. Use when bugs require object lifetimes, permissions, session transitions or setup history; for React components or pages driven by Testing Library or Playwright with fast-check commands; for Node async APIs where later calls need values from earlier callbacks; and when shrinking must preserve those dependencies.
 ---
 
 # Stateful property testing
 
-Search states and operations together. Choose this skill when independent values or syntactically valid programs rarely reach the successful API behavior under investigation. Valid sequences can establish state that direct construction misses: even with a state constructor, "there might be hidden state that we cannot easily replicate" ([RapidCheck stateful guide, Stateful testing](https://raw.githubusercontent.com/emil-e/rapidcheck/2c3c4365aca21ef4e612768fdc95b1ce8b39a651/doc/state.md)). Program generation belongs to `semantic-program-generation`; controlled interleavings belong to `schedule-exploration`.
+Search states and operations together. Choose this skill when independent values or syntactically valid programs rarely reach the successful API behavior under investigation. Valid sequences can establish state that direct construction misses: even with a state constructor, "there might be hidden state that we cannot easily replicate" ([RapidCheck stateful guide, Stateful testing](https://raw.githubusercontent.com/emil-e/rapidcheck/2c3c4365aca21ef4e612768fdc95b1ce8b39a651/doc/state.md)). Program generation belongs to `semantic-program-generation`; controlled interleavings belong to `schedule-exploration`; model-free crawling of a discovered UI state graph belongs to `ui-state-exploration`.
 
 ## Model the promised behavior
 
@@ -15,7 +15,7 @@ Preserve state-establishing API calls. In Hughes's storage case, an open/close/o
 
 ## Generate meaningful dependent operations
 
-Select operands from current admissible state, using returned identities rather than random nonexistent handles. Hypothesis bundles carry earlier results, "allowing data to flow from one rule to another"; fast-check commands expose admissibility checks and execution separately as `check(model)` and `run(model, real)` ([Hypothesis stateful tests, v6.170.15](https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/stateful.rst), [fast-check commands, Define the commands](https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/website/docs/advanced/model-based-testing.md)).
+Select operands from current admissible state, using returned identities rather than random nonexistent handles. Hypothesis bundles carry earlier results, "allowing data to flow from one rule to another"; fast-check commands expose admissibility checks and execution separately as `check(model)` and `run(model, real)` ([Hypothesis stateful tests, v6.170.15](https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/stateful.rst), [fast-check commands, Define the commands](https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/website/docs/advanced/model-based-testing.md)). Values that exist only inside a callback, such as file handles, need a call nested in that callback (Nessie, [ICSE 2022](https://doi.org/10.1145/3510003.3510106), p.1495); fast-check's command list is flat, so generate a call tree as described in [JS UI and async APIs](references/ui-and-async-js.md).
 
 Make intentional invalid transitions their own operations with documented error-and-effect expectations. Do not count a false command precondition as exercising an invalid API: fast-check skips its execution, `if (cmd.check(m)) cmd.run(m, r);` ([runner source, internalModelRun](https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/check/model/ModelRunner.ts)). Record admitted calls, successful semantic operations and evaluated properties alongside generated sequence counts. Use `correctness-oracles` for the promised observations and `harness-sensitivity` for representative controls.
 
@@ -30,7 +30,7 @@ Save resolved identities, executed operations, setup and observations as well as
 Read only the relevant section of [runtime recipes](references/runtime-recipes.md):
 
 - Python: Hypothesis rules, bundles, invariants and machine lifecycle ([official guide, v6.170.15](https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/stateful.rst)).
-- JS/TS: fast-check commands and the appropriate awaited runner ([runner source](https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/check/model/ModelRunner.ts)).
+- JS/TS: fast-check commands and the appropriate awaited runner ([runner source](https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/src/check/model/ModelRunner.ts)). For React components (Testing Library), browser pages (Playwright) and Node callback APIs, read [JS UI and async APIs](references/ui-and-async-js.md).
 - Go: Rapid `T.Repeat` / `StateMachineActions`; optional `MakeFuzz` connects a property to Go fuzzing ([state-machine source](https://raw.githubusercontent.com/flyingmutant/rapid/6706a6fd83736ba24aaf55ef2621fdf00c2c27e8/statemachine.go), [engine source, MakeFuzz](https://raw.githubusercontent.com/flyingmutant/rapid/6706a6fd83736ba24aaf55ef2621fdf00c2c27e8/engine.go)).
 - C++: RapidCheck `Command<Model,Sut>` where its build integration fits ([stateful guide](https://raw.githubusercontent.com/emil-e/rapidcheck/2c3c4365aca21ef4e612768fdc95b1ce8b39a651/doc/state.md)).
 

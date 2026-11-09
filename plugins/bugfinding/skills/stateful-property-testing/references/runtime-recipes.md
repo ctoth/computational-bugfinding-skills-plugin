@@ -20,6 +20,8 @@ Retain emitted assertion `seed`/`path` and the command arbitrary's `replayPath`;
 
 The pinned package manifest (version 4.10.2) declares MIT, ESM and Node `>=12.17.0`. That declared floor alone does not validate an application's runner, transpiler or module integration; inspect the selected package/lockfile and use its focused test invocation ([package manifest](https://raw.githubusercontent.com/dubzzz/fast-check/5ec2e3aceae60eb510b8b967bcb153274f3abad7/packages/fast-check/package.json)).
 
+Commands driving React components, Playwright pages or Node callback APIs are covered in [JS UI and async APIs](ui-and-async-js.md).
+
 ## Go: Rapid
 
 Use an existing `rapid.Check` property, instantiate matching model/SUT state inside its execution and call `t.Repeat(actions)`. The empty-string action is checked initially and after admitted actions. `rapid.StateMachineActions(machine)` derives actions from eligible exported methods and supplies `Check` as that invariant hook, which "is executed before/after every other action invocation" ([state-machine implementation, Repeat and StateMachineActions](https://raw.githubusercontent.com/flyingmutant/rapid/6706a6fd83736ba24aaf55ef2621fdf00c2c27e8/statemachine.go)).
