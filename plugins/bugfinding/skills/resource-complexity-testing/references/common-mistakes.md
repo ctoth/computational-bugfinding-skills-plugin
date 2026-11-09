@@ -76,7 +76,7 @@
 
 **Wrong:** Every object `unbound-object` lists grows monotonically.
 
-**Right:** Treat its list as candidates. It skips only objects whose retained size never changed and drops non-monotone ones only when `monotonicUnboundGrowthOnly` is set ([ObjectUnboundGrowthAnalysis](https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/heap-analysis/src/plugins/ObjectUnboundGrowthAnalysis.ts)), which defaults to `false` ([Config](https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/core/src/lib/Config.ts)).
+**Right:** Treat its list as candidates. It skips objects whose retained size never changed and drops non-monotone ones only when `monotonicUnboundGrowthOnly` is set ([ObjectUnboundGrowthAnalysis](https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/heap-analysis/src/plugins/ObjectUnboundGrowthAnalysis.ts)), which defaults to `false` ([Config](https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/core/src/lib/Config.ts)).
 
 **Why:** an object that rose and fell is still listed.
 
