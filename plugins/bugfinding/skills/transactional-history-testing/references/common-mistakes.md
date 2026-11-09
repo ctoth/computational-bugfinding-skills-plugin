@@ -8,6 +8,22 @@
 
 **Why:** a `:fail` for a write that committed hides its effect, so later reads of that value look like aborted reads.
 
+## Sorting a recorded history before writing elle-cli JSON
+
+**Wrong:** A Node.js recorder groups each invoke with its completion, or sorts operations by id, before writing the JSON array.
+
+**Right:** Write operations in observed order. Elle's `realtime-graph` encodes "a < b if a ends before b begins" by iterating "through the history" ([Elle core.clj `realtime-graph`](https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/src/elle/core.clj)).
+
+**Why:** reordering changes which operations ended before others began, so realtime anomalies can appear or vanish under the default `strict-serializable` model.
+
+## Issuing concurrent transactions under one process id
+
+**Wrong:** One Node.js "client" starts several transactions with `Promise.all` and records them all under the same `process`.
+
+**Right:** Give each concurrently outstanding operation its own process id. Processes "are logically singlethreaded, and can execute only one thing at a time" ([jepsen.history README, Operation Structure](https://raw.githubusercontent.com/jepsen-io/history/61d2776c889ad84f7c6922977cf05e8f11970402/README.md)).
+
+**Why:** the history then claims a sequential process order between overlapping operations that never existed.
+
 ## Splitting one transaction into independently committed writes
 
 **Wrong:** Record each micro-operation of a multi-key transaction as its own `:txn` operation to simplify conversion.

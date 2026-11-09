@@ -55,3 +55,35 @@
 **Use instead:** verify the selected tool release's runtime separately from the application's supported target.
 
 **Why:** the checked documentation says "Your application does not need to target dotnet 10 or newer. You only need the runtime installed so stryker can run." ([Stryker.NET getting started, Install prerequisites](https://raw.githubusercontent.com/stryker-mutator/stryker-net/2ec2d68614600d191de828675a10f1d91048a7be/docs/getting-started.md)).
+
+## A coverage percentage is read as producer reachability
+
+**Wrong:** “c8 reports 95%, so the producer runs.”
+
+**Use instead:** check that the specific producer file and function appear in the report and executed, with no ignore comment over them.
+
+**Why:** "By default v8 will only give us coverage for files that were loaded by the engine"; unloaded files appear only with `--all` ([c8 README](https://raw.githubusercontent.com/bcoe/c8/ae5a0cf4349b92cac910cf7275e724ab7a725b9d/README.md)). node:test coverage leaves out `node_modules/` files by default ([Node test, Collecting code coverage](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/test.md)).
+
+## A shuffled pass is read as no order dependence
+
+**Wrong:** “The suite passed with randomization on, so tests are independent.”
+
+**Use instead:** state what was shuffled and keep the seed.
+
+**Why:** node:test keeps declaration order for subtests awaited one by one, and under default process isolation each test file runs in its own process ([Node test, Randomizing tests execution order and Test runner execution model](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/test.md)). Jest `--randomize` shuffles "the order of the tests within a file" and needs `jest-circus` ([Jest CLI, --randomize](https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/website/versioned_docs/version-30.5/CLI.md)).
+
+## The failing shuffle seed is lost
+
+**Wrong:** rerun a shuffled failure without its seed and call it a flake when it passes.
+
+**Use instead:** set or record the seed for every recorded run and replay with it.
+
+**Why:** node:test prints "Randomized test order seed" and replays with `--test-random-seed` ([Node test](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/test.md)); Jest prints it with `--showSeed` or `--randomize` ([Jest CLI](https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/website/versioned_docs/version-30.5/CLI.md)); Vitest's `sequence.seed` defaults to `Date.now()` and its page does not say the seed is printed ([Vitest sequence](https://raw.githubusercontent.com/vitest-dev/vitest/3a76b87324ecb8d25509cd009aa87fbe56819c39/docs/config/sequence.md)).
+
+## A leak or flake is declared gone under a diagnostic mode
+
+**Wrong:** “No failure under `--detectOpenHandles`, so the leak is fixed.”
+
+**Use instead:** compare under the original execution mode, and read the config for `forceExit`.
+
+**Why:** `--detectOpenHandles` "implies `--runInBand`, making tests run serially", and `--forceExit` "is an escape-hatch" for resources "still being held on to" ([Jest CLI, --detectOpenHandles and --forceExit](https://raw.githubusercontent.com/jestjs/jest/72614448ecb9d16c58d6474b3091247c14a5c090/website/versioned_docs/version-30.5/CLI.md)).

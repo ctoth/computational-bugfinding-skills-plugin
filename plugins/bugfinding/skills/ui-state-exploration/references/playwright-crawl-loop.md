@@ -1,0 +1,60 @@
+# Crawl loop over Playwright: discover, settle, reset, replay
+
+This is the procedure for a small loop written for one target. It is design guidance from the cited papers and docs; no loop built from it has been executed for this skill. API names are from Playwright v1.65.0 docs; check them against the target's installed version.
+
+## Loop
+
+1. **Start a path.** Create a fresh context with `browser.newContext()` ([Playwright browser contexts](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/browser-contexts.md)), run the server reset hook, attach the oracle listeners below, start tracing, load the entry URL, then replay the recorded edge path to the chosen state.
+2. **Observe.** Wait for the settle predicate, take the state key (see [state abstraction](state-abstraction.md)), and look it up in the visited set.
+3. **Check.** On a new state, run the per-state oracles (see [per-state oracles](oracles-per-state.md)); ATUSA, which extends Crawljax, runs invariants right after each new state is found (`testInvariants(ns)`, [Mesbah et al., TSE 2012, p.38](https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf)).
+4. **Enumerate.** List candidate events in this state that are not excluded and not yet examined.
+5. **Fire.** For one candidate: fill inputs, fire the event, settle, take the key. If the key changed, record the edge (source key, event, locator, inputs, target key); if the target key is unvisited, add it to the frontier. If the key did not change, mark the candidate examined with no transition.
+6. **Return.** Start a new path (step 1) to the next frontier state with unexamined candidates, choosing the recorded path to it. Crawljax replays from the start URL and optionally uses a shortest path through the graph ([Mesbah et al., TWEB 2012, p.11](https://doi.org/10.1145/2109205.2109208)).
+7. **Stop** on depth, state-count or time bound, then run graph-level checks.
+
+## Discover candidate events
+
+Use interactive roles in the current aria snapshot (button, link, checkbox, textbox, combobox, menuitem, tab and similar) as candidates. Playwright's role locators reflect "how users and assistive technology perceive the page" ([Playwright locators](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/locators.md)). Choosing candidates from roles is an inference for this skill, not a documented Playwright feature.
+
+Prioritise candidates that appeared in the last change; Crawljax takes candidates from the DOM diff after each transition ([TWEB 2012, pp.8-9](https://doi.org/10.1145/2109205.2109208)). It cannot see handlers attached with `addEventListener`, "since the event model maintaining the handler registration information is separated from the DOM" ([TWEB 2012, p.5](https://doi.org/10.1145/2109205.2109208)); a role-based candidate list has the same gap for a `div` with a click listener and no role. chaosbringer recovers some such elements from a `cursor` attribute in its aria-snapshot parsing ([aria-snapshot.ts:170](https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/aria-snapshot.ts)); that attribute is not in the Playwright docs read, so treat it as unverified.
+
+Crawljax skips an element once examined, so elements needing repeated clicks (a scroll bar) were missed ([TWEB 2012, p.19](https://doi.org/10.1145/2109205.2109208)). Allow a bounded repeat count where the target has such controls, and list repeated-click elements as a blind spot otherwise.
+
+## Exclusions and inputs
+
+Exclude elements "that are not of importance or can cause problems (delete items or log the user out)" ([TSE 2012, p.39](https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf)), and external links. In the HitList study the delete links were excluded and adding a contact was limited to once by a crawl condition ([TSE 2012, p.47](https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf)). Explore a destructive path deliberately, with its own reset, when it is the target.
+
+Fill detected inputs before firing. ATUSA used random defaults, custom values, or several custom values replayed with the transition, and stored the values with the clickable for replay ([TSE 2012, p.40](https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf)). Store the inputs on the edge.
+
+## Settle
+
+No documented Playwright signal says the app finished reacting to an event. `waitForLoadState` resolves on `load` by default; `'networkidle'` is "**DISCOURAGED**" with "Don't use this method for testing"; `waitForFunction` "Returns when the [`param: expression`] returns a truthy value" ([Playwright Page API](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/class-page.md); [Playwright params](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/params.md)). Use an app predicate in `waitForFunction`: Crawljax's AdSense run waited for the loading icon to disappear, and the paper calls an app completion flag more reliable than a fixed wait ([TWEB 2012, pp.21, 27](https://doi.org/10.1145/2109205.2109208)). For React, candidate predicates are "no Suspense fallback visible" and a pending-transition indicator the app exposes; React's `<Suspense>` shows "a fallback until its children have finished loading" ([react.dev Suspense](https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/Suspense.md)) and `isPending` "tells you whether there is a pending Transition" ([react.dev useTransition](https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/useTransition.md)). No react.dev API for a browser-level "React is idle" signal was found; `act` is "a test helper to apply pending React updates before making assertions" in a test environment ([react.dev act](https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/act.md)) and belongs to component-level `stateful-property-testing`.
+
+Add a stability check (two consecutive equal keys; an inference, not from a source) and record a timeout as "unsettled", not as a state.
+
+## What auto-wait hides
+
+Playwright "auto-waits for all the relevant checks to pass and only then performs the requested action", and will click a button that is disabled during a server check "regardless of when the [`method: Locator.click`] call was made"; assertions are "auto-retrying" and wait "until the condition is met" ([Playwright actionability](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/actionability.md)). The explorer therefore never acts inside a loading or disabled window, and a retrying assertion passes over a transient wrong state. Check settled states with one-shot reads of the key. To probe a window, fire early with `dispatchEvent` (no actionability checks) or `force` ("disables non-essential actionability checks") and label such edges as not reachable by a user without evidence; a controlled ordering of responses belongs to `schedule-exploration`.
+
+## Reset and replay
+
+Crawljax returns by reloading and replaying the recorded path, because the Back button usually does not work for dynamic states ([TWEB 2012, pp.10-11](https://doi.org/10.1145/2109205.2109208)). Cookies stopped the app starting in the expected state, and web storage was expected to do the same ([TWEB 2012, p.26](https://doi.org/10.1145/2109205.2109208)). A new Playwright context isolates "local storage, session storage, cookies etc." ([Playwright browser contexts](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/browser-contexts.md)). When seeding a logged-in context from saved state, "IndexedDB is not included in the snapshot by default" ([Playwright auth](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/auth.md)).
+
+The context does not reset the server. ATUSA's plugin types include a back-end reset after the initial URL is (re)loaded, and TUDU's database was reset by SQL script per run ([TSE 2012, pp.44, 48](https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf)); Roest et al. needed a clean-up plugin and a database restore because a delete works only once ([Roest et al., ICST 2010, p.135](https://people.ece.ubc.ca/amesbah/resources/papers/icst10.pdf)).
+
+Identify edge targets by role and accessible name (plus a containing region when names repeat), resolved again after each reload. Roest's resolver used "event handler(s), attributes, children nodes, and text value", and without it a changed version produced "many wrong transitions" ([ICST 2010, pp.131, 134](https://people.ece.ubc.ca/amesbah/resources/papers/icst10.pdf)). Do not store `[ref=eN]`: refs "resolve against the latest snapshot taken in the element's frame" ([Playwright Page API](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/class-page.md)). Locators are strict ([Playwright locators](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/locators.md)), so an ambiguous name fails instead of picking a neighbour. Because of server side effects "there is no guarantee that we find the same element on the DOM-tree and can reach the exact same state" ([TSE 2012, p.40](https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf)): when replay reaches a different key, record the path as unreplayable with both keys.
+
+## Replay artifacts
+
+Record a trace per path. `Tracing.start` option `snapshots` takes `dom` ("Capture DOM snapshot on every action and record network activity"), `aria` ("Capture aria snapshot of the page on every action") and `screen` ([Playwright tracing API](https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/class-tracing.md)). ATUSA saved "the error report along the causing execution path" so a fault "can be easily reproduced later" ([TSE 2012, p.43](https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf)). Keep the edge path, inputs, normalizer list and trace together for `failure-reduction`.
+
+## chaosbringer (existing random-crawl lane)
+
+chaosbringer is "Playwright-based chaos testing for web apps" that "performs weighted random actions, injects network faults, evaluates invariants" with a replayable seed ([README](https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/README.md)). Source read at a pinned commit, not executed:
+
+- Its exploration unit is the page URL: a `visited` set and a breadth-first queue skip `normalizeUrl(entry.url)` already seen ([crawler.ts:277-278, 917-925](https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/crawler.ts)). No in-page state key or state graph was found in the files read.
+- Reusable parts: it records every response with status 400 or higher outside its ignore patterns, not only transport failures, and reclassifies unhandled rejections because "Rejections in Chromium fire both the DOM event and Playwright's CDP-level pageerror" ([crawler.ts:575-577, 2194-2227](https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/crawler.ts)).
+- Its replay selectors use `:has-text(...)` for short text and fall back to positional `:nth-match` ([action-targets.ts:508-530](https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/action-targets.ts)), which carries the wrong-element risk above when list content changes.
+- Package `0.15.0` declares `"node": ">=22"` in the repository ([package.json](https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/package.json)); the published package's floor was recorded differently and is unresolved.
+
+Use it as a baseline or oracle harness where the target already runs it; do not make it a dependency of this method. Its fault injection belongs to `distributed-fault-testing`.

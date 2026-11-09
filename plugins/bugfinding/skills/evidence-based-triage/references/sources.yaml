@@ -72,3 +72,99 @@ sources:
       - '4.3. Soundness of Elle (page 7)'
       - '6. Finding Counterexamples (page 9)'
       - '9. Future Work and Conclusions (page 12)'
+  - name: Playwright Test Retries
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-retries-js.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Worker process discarded on failure (line 36)
+      - Retries off by default (line 63)
+      - passed/flaky/failed categories (lines 82-84)
+  - name: Playwright CLI
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-cli-js.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --fail-on-flaky-tests (line 85)
+      - --repeat-each and --retries (lines 104-106)
+  - name: Playwright TestOptions trace
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-api/class-testoptions.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - property TestOptions.trace, modes and sub-options (lines 713-732)
+  - name: Playwright test use options, kept-trace table
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-use-options-js.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Trace modes table with retries 2 (lines 174-186)
+  - name: Playwright Trace Viewer
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/trace-viewer.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - show-trace command (line 25)
+      - JS Tracing on CI produces trace.zip (line 94)
+  - name: Playwright TestConfig
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-api/class-testconfig.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - property TestConfig.failOnFlakyTests (lines 113-119)
+      - property TestConfig.outputDir default test-results and per-test subdirectory (lines 320-338)
+  - name: Playwright playwright-trace skill
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/packages/playwright-core/src/tools/skills/playwright-trace/SKILL.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Frontmatter description
+  - name: Jest Object API
+    url: https://raw.githubusercontent.com/jestjs/jest/v30.5.2/docs/JestObjectAPI.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - jest.retryTimes and logErrorsBeforeRetry (lines 1185-1207)
+  - name: Jest CLI
+    url: https://raw.githubusercontent.com/jestjs/jest/v30.5.2/docs/CLI.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --randomize (lines 345-353)
+      - --seed (line 425)
+  - name: Vitest retry
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/v5.1.0/docs/config/retry.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - retry (line 8)
+  - name: Vitest test API
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/v5.1.0/docs/api/test.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - repeats (lines 152-159)
+  - name: Vitest sequence
+    url: https://raw.githubusercontent.com/vitest-dev/vitest/v5.1.0/docs/config/sequence.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - sequence.shuffle CLI example (line 15)
+      - sequence.seed (line 139)
+  - name: Node.js CLI
+    url: https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/cli.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --cpu-prof (lines 909-947)
+      - --heap-prof (lines 1767-1793)
+      - --process-timeout (lines 2640-2675)
+      - --report-uncaught-exception (lines 2876-2900)
+      - --report-on-fatalerror (lines 2797-2817)
+      - --test-randomize and --test-random-seed (lines 3260-3290)
+  - name: Node.js Diagnostic report
+    url: https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/report.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - --report-exclude-env (lines 499-501)

@@ -162,3 +162,108 @@ sources:
     sections_used:
       - "Attempt timeout, forced linearization, map/output, killed results"
     quote_fragment: "const TIMEOUT: u32 = 90"
+  - name: "ExpoSE README"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Lines 3-8: description, Jalangi2/Z3, Node v21.7.2 requirement"
+    quote_fragment: "other versions may work but are not tested"
+  - name: "ExpoSE latest master commit (GitHub commits API)"
+    url: "https://api.github.com/repos/ExpoSEJS/ExpoSE/commits?sha=ec03edf85f883248612b1d498c6a7d9189d16d6f&per_page=1"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Commit date 2024-07-02 of the pinned commit"
+    quote_fragment: "2024-07-02T21:48:12Z"
+  - name: "ExpoSE entry script"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/expoSE"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Shebang; analyse and replay dispatch"
+    quote_fragment: "#!/usr/bin/env bash"
+  - name: "ExpoSE Dockerfile"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/Dockerfile"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Base image"
+    quote_fragment: "FROM debian:latest"
+  - name: "ExpoSE package.json"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/package.json"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "engines.node"
+    quote_fragment: "^21.7.2"
+  - name: "ExpoSE .nvmrc"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/.nvmrc"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Whole file"
+    quote_fragment: "v10.22.0"
+  - name: "ExpoSE Jalangi2 fork instrumenter"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/jalangi2/c2961c4374fa5f5fb35d114b98621cbe38b5c85f/src/js/instrument/esnstrument.js"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Lines 38-41 Babel presets; line 1881 acorn.parse ecmaVersion"
+    quote_fragment: "presets: ['es2017','es2015']"
+  - name: "ExpoSE Jalangi2 fork package.json"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/jalangi2/c2961c4374fa5f5fb35d114b98621cbe38b5c85f/package.json"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "dependencies: acorn 3.1.0, babel-core ^6.26.3, babel-preset-es2015 and babel-preset-es2017 ^6.24.1"
+    quote_fragment: "\"babel-core\": \"^6.26.3\""
+  - name: "ExpoSE test tree (GitHub trees API)"
+    url: "https://api.github.com/repos/ExpoSEJS/ExpoSE/git/trees/ec03edf85f883248612b1d498c6a7d9189d16d6f?recursive=1"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "tests/async (one file), tests/regex (168 entries), tests/es6 (const.js, let.js); no promise, async/await or ESM test"
+    quote_fragment: "tests/async/settimeout.js"
+  - name: "ExpoSE S$ harness API"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/lib/S%24/src/symbols.js"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "symbol, pureSymbol, assume, NotAnErrorException, assert"
+    quote_fragment: "AssertToolkit.NotAnErrorException"
+  - name: "ExpoSE configuration"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/Distributor/src/Config.js"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Lines 13-21: EXPOSE_MAX_CONCURRENT default CPU count; lines 23-43: timeToMS s/m/h suffixes, bare number in milliseconds; lines 47-53: maxTime, testMaxTime, testStrategy, jsonOut, printPathCondition"
+    quote_fragment: "By default ExpoSE does not generate JSON out"
+  - name: "ExpoSE distributor output"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/Distributor/src/Distributor.js"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Lines 71-73 error and replay printing; line 111 summary; line 114 exit code"
+    quote_fragment: "process.exitCode = errors"
+  - name: "ExpoSE error collection"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/Distributor/src/Center.js"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Lines 158-159: error count incremented once per path with errors; lines 163-197: non-zero exit and missing-output errors"
+    quote_fragment: "Exit code non-zero"
+  - name: "ExpoSE child process spawn"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/Distributor/src/Spawn.js"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "kill with SIGKILL on timeout; replay command construction"
+    quote_fragment: "SIGKILL"
+  - name: "ExpoSE replay script"
+    url: "https://raw.githubusercontent.com/ExpoSEJS/ExpoSE/ec03edf85f883248612b1d498c6a7d9189d16d6f/scripts/play"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "Jalangi2 invocation with the ExpoSE analysis"
+    quote_fragment: "--analysis bin/Analyser.js"

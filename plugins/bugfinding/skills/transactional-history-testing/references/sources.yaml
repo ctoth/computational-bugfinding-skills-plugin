@@ -69,13 +69,14 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "opts; check-history; -main"
+      - "value-reader; read-json-history (accessed 2026-11-09)"
   - name: "elle-cli README"
     url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/README.md"
     type: official-documentation
     accessed: "2026-11-07"
     sections_used:
       - "Requirements"
-      - "Usage"
+      - "Usage (example history path, re-read 2026-11-09)"
   - name: "elle-cli dependency manifest"
     url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/project.clj"
     type: primary-source-code
@@ -101,3 +102,40 @@ sources:
     sections_used:
       - "0.3.15 Bugfixes (Elle 0.2.8 cyclic-version fix)"
       - "0.3.12 New Features (short-lived and long-lived keys)"
+  - name: "elle-cli license text"
+    url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/LICENSE"
+    type: license
+    accessed: "2026-11-09"
+    sections_used:
+      - "Title (Eclipse Public License - v 2.0)"
+      - "Exhibit A (Secondary Licenses notice)"
+  - name: "elle-cli fixture: rw-register partial info"
+    url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/test/test-data/rw-register-partial-info.json"
+    type: primary-source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "whole file (JSON array; trailing invoke without completion)"
+  - name: "elle-cli fixture: list-append G1a aborted read"
+    url: "https://raw.githubusercontent.com/ligurio/elle-cli/3c2504815945cd4ab1b5cc0142d2fe206e1ee285/test/test-data/list-append-anomaly-g1a-aborted-read.json"
+    type: primary-source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "whole file (no f or time fields)"
+  - name: "Elle core graph construction"
+    url: "https://raw.githubusercontent.com/jepsen-io/elle/4e359e597c52938b0afebb8bc42273914d68a424/src/elle/core.clj"
+    type: primary-source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "realtime-graph (docstring and implementation comment)"
+  - name: "Node.js v26.13.0 globals documentation"
+    url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/globals.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Class: AbortController"
+  - name: "Node.js v26.13.0 AbortSignal implementation"
+    url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/lib/internal/abort_controller.js"
+    type: primary-source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "setWeakAbortSignalTimeout (TimeoutError DOMException)"

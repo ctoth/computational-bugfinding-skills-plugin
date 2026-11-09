@@ -128,3 +128,9 @@ sources:
       - "Counter (Load, LastError)"
       - "Wrap"
       - "errorFile.Write"
+  - name: "W3C IndexedDB specification source"
+    url: "https://raw.githubusercontent.com/w3c/IndexedDB/f9f83f196f8501429282ff1747ebcbe35d41381a/index.bs"
+    type: specification
+    accessed: "2026-11-09"
+    sections_used:
+      - "Transaction durability hints strict/relaxed/default, lines 929-941"

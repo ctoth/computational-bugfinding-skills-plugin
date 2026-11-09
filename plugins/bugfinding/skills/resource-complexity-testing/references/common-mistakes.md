@@ -63,3 +63,43 @@
 **Right:** Keep metric, subject quota, setup and matched controls fixed; otherwise preserve it as a different experiment (this pack's reduction rule).
 
 **Why:** a tighter limit changes the experiment, so the smaller case no longer shows the original violation.
+
+## Reading one memlab run as a growing leak
+
+**Wrong:** A default memlab report shows memory grows without bound.
+
+**Right:** Treat it as retention past one `action`/`back` cleanup boundary; memlab's candidates are objects "allocated during the target interaction" "but are still alive when they should have been released" ([how memlab works](https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/website/docs/how-memlab-works.md)). Claim growth only from a same-state series that grows at every step ([BLeak, Fig. 4, p.6](https://raw.githubusercontent.com/plasma-umass/BLeak/2b2db0832ea412fa56683de045420134e3c3aa79/paper.pdf)).
+
+**Why:** after one cycle a bounded cache and a leak can look alike; only repeated growth separates them.
+
+## Taking `unbound-object` output as confirmed growth
+
+**Wrong:** Every object `unbound-object` lists grows monotonically.
+
+**Right:** Treat its list as candidates. It skips objects whose retained size never changed and drops non-monotone ones only when `monotonicUnboundGrowthOnly` is set ([ObjectUnboundGrowthAnalysis](https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/heap-analysis/src/plugins/ObjectUnboundGrowthAnalysis.ts)), which defaults to `false` ([Config](https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/core/src/lib/Config.ts)).
+
+**Why:** an object that rose and fell is still listed.
+
+## Treating a ReDoS detector verdict or one slow request as a finding
+
+**Wrong:** recheck says `vulnerable`, or one crafted request was slow, so the service has a ReDoS bug.
+
+**Right:** recheck's diagnostics are "not a final verdict" ([recheck main diagnostics](https://raw.githubusercontent.com/makenowjust-labs/recheck/f008739a7470038fa41aa841a648237243cabfb4/website/docs/usage/diagnostics.mdx)). Confirm at the real call site with equal-size valid controls at every size and a difference that increases at every step ([Staicu 2018, §3.4, pp.365-366](https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-staicu.pdf)).
+
+**Why:** whether a pattern matters depends on input length reaching it and the engine running it, which a detector does not see.
+
+## Ignoring the V8 engine configuration
+
+**Wrong:** A pattern is super-linear in every Node process.
+
+**Right:** Record `node --version`, `process.versions.v8`, `process.execArgv` and `NODE_OPTIONS`. V8's linear engine is experimental and off by default, but flags can enable it or a fallback "on excessive backtracking" ([V8 flag definitions](https://raw.githubusercontent.com/nodejs/node/v26.13.0/deps/v8/src/flags/flag-definitions.h)).
+
+**Why:** the same pattern can run in linear time under those flags.
+
+## Calling RSS growth a JavaScript heap leak
+
+**Wrong:** Growing `rss` proves a JavaScript leak.
+
+**Right:** Check `heapUsed`, `external` and `arrayBuffers` separately. Node documents sustained `rss` growth "despite stable `heapTotal`" from glibc `malloc` fragmentation ([Node process, memoryUsage](https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/process.md)).
+
+**Why:** `rss` counts the process's resident memory "including all C++ and JavaScript objects and code" (same source), not only the JS heap.

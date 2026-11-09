@@ -65,3 +65,43 @@ Each entry is **Wrong** first, then **Right**, then why.
 **Right:** Verify the acquired artifact; the NIST page offers Basic directly but says of "the advanced ACTS tool, which supports constraints" to "please send a request" ([NIST distribution, Downloadable Tools](https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software/downloadable-tools)).
 
 **Why:** an unacquired tool's interface is unverified, and the page names constraint support only for the advanced tool.
+
+## Assuming the browser time zone setting covers the server
+
+**Wrong:** Set Playwright `timezoneId` and treat both the server render and the browser as running in that zone.
+
+**Right:** Set the server process `TZ` separately and record both; Node reads the `TZ` environment variable ([Node CLI, `TZ`](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md)).
+
+**Why:** Playwright's setting "only affects the browser timezone and locale, not the test runner timezone" ([Playwright emulation](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/emulation.md)).
+
+## Treating the requested `NODE_ENV` as the loaded React build
+
+**Wrong:** Start the browser tests with `NODE_ENV=production` and label the lane "React production".
+
+**Right:** Check the build that actually loaded, for example with the proposed, unexecuted probe `typeof React.captureOwnerStack`, which is "`undefined` in production builds" ([captureOwnerStack](https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/captureOwnerStack.md)).
+
+**Why:** React picks its build from `process.env.NODE_ENV` when its module loads ([react npm index](https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/react/npm/index.js)), so what counts is the value the bundle saw, not the variable set on the test command.
+
+## Reporting Playwright WebKit as Safari
+
+**Wrong:** "The `webkit` project passed, so Safari is covered."
+
+**Right:** Report it as Playwright WebKit at a recorded version.
+
+**Why:** Playwright's WebKit "is derived from the latest WebKit main branch sources" and Playwright "doesn't work with the branded version of Safari" ([Playwright browsers](https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/browsers.md)).
+
+## Using a hard-coded Node.js version list
+
+**Wrong:** `Node: 20, 22, 24, 26, 27` copied from an old matrix.
+
+**Right:** Take the supported set from the target's `engines` and CI, checked against the current nodejs/Release table ([README](https://raw.githubusercontent.com/nodejs/Release/6065a837c0c151577f449c666fec019069ffba77/README.md)).
+
+**Why:** 20.x reached end of life on 2026-04-30 and 27.x was Alpha on 2026-11-09 ([schedule.json](https://raw.githubusercontent.com/nodejs/Release/6065a837c0c151577f449c666fec019069ffba77/schedule.json)); an end-of-life or pre-release lane is not a supported configuration.
+
+## Assuming ESM fuzzing on Node.js 26 is instrumented
+
+**Wrong:** "Jazzer.js needs Node.js 20.6 for ESM, and this lane runs 26, so ESM code is instrumented."
+
+**Right:** Check each Node × Load lane for the Jazzer.js ESM warnings and for rising coverage on ESM code ([Jazzer.js fuzz targets](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-targets.md)).
+
+**Why:** its ESM path calls `module.register` and on failure prints a warning and continues uninstrumented ([instrument.ts](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/instrumentor/instrument.ts)); Node.js 26 runtime-deprecates that API as DEP0205 ([Node deprecations](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/deprecations.md)).

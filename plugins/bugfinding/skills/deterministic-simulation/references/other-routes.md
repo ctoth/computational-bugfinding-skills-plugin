@@ -1,5 +1,7 @@
 # Existing target-embedded and hosted routes
 
+JavaScript/TypeScript: no maintained, adopted route was verified. Young DST frameworks exist, such as chronos ([README](https://raw.githubusercontent.com/sx4im/chronos/652f754df1f609d0dd3a89c81fab5b785ae3b459/README.md)) and determined ([README](https://raw.githubusercontent.com/glideapps/determined/3f0cfd987b547d47006e70000a46bfedf2c7c722/README.md)), created in 2025 and 2026 ([chronos repository](https://api.github.com/repos/sx4im/chronos), [determined repository](https://api.github.com/repos/glideapps/determined)); they were not evaluated.
+
 ## FoundationDB / Flow
 
 Use the target's existing simulator/workload ownership. FDB documents that "Flow supports both production execution and deterministic simulated execution" plus setup/start/check workload phases. A workload runs in the main network thread, where a blocking call "will result in a deadlock"; starting threads for the blocking API means "test failures will be non-deterministic" ([testing](https://raw.githubusercontent.com/apple/foundationdb/7e7611f8270952a2b1cffd75aa523c4b057afd62/documentation/sphinx/source/testing.rst), [Parallelism and Determinism; Workload lifecycle](https://raw.githubusercontent.com/apple/foundationdb/7e7611f8270952a2b1cffd75aa523c4b057afd62/documentation/sphinx/source/client-testing.rst)). An already-built compatible simulator documents this command shape:

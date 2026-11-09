@@ -1,6 +1,6 @@
 ---
 name: correctness-oracles
-description: Guides executable correctness-oracle design from actual guarantees and observations. Use when a bugfinding harness checks only crashes, overlooks state effects, relies on an uncertain reference, or conflates skipped comparisons with successful checks.
+description: Guides executable correctness-oracle design from actual guarantees and observations. Use when a bugfinding harness checks only crashes, overlooks state effects, relies on an uncertain reference, or conflates skipped comparisons with successful checks, including JavaScript/TypeScript, Node and React harnesses that rely on process exit, unhandled rejections, uncaughtException, test-runner status, error boundaries, onRecoverableError, StrictMode, console errors or Playwright pageerror.
 ---
 
 # Correctness oracles
@@ -19,6 +19,8 @@ Write a concrete candidate observation before scaling search:
 - **Replay evidence:** input and initial state, operation sequence, effective configuration and raw observations.
 
 This is a compact design convention, not a required schema. Its purpose is to expose information lost by the proposed check; Elle's observation model shows why hidden dependencies cannot be recovered merely by generating more histories: blind register writes "destroy history" ([Elle §§3–4.3](https://arxiv.org/abs/2003.10554v1)). Read [contract examples](references/contract-examples.md) for worked boundaries.
+
+In JavaScript, a process exit code, test-runner status or clean console is such an observation: its meaning depends on the effective mode, installed listeners, runner configuration and build. With an `uncaughtException` handler installed, Node's process "will exit with 0" unless the handler sets `process.exitCode` ([Node process, uncaughtException](https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/process.md)). Read [JavaScript observation channels](references/javascript-observation-channels.md) for Node, test-runner, React and Playwright channels.
 
 ## Keep the observation independent of the suspect behavior
 

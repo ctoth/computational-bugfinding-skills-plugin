@@ -65,3 +65,145 @@ sources:
     accessed: '2026-11-07'
     sections_used:
       - Miscompilations
+  - name: Test Generation for Higher-Order Functions in Dynamic Languages (LambdaTester)
+    url: https://doi.org/10.1145/3276531
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - Read through paper-reader notes at C:/Users/Q/code/papers/Selakovic_2018_TestGenerationHigherOrderFunctions/notes.md (page images)
+      - Section 4 differential oracle, Definition 4.1 execution summary, serialization and stream comparison, page 13
+      - Warning-message differences excluded, page 16
+      - polyfill.io find example, pages 19-20
+      - Implementation on Jalangi and Node.js 8.5, page 14
+  - name: 'Nessie: Automatically Testing JavaScript APIs with Asynchronous Callbacks'
+    url: https://doi.org/10.1145/3510003.3510106
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - Read through paper-reader notes at C:/Users/Q/code/papers/Arteca_2022_NessieAutomaticallyTestingJavaScript/notes.md (page images)
+      - LambdaTester re-implementation as comparator, page 1499
+      - RQ3 cross-commit oracle, logged outputs, difference kinds, 10-run set comparison, ignored non-functional differences, page 1501
+      - Bug, bug fix and upgrade classification, page 1502
+  - name: react.dev hydrateRoot reference
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react-dom/client/hydrateRoot.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Parameters, root options onCaughtError, onUncaughtError, onRecoverableError, identifierPrefix
+      - Caveats, identical content and attribute differences
+      - Hydrating server-rendered HTML pitfall, common mismatch causes
+      - Suppressing unavoidable hydration mismatch errors
+      - Handling different client and server content (two-pass isClient)
+  - name: react.dev renderToString reference
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react-dom/server/renderToString.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Caveats, suspended component fallback
+      - Removing renderToString from the client code (bundle-size note)
+  - name: react.dev renderToPipeableStream reference
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react-dom/server/renderToPipeableStream.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Parameters onAllReady and onError
+      - Streaming more content as it loads (onShellReady and nested Suspense)
+      - Recovering from errors outside the shell (server onError plus client onRecoverableError)
+  - name: react.dev flushSync reference
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react-dom/flushSync.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Caveats, flushSync may run pending Effects
+  - name: react.dev useSyncExternalStore reference
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/useSyncExternalStore.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Parameters, getServerSnapshot
+  - name: react.dev useId reference
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/useId.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Pitfall, useId requires an identical component tree on server and client
+  - name: React 19.3.1 ReactFiberHydrationContext
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/react-reconciler/src/ReactFiberHydrationContext.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - throwOnHydrationMismatch (message and causes; diff is __DEV__ only)
+      - upgradeHydrationErrorsToRecoverable
+      - emitPendingHydrationWarnings (__DEV__-only attribute console.error)
+  - name: React 19.3.1 ReactDOMComponent
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/react-dom-bindings/src/client/ReactDOMComponent.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - hydrateProperties (text children compared, attributes not; suppressHydrationWarning)
+      - hydrateText
+  - name: React 19.3.1 error codes
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/scripts/error-codes/codes.json
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - Codes 418, 421, 422, 423, 424
+  - name: React 19.3.1 formatProdErrorMessage
+    url: https://raw.githubusercontent.com/facebook/react/61aa00df822d0eb76d0362eb8b6fdd3527693efe/packages/shared/formatProdErrorMessage.js
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - Minified React error message format
+  - name: Node.js v26.13.0 util documentation
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/util.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - util.isDeepStrictEqual and skipPrototype
+  - name: Node.js v26.13.0 assert documentation
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/assert.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - assert.deepStrictEqual, Comparison details
+  - name: Node.js v26.13.0 CLI documentation
+    url: https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/cli.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Environment variables, TZ
+  - name: Playwright emulation guide
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/emulation.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Locale and timezone (browser only, not the test runner)
+      - Color scheme and media
+  - name: MDN JSON.stringify()
+    url: https://raw.githubusercontent.com/mdn/content/0a6ff1e3b8887f979b66c34cefdb73f846041879/files/en-us/web/javascript/reference/global_objects/json/stringify/index.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Exceptions (cycles, BigInt)
+      - Description (undefined, functions, Symbols, Infinity, NaN, Map and Set)
+  - name: MDN structured clone algorithm
+    url: https://raw.githubusercontent.com/mdn/content/0a6ff1e3b8887f979b66c34cefdb73f846041879/files/en-us/web/api/web_workers_api/structured_clone_algorithm/index.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Introduction (cycles)
+      - Things that don't work with structured clone
+      - Supported types
+  - name: MDN Intl.DateTimeFormat() constructor
+    url: https://raw.githubusercontent.com/mdn/content/0a6ff1e3b8887f979b66c34cefdb73f846041879/files/en-us/web/javascript/reference/global_objects/intl/datetimeformat/datetimeformat/index.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Parameters locales and timeZone defaults
+  - name: ECMAScript specification (tc39/ecma262)
+    url: https://raw.githubusercontent.com/tc39/ecma262/828d35d00f8584c4a0fbcac7742b57c7b959c3f3/spec.html
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - Number::toString (+0 and -0 both give "0")
+      - SerializeJSONProperty (finite Numbers via ToString)

@@ -1,6 +1,6 @@
 ---
 name: resource-complexity-testing
-description: Searches inputs and operation histories for CPU, allocation, memory-retention or handle-growth violations. Use when an established test needs resource-sensitive discovery, a repeatable expensive input family, or lifecycle-aware confirmation and reduction.
+description: Searches inputs and operation histories for CPU, allocation, memory-retention or handle-growth violations, including Node.js, browser and React memory leaks, event-loop blocking and regular-expression denial of service (ReDoS). Use when an established test needs resource-sensitive discovery, a repeatable expensive input family, or lifecycle-aware confirmation and reduction.
 ---
 
 # Resource complexity testing
@@ -15,7 +15,7 @@ Choose the missing dimension: equal-size collision structure, decoded expansion,
 
 ## Execute search and confirmation
 
-Use a compatible existing search/measurement owner. Conditional commands, setup limits and output interpretation are in [runtime recipes](references/runtime-recipes.md); the historical PerfFuzz implementation instruments C/C++ builds and "will not build on Windows machines", so it is not a generic modern Windows/Go backend ([PerfFuzz README, Building; Running PerfFuzz on a program of your choice](https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/README.md)). Invocation preserves the user's current execution/dependency scope.
+Use a compatible existing search/measurement owner. Conditional commands, setup limits and output interpretation are in [runtime recipes](references/runtime-recipes.md); the historical PerfFuzz implementation instruments C/C++ builds and "will not build on Windows machines", so it is not a generic modern Windows/Go backend ([PerfFuzz README, Building; Running PerfFuzz on a program of your choice](https://raw.githubusercontent.com/carolemieux/perffuzz/f937f370555d0c54f2109e3b1aa5763f8defe337/README.md)). Invocation preserves the user's current execution/dependency scope. For Node.js, browser or React heap growth, event-loop stalls and ReDoS, read [JavaScript memory and ReDoS](references/javascript-memory-and-redos.md); it routes heap capture and analysis to memlab's own plugin skills.
 
 Separate generated candidates, admitted operations, useful fitness improvements, measured confirmations and reproduced violations. Promote promising candidates to repeated matched observations; benchstat compares "each benchmark in the first file to the same benchmark" in later files and supplies medians, confidence intervals and significance, not a product budget ([benchstat, Usage and Example](https://raw.githubusercontent.com/golang/perf/be2c69fb417e05de5fec05c732911f4c5f172606/cmd/benchstat/main.go)). Its usage says each benchmark "should be run at least 10 times" for a statistically significant sample ([benchstat, Usage](https://raw.githubusercontent.com/golang/perf/be2c69fb417e05de5fec05c732911f4c5f172606/cmd/benchstat/main.go)); treat that as a sampling floor for benchstat, raise it from observed uncertainty and decision cost, and never read it as a product acceptance rule.
 

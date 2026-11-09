@@ -88,6 +88,8 @@ Line counts and focused checks below describe each original drafting snapshot. T
 
 ## Next step
 
+Related task, 2026-11-09: JS/TS (Node and React) extension of this plugin is tracked separately in `agent-notes/js-web-bugfinding.md` (Phase 1 research running; no skill changes until Q says "make it so").
+
 The final report supersedes the earlier nineteen-directory checkpoint: all twenty-five current skill snapshots and both behavioral evidence sets are reviewed, with committed versus peer-owned working sources explicitly distinguished.
 
 The approved local build, snapshot audit and bounded behavioral evaluations are complete. Preserve peer-owned improvement/formalism work and its independent commit ownership. Subsequent source changes require targeted identity-based audit updates; metadata-only commits do not invalidate unchanged source checks. A real-project campaign, actual host loading and unsupported runtime integrations remain unexecuted; they are future work, not established results. Future literature work uses paper-reader only and page images. The Elle collection remains at `C:/Users/Q/code/papers/`; the distributed plugin must not require it. Preserve Barn and unrelated work. No publication or remote mutation is authorized.

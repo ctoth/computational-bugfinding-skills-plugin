@@ -1,0 +1,208 @@
+sources:
+  - name: Invariant-Based Automatic Testing of Modern Web Applications (Mesbah, van Deursen, Roest, TSE 2012)
+    url: https://people.ece.ubc.ca/amesbah/resources/papers/tse11.pdf
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - p.38 Algorithm 2 invariants checked on each new state
+      - p.39 candidate elements and exclusion of destructive elements
+      - p.40 comparators too permissive; input values stored with the clickable; element resolution not guaranteed
+      - p.41 generic DOM invariants and Table 2 invariant forms with preconditions
+      - p.42 JavaScript-variable invariants, dead clickables, Back button, Source-Action-Target
+      - p.43 saved failing path; running tests in another browser
+      - p.44 Table 3 OnUrlLoadPlugin back-end reset; failure report contents
+      - p.46 TaskFreak growing DOM tree
+      - p.47 HitList exclusions and add-once crawl condition
+      - p.48 TUDU silent JavaScript faults, depth 3, SQL reset
+      - p.50 smoke test; choosing application invariants
+  - name: Regression Testing Ajax Applications - Coping with Dynamism (Roest, Mesbah, van Deursen, ICST 2010)
+    url: https://people.ece.ubc.ca/amesbah/resources/papers/icst10.pdf
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - pp.128-129 sources of nondeterminism
+      - p.129 positional locators select a similar element
+      - pp.129-131 comparator pipeline, preconditions, templates, stripped-DOM hash, resolver
+      - p.132 failure report with stripped and full DOMs
+      - pp.133-134 HitList leading-zero bug hidden by the generic Table comparator; wrong transitions without the resolver
+      - p.134 drift between crawl and test; Google Reader attribute differences
+      - p.135 settle delay; clean-up plugin and database restore
+  - name: Crawling Ajax-Based Web Applications through Dynamic Analysis of User Interface State Changes (Mesbah, van Deursen, Lenselink, TWEB 2012)
+    url: https://doi.org/10.1145/2109205.2109208
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - p.5 addEventListener handlers invisible to DOM inspection
+      - pp.8-9 Definition 2 transition criterion, candidates from the DOM diff, global deduplication
+      - pp.10-11 reload and replay of the recorded path
+      - pp.18-20 Table II depth 1 to 2 state growth
+      - pp.18-19 no strict notion of correct equivalence
+      - p.19 repeated-click elements missed; not all states reached
+      - pp.21, 27 completion-flag settle
+      - p.24 changing banner
+      - p.26 cookies broke reset; an instance of the state machine
+  - name: 'BLeak: Automatically Debugging Memory Leaks in Web Applications (Vilk, Berger, PLDI 2018, extended version)'
+    url: https://raw.githubusercontent.com/plasma-umass/BLeak/2b2db0832ea412fa56683de045420134e3c3aa79/paper.pdf
+    type: research-paper
+    accessed: '2026-11-09'
+    sections_used:
+      - PDF p.2 round trips to the same visual state as leak oracle
+      - PDF p.4 hand-written loop of check/next states
+      - PDF pp.5-6 default round trips; growth required between every consecutive snapshot
+      - PDF p.11 false positives from capped or timed structures
+  - name: Crawljax repository metadata
+    url: https://github.com/crawljax/crawljax
+    type: repository-metadata
+    accessed: '2026-11-09'
+    sections_used:
+      - language Java, last push 2023-09-18, not archived (GitHub API)
+  - name: Playwright aria snapshots (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/aria-snapshots.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 142-146 YAML accessibility tree with roles, attributes, values, text
+      - lines 214-217 whitespace normalization and order sensitivity
+      - lines 224-225, 252 partial matching
+  - name: Playwright Page API (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/class-page.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 171 console event
+      - lines 396-400 pageError event
+      - lines 534-536 HTTP error responses complete with requestFinished
+      - lines 2346-2352 getByRef refs resolve against the latest snapshot
+      - lines 4442-4482 ariaSnapshot mode and depth; ariaSnapshotJSON
+      - lines 4966-4970 waitForFunction
+      - lines 5117-5126 waitForLoadState
+  - name: Playwright BrowserContext API (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/class-browsercontext.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 295-300 webError event
+  - name: Playwright shared params (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/params.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 7, 1007 networkidle discouraged
+  - name: Playwright actionability (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/actionability.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 8-9 auto-wait before actions
+      - line 38 dispatchEvent without actionability checks
+      - lines 46-48 force option
+      - line 52 auto-retrying assertions
+      - line 124 click regardless of when the call was made
+  - name: Playwright locators (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/locators.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 192 getByRole reflects user and assistive-technology perception
+      - lines 1730-1732 strictness
+  - name: Playwright browser contexts (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/browser-contexts.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 12 per-context storage and cookies; line 44 newContext example
+  - name: Playwright authentication (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/auth.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 115 IndexedDB not included in storage state by default
+  - name: Playwright network (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/network.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 411-470 route.fulfill
+  - name: Playwright clock (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/clock.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 8-20 setFixedTime and install
+  - name: Playwright Tracing API (v1.65.0)
+    url: https://raw.githubusercontent.com/microsoft/playwright/v1.65.0/docs/src/api/class-tracing.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 150-158 Tracing.start snapshots dom, aria, screen
+  - name: Playwright playwright-cli skill
+    url: https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/packages/playwright-core/src/tools/skills/playwright-cli/SKILL.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - description
+  - name: react.dev createRoot
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react-dom/client/createRoot.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 48-50 onCaughtError, onUncaughtError, onRecoverableError
+      - line 358 React logs all errors to the console by default
+  - name: react.dev Component (error boundaries)
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/Component.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 1272 fallback UI
+      - lines 1275-1280 errors boundaries do not catch
+  - name: react.dev act
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/act.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 7 act applies pending React updates before assertions
+  - name: react.dev Suspense
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/Suspense.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 7 fallback until children finish loading
+  - name: react.dev useTransition
+    url: https://raw.githubusercontent.com/reactjs/react.dev/7594a2b008489121bdf25f97320d11ac0422510e/src/content/reference/react/useTransition.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 44 isPending
+  - name: chaosbringer crawler source
+    url: https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/crawler.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 277-278 visited set and queue
+      - lines 575-577 Chromium rejections fire DOM event and pageerror
+      - lines 917-925 breadth-first loop deduplicated by normalized URL
+      - lines 2194-2227 responses with status 400 or higher outside ignore patterns
+  - name: chaosbringer aria snapshot parsing
+    url: https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/aria-snapshot.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - line 170 cursor pointer treated as button
+  - name: chaosbringer action targets
+    url: https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/src/action-targets.ts
+    type: primary-source-code
+    accessed: '2026-11-09'
+    sections_used:
+      - lines 508-530 selectorFor text, attribute and positional fallbacks
+  - name: chaosbringer README
+    url: https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/README.md
+    type: official-documentation
+    accessed: '2026-11-09'
+    sections_used:
+      - line 3 description
+  - name: chaosbringer package manifest
+    url: https://raw.githubusercontent.com/mizchi/chaosbringer/5f69d89ef300cc1fb213301d7942ab17f28c82be/packages/chaosbringer/package.json
+    type: package-metadata
+    accessed: '2026-11-09'
+    sections_used:
+      - version 0.15.0 and engines node >=22

@@ -42,6 +42,12 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "Corpus (-merge=1); Options: -minimize_crash, -reduce_inputs, -max_total_time, -exact_artifact_path"
+  - name: "libFuzzer driver source (crash minimization)"
+    url: "https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/compiler-rt/lib/fuzzer/FuzzerDriver.cpp"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "GetDedupTokenFromCmdOutput, lines 353-361; DEDUP_TOKEN mismatch stops minimization, lines 485-492"
   - name: "Hypothesis flaky failures"
     url: "https://raw.githubusercontent.com/HypothesisWorks/hypothesis/9ab0be61aaaa27396fc1bbf4b34e7925cc68d1e2/hypothesis/docs/tutorial/flaky.rst"
     type: official-documentation
@@ -66,3 +72,51 @@ sources:
     accessed: "2026-11-07"
     sections_used:
       - "ddmin, generic_test, 1-minimality and the UNRESOLVED treatment in the code-reduction example"
+  - name: "Jazzer.js fuzz targets and CLI"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-targets.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "CLI shape with -- <fuzzingEngineFlags>, line 224; forwarding note, line 242"
+  - name: "Jazzer.js core options source"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/core/options.ts"
+    type: official-source
+    accessed: "2026-11-09"
+    sections_used:
+      - "SUBPROCESS_FLAGS, lines 517-518; spawnsSubprocess and prepareLibFuzzerArg0, lines 504-527"
+  - name: "Jazzer.js fuzzing settings"
+    url: "https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-settings.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Direct inputs run once and exit, lines 72-78; no mention of minimization"
+  - name: "Perses README"
+    url: "https://raw.githubusercontent.com/uw-pluverse/perses/52d6b501f257385d5b50dfe68780986c19136abf/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Supported Languages list (javascript), line 23; --input-file prose (C, Rust, Java and Go), lines 79-81; test-script contract"
+  - name: "Lithium README"
+    url: "https://raw.githubusercontent.com/MozillaSecurity/lithium/8b567a5f7572240fc15d25ad0df173f2008010a3/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Lines 22 and 39: JavaScript statement guidance; install and usage, lines 27-28"
+  - name: "Shrink Ray README"
+    url: "https://raw.githubusercontent.com/DRMacIver/shrinkray/5fe6ee135d732e4b7758b3dbe3d91428523018fb/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Usage, lines 97-100; LLM mode default, model download and --no-llm, lines 108-128"
+  - name: "Playwright CLI"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-cli-js.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "--repeat-each and --retries, lines 104-106"
+  - name: "Playwright test retries"
+    url: "https://raw.githubusercontent.com/microsoft/playwright/95e5dca31981bcd0970165853fcc713269d2433a/docs/src/test-retries-js.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Worker discarded on failure, line 36; passed/flaky/failed categories, lines 82-84"

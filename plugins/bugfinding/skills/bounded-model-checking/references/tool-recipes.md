@@ -2,6 +2,8 @@
 
 These are source-read shapes for an existing compatible integration, not executed examples. Select real paths, entrypoint, dependency/model version, language/ABI, budget and project-permitted runner. Installation is a target change; prefer an existing fitting tool.
 
+No bounded model checker for JavaScript or TypeScript source was verified (bounded GitHub search, 2026-11-09).
+
 ## CBMC: actual source or linked GOTO target
 
 The manual accepts source or fully linked GOTO input and distinguishes automatically generated/user properties ([Description](https://raw.githubusercontent.com/diffblue/cbmc/826c1c739051aa1c2dd8846282e12691db1cee35/doc/man/cbmc.1)). A harness must call the actual target, not contain its copied implementation:

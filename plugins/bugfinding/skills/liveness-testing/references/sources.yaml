@@ -154,3 +154,17 @@ sources:
     sections_used:
       - "Package comment: Time, Blocking (durable blocking list; deadlock panic) and Test/Wait"
     quote_fragment: "durably blocked"
+  - name: "Node.js CLI"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/cli.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used:
+      - "--process-timeout (lines 2640-2675; added v26.11.0, Stability 1.1)"
+    quote_fragment: "keeping the event loop alive"
+  - name: "Jest CLI"
+    url: "https://raw.githubusercontent.com/jestjs/jest/v30.5.2/docs/CLI.md"
+    type: "official-documentation"
+    accessed: "2026-11-09"
+    sections_used:
+      - "--detectOpenHandles (lines 206-208)"
+    quote_fragment: "open handles preventing Jest from exiting cleanly"

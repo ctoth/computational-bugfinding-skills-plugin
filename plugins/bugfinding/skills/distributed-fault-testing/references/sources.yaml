@@ -150,3 +150,105 @@ sources:
       - "§4.3 Soundness of Elle, Completeness paragraphs in §§4.3.1-4.3.2 (pp.7-8)"
       - "§6 Finding Counterexamples and §6.1 Additional Anomalies (p.9)"
       - "§9 Future Work & Conclusions (p.12)"
+  - name: "Toxiproxy README"
+    url: "https://raw.githubusercontent.com/Shopify/toxiproxy/49299d8838525126e09c85ebe0ba89940a3261e5/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    evidence_fragment: "Bringing a service down is not technically a toxic"
+    sections_used:
+      - "Introduction (TCP proxy; route test connections through it)"
+      - "Toxics (directional; down; toxicity)"
+      - "HTTP API (port 8474; authentication; endpoints)"
+      - "FAQ (MySQL Unix domain socket)"
+  - name: "Toxiproxy registered toxics directory"
+    url: "https://github.com/Shopify/toxiproxy/tree/49299d8838525126e09c85ebe0ba89940a3261e5/toxics"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "packet_loss.go"
+    sections_used:
+      - "file list; Register(...) call in each toxic file"
+  - name: "Toxiproxy toxic stub"
+    url: "https://raw.githubusercontent.com/Shopify/toxiproxy/49299d8838525126e09c85ebe0ba89940a3261e5/toxics/toxic.go"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "randomToxicity := rand.Float32()"
+    sections_used:
+      - "ToxicStub.Run"
+      - "New (registry lookup)"
+  - name: "Toxiproxy toxic collection"
+    url: "https://raw.githubusercontent.com/Shopify/toxiproxy/49299d8838525126e09c85ebe0ba89940a3261e5/toxic_collection.go"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "ErrInvalidToxicType"
+    sections_used:
+      - "AddToxicJson (unregistered type)"
+  - name: "toxiproxy-node-client package manifest"
+    url: "https://raw.githubusercontent.com/ihsw/toxiproxy-node-client/d7782a4ee344ad30f7030f7dc63a8567f052c5e2/package.json"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: '"license": "ISC"'
+    sections_used:
+      - "version 4.1.0; license; engines"
+  - name: "toxiproxy-node-client toxic types"
+    url: "https://raw.githubusercontent.com/ihsw/toxiproxy-node-client/d7782a4ee344ad30f7030f7dc63a8567f052c5e2/src/Toxic.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: '| "down"'
+    sections_used:
+      - "Type union"
+  - name: "toxiproxy-node-client proxy API"
+    url: "https://raw.githubusercontent.com/ihsw/toxiproxy-node-client/d7782a4ee344ad30f7030f7dc63a8567f052c5e2/src/Proxy.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "e.g. disable an enabled proxy"
+    sections_used:
+      - "update"
+  - name: "toxiproxy-node-client HTTP client"
+    url: "https://raw.githubusercontent.com/ihsw/toxiproxy-node-client/d7782a4ee344ad30f7030f7dc63a8567f052c5e2/src/HttpClient.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "Content-Type"
+    sections_used:
+      - "request (headers)"
+  - name: "testcontainers-node v12.2.1 Toxiproxy module"
+    url: "https://raw.githubusercontent.com/testcontainers/testcontainers-node/17316dbd001bf7468023087e3620a134466f32c5/packages/modules/toxiproxy/src/toxiproxy-container.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "const FIRST_PROXIED_PORT = 8666;"
+    sections_used:
+      - "CONTROL_PORT; FIRST_PROXIED_PORT; ToxiProxyContainer; createProxy"
+  - name: "testcontainers-node v12.2.1 container interface"
+    url: "https://raw.githubusercontent.com/testcontainers/testcontainers-node/17316dbd001bf7468023087e3620a134466f32c5/packages/testcontainers/src/test-container.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "restart(options?: Partial<RestartOptions>): Promise<void>;"
+    sections_used:
+      - "StartedTestContainer (stop, restart, exec)"
+  - name: "testcontainers-node v12.2.1 started container"
+    url: "https://raw.githubusercontent.com/testcontainers/testcontainers-node/17316dbd001bf7468023087e3620a134466f32c5/packages/testcontainers/src/generic-container/started-generic-container.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    evidence_fragment: "removeVolumes: true"
+    sections_used:
+      - "restart and stop option defaults"
+  - name: "Node.js v26.13.0 child_process documentation"
+    url: "https://raw.githubusercontent.com/nodejs/node/18b32a3b1552e199a01f1a8d9fd64aa756d3b75b/doc/api/child_process.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    evidence_fragment: "may not actually terminate the process."
+    sections_used:
+      - "subprocess.kill([signal])"
+  - name: "MSW setupServer documentation"
+    url: "https://raw.githubusercontent.com/mswjs/mswjs.io/bda552ebaadde6d75870b4d07de734f9de35fd89/src/content/api/setup-server/index.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    evidence_fragment: "operating entirely in the thread of your process"
+    sections_used:
+      - "setupServer introduction"
+  - name: "MSW network errors documentation"
+    url: "https://raw.githubusercontent.com/mswjs/mswjs.io/bda552ebaadde6d75870b4d07de734f9de35fd89/src/content/docs/http/mocking-responses/network-errors.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    evidence_fragment: "aborting the pending request"
+    sections_used:
+      - "Response.error() network error"

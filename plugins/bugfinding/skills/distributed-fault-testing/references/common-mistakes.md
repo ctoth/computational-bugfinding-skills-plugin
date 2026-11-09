@@ -72,6 +72,38 @@
 
 **Why:** the checker sees only the history; state not recorded is gone.
 
+## Adding a `down` toxic from the Node client
+
+**Wrong:** `proxy.addToxic({ type: "down" })`, because toxiproxy-node-client's `Type` union lists `"down"`.
+
+**Right:** Disable the proxy with `proxy.update({ enabled: false })`. Toxiproxy says `down` "is not technically a toxic" and is done by setting `enabled` to `false` ([Toxiproxy README](https://raw.githubusercontent.com/Shopify/toxiproxy/49299d8838525126e09c85ebe0ba89940a3261e5/README.md), [Toxic.ts](https://raw.githubusercontent.com/ihsw/toxiproxy-node-client/d7782a4ee344ad30f7030f7dc63a8567f052c5e2/src/Toxic.ts)).
+
+**Why:** the server returns `ErrInvalidToxicType` for a type not in its registry ([toxic_collection.go](https://raw.githubusercontent.com/Shopify/toxiproxy/49299d8838525126e09c85ebe0ba89940a3261e5/toxic_collection.go)), so no outage happens.
+
+## Expecting a partial-toxicity run to replay
+
+**Wrong:** Set `toxicity: 0.3` and expect a rerun to fault the same connections.
+
+**Right:** Record which connections were affected, or use toxicity 1 on chosen links.
+
+**Why:** each link draws `rand.Float32()` and compares it to the toxicity, and the toxic exposes no seed ([toxic.go `ToxicStub.Run`](https://raw.githubusercontent.com/Shopify/toxiproxy/49299d8838525126e09c85ebe0ba89940a3261e5/toxics/toxic.go)).
+
+## Counting an MSW network error as a deployment fault
+
+**Wrong:** "MSW returned `HttpResponse.error()` for the write, so we tested a network failure of the service."
+
+**Right:** Fault a real deployment through Toxiproxy or process control; keep MSW for client error-handling tests. `setupServer` "_does not_ establish any servers, operating entirely in the thread of your process" ([MSW setupServer](https://raw.githubusercontent.com/mswjs/mswjs.io/bda552ebaadde6d75870b4d07de734f9de35fd89/src/content/api/setup-server/index.md)).
+
+**Why:** the request never reaches a server, so the ambiguous case of an applied write with a lost response cannot arise unless the handler models it.
+
+## Stopping a test container to simulate a crash, then reading its data
+
+**Wrong:** `await container.stop()` and then inspect the recovered database.
+
+**Right:** Use `restart()` or `stop({ remove: false })`. `stop` defaults to `remove: this.autoRemove` and `removeVolumes: true` ([started-generic-container.ts](https://raw.githubusercontent.com/testcontainers/testcontainers-node/17316dbd001bf7468023087e3620a134466f32c5/packages/testcontainers/src/generic-container/started-generic-container.ts)).
+
+**Why:** with auto-remove on, the container and its volumes are gone, so there is no recovered state to check.
+
 ## Upgrading a point-history verdict into every isolation guarantee
 
 **Wrong:** "Elle found no anomaly, so the system is serializable."

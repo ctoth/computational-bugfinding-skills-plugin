@@ -1,6 +1,6 @@
 ---
 name: corpus-evolution
-description: Evolves fuzzing corpora through purpose-specific selection, provenance and receiver-validated exchange. Use when importing seeds, minimizing an active corpus, converting generated representations, or retaining discoveries across harness and configuration changes.
+description: Evolves fuzzing corpora through purpose-specific selection, provenance and receiver-validated exchange. Use when importing seeds, minimizing an active corpus, converting generated representations, or retaining discoveries across harness and configuration changes, including Jazzer.js corpora and V8 coverage selection for Node.js.
 ---
 
 # Corpus evolution
@@ -21,7 +21,7 @@ Read [selection and retention](references/selection-and-retention.md) when decid
 
 ## Run the selected native operation
 
-Use the existing compatible instrumented target and check the installed tool's help/version against its selected release. Read only the relevant [conditional tool recipe](references/tool-recipes.md): AFL++ selection/merge, libFuzzer merge/replay, Go typed replay, or authorized OSS-Fuzz acquisition. The recipes state their predicate and output owner; they do not install a runtime or establish target applicability. Instrumentation and dictionaries belong to `coverage-guided-fuzzing`.
+Use the existing compatible instrumented target and check the installed tool's help/version against its selected release. Read only the relevant [conditional tool recipe](references/tool-recipes.md): AFL++ selection/merge, libFuzzer merge/replay, Jazzer.js (Node.js) corpus and regression directories, Go typed replay, or authorized OSS-Fuzz acquisition. The recipes state their predicate and output owner; they do not install a runtime or establish target applicability. Instrumentation and dictionaries belong to `coverage-guided-fuzzing`.
 
 Check receiver results after imports and meaning-changing harness/generator/configuration changes. Preserve malformed, unsupported, excluded, unreached, completed and failing observations where they affect the conclusion. Go's generated cache and saved failure regressions have different execution roles: generated entries "are only used while fuzzing", while a saved failing input is run "by default with `go test`". Retaining one does not establish the other was preserved ([Go fuzzing, Failing input and Glossary](https://raw.githubusercontent.com/golang/website/a8b66266e226994e2ead51317bace3ee83cedab9/_content/doc/security/fuzz/index.md)).
 

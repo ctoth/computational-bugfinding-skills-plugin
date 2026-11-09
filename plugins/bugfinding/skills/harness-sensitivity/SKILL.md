@@ -1,6 +1,6 @@
 ---
 name: harness-sensitivity
-description: Audits whether a bugfinding harness reaches its claimed behavior and rejects representative violations through the intended oracle. Use when validating a new fuzz target, effect or recovery check, interpreting surviving mutants, or diagnosing high coverage with uninformative results.
+description: Audits whether a bugfinding harness reaches its claimed behavior and rejects representative violations through the intended oracle. Use when validating a new fuzz target, effect or recovery check, interpreting surviving mutants, or diagnosing high coverage with uninformative results, including JavaScript/TypeScript suites checked with c8 or NODE_V8_COVERAGE coverage, Node/Jest/Vitest test-order randomization, leaked async work or open handles (detectOpenHandles), StrykerJS, or known-defect sets such as BugsJS.
 ---
 
 # Harness sensitivity
@@ -13,7 +13,7 @@ Read the actual producer, enabled configuration, assertion and guarantee. Identi
 
 Prefer an existing historical regression or fault switch that exercises that guarantee. Confirm the historical failure is attributable to the defect rather than unrelated revision changes: "unrelated changes could affect the outcome" of a fault comparison ([Just et al., §2.2.3](https://doi.org/10.1145/2635868.2635929)). When a new control is necessary and authorized, derive it from the real producer and violated contract; a syntax error or broken setup is not a substitute for the intended wrong effect, and PIT reports a mutant that "could not be loaded by the JVM" as non viable, not killed ([PIT basic concepts, Running the tests](https://raw.githubusercontent.com/hcoles/pitest-site/614bec6fd16670852e94c8cc03a002f6bf05db09/quickstart/basic_concepts.markdown)). Generic operators can miss algorithmic, contextual and invariant faults; for those real faults "results derived from mutation analysis do not generalize" ([Just et al., §3.2](https://doi.org/10.1145/2635868.2635929)).
 
-Use the current harness and runner. Do not install a mutation framework merely to perform this audit. Where a compatible integration already exists, read [runtime integrations](references/runtime-integrations.md) for scoped PIT or Stryker execution and interpretation.
+Use the current harness and runner. Do not install a mutation framework merely to perform this audit. Where a compatible integration already exists, read [runtime integrations](references/runtime-integrations.md) for scoped PIT or Stryker execution and interpretation, and for JavaScript coverage, test-order and open-handle probes with the project's existing runner.
 
 ## Follow the fault to the intended oracle
 

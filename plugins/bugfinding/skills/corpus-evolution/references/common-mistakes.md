@@ -40,4 +40,28 @@
 
 **Why:** the license depends on which files a binary or reuse combines.
 
+## Treating a plain Jazzer.js Jest run as a full corpus replay
+
+**Wrong:** "The corpus replays clean under `npx jest`."
+
+**Better:** Replay `.cifuzz-corpus` explicitly, with the CLI's `--mode=regression` over that directory or a Jest run with coverage on. The Jest runner's `inputsPaths()` returns the seed directory and adds the generated directory only when coverage is enabled ([Jazzer.js Jest runner corpus source](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/packages/jest-runner/corpus.ts)).
+
+**Why:** the generated inputs were never executed by that run.
+
+## Merging inside the Jazzer.js Jest seed directory
+
+**Wrong:** Run a coverage merge over the Jest seed directory in place.
+
+**Better:** Select into a separate destination with the CLI and keep the seed directory intact. In Jest fuzzing mode that directory is used "to save all crashing inputs" ([Jazzer.js fuzzing settings, corpus](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/fuzz-settings.md)), and libFuzzer merge keeps inputs "that trigger new code coverage" ([libFuzzer, Options](https://raw.githubusercontent.com/llvm/llvm-project/635f30899dd0914fa89f0b3dc9a9e548e6d0ceec/llvm/docs/LibFuzzer.md)).
+
+**Why:** a crash regression that adds no coverage can be dropped.
+
+## Reading a c8 report as the fuzzer's guidance
+
+**Wrong:** "The c8 report shows which inputs guided Jazzer.js."
+
+**Better:** Name the measure. c8 reads V8 coverage from `NODE_V8_COVERAGE` ([c8 README](https://raw.githubusercontent.com/bcoe/c8/ae5a0cf4349b92cac910cf7275e724ab7a725b9d/README.md)); Jazzer.js guides libFuzzer with Babel-inserted counters and comparison hooks ([Jazzer.js architecture, Components and Interactions](https://raw.githubusercontent.com/CodeIntelligenceTesting/jazzer.js/f23bc5aeb7a6d50cd6256cfc3be44b868da5e7b1/docs/architecture.md)).
+
+**Why:** the two count different things, so their selections can differ.
+
 For this pack's workflow, explain why a case leaves the active set without erasing its original failure or resource evidence. Use `evidence-based-triage` for cause grouping and `failure-reduction` for witness-preserving simplification.

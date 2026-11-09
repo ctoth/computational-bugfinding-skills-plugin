@@ -1,6 +1,6 @@
 ---
 name: distributed-fault-testing
-description: Searches real distributed deployments for correctness bugs under network, process and clock faults. Use when extending a Jepsen-style campaign, testing failover or recovery, or investigating whether injected faults and ambiguous requests were represented faithfully.
+description: Searches real distributed deployments for correctness bugs under network, process and clock faults. Use when extending a Jepsen-style campaign, injecting network faults into a Node.js service with Toxiproxy, testing failover or recovery, or investigating whether injected faults and ambiguous requests were represented faithfully.
 ---
 
 # Distributed fault testing
@@ -15,7 +15,7 @@ Use an existing fitting integration and owned disposable nodes. Check the select
 
 ## Search an actual failure boundary
 
-Inventory the baseline first. If concurrent histories and injected checker controls already exist, choose an additional real deployment boundary: acknowledged-write failover, a lease holder paused past ownership change, asymmetric communication, or an applicable recovery transition. Treat these as target-specific hypotheses, not generic bug claims; [fault model and activation](references/fault-model-and-activation.md) develops the experiments.
+Inventory the baseline first. If concurrent histories and injected checker controls already exist, choose an additional real deployment boundary: acknowledged-write failover, a lease holder paused past ownership change, asymmetric communication, or an applicable recovery transition. Treat these as target-specific hypotheses, not generic bug claims; [fault model and activation](references/fault-model-and-activation.md) develops the experiments, and its Node.js section covers Toxiproxy, process control and MSW limits.
 
 Specify affected nodes/roles/links, directions and timing relative to meaningful operations. Select faults supported by the target adapter. Jepsen's combined nemesis packages (partition, packet, file corruption, clock, kill/pause) come with the docstring warning "Consider this API unstable."; kill and pause modes exist only when the DB implements `db/Process` or `db/Pause`, and the file-corruption package has no final repair generator. The package "is *not* intended for complex sequences of faults"; for those, "you'll write your own generator instead" ([jepsen.nemesis.combined, ns docstring, db-generators, file-corruption-package and nemesis-package](https://raw.githubusercontent.com/jepsen-io/jepsen/6766ba09682bcb668d44c025e687dd8b1616e8a2/jepsen/src/jepsen/nemesis/combined.clj)).
 

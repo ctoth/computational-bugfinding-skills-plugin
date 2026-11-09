@@ -103,3 +103,193 @@ sources:
     sections_used:
       - "module introduction (start early); take_snapshot; Filter.domain; start (nframe overhead); get_tracemalloc_memory"
     evidence_fragment: "memory blocks allocated by"
+  - name: "BLeak PLDI 2018 (extended version)"
+    url: "https://raw.githubusercontent.com/plasma-umass/BLeak/2b2db0832ea412fa56683de045420134e3c3aa79/paper.pdf"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "round trips to the same visual state, PDF pp.2, 8"
+      - "paths not object identity; 8 round trips default, PDF p.5"
+      - "PropagateGrowth growth at every consecutive snapshot (Fig. 4), PDF p.6"
+      - "loop-script scope, PDF p.4; evaluation and false positives, PDF pp.10-11"
+      - "Read as paper-reader page images; sha256 of this pinned PDF equals the read copy"
+    evidence_fragment: "round trips"
+  - name: "Staicu and Pradel, Freezing the Web, USENIX Security 2018"
+    url: "https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-staicu.pdf"
+    type: research-paper
+    accessed: "2026-11-09"
+    sections_used:
+      - "§1 single-threaded event loop, p.361"
+      - "§3.2 vulnerability definition and HTTP data-flow check, pp.364-365"
+      - "§3.4 slowdown oracle (equal-size crafted/random, CI separation at every size, strictly increasing differences), pp.365-366"
+      - "§3.4-3.5 parameters and header-size mitigation, p.366; §4.3 availability experiment, p.368; §4.5 sizing, p.369; §4.9 header limits, p.371"
+      - "Read as paper-reader page images (printed page numbers)"
+    evidence_fragment: "ReDoS"
+  - name: "memlab how memlab works"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/website/docs/how-memlab-works.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "baseline/target/final snapshots; leak candidate set; built-in detectors and unmounted Fiber nodes"
+    evidence_fragment: "still alive when they should have been released"
+  - name: "memlab agent plugin README"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/plugins/memlab/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "skill table; Install in Claude Code"
+    evidence_fragment: "memlab-capture-heap-snapshots"
+  - name: "memlab-find-web-leaks skill"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/plugins/memlab/skills/memlab-find-web-leaks/SKILL.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "default report (detached DOM, unmounted Fiber); scenario validity rules; --trace-all-objects"
+    evidence_fragment: "must really undo"
+  - name: "memlab scenario API reference"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/plugins/memlab/skills/memlab-find-web-leaks/references/scenario-api.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "callback table (repeat)"
+    evidence_fragment: "before the target snapshot"
+  - name: "memlab-capture-heap-snapshots skill"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/plugins/memlab/skills/memlab-capture-heap-snapshots/SKILL.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "build choice; Capture a series that shows growth; anonymize before sharing"
+    evidence_fragment: "work in flight, not"
+  - name: "memlab-analyze-heap-snapshot skill"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/plugins/memlab/skills/memlab-analyze-heap-snapshot/SKILL.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "memlab_sequence_analysis; bounded-cache warning"
+    evidence_fragment: "grows at every step"
+  - name: "memlab-memory-tests skill"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/plugins/memlab/skills/memlab-memory-tests/SKILL.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Node.js heap assertions (takeNodeMinimalHeap, tagObject)"
+    evidence_fragment: "takeNodeMinimalHeap"
+  - name: "memlab ObjectUnboundGrowthAnalysis"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/heap-analysis/src/plugins/ObjectUnboundGrowthAnalysis.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "getCommandName; node-id tracking; monotonic filter; report filter (min === max, unboundSizeThreshold)"
+    evidence_fragment: "monotonicUnboundGrowthOnly"
+  - name: "memlab Config"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/core/src/lib/Config.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "monotonicUnboundGrowthOnly and unboundSizeThreshold defaults"
+    evidence_fragment: "10 * 1024"
+  - name: "memlab NodeHeap"
+    url: "https://raw.githubusercontent.com/meta/memlab/8ac1a3c9ed8a9f7076869b4b0abbe7b293986c4d/packages/core/src/lib/NodeHeap.ts"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "dumpNodeHeapSnapshot; takeNodeMinimalHeap"
+    evidence_fragment: "v8.writeHeapSnapshot(file)"
+  - name: "Node.js v8 module docs (v26.13.0)"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/v8.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "v8.writeHeapSnapshot; v8.queryObjects"
+    evidence_fragment: "specific to a single V8 isolate"
+  - name: "Node.js process docs (v26.13.0)"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/process.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "process.memoryUsage() fields and glibc fragmentation note"
+    evidence_fragment: "despite stable `heapTotal`"
+  - name: "Node.js perf_hooks docs (v26.13.0)"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/perf_hooks.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "perf_hooks.monitorEventLoopDelay (sampling modes)"
+    evidence_fragment: "significantly different results"
+  - name: "Node.js CLI docs (v26.13.0)"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/doc/api/cli.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Useful V8 options (no stability guarantee; --expose-gc); no documented regexp option"
+    evidence_fragment: "no stability guarantee"
+  - name: "V8 version header in Node v26.13.0"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/deps/v8/include/v8-version.h"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "V8_MAJOR_VERSION, V8_MINOR_VERSION, V8_BUILD_NUMBER, V8_PATCH_LEVEL"
+    evidence_fragment: "V8_PATCH_LEVEL 34"
+  - name: "V8 v8-regexp.h in Node v26.13.0"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/deps/v8/include/v8-regexp.h"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "RegExp::Flags comment (kLinear)"
+    evidence_fragment: "--enable-experimental-regexp-engine"
+  - name: "V8 flag definitions in Node v26.13.0"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/deps/v8/src/flags/flag-definitions.h"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "DEFINE_EXPERIMENTAL_FEATURE; experimental regexp engine flags; regexp_tier_up, regexp_tier_up_ticks, regexp_results_cache"
+    evidence_fragment: "on excessive"
+  - name: "V8 regexp.h in Node v26.13.0"
+    url: "https://raw.githubusercontent.com/nodejs/node/v26.13.0/deps/v8/src/regexp/regexp.h"
+    type: source-code
+    accessed: "2026-11-09"
+    sections_used:
+      - "RegExpResultsCache comment"
+    evidence_fragment: "global calls to RegExp.prototype.exec"
+  - name: "recheck v4.6.2 diagnostics"
+    url: "https://raw.githubusercontent.com/makenowjust-labs/recheck/v4.6.2/website/docs/usage/diagnostics.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Attack String"
+    evidence_fragment: "computed in theoretical"
+  - name: "recheck main diagnostics"
+    url: "https://raw.githubusercontent.com/makenowjust-labs/recheck/f008739a7470038fa41aa841a648237243cabfb4/website/docs/usage/diagnostics.mdx"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "introduction (not a final verdict); Attack String (pump, bias)"
+    evidence_fragment: "not a final verdict"
+  - name: "recheck main runtime-attack verification"
+    url: "https://raw.githubusercontent.com/makenowjust-labs/recheck/f008739a7470038fa41aa841a648237243cabfb4/website/docs/usage/runtime-attack-verification.mdx"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "Usage (runtimeAttackTimeout; off by default)"
+    evidence_fragment: "off by default"
+  - name: "redos-detector README"
+    url: "https://raw.githubusercontent.com/tjenkinson/redos-detector/db112c6a74361db91f9591df8fa85d4026e9cbe5/README.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "score definition; options (maxScore)"
+    evidence_fragment: "considered unsafe"
+  - name: "eslint-plugin-regexp no-super-linear-backtracking"
+    url: "https://raw.githubusercontent.com/ota-meshi/eslint-plugin-regexp/0a79e7c0a91af4412b56f7b4110386e3e63a7088/docs/rules/no-super-linear-backtracking.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "configs; limitations; report option"
+    evidence_fragment: "very simplistic detection method"
+  - name: "eslint-plugin-regexp no-super-linear-move"
+    url: "https://raw.githubusercontent.com/ota-meshi/eslint-plugin-regexp/0a79e7c0a91af4412b56f7b4110386e3e63a7088/docs/rules/no-super-linear-move.md"
+    type: official-documentation
+    accessed: "2026-11-09"
+    sections_used:
+      - "rule summary; ignorePartial"
+    evidence_fragment: "quadratic moves"

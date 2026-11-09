@@ -2,6 +2,8 @@
 
 Choose an existing route whose modeled failure matches the promised guarantee. Source pins below identify inspected evidence; verify the selected installed build and its actual help before a run.
 
+JavaScript: a Node service writing files uses the process-failure and LazyFS routes below. No fault tool for browser storage was found, and IndexedDB's `"strict"` durability only says the user agent "may consider" a transaction committed after writing to "a persistent storage medium" ([IndexedDB specification source](https://raw.githubusercontent.com/w3c/IndexedDB/f9f83f196f8501429282ff1747ebcbe35d41381a/index.bs)).
+
 ## Process failure
 
 Terminate only the authorized disposable target process at a recorded boundary and reopen through production recovery. Call this process-crash recovery: storage/kernel caches and completed persistence remain distinct, because `fsync()` is what transfers "all modified in-core data" to the device, unlike replaying a selected block image ([fsync DESCRIPTION](https://man7.org/linux/man-pages/man2/fsync.2.html), [CrashMonkey paper §5.1](https://www.cs.utexas.edu/~vijay/papers/osdi18-crashmonkey.pdf)).
